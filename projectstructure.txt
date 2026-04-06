@@ -1,0 +1,56 @@
+vietnamese-legal-nlp/
+├── .github/
+│   └── workflows/                 # CI/CD pipelines (e.g., pytest, linting)
+├── api/                           # Backend serving the models & RAG
+│   ├── __init__.py
+│   ├── main.py                    # FastAPI application entry point
+│   ├── routes.py                  # API endpoints (/extract, /ask)
+│   └── schemas.py                 # Pydantic models for request/response validation
+├── configs/                       # Configuration management
+│   ├── model_config.yaml          # Hyperparameters, model paths
+│   └── app_config.yaml            # DB connections, API keys
+├── data/                          # Ignored in .gitignore
+│   ├── raw/                       # Original .txt contract files
+│   ├── processed/                 # Cleaned data ready for NLP pipeline
+│   ├── annotated/                 # Gold-standard data for NER/SRL evaluation
+│   └── vector_db/                 # Local persistence for ChromaDB/FAISS
+├── docs/                          # Documentation
+│   ├── architecture.md            # System design and data flow diagrams
+│   └── api_reference.md           # REST API documentation
+├── models/                        # Ignored in .gitignore
+│   └── fine_tuned/                # Saved weights (PhoBERT fine-tuned for NER/Intent)
+├── notebooks/                     # Jupyter notebooks for EDA and prototyping
+│   ├── 01_data_exploration.ipynb
+│   └── 02_model_evaluation.ipynb
+├── scripts/                       # Utility scripts for CLI execution
+│   ├── setup_env.sh               # Script to install dependencies and spacy models
+│   ├── train_ner.py               # Training script for Custom NER
+│   └── build_vector_store.py      # Script to chunk and index contracts into DB
+├── src/                           # Core NLP module
+│   ├── __init__.py
+│   ├── preprocessing/             # Assignment 1: Syntax & Preprocessing
+│   │   ├── segmenter.py           # Clause segmentation
+│   │   ├── chunker.py             # Noun Phrase (NP) chunking (IOB)
+│   │   └── parser.py              # Dependency parsing
+│   ├── extraction/                # Assignment 2: Semantic Extraction
+│   │   ├── ner_engine.py          # Custom Entity Recognition (PARTY, MONEY, etc.)
+│   │   ├── srl_engine.py          # Semantic Role Labeling
+│   │   └── intent_classifier.py   # Obligation, Prohibition, Right, Termination
+│   ├── qa/                        # Assignment 3: RAG System
+│   │   ├── retriever.py           # Vector similarity search
+│   │   └── generator.py           # LLM prompt construction and generation
+│   └── utils/                     # Shared utilities
+│       ├── logger.py              # Custom logging configuration
+│       └── file_io.py             # Safe reading/writing of JSON/TXT
+├── tests/                         # Unit and integration tests
+│   ├── test_preprocessing.py
+│   ├── test_extraction.py
+│   └── test_api.py
+├── ui/                            # Frontend interface
+│   └── app.py                     # Streamlit or Gradio app for demo
+├── .env.example                   # Template for environment variables
+├── .gitignore
+├── Dockerfile                     # Containerization for deployment
+├── Makefile                       # Command shortcuts (e.g., `make train`, `make run`)
+├── pyproject.toml                 # Modern Python dependency & build management
+└── README.md                      # Project landing page
