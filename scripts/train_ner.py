@@ -7,6 +7,7 @@ from seqeval.metrics import accuracy_score, f1_score, precision_score, recall_sc
 from transformers import (
     AutoModelForTokenClassification,
     AutoTokenizer,
+    DataCollatorForTokenClassification,
     Trainer,
     TrainingArguments,
 )
@@ -59,37 +60,45 @@ def train():
     train_dataset = load_custom_data("data/annotated/ner_train.json")
     eval_dataset = load_custom_data("data/annotated/ner_test.json")
 
-    # Function to align labels due to PhoBERT's sub-word tokenization
+    # Function to align labels manually since PhoBERT doesn't have a fast tokenizer
     def tokenize_and_align_labels(examples):
-        tokenized_inputs = tokenizer(
-            examples["tokens"], truncation=True, is_split_into_words=True
-        )
-        labels = []
-        for i, label in enumerate(examples["ner_tags"]):
-            word_ids = tokenized_inputs.word_ids(batch_index=i)
-            previous_word_idx = None
-            label_ids = []
-            for word_idx in word_ids:
-                if word_idx is None:
-                    label_ids.append(-100)  # Ignore special tokens
-                elif word_idx != previous_word_idx:
-                    label_ids.append(label[word_idx])
-                else:
-                    # Accurately assigning labels to sub-words
-                    current_label = label[word_idx]
-                    if current_label == 0:
-                        label_ids.append(0)
-                    elif (
-                        current_label % 2 != 0
-                    ):  # If it is a B- label (odd numbers: 1, 3, 5...)
-                        label_ids.append(
-                            current_label + 1
-                        )  # Convert to the corresponding I- label
-                    else:  # If it is already an I- label (even numbers: 2, 4, 6...)
-                        label_ids.append(current_label)  # Keep the I- label as is
-                previous_word_idx = word_idx
-            labels.append(label_ids)
-        tokenized_inputs["labels"] = labels
+        tokenized_inputs = {"input_ids": [], "attention_mask": [], "labels": []}
+
+        for i, words in enumerate(examples["tokens"]):
+            ner_tags = examples["ner_tags"][i]
+
+            input_ids = [tokenizer.cls_token_id]
+            label_ids = [-100]
+
+            for word, label in zip(words, ner_tags):
+                word_tokens = tokenizer.encode(word, add_special_tokens=False)
+                if not word_tokens:
+                    continue
+
+                input_ids.extend(word_tokens)
+
+                for j in range(len(word_tokens)):
+                    if j == 0:
+                        label_ids.append(label)
+                    else:
+                        if label == 0:
+                            label_ids.append(0)
+                        elif label % 2 != 0:
+                            label_ids.append(label + 1)
+                        else:
+                            label_ids.append(label)
+
+            input_ids.append(tokenizer.sep_token_id)
+            label_ids.append(-100)
+
+            if len(input_ids) > 256:
+                input_ids = input_ids[:255] + [tokenizer.sep_token_id]
+                label_ids = label_ids[:255] + [-100]
+
+            tokenized_inputs["input_ids"].append(input_ids)
+            tokenized_inputs["attention_mask"].append([1] * len(input_ids))
+            tokenized_inputs["labels"].append(label_ids)
+
         return tokenized_inputs
 
     tokenized_datasets = train_dataset.map(tokenize_and_align_labels, batched=True)
@@ -128,12 +137,15 @@ def train():
             "accuracy": accuracy_score(true_labels, true_predictions),
         }
 
+    data_collator = DataCollatorForTokenClassification(tokenizer)
+
     trainer = Trainer(
         model=model,
         args=training_args,
         train_dataset=tokenized_datasets,
         eval_dataset=tokenized_eval_datasets,
         compute_metrics=compute_metrics,
+        data_collator=data_collator,
     )
 
     print("Starting PhoBERT-NER model training...")

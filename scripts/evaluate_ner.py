@@ -40,18 +40,30 @@ def evaluate_ner():
         true_tags = [id_to_label[tag] for tag in item["ner_tags"]]
         y_true.append(true_tags)
 
-        # Extracting predictions by aligning word_ids
-        inputs = tokenizer(
-            words,
-            is_split_into_words=True,
-            return_tensors="pt",
-            truncation=True,
-            max_length=256,
-        )
-        word_ids = inputs.word_ids(batch_index=0)
+        # Manually tokenize to get word alignment since PhoBERT is not a fast tokenizer
+        input_ids = [tokenizer.cls_token_id]
+        word_ids = [None]
 
-        # Moving tensors to the correct device (CPU/GPU)
-        inputs_on_device = {k: v.to(device) for k, v in inputs.items()}
+        for w_idx, word in enumerate(words):
+            word_tokens = tokenizer.encode(word, add_special_tokens=False)
+            if not word_tokens:
+                continue
+            input_ids.extend(word_tokens)
+            word_ids.extend([w_idx] * len(word_tokens))
+
+        input_ids.append(tokenizer.sep_token_id)
+        word_ids.append(None)
+
+        if len(input_ids) > 256:
+            input_ids = input_ids[:255] + [tokenizer.sep_token_id]
+            word_ids = word_ids[:256]
+
+        attention_mask = [1] * len(input_ids)
+
+        inputs_on_device = {
+            "input_ids": torch.tensor([input_ids]).to(device),
+            "attention_mask": torch.tensor([attention_mask]).to(device),
+        }
 
         with torch.no_grad():
             outputs = model(**inputs_on_device)
