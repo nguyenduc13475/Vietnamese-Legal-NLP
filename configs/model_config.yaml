@@ -1,0 +1,10 @@
+models:
+  ner:
+    base_model: "vinai/phobert-base"
+    fine_tuned_path: "./models/fine_tuned_ner"
+    num_labels: 13
+  intent:
+    ml_model_path: "models/fine_tuned/intent_model.pkl"
+    vectorizer_path: "models/fine_tuned/intent_vectorizer.pkl"
+  embeddings:
+    model_name: "keepitreal/vietnamese-sbert"

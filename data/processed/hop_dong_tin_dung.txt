@@ -1,0 +1,74 @@
+ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.
+Số hiệu hợp đồng là AA/BB/CC/HĐTD.
+I. THÔNG TIN CÁ NHÂN, NHU CẦU TÀI CHÍNH VÀ CÁC ĐIỀU KHOẢN LIÊN QUAN.
+1. Thông tin định danh của người vay.
+Họ và tên khách hàng là Nguyễn Văn A (sau đây gọi là "Bên vay").
+Số căn cước công dân là 001099000123, được cấp ngày 01/01/2022 tại Cục Cảnh sát quản lý hành chính về trật tự xã hội.
+Địa chỉ thường trú tại số 123 đường Lê Lợi, quận 1, thành phố Hồ Chí Minh.
+Số điện thoại liên lạc là 0901234567.
+Tài khoản thanh toán bằng đồng Việt Nam số 101000123456 tại Ngân hàng BIDV - Chi nhánh TP.HCM.
+2. Thông tin thu nhập tự kê khai của Bên vay.
+Thu nhập từ tiền lương và tiền thưởng hàng tháng là 30.000.000 VNĐ.
+Thu nhập từ các hoạt động kinh doanh thương mại là 20.000.000 VNĐ.
+Thu nhập từ các nguồn tài chính khác là 5.000.000 VNĐ.
+3. Nhu cầu vay vốn.
+3.1. Hình thức vay là vay theo món.
+3.2. Tổng số tiền vay là 500.000.000 VNĐ (Năm trăm triệu đồng).
+3.3. Thời hạn cấp tín dụng là 12 tháng.
+3.4. Mục đích sử dụng vốn vay là tiêu dùng và sinh hoạt cá nhân.
+4. Phương thức giải ngân vốn vay.
+Vốn vay được giải ngân một lần với số tiền 500.000.000 VNĐ (Năm trăm triệu đồng).
+Thời hạn vay là 365 ngày, ngày giải ngân là 20/05/2024, ngày hoàn trả nợ cuối cùng là 20/05/2025.
+Số tiền giải ngân được sử dụng để thanh toán cho đơn vị thụ hưởng là Công ty TNHH Nội thất X, số tài khoản 123456789 tại Ngân hàng Vietcombank.
+5. Phương án hoàn trả nợ.
+5.1. Nguồn tiền trả nợ bao gồm thu nhập từ lương và các nguồn thu hợp pháp khác của khách hàng.
+Trong trường hợp quá hạn mà không trả được bằng thu nhập, nguồn trả nợ sẽ được trích từ việc tất toán tài sản cầm cố.
+5.2. Phương thức trả nợ là chuyển khoản hoặc nộp tiền mặt trực tiếp tại quầy.
+Ngân hàng được quyền tự động trích nợ từ tài khoản số 101000123456 của Bên vay tại Chi nhánh BIDV TP.HCM.
+5.3. Lịch trình trả nợ gốc và lãi.
+a) Lịch trả nợ gốc được lập theo bảng kê đính kèm.
+b) Lãi vay được Bên vay thanh toán một lần vào ngày trả nợ gốc.
+6. Tài sản cầm cố.
+Tài sản thuộc sở hữu của Bên vay.
+Thông tin tài sản gồm: Sổ tiết kiệm số STK12345, mệnh giá 600.000.000 VNĐ, kỳ hạn 12 tháng, ngày đến hạn 20/05/2025, đơn vị phát hành là Ngân hàng BIDV.
+Bên vay cam kết tài sản cầm cố thuộc quyền sở hữu hợp pháp, không có tranh chấp và không dùng để bảo đảm cho bất kỳ nghĩa vụ nợ nào khác.
+Bên vay khẳng định có toàn quyền sử dụng tài sản này để bảo đảm cho khoản vay tại Ngân hàng.
+7. Cam kết của Bên vay.
+7.1. Các thông tin cung cấp trong hợp đồng này là hoàn toàn chính xác và trung thực.
+Nếu thông tin sai lệch, Bên vay phải chịu mọi trách nhiệm trước quy định của pháp luật.
+7.2. Bên vay đồng ý vay vốn theo mức phê duyệt cuối cùng của Ngân hàng nếu không đáp ứng đủ điều kiện vay ban đầu.
+7.3. Đơn đề nghị này sau khi được Ngân hàng chấp thuận sẽ trở thành Hợp đồng tín dụng và cầm cố tài sản có giá trị ràng buộc pháp lý.
+7.4. Ngân hàng có quyền phong tỏa tài khoản và giữ bản gốc tài sản cầm cố để bảo đảm nghĩa vụ trả nợ.
+Ngân hàng có nghĩa vụ bảo quản và hoàn trả tài sản sau khi Bên vay hoàn tất nghĩa vụ theo hợp đồng.
+7.5. Bên vay cam kết sử dụng vốn đúng mục đích đã thỏa thuận và cung cấp đầy đủ chứng từ chứng minh theo yêu cầu của Ngân hàng.
+7.6. Bên vay cam kết thanh toán đầy đủ nợ gốc, lãi và phí đúng hạn.
+Nếu không thể thanh toán do nguyên nhân khách quan, Bên vay phải gửi văn bản đề nghị điều chỉnh kỳ hạn nợ trước ngày đến hạn 15 ngày.
+7.7. Nếu Bên vay không hoàn trả nợ đúng hạn, Ngân hàng có quyền thu nợ từ tài sản cầm cố mà không cần thêm thủ tục nào khác.
+7.8. Ngân hàng có quyền đình chỉ cho vay và thu hồi nợ trước hạn nếu Bên vay sử dụng vốn sai mục đích hoặc vi phạm hợp đồng.
+7.9. Bên vay đồng ý chuyển phương thức thanh toán lãi và gốc của tài sản cầm cố sang phương thức gốc quay vòng và lãi nhập gốc.
+7.10. Bên vay chấp thuận cho Ngân hàng lưu trữ và sử dụng thông tin cá nhân để phục vụ mục đích quản lý khoản vay.
+8. Các tài liệu đính kèm bao gồm bản sao CMND, bản gốc tài sản cầm cố và giấy ủy quyền rút tiền.
+II. PHẦN PHÊ DUYỆT CỦA NGÂN HÀNG.
+1. Số tiền vay được duyệt là 500.000.000 VNĐ.
+2. Thời hạn vay là 365 ngày, từ ngày 20/05/2024 đến ngày 20/05/2025.
+3. Lãi suất và phí.
+a) Lãi suất cho vay trong hạn là 8%/năm.
+Tiền lãi được tính trên dư nợ thực tế nhân với số ngày duy trì nợ thực tế nhân với lãi suất năm chia cho 365.
+Ngân hàng có quyền điều chỉnh lãi suất đột xuất theo cơ chế điều hành và thông báo bằng văn bản cho Bên vay.
+b) Lãi suất nợ quá hạn bằng 150% lãi suất trong hạn tại thời điểm chuyển nợ quá hạn.
+Lãi chậm trả đối với số tiền lãi chưa thanh toán tối đa là 10%/năm.
+c) Các loại phí bao gồm phí trả nợ trước hạn và phí cam kết rút vốn theo biểu phí của Ngân hàng.
+Phạt vi phạm hợp đồng là 5% tính trên giá trị nợ gốc vi phạm.
+III. LUẬT ÁP DỤNG VÀ GIẢI QUYẾT TRANH CHẤP.
+1. Hợp đồng này được điều chỉnh bởi pháp luật Việt Nam.
+Mọi tranh chấp sẽ được giải quyết thông qua thương lượng, nếu không thành sẽ đưa ra Tòa án nhân dân quận 1, thành phố Hồ Chí Minh.
+2. Hiệu lực của hợp đồng.
+a) Hợp đồng có hiệu lực từ ngày Ngân hàng ký phê duyệt và kết thúc khi Bên vay hoàn thành mọi nghĩa vụ tài chính.
+b) Các văn bản liên quan là một phần không thể tách rời của hợp đồng.
+c) Mọi sửa đổi phải được lập thành văn bản có chữ ký của hai bên.
+d) Nếu một điều khoản bị vô hiệu theo luật pháp, các điều khoản còn lại vẫn giữ nguyên hiệu lực.
+e) Hợp đồng được lập thành 03 bản gốc, Ngân hàng giữ 02 bản và Bên vay giữ 01 bản.
+f) Nếu Bên vay vắng mặt tại địa chỉ đã đăng ký liên tục 30 ngày mà không thông báo, Ngân hàng có quyền khởi kiện và xét xử vắng mặt.
+IV. CHỮ KÝ XÁC NHẬN.
+Bên vay xác nhận đã đọc, hiểu và đồng ý với toàn bộ nội dung hợp đồng.
+Đại diện Ngân hàng xác nhận đã tiếp nhận hồ sơ và phê duyệt khoản vay.

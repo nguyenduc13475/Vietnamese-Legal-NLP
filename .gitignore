@@ -1,0 +1,9 @@
+.vscode
+.env
+venv/
+output/
+models/fine_tuned/
+models/fine_tuned_ner/
+data/vector_db/
+__pycache__/
+*.pyc
