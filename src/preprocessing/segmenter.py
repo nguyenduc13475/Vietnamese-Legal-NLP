@@ -30,22 +30,30 @@ def segment_clauses(text: str) -> list[str]:
         if len(clean_line) <= 5:
             continue
 
-        # Since Gemini formats each clause on a single line, we prioritize preserving line integrity.
-        # Heuristic: Only activate Underthesea if the line is excessively long (> 40 words)
-        # AND shows signs of containing multiple sentences (sentence-ending punctuation + next letter capitalized).
-        word_count = len(clean_line.split())
-        contains_multiple_sentences = re.search(
-            r"[.!?]\s+[A-ZĐÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĨŨƠƯẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪỬỮỰỲỴÝỶỸ]",
-            clean_line,
-        )
+        # Use sent_tokenize to safely split potential multiple sentences on the same line.
+        # We sweep through the tokenized parts: if a part has only a few words (e.g., < 4 words),
+        # it might be a false split (like "Điều 1.", "a.", "Tp.") so we continue sweeping.
+        sentences = sent_tokenize(clean_line)
+        current_sentence = ""
 
-        if word_count > 40 and contains_multiple_sentences:
-            sentences = sent_tokenize(clean_line)
-            for sent in sentences:
-                clean_sent = sent.strip()
-                if len(clean_sent) > 5:
-                    clauses.append(clean_sent)
-        else:
-            clauses.append(clean_line)
+        for sent in sentences:
+            sent = sent.strip()
+            if not sent:
+                continue
+
+            if not current_sentence:
+                current_sentence = sent
+            else:
+                current_sentence += " " + sent
+
+            # If from left to the dot we have enough words, separate into a new sentence
+            if len(current_sentence.split()) >= 4:
+                clauses.append(current_sentence)
+                current_sentence = ""
+
+        # Append any remaining text that didn't reach the word threshold but is valid
+        if current_sentence:
+            if len(current_sentence) > 2:
+                clauses.append(current_sentence)
 
     return clauses

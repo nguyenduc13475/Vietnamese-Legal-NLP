@@ -15,7 +15,7 @@ def main():
     parser.add_argument(
         "--input",
         type=str,
-        default="data/raw/hop_dong_thue_nha.txt",
+        default="data/processed/hop_dong_thue_nha.txt",
         help="Path to input text file",
     )
     parser.add_argument(

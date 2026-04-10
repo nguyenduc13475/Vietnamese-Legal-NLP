@@ -25,7 +25,7 @@ auto-annotate:
 	python scripts/auto_annotate.py
 
 run-pipeline:
-	python main.py --input data/raw/hop_dong_thue_nha.txt
+	python main.py --input data/processed/hop_dong_thue_nha.txt
 
 run-api:
 	uvicorn api.main:app --reload --port 8000

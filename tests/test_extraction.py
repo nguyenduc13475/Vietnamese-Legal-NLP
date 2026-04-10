@@ -25,8 +25,9 @@ def test_extract_srl():
     text = "Bên A thanh toán tiền."
     entities = [{"text": "Bên A", "label": "PARTY", "span": (0, 5)}]
     dependencies = [
-        {"token": "Bên", "relation": "nsubj"},
-        {"token": "thanh toán", "relation": "root"},
+        {"id": 1, "token": "Bên A", "relation": "nsubj", "head_index": 2},
+        {"id": 2, "token": "thanh toán", "relation": "root", "head_index": 0},
+        {"id": 3, "token": "tiền", "relation": "obj", "head_index": 2},
     ]
     srl = extract_srl(text, entities, dependencies=dependencies)
     assert "predicate" in srl

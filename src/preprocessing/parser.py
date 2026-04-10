@@ -3,29 +3,35 @@ import logging
 import stanza
 import torch
 
-# Initialize Stanza pipeline globally so it doesn't reload on every API call.
-# It will automatically download the 'vi' model if it doesn't exist.
-
-
 USE_GPU = torch.cuda.is_available()
+_nlp_pipeline = None
 
-try:
-    nlp = stanza.Pipeline(
-        "vi",
-        processors="tokenize,pos,lemma,depparse",
-        use_gpu=USE_GPU,
-        verbose=False,
-        logging_level="ERROR",
-    )
-except Exception:
-    stanza.download("vi", verbose=False, logging_level="ERROR")
-    nlp = stanza.Pipeline(
-        "vi",
-        processors="tokenize,pos,lemma,depparse",
-        use_gpu=USE_GPU,
-        verbose=False,
-        logging_level="ERROR",
-    )
+
+def get_pipeline():
+    """
+    Lazy initialization of Stanza pipeline.
+    It will automatically download the 'vi' model if it doesn't exist.
+    """
+    global _nlp_pipeline
+    if _nlp_pipeline is None:
+        try:
+            _nlp_pipeline = stanza.Pipeline(
+                "vi",
+                processors="tokenize,pos,lemma,depparse",
+                use_gpu=USE_GPU,
+                verbose=False,
+                logging_level="ERROR",
+            )
+        except Exception:
+            stanza.download("vi", verbose=False, logging_level="ERROR")
+            _nlp_pipeline = stanza.Pipeline(
+                "vi",
+                processors="tokenize,pos,lemma,depparse",
+                use_gpu=USE_GPU,
+                verbose=False,
+                logging_level="ERROR",
+            )
+    return _nlp_pipeline
 
 
 def parse_dependency(text: str) -> list[dict]:
@@ -38,6 +44,7 @@ def parse_dependency(text: str) -> list[dict]:
 
     result = []
     try:
+        nlp = get_pipeline()
         doc = nlp(text)
         for sentence in doc.sentences:
             for word in sentence.words:
