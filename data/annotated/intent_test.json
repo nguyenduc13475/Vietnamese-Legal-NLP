@@ -1,6 +1,18 @@
 [
     {
-        "text": "Số điện thoại: 0912345678.",
+        "text": "Bàn giao mặt bằng cho Bên B đúng theo Phụ lục 01 vào ngày nhận nhà.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Căn cứ vào Bộ luật Dân sự năm 2015 nước Cộng hòa xã hội chủ nghĩa Việt Nam.",
+        "label": "Other"
+    },
+    {
+        "text": "Cung cấp cho Bên B bản sao công chứng giấy chứng nhận quyền sở hữu tài sản và bản sao căn cước công dân.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Căn cứ vào Luật Nhà ở năm 2014 nước Cộng hòa xã hội chủ nghĩa Việt Nam.",
         "label": "Other"
     },
     {
@@ -8,23 +20,15 @@
         "label": "Other"
     },
     {
-        "text": "ĐIỀU 2: ĐẶT CỌC HỢP ĐỒNG.",
-        "label": "Other"
-    },
-    {
-        "text": "Mọi tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng, nếu không thành sẽ đưa ra Tòa án nhân dân quận Cầu Giấy, Hà Nội để giải quyết.",
+        "text": "Bên A phải hoàn lại tiền thuê chưa sử dụng và trả lại tiền cọc, đồng thời bồi thường thêm 01 tháng tiền thuê.",
         "label": "Obligation"
     },
     {
-        "text": "Bàn giao mặt bằng cho Bên B đúng theo Phụ lục 01 vào ngày nhận nhà.",
+        "text": "Giá thuê mỗi tháng là 50.",
         "label": "Obligation"
     },
     {
-        "text": "Truy cập vào mặt bằng trong các trường hợp khẩn cấp mà không cần báo trước.",
-        "label": "Right"
-    },
-    {
-        "text": "BÊN THUÊ (Sau đây gọi là Bên B).",
+        "text": "BÊN CHO THUÊ (Sau đây gọi là Bên A).",
         "label": "Other"
     },
     {
@@ -36,91 +40,7 @@
         "label": "Other"
     },
     {
-        "text": "Bên A phải hoàn lại tiền thuê chưa sử dụng và trả lại tiền cọc, đồng thời bồi thường thêm 01 tháng tiền thuê.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Hôm nay, ngày 15 tháng 05 năm 2024, tại số 18 Duy Tân, Cầu Giấy, Hà Nội, chúng tôi gồm các bên dưới đây.",
-        "label": "Other"
-    },
-    {
-        "text": "Hai bên cam kết thực hiện nghiêm túc và đầy đủ các nội dung đã thỏa thuận trong hợp đồng này.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Số tầng cho thuê là 02 tầng.",
-        "label": "Other"
-    },
-    {
         "text": "Nghĩa vụ của Bên B.",
-        "label": "Other"
-    },
-    {
-        "text": "Địa chỉ thường trú: Số 18 Duy Tân, phường Dịch Vọng Hậu, quận Cầu Giấy, Hà Nội.",
-        "label": "Other"
-    },
-    {
-        "text": "Đối tượng của hợp đồng là căn nhà số 18 Duy Tân, quận Cầu Giấy, Hà Nội.",
-        "label": "Other"
-    },
-    {
-        "text": "Bên B thực hiện đặt cọc cho Bên A số tiền 100.000.000 VNĐ (Một trăm triệu đồng chẵn).",
-        "label": "Obligation"
-    },
-    {
-        "text": "Cải tạo nội thất sau khi được Bên A chấp thuận và tự chi trả chi phí.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Số điện thoại: 02439998888.",
-        "label": "Other"
-    },
-    {
-        "text": "Ngay sau khi ký hợp đồng, Bên B thanh toán trước 06 tháng tiền thuê đầu tiên.",
-        "label": "Obligation"
-    },
-    {
-        "text": "ĐIỀU 8: CAM KẾT CỦA CÁC BÊN.",
-        "label": "Other"
-    },
-    {
-        "text": "Căn cứ vào năng lực và nhu cầu thực tế của các bên tham gia.",
-        "label": "Other"
-    },
-    {
-        "text": "Cung cấp cho Bên B bản sao công chứng giấy chứng nhận quyền sở hữu tài sản và bản sao căn cước công dân.",
-        "label": "Obligation"
-    },
-    {
-        "text": "ĐIỀU 3: THỜI HẠN THUÊ VÀ GIÁ THUÊ.",
-        "label": "Other"
-    },
-    {
-        "text": "Bên B thanh toán tiền thuê cho Bên A theo định kỳ 06 tháng một lần.",
-        "label": "Obligation"
-    },
-    {
-        "text": "HỢP ĐỒNG THUÊ MẶT BẰNG.",
-        "label": "Other"
-    },
-    {
-        "text": "Số căn cước công dân: 001080001234.",
-        "label": "Other"
-    },
-    {
-        "text": "Hai bên xác nhận đã hiểu rõ quyền, nghĩa vụ và hậu quả pháp lý của hợp đồng.",
-        "label": "Other"
-    },
-    {
-        "text": "Số tài khoản ngân hàng: 19030000000001 tại Ngân hàng TMCP Kỹ Thương Việt Nam (Techcombank).",
-        "label": "Other"
-    },
-    {
-        "text": "Nếu đơn phương chấm dứt không có căn cứ pháp luật, bên vi phạm phải bồi thường 02 tháng tiền thuê cho bên còn lại.",
-        "label": "Termination Condition"
-    },
-    {
-        "text": "ĐIỀU 7: CHẤM DỨT HỢP ĐỒNG.",
         "label": "Other"
     },
     {
@@ -128,31 +48,207 @@
         "label": "Other"
     },
     {
-        "text": "Đơn phương chấm dứt hợp đồng nếu Bên B chậm thanh toán, sử dụng sai mục đích, làm hư hỏng tài sản, gây mất trật tự hoặc vi phạm pháp luật.",
-        "label": "Termination Condition"
-    },
-    {
-        "text": "Cho phép Bên B thực hiện sửa chữa, cải tạo phục vụ kinh doanh sau khi có sự đồng ý bằng văn bản của Bên A.",
-        "label": "Right"
-    },
-    {
-        "text": "BÊN CHO THUÊ (BÊN A).",
+        "text": "Phụ lục 01 được lập vào ngày bàn giao mặt bằng và có sự ký xác nhận của hai bên.",
         "label": "Other"
     },
     {
-        "text": "Nhận tiền thuê nhà theo thỏa thuận tại hợp đồng này.",
+        "text": "ĐIỀU 9: ĐIỀU KHOẢN CUỐI CÙNG.",
+        "label": "Other"
+    },
+    {
+        "text": "Tình trạng tài sản được ghi nhận chi tiết tại Phụ lục 01 đính kèm hợp đồng này.",
+        "label": "Other"
+    },
+    {
+        "text": "Đảm bảo quyền sử dụng ổn định cho Bên B trong suốt thời gian thuê.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên B thực hiện đặt cọc cho Bên A số tiền 100.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Độc lập - Tự do - Hạnh phúc.",
+        "label": "Other"
+    },
+    {
+        "text": "Số tiền này tương đương với 02 tháng tiền thuê nhà, được thanh toán vào ngày 15 tháng 05 năm 2024.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Quyền của Bên A.",
+        "label": "Other"
+    },
+    {
+        "text": "Nếu một bên vi phạm hợp đồng, bên còn lại có quyền đơn phương chấm dứt và yêu cầu bồi thường 02 tháng tiền thuê.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mọi tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng, nếu không thành sẽ đưa ra Tòa án nhân dân quận Cầu Giấy, Hà Nội để giải quyết.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tiếp nhận mặt bằng theo đúng thỏa thuận.",
         "label": "Right"
+    },
+    {
+        "text": "Tháo dỡ các thiết bị, tài sản riêng của mình khi kết thúc hợp đồng.",
+        "label": "Right"
+    },
+    {
+        "text": "Ông: Nguyễn Văn An.",
+        "label": "Other"
+    },
+    {
+        "text": "HỢP ĐỒNG THUÊ MẶT BẰNG.",
+        "label": "Other"
+    },
+    {
+        "text": "Kiểm tra định kỳ 03 tháng một lần việc sử dụng mặt bằng của Bên B.",
+        "label": "Right"
+    },
+    {
+        "text": "Thanh toán các chi phí điện, nước, internet và phí dịch vụ phát sinh.",
+        "label": "Obligation"
+    },
+    {
+        "text": "BÊN CHO THUÊ.",
+        "label": "Other"
+    },
+    {
+        "text": "Thông báo kịp thời cho Bên A về các khó khăn phát sinh để được hỗ trợ.",
+        "label": "Obligation"
+    },
+    {
+        "text": "ĐIỀU 8: CAM KẾT CỦA CÁC BÊN.",
+        "label": "Other"
+    },
+    {
+        "text": "Đối tượng của hợp đồng là căn nhà số 18 Duy Tân, quận Cầu Giấy, Hà Nội.",
+        "label": "Other"
+    },
+    {
+        "text": "Số tầng cho thuê là 02 tầng.",
+        "label": "Other"
+    },
+    {
+        "text": "Ngay sau khi ký hợp đồng, Bên B thanh toán trước 06 tháng tiền thuê đầu tiên.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Quyền của Bên B.",
+        "label": "Other"
+    },
+    {
+        "text": "000. 000 VNĐ (Một trăm triệu đồng chẵn).",
+        "label": "Other"
+    },
+    {
+        "text": "Nếu Bên A đơn phương chấm dứt hợp đồng trước hạn, phải thông báo trước 03 tháng.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Thanh toán tiền thuê đầy đủ và đúng kỳ hạn.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Nếu đơn phương chấm dứt không có căn cứ pháp luật, bên vi phạm phải bồi thường 02 tháng tiền thuê cho bên còn lại.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "ĐIỀU 6: QUYỀN VÀ NGHĨA VỤ CỦA BÊN B.",
+        "label": "Other"
+    },
+    {
+        "text": "Đồng sở hữu: Bà Trần Thị Bình.",
+        "label": "Other"
+    },
+    {
+        "text": "Các văn bản kèm theo là một phần không thể tách rời của hợp đồng này.",
+        "label": "Other"
+    },
+    {
+        "text": "Truy cập vào mặt bằng trong các trường hợp khẩn cấp mà không cần báo trước.",
+        "label": "Right"
+    },
+    {
+        "text": "BÊN THUÊ (Sau đây gọi là Bên B).",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B không được phép thay đổi kết cấu chịu lực của tòa nhà hoặc thực hiện các hoạt động gây ô nhiễm môi trường trong phạm vi mặt bằng thuê.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên B không được tự ý cho bên thứ ba thuê lại toàn bộ hoặc một phần mặt bằng nếu chưa có sự đồng ý bằng văn bản từ Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Nghiêm cấm Bên B sử dụng mặt bằng vào các mục đích kinh doanh trái với quy định của pháp luật hiện hành.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên B có quyền ưu tiên gia hạn hợp đồng thuê thêm 24 tháng với mức tăng giá thuê không quá 10% so với giá thuê hiện tại.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên A có quyền điều chỉnh phí dịch vụ quản lý tòa nhà theo tỷ lệ lạm phát hàng năm nhưng không vượt quá 5%.",
+        "label": "Right"
+    },
+    {
+        "text": "Nếu Bên B chậm thanh toán tiền thuê quá 15 ngày, Bên B phải chịu mức phạt chậm trả là 0.05% trên tổng số tiền chậm trả cho mỗi ngày quá hạn.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trong trường hợp Bên A vi phạm nghĩa vụ bàn giao, Bên A phải bồi thường cho Bên B số tiền 200.000.000 VNĐ như một khoản phạt vi phạm hợp đồng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi tranh chấp phát sinh từ hợp đồng này sẽ được giải quyết căn cứ theo quy định tại Bộ luật Dân sự và các văn bản pháp luật có liên quan.",
+        "label": "Other"
     },
     {
         "text": "Diện tích: 150 m2 (Một trăm năm mươi mét vuông).",
         "label": "Other"
     },
     {
-        "text": "Tuân thủ các quy định về bảo vệ môi trường, không làm tổn hại đến quyền lợi của người sử dụng đất xung quanh.",
+        "text": "ĐIỀU 3: MỤC ĐÍCH THUÊ.",
+        "label": "Other"
+    },
+    {
+        "text": "Không được hủy hoại hoặc làm giảm sút giá trị sử dụng của căn nhà.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Trường hợp Bên B tự ý chấm dứt hợp đồng trước thời hạn: Phải chịu phạt số tiền tương đương 03 tháng tiền thuê nhà và bồi thường thiệt hại theo pháp luật.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "ĐIỀU 4: GIÁ THUÊ VÀ PHƯƠNG THỨC THANH TOÁN.",
+        "label": "Other"
+    },
+    {
+        "text": "Những thông tin về nhân thân và căn nhà gắn liền với đất đã ghi trong hợp đồng này là đúng sự thật.",
         "label": "Obligation"
     },
     {
-        "text": "Bên A có các quyền sau đây.",
+        "text": "BÊN CHO THUÊ (BÊN A).",
+        "label": "Other"
+    },
+    {
+        "text": "Tại địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.",
+        "label": "Other"
+    },
+    {
+        "text": "Việc bàn giao này sẽ được lập thành biên bản có chữ ký xác nhận của đại diện mỗi bên.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Hai bên đã hiểu rõ quyền, nghĩa vụ, lợi ích hợp pháp của mình và hậu quả pháp lý của việc giao kết hợp đồng.",
+        "label": "Other"
+    },
+    {
+        "text": "Mục đích thuê nhà nêu tại Điều 1 của hợp đồng này là để làm văn phòng đại diện công ty.",
         "label": "Other"
     },
     {
@@ -164,99 +260,27 @@
         "label": "Obligation"
     },
     {
-        "text": "Việc đăng ký cho thuê nhà tại cơ quan có thẩm quyền theo quy định pháp luật do Bên A chịu trách nhiệm thực hiện.",
+        "text": "Thuế, phí và lệ phí liên quan đến việc thuê nhà theo Hợp đồng này do Bên A chịu trách nhiệm nộp.",
         "label": "Obligation"
-    },
-    {
-        "text": "ĐIỀU 11: ĐIỀU KHOẢN CUỐI CÙNG.",
-        "label": "Other"
-    },
-    {
-        "text": "Các bên ký tên dưới đây để làm bằng chứng.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Bên A đồng ý cho Bên B thuê toàn bộ diện tích tầng 01, 02 và 03 của căn nhà nêu trên với tổng diện tích cho thuê là 150 m2 (Một trăm năm mươi mét vuông).",
-        "label": "Obligation"
-    },
-    {
-        "text": "Lắp đặt các thiết bị như hệ thống dây điện thoại, mạng cho các tầng, lắp đặt cửa kính một số phòng.",
-        "label": "Right"
-    },
-    {
-        "text": "Hôm nay, ngày 20 tháng 10 năm 2023, chúng tôi gồm có.",
-        "label": "Other"
-    },
-    {
-        "text": "Không được tự ý thay đổi cấu trúc căn nhà, nếu cần lắp đặt thêm thiết bị phải có sự đồng ý bằng văn bản của Bên A.",
-        "label": "Prohibition"
-    },
-    {
-        "text": "Chung: 0 m2 (Không mét vuông).",
-        "label": "Other"
-    },
-    {
-        "text": "Vợ là bà Trần Thị Bình, sinh năm 1978, CMND số 012345679 do Công an thành phố Hà Nội cấp ngày 20/06/2012.",
-        "label": "Other"
-    },
-    {
-        "text": "Ngoài ra, Bên A phải hoàn trả lại cho Bên B số tiền thuê nhà của những tháng Bên B đã trả trước nhưng chưa sử dụng.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Bên A là chủ sở hữu hợp pháp của căn nhà gắn liền với đất tại địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.",
-        "label": "Other"
-    },
-    {
-        "text": "Riêng: 150 m2 (Một trăm năm mươi mét vuông).",
-        "label": "Other"
-    },
-    {
-        "text": "Kết cấu nhà: Nhà bê tông cốt thép, 03 tầng.",
-        "label": "Other"
-    },
-    {
-        "text": "Được sử dụng căn nhà ổn định trong suốt thời hạn thuê.",
-        "label": "Right"
-    },
-    {
-        "text": "Địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.",
-        "label": "Other"
     },
     {
         "text": "ĐIỀU 5: NGHĨA VỤ VÀ QUYỀN CỦA BÊN A.",
         "label": "Other"
     },
     {
-        "text": "Số tiền thuê nhà của 03 tháng đầu tiên sẽ được thanh toán ngay sau khi ký hợp đồng này.",
+        "text": "Đã xem xét kỹ, biết rõ về căn nhà và các giấy tờ về quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất.",
         "label": "Obligation"
     },
     {
-        "text": "Hai bên đã hiểu rõ quyền, nghĩa vụ, lợi ích hợp pháp của mình và hậu quả pháp lý của việc giao kết hợp đồng.",
+        "text": "ĐIỀU 10: CAM ĐOAN CỦA CÁC BÊN.",
         "label": "Other"
     },
     {
-        "text": "Ông Nguyễn Văn An, sinh năm 1975, CMND số 012345678 do Công an thành phố Hà Nội cấp ngày 15/05/2010.",
-        "label": "Other"
-    },
-    {
-        "text": "Yêu cầu Bên A bàn giao căn nhà đúng như đã thỏa thuận.",
-        "label": "Right"
-    },
-    {
-        "text": "Những thông tin về nhân thân đã ghi trong hợp đồng này là đúng sự thật.",
+        "text": "Bên vi phạm phải chịu trách nhiệm theo quy định tại điều này.",
         "label": "Obligation"
     },
     {
-        "text": "ĐIỀU 8: CHẤM DỨT HỢP ĐỒNG.",
-        "label": "Other"
-    },
-    {
-        "text": "Nếu Bên B không chấm dứt hành vi vi phạm, Bên A có quyền đơn phương chấm dứt hợp đồng theo điểm 8.1 Điều 8 và yêu cầu Bên B hoàn trả nhà kèm bồi thường thiệt hại (nếu có).",
-        "label": "Termination Condition"
-    },
-    {
-        "text": "Tại địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.",
+        "text": "Đặc điểm tài sản cho thuê như sau.",
         "label": "Other"
     },
     {
@@ -264,7 +288,23 @@
         "label": "Other"
     },
     {
-        "text": "Số tầng: 03 tầng.",
+        "text": "Thông báo cho Bên B về quyền của người thứ ba đối với căn nhà cho thuê (nếu có).",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên A có các quyền sau đây.",
+        "label": "Other"
+    },
+    {
+        "text": "Nhận tiền thuê nhà theo thỏa thuận tại hợp đồng này.",
+        "label": "Right"
+    },
+    {
+        "text": "Hai bên thống nhất thực hiện việc thuê nhà theo các điều khoản sau đây.",
+        "label": "Other"
+    },
+    {
+        "text": "Quyển số: 03 TP/CC-SCC/HĐGD.",
         "label": "Other"
     },
     {
@@ -272,55 +312,159 @@
         "label": "Other"
     },
     {
-        "text": "Giấy chứng nhận đăng ký doanh nghiệp số 0312345678 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 20/05/2015.",
+        "text": "Độc lập - Tự do - Hạnh phúc.",
         "label": "Other"
     },
     {
-        "text": "Bên B thanh toán các chi phí phát sinh trong quá trình vận hành như tiền điện, tiền nước, cước viễn thông và các loại thuế kinh doanh khác đầy đủ và đúng hạn.",
+        "text": "Giá thuê nhà nêu tại Điều 1 của hợp đồng này là: 30.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B cam đoan.",
+        "label": "Other"
+    },
+    {
+        "text": "Các bên vẫn phải thực hiện nghĩa vụ của mình đến thời điểm chấm dứt.",
         "label": "Obligation"
+    },
+    {
+        "text": "Được sử dụng căn nhà ổn định trong suốt thời hạn thuê.",
+        "label": "Right"
+    },
+    {
+        "text": "Thửa đất số: 10.",
+        "label": "Other"
+    },
+    {
+        "text": "Diện tích xây dựng: 100 m2 (Một trăm mét vuông).",
+        "label": "Other"
+    },
+    {
+        "text": "ĐIỀU 11: ĐIỀU KHOẢN CUỐI CÙNG.",
+        "label": "Other"
+    },
+    {
+        "text": "Đối với phần thiết bị Bên B đã lắp đặt thêm, hai bên sẽ bàn bạc để thỏa thuận giải quyết.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên A cam đoan.",
+        "label": "Other"
+    },
+    {
+        "text": "ĐIỀU 7: ĐĂNG KÝ CHO THUÊ NHÀ VÀ NỘP LỆ PHÍ.",
+        "label": "Other"
+    },
+    {
+        "text": "Không được tự ý thay đổi cấu trúc căn nhà, nếu cần lắp đặt thêm thiết bị phải có sự đồng ý bằng văn bản của Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Việc giao nhận tiền nêu tại khoản 4.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên A có các nghĩa vụ sau đây.",
+        "label": "Other"
+    },
+    {
+        "text": "Sau thời hạn trên, nếu Bên A vẫn có nhu cầu cho thuê và Bên B vẫn có nhu cầu thuê thì Bên A ưu tiên cho Bên B tiếp tục thuê, khi đó hai bên sẽ ký kết hợp đồng mới.",
+        "label": "Right"
+    },
+    {
+        "text": "Được ưu tiên ký tiếp hợp đồng thuê khi kết thúc thời hạn thuê.",
+        "label": "Right"
+    },
+    {
+        "text": "Ông Lê Văn Cường, sinh năm 1985, CMND số 013456789 do Công an thành phố Hà Nội cấp ngày 10/08/2015, đăng ký hộ khẩu thường trú tại: Số 20, phố Bà Triệu, quận Hai Bà Trưng, thành phố Hà Nội.",
+        "label": "Other"
+    },
+    {
+        "text": "Trong thời hạn hợp đồng, nếu một bên phát hiện bên kia có hành vi vi phạm hợp đồng, bên đó phải thông báo bằng văn bản để yêu cầu khắc phục.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Yêu cầu Bên B trả lại nhà khi hợp đồng chấm dứt hoặc khi thời hạn thuê đã hết.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên B có các quyền sau đây.",
+        "label": "Other"
+    },
+    {
+        "text": "Giá thuê này đã bao gồm thuế giá trị gia tăng (VAT).",
+        "label": "Other"
+    },
+    {
+        "text": "Quyền lợi của các bên được giải quyết như sau.",
+        "label": "Other"
+    },
+    {
+        "text": "Tài sản thuộc quyền sở hữu theo “Giấy chứng nhận quyền sử dụng đất và tài sản gắn liền với đất” số CH123456.",
+        "label": "Other"
     },
     {
         "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
         "label": "Other"
     },
     {
-        "text": "Sau khi Bên B hoàn tất các thủ tục pháp lý để đặt xưởng sản xuất tại địa điểm thuê, Bên B cam kết tiếp tục thực hiện nghiêm túc các điều khoản đã ký kết trong hợp đồng nguyên tắc về gia công đặt hàng đã được công chứng.",
+        "text": "Bên B tuyệt đối không được phép chuyển nhượng hợp đồng cho bên thứ ba dưới bất kỳ hình thức nào nếu không có sự đồng ý bằng văn bản của Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên B không được tự ý thay đổi công năng sử dụng của căn nhà nếu chưa được sự chấp thuận bằng văn bản từ Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Hợp đồng sẽ chấm dứt ngay lập tức nếu Bên B chậm thanh toán tiền thuê nhà quá 30 ngày so với thời hạn quy định.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Trong trường hợp căn nhà bị cơ quan nhà nước thu hồi theo quy định của pháp luật, hợp đồng này sẽ mặc nhiên chấm dứt mà không bên nào phải chịu trách nhiệm bồi thường.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Nếu Bên A không bàn giao nhà đúng thời hạn cam kết, Bên B có quyền đơn phương chấm dứt hợp đồng và yêu cầu hoàn trả toàn bộ số tiền đã đặt cọc.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Hợp đồng chấm dứt nếu một trong hai bên vi phạm nghiêm trọng các điều khoản đã cam kết và không khắc phục trong vòng 15 ngày kể từ khi nhận thông báo.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Nếu Bên B chậm thanh toán tiền thuê, Bên B phải chịu mức phạt chậm trả là 0,05% trên tổng số tiền chậm trả cho mỗi ngày quá hạn.",
         "label": "Obligation"
     },
     {
-        "text": "Họ và tên người đại diện theo pháp luật là bà Trần Thị Bích.",
-        "label": "Other"
-    },
-    {
-        "text": "Số điện thoại là 0912345678.",
-        "label": "Other"
-    },
-    {
-        "text": "Chức vụ là Giám đốc.",
-        "label": "Other"
-    },
-    {
-        "text": "HỢP ĐỒNG THUÊ NHÀ XƯỞNG VÀ KHO BÃI.",
-        "label": "Other"
-    },
-    {
-        "text": "(Ký và ghi rõ họ tên).",
-        "label": "Other"
-    },
-    {
-        "text": "Bên B cam kết sử dụng nhà xưởng đúng mục đích đã thỏa thuận, mọi nhu cầu sửa chữa hoặc cải tạo phải được sự đồng ý bằng văn bản của Bên A.",
+        "text": "Trường hợp vi phạm nghĩa vụ bảo mật thông tin, bên vi phạm phải chịu mức phạt vi phạm là 50.000.000 đồng theo quy định của Bộ luật Dân sự.",
         "label": "Obligation"
     },
     {
-        "text": "Bên B được quyền thu hồi toàn bộ các trang thiết bị, máy móc do mình tự mua sắm và lắp đặt, đồng thời hai bên sẽ lập biên bản kiểm kê chi tiết các tài sản này.",
-        "label": "Right"
-    },
-    {
-        "text": "Sau thời hạn 01 năm đầu tiên, tiền thuê nhà sẽ được thanh toán định kỳ 03 tháng một lần vào ngày 05 của tháng đầu tiên mỗi quý.",
+        "text": "Nếu Bên A đơn phương chấm dứt hợp đồng trái quy định, Bên A phải chịu mức phạt là 100.000.000 đồng và lãi suất chậm trả 10%/năm trên số tiền bồi thường theo quy định pháp luật hiện hành.",
         "label": "Obligation"
     },
     {
-        "text": "Điều 1. NỘI DUNG HỢP ĐỒNG.",
+        "text": "Mọi tranh chấp phát sinh sẽ được giải quyết theo Luật Kinh doanh bất động sản, với mức phí luật sư do bên thua kiện chi trả dựa trên tỷ lệ 100% chi phí thực tế.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Giá thuê nhà được điều chỉnh tăng 5% mỗi năm dựa trên chỉ số lạm phát công bố bởi Ngân hàng Nhà nước Việt Nam.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên B phải đặt cọc số tiền tương đương 3 tháng tiền thuê nhà, tương đương 90.000.000 đồng, để đảm bảo nghĩa vụ thực hiện hợp đồng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trong trường hợp tỷ giá ngoại tệ biến động vượt quá 2% so với thời điểm ký kết, hai bên sẽ đàm phán lại mức giá thuê phù hợp.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Ngày sinh là 15/08/1980.",
+        "label": "Other"
+    },
+    {
+        "text": "Mục đích thuê là để phục vụ hoạt động sản xuất hàng may mặc.",
         "label": "Other"
     },
     {
@@ -328,19 +472,27 @@
         "label": "Other"
     },
     {
-        "text": "Số Fax là 02838444555.",
+        "text": "BÊN THUÊ NHÀ XƯỞNG (Sau đây gọi tắt là Bên B).",
         "label": "Other"
     },
     {
-        "text": "Bên A có trách nhiệm xuất hóa đơn giá trị gia tăng hợp lệ cho Bên B theo quy định của pháp luật.",
-        "label": "Obligation"
+        "text": "Thời hạn thuê nhà xưởng là 05 năm, được tính bắt đầu từ ngày 01/06/2024 đến hết ngày 01/06/2029.",
+        "label": "Other"
     },
     {
-        "text": "Giá thuê nhà xưởng là 100.000 đồng/m2/tháng, tương đương với số tiền bằng chữ là một trăm nghìn đồng trên một mét vuông mỗi tháng.",
-        "label": "Obligation"
+        "text": "Trách nhiệm của Bên A.",
+        "label": "Other"
     },
     {
-        "text": "Hợp đồng này có hiệu lực ngay sau khi hai bên ký kết và được Phòng Công chứng số 01 Thành phố Hồ Chí Minh chứng nhận.",
+        "text": "HỢP ĐỒNG THUÊ NHÀ XƯỞNG VÀ KHO BÃI.",
+        "label": "Other"
+    },
+    {
+        "text": "Giá thuê nhà xưởng là 100.",
+        "label": "Other"
+    },
+    {
+        "text": "Địa chỉ liên hệ tại số 45 đường Cộng Hòa, phường 4, quận Tân Bình, Thành phố Hồ Chí Minh.",
         "label": "Other"
     },
     {
@@ -348,7 +500,19 @@
         "label": "Other"
     },
     {
-        "text": "Hai bên đã cùng nhau thảo luận và thống nhất ký kết hợp đồng thuê nhà xưởng với các điều khoản sau đây.",
+        "text": "Điều 2. THỜI HẠN CỦA HỢP ĐỒNG.",
+        "label": "Other"
+    },
+    {
+        "text": "Số điện thoại là 0912345678.",
+        "label": "Other"
+    },
+    {
+        "text": "Số Căn cước công dân là 079180000456 do Cục Cảnh sát QLHC về TTXH cấp ngày 10/01/2022.",
+        "label": "Other"
+    },
+    {
+        "text": "Số điện thoại liên lạc là 0901234567.",
         "label": "Other"
     },
     {
@@ -356,27 +520,27 @@
         "label": "Obligation"
     },
     {
-        "text": "Trách nhiệm của Bên A.",
-        "label": "Other"
-    },
-    {
-        "text": "Bên A cam kết cấu trúc nhà xưởng đảm bảo an toàn, nếu trong quá trình sử dụng xảy ra sự cố gây thiệt hại đến tính mạng hoặc tài sản của Bên B, Bên A sẽ chịu hoàn toàn trách nhiệm bồi thường.",
+        "text": "Bên B chịu trách nhiệm bảo quản, giữ gìn các trang thiết bị và tài sản được bàn giao, nếu xảy ra hư hỏng hoặc mất mát do lỗi của mình thì phải bồi thường.",
         "label": "Obligation"
     },
     {
-        "text": "Địa chỉ liên hệ tại số 45 đường Cộng Hòa, phường 4, quận Tân Bình, Thành phố Hồ Chí Minh.",
-        "label": "Other"
-    },
-    {
-        "text": "Chúng tôi gồm có các bên ký tên dưới đây.",
-        "label": "Other"
-    },
-    {
-        "text": "Bên B chịu trách nhiệm về mọi hoạt động sản xuất kinh doanh tuân thủ đúng các quy định của pháp luật hiện hành.",
+        "text": "Hai bên cam kết thực hiện đúng các điều khoản trong hợp đồng này.",
         "label": "Obligation"
     },
     {
-        "text": "Số Fax là 02838222333.",
+        "text": "Sau khi Bên B hoàn tất các thủ tục pháp lý để đặt xưởng sản xuất tại địa điểm thuê, Bên B cam kết tiếp tục thực hiện nghiêm túc các điều khoản đã ký kết trong hợp đồng nguyên tắc về gia công đặt hàng đã được công chứng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tên tổ chức là Công ty TNHH Sản xuất Thương mại Hoàng Gia.",
+        "label": "Other"
+    },
+    {
+        "text": "(Ký và ghi rõ họ tên).",
+        "label": "Other"
+    },
+    {
+        "text": "000. 000 đồng, bằng chữ là sáu trăm triệu đồng.",
         "label": "Other"
     },
     {
@@ -388,155 +552,239 @@
         "label": "Obligation"
     },
     {
-        "text": "Tên tổ chức là Công ty TNHH Sản xuất Thương mại Hoàng Gia.",
+        "text": "Bên A đồng ý cho thuê và Bên B đồng ý thuê diện tích nhà xưởng và kho bãi nằm trên khu đất rộng 500 m2 thuộc quyền sở hữu hợp pháp của Bên A tại địa chỉ số 88 đường số 7, Khu công nghiệp Vĩnh Lộc, huyện Bình Chánh, Thành phố Hồ Chí Minh.",
+        "label": "Right"
+    },
+    {
+        "text": "000 đồng/m2/tháng, tương đương với số tiền bằng chữ là một trăm nghìn đồng trên một mét vuông mỗi tháng.",
         "label": "Other"
     },
     {
-        "text": "BÊN THUÊ NHÀ XƯỞNG (Sau đây gọi tắt là Bên B).",
+        "text": "Điều 5. CAM KẾT CHUNG.",
         "label": "Other"
     },
     {
-        "text": "Email là bich.tran@hoanggia.com.vn.",
-        "label": "Other"
-    },
-    {
-        "text": "Trong trường hợp một trong hai bên muốn chấm dứt hợp đồng trước thời hạn đã thỏa thuận thì phải thông báo bằng văn bản cho bên còn lại biết trước ít nhất 03 tháng.",
+        "text": "Nếu hợp đồng chấm dứt trước thời hạn, Bên A có trách nhiệm hoàn trả lại toàn bộ số tiền thuê mà Bên B đã thanh toán trước (nếu có) sau khi đã khấu trừ các khoản tiền thuê tính đến thời điểm bàn giao.",
         "label": "Termination Condition"
+    },
+    {
+        "text": "Hợp đồng này có hiệu lực ngay sau khi hai bên ký kết và được Phòng Công chứng số 01 Thành phố Hồ Chí Minh chứng nhận.",
+        "label": "Other"
+    },
+    {
+        "text": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+        "label": "Other"
+    },
+    {
+        "text": "Điều 4. TRÁCH NHIỆM CỦA CÁC BÊN.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B chịu trách nhiệm về mọi hoạt động sản xuất kinh doanh tuân thủ đúng các quy định của pháp luật hiện hành.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Số Fax là 02838444555.",
+        "label": "Other"
+    },
+    {
+        "text": "Chủ sở hữu là ông Nguyễn Văn An.",
+        "label": "Other"
+    },
+    {
+        "text": "Số Căn cước công dân là 079075000123.",
+        "label": "Other"
+    },
+    {
+        "text": "Hai bên đã cùng nhau thảo luận và thống nhất ký kết hợp đồng thuê nhà xưởng với các điều khoản sau đây.",
+        "label": "Other"
+    },
+    {
+        "text": "Hôm nay, ngày 15 tháng 05 năm 2024.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên A có trách nhiệm xuất hóa đơn giá trị gia tăng hợp lệ cho Bên B theo quy định của pháp luật.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Sau thời hạn 01 năm đầu tiên, tiền thuê nhà sẽ được thanh toán định kỳ 03 tháng một lần vào ngày 05 của tháng đầu tiên mỗi quý.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Độc lập – Tự do – Hạnh phúc.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên A cam kết cấu trúc nhà xưởng đảm bảo an toàn, nếu trong quá trình sử dụng xảy ra sự cố gây thiệt hại đến tính mạng hoặc tài sản của Bên B, Bên A sẽ chịu hoàn toàn trách nhiệm bồi thường.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi tranh chấp phát sinh sẽ được giải quyết trước hết thông qua thương lượng, hòa giải.",
+        "label": "Obligation"
     },
     {
         "text": "ĐẠI DIỆN BÊN A.",
         "label": "Other"
     },
     {
-        "text": "Ngân hàng có quyền điều chỉnh lãi suất đột xuất theo cơ chế điều hành và thông báo bằng văn bản cho Bên vay.",
-        "label": "Right"
+        "text": "Email là bich. tran@hoanggia.",
+        "label": "Other"
     },
     {
-        "text": "Lãi vay được Bên vay thanh toán một lần vào ngày trả nợ gốc.",
+        "text": "Quyết định của Tòa án là phán quyết cuối cùng mà hai bên phải chấp hành, mọi chi phí tố tụng sẽ do bên có lỗi chi trả.",
         "label": "Obligation"
     },
     {
-        "text": "Nếu thông tin sai lệch, Bên vay phải chịu mọi trách nhiệm trước quy định của pháp luật.",
+        "text": "Họ và tên người đại diện theo pháp luật là bà Trần Thị Bích.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B sẽ thanh toán trước cho Bên A tiền thuê nhà cho thời hạn 01 năm là 600.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên A chịu trách nhiệm kê khai và nộp các loại thuế liên quan đến hoạt động cho thuê nhà xưởng với cơ quan thuế.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Số tài khoản ngân hàng là 19034567890123 tại Ngân hàng TMCP Kỹ thương Việt Nam (Techcombank).",
+        "label": "Other"
+    },
+    {
+        "text": "Hợp đồng được lập thành 03 bản tiếng Việt có giá trị pháp lý như nhau, mỗi bên giữ 01 bản và 01 bản lưu tại cơ quan công chứng.",
+        "label": "Other"
+    },
+    {
+        "text": "Điều 1. NỘI DUNG HỢP ĐỒNG.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B không được phép thay đổi kết cấu chịu lực của nhà xưởng nếu không có sự đồng ý bằng văn bản của Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên B bị nghiêm cấm lưu trữ các loại hóa chất độc hại hoặc vật liệu dễ cháy nổ trái quy định của pháp luật trong phạm vi nhà xưởng.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên B không được tự ý cho bên thứ ba thuê lại một phần hoặc toàn bộ diện tích nhà xưởng khi chưa có sự chấp thuận của Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên B không được thực hiện các hoạt động sản xuất gây tiếng ồn hoặc ô nhiễm vượt quá mức cho phép theo tiêu chuẩn môi trường.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Hợp đồng sẽ chấm dứt ngay lập tức nếu Bên B chậm thanh toán tiền thuê nhà quá 30 ngày so với thời hạn quy định.",
         "label": "Termination Condition"
     },
     {
-        "text": "Hiệu lực của hợp đồng.",
-        "label": "Other"
-    },
-    {
-        "text": "Thu nhập từ các nguồn tài chính khác là 5.000.000 VNĐ.",
-        "label": "Other"
-    },
-    {
-        "text": "ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.",
-        "label": "Other"
-    },
-    {
-        "text": "THÔNG TIN CÁ NHÂN, NHU CẦU TÀI CHÍNH VÀ CÁC ĐIỀU KHOẢN LIÊN QUAN.",
-        "label": "Other"
-    },
-    {
-        "text": "Bên vay cam kết thanh toán đầy đủ nợ gốc, lãi và phí đúng hạn.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Ngân hàng có quyền phong tỏa tài khoản và giữ bản gốc tài sản cầm cố để bảo đảm nghĩa vụ trả nợ.",
-        "label": "Right"
-    },
-    {
-        "text": "Thông tin định danh của người vay.",
-        "label": "Other"
-    },
-    {
-        "text": "Hợp đồng này được điều chỉnh bởi pháp luật Việt Nam.",
-        "label": "Other"
-    },
-    {
-        "text": "Các loại phí bao gồm phí trả nợ trước hạn và phí cam kết rút vốn theo biểu phí của Ngân hàng.",
-        "label": "Other"
-    },
-    {
-        "text": "PHẦN PHÊ DUYỆT CỦA NGÂN HÀNG.",
-        "label": "Other"
-    },
-    {
-        "text": "Nếu không thể thanh toán do nguyên nhân khách quan, Bên vay phải gửi văn bản đề nghị điều chỉnh kỳ hạn nợ trước ngày đến hạn 15 ngày.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Các thông tin cung cấp trong hợp đồng này là hoàn toàn chính xác và trung thực.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Số tiền vay được duyệt là 500.000.000 VNĐ.",
-        "label": "Other"
-    },
-    {
-        "text": "Ngân hàng được quyền tự động trích nợ từ tài khoản số 101000123456 của Bên vay tại Chi nhánh BIDV TP.HCM.",
-        "label": "Right"
-    },
-    {
-        "text": "Bên vay cam kết tài sản cầm cố thuộc quyền sở hữu hợp pháp, không có tranh chấp và không dùng để bảo đảm cho bất kỳ nghĩa vụ nợ nào khác.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Bên vay khẳng định có toàn quyền sử dụng tài sản này để bảo đảm cho khoản vay tại Ngân hàng.",
-        "label": "Right"
-    },
-    {
-        "text": "Thông tin thu nhập tự kê khai của Bên vay.",
-        "label": "Other"
-    },
-    {
-        "text": "Phạt vi phạm hợp đồng là 5% tính trên giá trị nợ gốc vi phạm.",
+        "text": "Bên A có quyền đơn phương chấm dứt hợp đồng nếu Bên B sử dụng nhà xưởng sai mục đích đã cam kết tại Điều 1.",
         "label": "Termination Condition"
     },
     {
-        "text": "Lãi chậm trả đối với số tiền lãi chưa thanh toán tối đa là 10%/năm.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Ngân hàng có nghĩa vụ bảo quản và hoàn trả tài sản sau khi Bên vay hoàn tất nghĩa vụ theo hợp đồng.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Cam kết của Bên vay.",
-        "label": "Other"
-    },
-    {
-        "text": "Tiền lãi được tính trên dư nợ thực tế nhân với số ngày duy trì nợ thực tế nhân với lãi suất năm chia cho 365.",
-        "label": "Other"
-    },
-    {
-        "text": "Thông tin tài sản gồm: Sổ tiết kiệm số STK12345, mệnh giá 600.000.000 VNĐ, kỳ hạn 12 tháng, ngày đến hạn 20/05/2025, đơn vị phát hành là Ngân hàng BIDV.",
-        "label": "Other"
-    },
-    {
-        "text": "Các văn bản liên quan là một phần không thể tách rời của hợp đồng.",
-        "label": "Other"
-    },
-    {
-        "text": "Tổng số tiền vay là 500.000.000 VNĐ (Năm trăm triệu đồng).",
-        "label": "Other"
-    },
-    {
-        "text": "Đại diện Ngân hàng xác nhận đã tiếp nhận hồ sơ và phê duyệt khoản vay.",
-        "label": "Other"
-    },
-    {
-        "text": "Vốn vay được giải ngân một lần với số tiền 500.000.000 VNĐ (Năm trăm triệu đồng).",
-        "label": "Obligation"
-    },
-    {
-        "text": "Ngân hàng có quyền đình chỉ cho vay và thu hồi nợ trước hạn nếu Bên vay sử dụng vốn sai mục đích hoặc vi phạm hợp đồng.",
+        "text": "Trong trường hợp nhà xưởng bị hư hỏng do thiên tai không thể khắc phục, hai bên có quyền chấm dứt hợp đồng mà không phải bồi thường.",
         "label": "Termination Condition"
+    },
+    {
+        "text": "Hợp đồng chấm dứt nếu một trong hai bên bị giải thể hoặc phá sản theo quy định của Luật Doanh nghiệp.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên B có quyền yêu cầu Bên A sửa chữa các hư hỏng về hạ tầng nhà xưởng không phải do lỗi của Bên B gây ra.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên B có quyền ưu tiên thuê tiếp nhà xưởng nếu vẫn còn nhu cầu sử dụng khi thời hạn thuê cũ kết thúc.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên A có quyền kiểm tra định kỳ tình trạng nhà xưởng nhưng phải thông báo trước cho Bên B ít nhất 24 giờ.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên B có quyền lắp đặt thêm các hệ thống bảng hiệu, biển quảng cáo tại mặt tiền nhà xưởng sau khi được cơ quan chức năng cấp phép.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên B có quyền đơn phương chấm dứt hợp đồng nếu Bên A không đảm bảo quyền sử dụng nhà xưởng hợp pháp theo Bộ luật Dân sự.",
+        "label": "Right"
+    },
+    {
+        "text": "Nếu Bên B chậm thanh toán, Bên B phải chịu mức phạt vi phạm là 0.05% trên tổng số tiền chậm trả cho mỗi ngày quá hạn.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trường hợp Bên A bàn giao nhà xưởng chậm so với thời hạn, Bên A phải bồi thường một khoản tiền phạt tương đương 10% giá trị tiền thuê của tháng đó.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mức lãi suất áp dụng cho các khoản tiền chậm thanh toán được tính theo lãi suất cơ bản do Ngân hàng Nhà nước công bố cộng thêm biên độ 2%.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vi phạm phải chịu mức phạt 5% giá trị hợp đồng nếu đơn phương chấm dứt hợp đồng trái quy định.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Nếu Bên B làm hư hỏng tài sản của Bên A, Bên B phải chịu mức phạt bồi thường bằng 150% giá trị tài sản bị hư hỏng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trong trường hợp xảy ra tranh chấp, các bên đồng ý áp dụng mức phí trọng tài theo biểu phí quy định của Trung tâm Trọng tài Quốc tế Việt Nam.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Phương thức giải ngân vốn vay.",
+        "label": "Other"
+    },
+    {
+        "text": "Thu nhập từ tiền lương và tiền thưởng hàng tháng là 30.",
+        "label": "Other"
+    },
+    {
+        "text": "000. 000 VNĐ, kỳ hạn 12 tháng, ngày đến hạn 20/05/2025, đơn vị phát hành là Ngân hàng BIDV.",
+        "label": "Other"
+    },
+    {
+        "text": "Phương án hoàn trả nợ.",
+        "label": "Other"
     },
     {
         "text": "Bên vay đồng ý vay vốn theo mức phê duyệt cuối cùng của Ngân hàng nếu không đáp ứng đủ điều kiện vay ban đầu.",
         "label": "Obligation"
     },
     {
-        "text": "Trong trường hợp quá hạn mà không trả được bằng thu nhập, nguồn trả nợ sẽ được trích từ việc tất toán tài sản cầm cố.",
+        "text": "Hợp đồng được lập thành 03 bản gốc, Ngân hàng giữ 02 bản và Bên vay giữ 01 bản.",
+        "label": "Other"
+    },
+    {
+        "text": "Các thông tin cung cấp trong hợp đồng này là hoàn toàn chính xác và trung thực.",
+        "label": "Obligation"
+    },
+    {
+        "text": "ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.",
+        "label": "Other"
+    },
+    {
+        "text": "Lãi vay được Bên vay thanh toán một lần vào ngày trả nợ gốc.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vay đồng ý chuyển phương thức thanh toán lãi và gốc của tài sản cầm cố sang phương thức gốc quay vòng và lãi nhập gốc.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vay cam kết thanh toán đầy đủ nợ gốc, lãi và phí đúng hạn.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi sửa đổi phải được lập thành văn bản có chữ ký của hai bên.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vay xác nhận đã đọc, hiểu và đồng ý với toàn bộ nội dung hợp đồng.",
         "label": "Obligation"
     },
     {
@@ -544,67 +792,303 @@
         "label": "Other"
     },
     {
-        "text": "Điện thoại: 02438255555.",
-        "label": "Other"
-    },
-    {
-        "text": "Thời gian giao hàng: 08 giờ 00 ngày 23 tháng 05 năm 2024.",
-        "label": "Other"
-    },
-    {
-        "text": "Điều 8. Giải quyết hao hụt hàng hóa.",
-        "label": "Other"
-    },
-    {
-        "text": "Bên nào đã ký hợp đồng mà không thực hiện hợp đồng hoặc đơn phương đình chỉ thực hiện hợp đồng mà không có lý do chính đáng thì sẽ bị phạt tới 12% giá trị phần tổng cước phí dự chi.",
+        "text": "Ngân hàng có quyền đình chỉ cho vay và thu hồi nợ trước hạn nếu Bên vay sử dụng vốn sai mục đích hoặc vi phạm hợp đồng.",
         "label": "Termination Condition"
     },
     {
-        "text": "Nếu có vấn đề bất lợi phát sinh, các bên phải kịp thời thông báo cho nhau biết và tích cực bàn bạc giải quyết trên cơ sở thỏa thuận bình đẳng, cùng có lợi.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Điều 2. Địa điểm giao hàng và nhận hàng.",
+        "text": "Lãi suất và phí.",
         "label": "Other"
     },
     {
-        "text": "Điều 1. Hàng hóa vận chuyển.",
+        "text": "Đơn đề nghị này sau khi được Ngân hàng chấp thuận sẽ trở thành Hợp đồng tín dụng và cầm cố tài sản có giá trị ràng buộc pháp lý.",
         "label": "Other"
     },
     {
-        "text": "Trong trường hợp các bên không tự giải quyết được thì thống nhất nộp đơn đến Tòa án nhân dân quận Hoàn Kiếm để được giải quyết.",
+        "text": "Hiệu lực của hợp đồng.",
+        "label": "Other"
+    },
+    {
+        "text": "Lãi suất cho vay trong hạn là 8%/năm.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên vay chấp thuận cho Ngân hàng lưu trữ và sử dụng thông tin cá nhân để phục vụ mục đích quản lý khoản vay.",
         "label": "Obligation"
     },
     {
-        "text": "Bên nào vi phạm hợp đồng phải trả cho bên bị vi phạm tiền phạt vi phạm hợp đồng và bồi thường thiệt hại thực tế phát sinh.",
+        "text": "Cam kết của Bên vay.",
+        "label": "Other"
+    },
+    {
+        "text": "Số căn cước công dân là 001099000123, được cấp ngày 01/01/2022 tại Cục Cảnh sát quản lý hành chính về trật tự xã hội.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên vay cam kết sử dụng vốn đúng mục đích đã thỏa thuận và cung cấp đầy đủ chứng từ chứng minh theo yêu cầu của Ngân hàng.",
         "label": "Obligation"
+    },
+    {
+        "text": "000. 000 VNĐ (Năm trăm triệu đồng).",
+        "label": "Other"
+    },
+    {
+        "text": "Thời hạn cấp tín dụng là 12 tháng.",
+        "label": "Other"
+    },
+    {
+        "text": "000. 000 VNĐ.",
+        "label": "Other"
+    },
+    {
+        "text": "Phạt vi phạm hợp đồng là 5% tính trên giá trị nợ gốc vi phạm.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Các văn bản liên quan là một phần không thể tách rời của hợp đồng.",
+        "label": "Other"
+    },
+    {
+        "text": "Hợp đồng có hiệu lực từ ngày Ngân hàng ký phê duyệt và kết thúc khi Bên vay hoàn thành mọi nghĩa vụ tài chính.",
+        "label": "Other"
+    },
+    {
+        "text": "Thông tin tài sản gồm: Sổ tiết kiệm số STK12345, mệnh giá 600.",
+        "label": "Other"
+    },
+    {
+        "text": "Nhu cầu vay vốn.",
+        "label": "Other"
+    },
+    {
+        "text": "Thời hạn vay là 365 ngày, từ ngày 20/05/2024 đến ngày 20/05/2025.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên vay khẳng định có toàn quyền sử dụng tài sản này để bảo đảm cho khoản vay tại Ngân hàng.",
+        "label": "Right"
+    },
+    {
+        "text": "Nếu một điều khoản bị vô hiệu theo luật pháp, các điều khoản còn lại vẫn giữ nguyên hiệu lực.",
+        "label": "Other"
+    },
+    {
+        "text": "Lãi suất nợ quá hạn bằng 150% lãi suất trong hạn tại thời điểm chuyển nợ quá hạn.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Ngân hàng được quyền tự động trích nợ từ tài khoản số 101000123456 của Bên vay tại Chi nhánh BIDV TP.HCM.",
+        "label": "Right"
+    },
+    {
+        "text": "Các loại phí bao gồm phí trả nợ trước hạn và phí cam kết rút vốn theo biểu phí của Ngân hàng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Thông tin định danh của người vay.",
+        "label": "Other"
+    },
+    {
+        "text": "Hình thức vay là vay theo món.",
+        "label": "Other"
+    },
+    {
+        "text": "Nếu Bên vay không hoàn trả nợ đúng hạn, Ngân hàng có quyền thu nợ từ tài sản cầm cố mà không cần thêm thủ tục nào khác.",
+        "label": "Right"
+    },
+    {
+        "text": "Phương thức trả nợ là chuyển khoản hoặc nộp tiền mặt trực tiếp tại quầy.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi tranh chấp sẽ được giải quyết thông qua thương lượng, nếu không thành sẽ đưa ra Tòa án nhân dân quận 1, thành phố Hồ Chí Minh.",
+        "label": "Other"
+    },
+    {
+        "text": "Lịch trình trả nợ gốc và lãi.",
+        "label": "Other"
+    },
+    {
+        "text": "Số hiệu hợp đồng là AA/BB/CC/HĐTD.",
+        "label": "Other"
+    },
+    {
+        "text": "Lịch trả nợ gốc được lập theo bảng kê đính kèm.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Các tài liệu đính kèm bao gồm bản sao CMND, bản gốc tài sản cầm cố và giấy ủy quyền rút tiền.",
+        "label": "Other"
+    },
+    {
+        "text": "Ngân hàng có quyền điều chỉnh lãi suất đột xuất theo cơ chế điều hành và thông báo bằng văn bản cho Bên vay.",
+        "label": "Right"
+    },
+    {
+        "text": "Ngân hàng có quyền phong tỏa tài khoản và giữ bản gốc tài sản cầm cố để bảo đảm nghĩa vụ trả nợ.",
+        "label": "Right"
+    },
+    {
+        "text": "Ngân hàng có nghĩa vụ bảo quản và hoàn trả tài sản sau khi Bên vay hoàn tất nghĩa vụ theo hợp đồng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tài khoản thanh toán bằng đồng Việt Nam số 101000123456 tại Ngân hàng BIDV - Chi nhánh TP.HCM.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên vay bị nghiêm cấm chuyển nhượng quyền lợi hoặc nghĩa vụ trong hợp đồng này cho bất kỳ bên thứ ba nào nếu không có sự đồng ý bằng văn bản của Ngân hàng theo quy định của Luật Các tổ chức tín dụng.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Ngân hàng có quyền đơn phương chấm dứt hợp đồng và thu hồi toàn bộ dư nợ nếu Bên vay vi phạm nghĩa vụ bảo mật thông tin hoặc sử dụng vốn vay sai mục đích đã cam kết.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Trường hợp Bên vay chậm thanh toán, mức phạt vi phạm hợp đồng là 5% trên số dư nợ gốc quá hạn và lãi chậm trả được áp dụng theo lãi suất 10%/năm.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vay không được phép sử dụng tài sản cầm cố để bảo đảm cho bất kỳ khoản vay nào khác tại các tổ chức tín dụng khác theo quy định tại Bộ luật Dân sự.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Hợp đồng sẽ tự động chấm dứt nếu tài sản cầm cố bị hư hỏng, mất giá trị hoặc bị cơ quan nhà nước thu hồi theo quy định của Luật Đất đai.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mọi hành vi gian lận trong việc kê khai thu nhập sẽ bị áp dụng mức phạt vi phạm là 2% trên tổng hạn mức tín dụng được cấp.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Lãi suất cho vay ưu đãi trong 6 tháng đầu là 7,5%/năm, sau đó sẽ áp dụng lãi suất thả nổi theo biên độ thị trường.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vay không được phép thay đổi mục đích sử dụng vốn vay nếu chưa nhận được sự chấp thuận bằng văn bản từ Ngân hàng.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Nếu Bên vay không thực hiện đúng cam kết về thời hạn trả nợ, Ngân hàng sẽ áp dụng phí phạt trả chậm là 0,05% trên số tiền chậm trả cho mỗi ngày quá hạn.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Hợp đồng này chấm dứt hiệu lực khi Bên vay hoàn tất nghĩa vụ trả nợ gốc, lãi suất 8,5%/năm và các khoản phí phạt vi phạm 3% giá trị hợp đồng theo quy định của Luật Thương mại.",
+        "label": "Termination Condition"
     },
     {
         "text": "Bên B giao hàng cho Bên A tại địa điểm kho hàng số 20, đường Trường Chinh, quận Tân Bình, thành phố Hồ Chí Minh.",
         "label": "Obligation"
     },
     {
-        "text": "Điều 14. Xử lý tranh chấp hợp đồng.",
+        "text": "Giấy ủy quyền số: 05/UQ-TT ngày 15 tháng 02 năm 2024 do Chủ tịch Hội đồng thành viên ký.",
         "label": "Other"
     },
     {
-        "text": "Tại địa điểm có thể tổ chức xếp dỡ chuyên trách thì chi phí xếp dỡ do chủ hàng (Bên A) chịu.",
+        "text": "Điều 11. Đăng ký bảo hiểm.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B chi phí mua bảo hiểm phương tiện vận tải với chi nhánh Bảo Việt tại Hà Nội trong chuyên chở hàng ngày.",
         "label": "Obligation"
     },
     {
-        "text": "Trong trường hợp chủ hàng phụ trách xếp dỡ thì bên vận tải có trách nhiệm hướng dẫn về kỹ thuật xếp dỡ.",
+        "text": "Hàng linh kiện điện tử là hàng dễ vỡ.",
+        "label": "Other"
+    },
+    {
+        "text": "000. 000 đồng (bằng chữ: Năm mươi triệu đồng).",
+        "label": "Other"
+    },
+    {
+        "text": "500. 000 đồng (bằng chữ: Năm mươi sáu triệu năm trăm nghìn đồng).",
+        "label": "Other"
+    },
+    {
+        "text": "Tên doanh nghiệp: Công ty TNHH Vận tải và Logistics Trường Thành.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên A yêu cầu Bên B vận chuyển số hàng trên bằng phương tiện xe tải thùng kín, đồng thời phải bảo đảm các tiêu chuẩn sau.",
         "label": "Obligation"
     },
     {
-        "text": "Số lượng giao hàng: 500 thùng.",
+        "text": "Bên B phải làm vệ sinh phương tiện vận tải khi nhận hàng, chi phí vệ sinh phương tiện vận tải sau khi giao hàng Bên A phải chịu là 500.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tên hàng: Linh kiện điện tử.",
         "label": "Other"
     },
     {
-        "text": "Điều 6. Phương thức giao nhận hàng.",
+        "text": "Điều 4. Phương tiện vận tải.",
         "label": "Other"
+    },
+    {
+        "text": "Bên A phải chi phí mua bảo hiểm hàng hóa.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tài khoản số: 190222333444555 mở tại Ngân hàng TMCP Kỹ Thương Việt Nam - Chi nhánh Hoàn Kiếm.",
+        "label": "Other"
+    },
+    {
+        "text": "Hai bên cam kết thực hiện đúng các điều khoản đã ký kết.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mã số thuế doanh nghiệp: 0101234567.",
+        "label": "Other"
+    },
+    {
+        "text": "000. 000 đồng, giá chênh lệch nhiên liệu 3.",
+        "label": "Other"
+    },
+    {
+        "text": "Trừ các trường hợp Bên A có giấy điều động vận chuyển hàng khẩn cấp theo lệnh của Chủ tịch Ủy ban nhân dân cấp tỉnh hoặc Bộ trưởng Bộ Giao thông vận tải trở lên thì không phải nộp các khoản tiền bồi thường các chi phí tổn đó.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên B không phải chịu trách nhiệm hàng mất mát nhưng phải có trách nhiệm điều khiển phương tiện đúng yêu cầu kỹ thuật để không gây hư hỏng, mất mát hàng hóa.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên A phải viết rõ ràng, không tẩy xóa, gạch bỏ, viết thêm, viết chồng hay dán chồng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Các trường hợp sau đây Bên A buộc phải cử người áp tải gồm hàng quý hiếm, hàng tươi sống, súc vật sống, hàng nguy hiểm, súng ống, đạn dược, linh cữu, thi hài.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tính chất hàng hóa: Bên B cần lưu ý bảo đảm cho Bên A những loại hàng sau được an toàn.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tiền cước phí chính mà Bên A phải thanh toán cho Bên B bao gồm 50.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên B chịu trách nhiệm về kỹ thuật cho phương tiện vận tải để bảo đảm vận chuyển trong thời gian là 72 giờ.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trường hợp Bên B đưa phương tiện đến nhận hàng chậm so với lịch giao nhận phải chịu phạt hợp đồng là 200.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên A phải có trách nhiệm về những điều mình ghi vào vận đơn giao cho Bên B.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trường hợp này Bên A phải trả thêm tiền cho Bên B một khoản tiền bằng 15% giá cước vận chuyển, ngoài ra còn phải chi phí các khoản phí tổn khác cho Bên B kể cả tiền phạt do điều động phương tiện vận tải đột xuất làm lỡ các hợp đồng đã ký với chủ hàng khác.",
+        "label": "Obligation"
     },
     {
         "text": "Bên A cử 02 người theo phương tiện để áp tải.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Hàng để lâu có thể bị hư hỏng, trường hợp hàng bị tịch thu vẫn phải trả đủ tiền cước đã thỏa thuận.",
         "label": "Obligation"
     },
     {
@@ -612,111 +1096,135 @@
         "label": "Right"
     },
     {
-        "text": "Điện thoại: 02436555555.",
-        "label": "Other"
-    },
-    {
-        "text": "Hợp đồng này có hiệu lực từ ngày 15 tháng 05 năm 2024 đến ngày 15 tháng 06 năm 2024.",
-        "label": "Other"
-    },
-    {
-        "text": "Chi phí cho những hoạt động kiểm tra xác minh và án phí Tòa án do bên có lỗi chịu.",
+        "text": "Hai bên sẽ tổ chức họp và lập biên bản thanh lý hợp đồng này vào ngày 20 tháng 06 năm 2024.",
         "label": "Obligation"
     },
     {
-        "text": "Nếu cần xếp dỡ vào ban đêm, vào ngày lễ và ngày chủ nhật Bên A phải báo trước cho Bên B là 24 giờ, phải trả chi phí cao hơn giờ hành chính là 100.000 đồng/giờ.",
+        "text": "Nếu xếp dỡ xong trước thời gian quy định và an toàn thì bên A sẽ thưởng cho bên B số tiền là 500.",
         "label": "Obligation"
     },
     {
-        "text": "Hôm nay, ngày 15 tháng 05 năm 2024, tại thành phố Hà Nội.",
+        "text": "Tại địa điểm có thể tổ chức xếp dỡ chuyên trách thì chi phí xếp dỡ do chủ hàng (Bên A) chịu.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Điều 3. Thời gian giao nhận hàng.",
         "label": "Other"
     },
     {
-        "text": "Điều 15. Các thỏa thuận khác.",
+        "text": "Nếu có vấn đề bất lợi phát sinh, các bên phải kịp thời thông báo cho nhau biết và tích cực bàn bạc giải quyết trên cơ sở thỏa thuận bình đẳng, cùng có lợi.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trong trường hợp các bên không tự giải quyết được thì thống nhất nộp đơn đến Tòa án nhân dân quận Hoàn Kiếm để được giải quyết.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trường hợp không tìm thấy người đại diện của Bên A tại địa điểm giao hàng, Bên B chờ sau 120 phút có quyền nhờ Ủy ban nhân dân cơ sở xác nhận phương tiện có đến rồi cho phương tiện về và yêu cầu thanh toán chi phí như trên.",
+        "label": "Right"
+    },
+    {
+        "text": "Điều 6. Phương thức giao nhận hàng.",
         "label": "Other"
     },
     {
-        "text": "Trừ các trường hợp Bên A có giấy điều động vận chuyển hàng khẩn cấp theo lệnh của Chủ tịch Ủy ban nhân dân cấp tỉnh hoặc Bộ trưởng Bộ Giao thông vận tải trở lên thì không phải nộp các khoản tiền bồi thường các chi phí tổn đó.",
+        "text": "Đại diện: Ông Nguyễn Văn An.",
         "label": "Other"
     },
     {
-        "text": "Hợp đồng này được lập thành 04 bản, có giá trị như nhau, mỗi bên giữ 02 bản.",
-        "label": "Other"
-    },
-    {
-        "text": "Đại diện: Bà Trần Thị Bình.",
-        "label": "Other"
-    },
-    {
-        "text": "Đại diện bên B.",
-        "label": "Other"
-    },
-    {
-        "text": "Nhận hàng xong nếu Bên A báo mất mát, hư hỏng Bên B không chịu trách nhiệm bồi thường.",
+        "text": "Nếu Bên A vi phạm nghĩa vụ thanh toán tổng cước phí vận chuyển thì phải chịu phạt theo mức lãi suất chậm trả của tín dụng ngân hàng 0,05% mỗi ngày tính từ hết hạn thanh toán.",
         "label": "Termination Condition"
     },
     {
-        "text": "Tài khoản số: 10203040506070 mở tại Ngân hàng TMCP Công thương Việt Nam - Chi nhánh Long Biên.",
+        "text": "BÊN CHỦ HÀNG (gọi tắt là Bên A).",
         "label": "Other"
     },
     {
-        "text": "Tên doanh nghiệp: Công ty Cổ phần Thương mại Xuất nhập khẩu An Bình.",
+        "text": "Số lượng nhận hàng: 500 thùng.",
         "label": "Other"
     },
     {
-        "text": "Điều 16. Hiệu lực của hợp đồng.",
-        "label": "Other"
+        "text": "Khi Bên B đưa phương tiện đến nhận hàng mà Bên A chưa có hàng để giao thì sau 60 phút Bên A phải chứng nhận cho Bên B đem phương tiện về và phải trả giá cước của loại hàng thấp nhất về giá vận tải theo đoạn đường đã hợp đồng.",
+        "label": "Obligation"
     },
     {
         "text": "Số lượng phương tiện là 02 xe.",
         "label": "Other"
     },
     {
-        "text": "Bên B phải làm giấy xác báo hàng hóa (phải được đại diện Bên B ký, đóng dấu xác nhận) trước 04 giờ, nếu có thay đổi phải làm giấy xác báo lại trước 02 giờ so với thời điểm giao hàng.",
+        "text": "Bên A thanh toán cho Bên B bằng hình thức chuyển khoản.",
         "label": "Obligation"
     },
     {
-        "text": "Nếu xếp dỡ xong trước thời gian quy định và an toàn thì bên A sẽ thưởng cho bên B số tiền là 500.000 đồng/giờ.",
-        "label": "Obligation"
-    },
-    {
-        "text": "“Thông tin bảo mật”: là bất kỳ và toàn bộ thông tin, dữ liệu, nội dung trao đổi được chứa đựng trong văn bản, hồ sơ, tài liệu có sẵn, tồn tại dưới dạng bản viết, bản in, dữ liệu điện tử, tranh, ảnh, bản vẽ, băng, đĩa, bản ghi hình, ghi âm, lời nói hoặc các dạng khác được tiết lộ, cung cấp bởi Bên cung cấp thông tin và Bên nhận thông tin được Tiếp cận trực tiếp thông qua việc đọc, xem, nghe, ghi chép, sao chép, chụp thông tin hoặc gián tiếp Tiếp cận dưới bất kỳ hình thức nào.",
-        "label": "Other"
-    },
-    {
-        "text": "Hôm nay, ngày 20 tháng 05 năm 2024, tại Hà Nội, chúng tôi gồm các Bên dưới đây.",
-        "label": "Other"
-    },
-    {
-        "text": "(Sau đây gọi tắt là “PGBank” hoặc “Bên A”).",
-        "label": "Other"
-    },
-    {
-        "text": "Một Bên đơn phương chấm dứt Thỏa thuận bằng cách đưa ra thông báo chấm dứt bằng văn bản trước 30 (ba mươi) ngày tính đến ngày chấm dứt Thỏa thuận.",
+        "text": "Nếu Bên A không xác báo xin phương tiện thì Bên B không chịu trách nhiệm.",
         "label": "Termination Condition"
     },
     {
-        "text": "Trường hợp hai Bên không tự thương lượng được thì việc tranh chấp sẽ được đưa ra giải quyết tại Tòa án nhân dân có thẩm quyền tại Việt Nam.",
-        "label": "Right"
-    },
-    {
-        "text": "Điều 1. Định nghĩa.",
-        "label": "Other"
-    },
-    {
-        "text": "Thông tin bảo mật không bao gồm:",
-        "label": "Other"
-    },
-    {
-        "text": "Các Bên tham gia đồng ý rằng tổn thất sẽ có thể không được khắc phục một cách toàn diện và Bên không vi phạm có quyền khởi kiện tại tòa án hoặc yêu cầu một hình thức bồi thường công bằng trong trường hợp Thỏa thuận này có nguy cơ bị vi phạm hoặc bị vi phạm.",
-        "label": "Right"
-    },
-    {
-        "text": "Các Bên hiểu rằng các thông tin mà mình đã được cung cấp hoặc thu thập được từ Bên còn lại đều là các thông tin trọng yếu và cần bảo mật tuyệt đối.",
+        "text": "Hai bên cần chủ động thông báo cho nhau biết tiến độ thực hiện hợp đồng.",
         "label": "Obligation"
     },
     {
-        "text": "Với sự hiểu biết và tin cậy, đại diện hợp lệ của Các Bên đã tiến hành ký kết và đóng dấu hợp lệ vào Thỏa thuận này vào ngày, tháng, năm được ghi tại phần đầu Thỏa thuận này.",
+        "text": "Xếp dỡ hư hỏng hàng hóa phải bồi thường theo giá trị thị trường tại địa điểm bốc xếp.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Điện thoại: 02438255555.",
+        "label": "Other"
+    },
+    {
+        "text": "000 đồng/km, cước phí qua cầu đường 2.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B không được phép tự ý thay đổi lộ trình vận chuyển đã thỏa thuận nếu không có sự đồng ý bằng văn bản của Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên A có quyền kiểm tra tình trạng niêm phong của hàng hóa tại bất kỳ điểm dừng chân nào trong quá trình vận chuyển.",
+        "label": "Right"
+    },
+    {
+        "text": "Trường hợp Bên B làm hư hỏng hàng hóa do lỗi chủ quan, Bên B phải chịu mức phạt vi phạm là 15% giá trị lô hàng bị hư hỏng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Phí lưu kho phát sinh ngoài thời gian quy định sẽ được tính theo tỷ lệ 0,1% giá trị hàng hóa mỗi ngày.",
+        "label": "Other"
+    },
+    {
+        "text": "Việc giải quyết các tranh chấp phát sinh từ hợp đồng này phải tuân thủ theo quy định của Bộ luật Dân sự hiện hành.",
+        "label": "Other"
+    },
+    {
+        "text": "Nghiêm cấm Bên B sử dụng phương tiện vận tải để chở thêm hàng hóa của bên thứ ba khi chưa có sự chấp thuận của Bên A.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên B có quyền yêu cầu Bên A cung cấp đầy đủ thông tin về tính chất hàng hóa trước khi thực hiện bốc xếp.",
+        "label": "Right"
+    },
+    {
+        "text": "Nếu Bên A chậm thanh toán quá 05 ngày, Bên A phải chịu mức phạt chậm trả là 0,08% trên tổng số tiền nợ mỗi ngày.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Giá cước vận chuyển áp dụng cho các chuyến hàng khẩn cấp sẽ được tính theo tỷ lệ tăng thêm 20% so với giá cước thông thường.",
+        "label": "Other"
+    },
+    {
+        "text": "Các bên cam kết thực hiện đúng các nghĩa vụ theo quy định tại Luật Thương mại Việt Nam.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên B: Email: contact@xyztech.",
+        "label": "Other"
+    },
+    {
+        "text": "Mã số thuế: 0301234567.",
+        "label": "Other"
+    },
+    {
+        "text": "“Tiếp cận thông tin bảo mật” hoặc “Tiếp cận”: là việc đọc, xem, nghe, ghi chép, sao chép, chụp Thông tin bảo mật.",
         "label": "Other"
     },
     {
@@ -724,71 +1232,55 @@
         "label": "Other"
     },
     {
-        "text": "Fax: 024 62811299.",
-        "label": "Other"
-    },
-    {
-        "text": "Cung cấp Thông tin bảo mật trong trường hợp bắt buộc: Trong trường hợp Bên nhận thông tin buộc phải cung cấp các Thông tin bảo mật theo yêu cầu bằng văn bản của cơ quan nhà nước có thẩm quyền hoặc theo quy định của pháp luật thì:",
+        "text": "Đồng thời, bên vi phạm phải thanh toán khoản tiền phạt và lãi chậm trả trong thời hạn do Bên không vi phạm yêu cầu.",
         "label": "Obligation"
     },
     {
-        "text": "PGBank: Email: ducdd@pgbank.com.vn; Điện thoại: 0944664688; Người liên hệ: Đặng Đình Đức; Địa chỉ: Tầng 16, Toà nhà Mipec, số 229 Tây Sơn, Phường Ngã Tư Sở, Quận Đống Đa, Thành phố Hà Nội.",
+        "text": "Thông tin do Bên nhận thông tin tạo lập, phân tích độc lập hoặc có được một cách hợp pháp mà không cần sử dụng Thông tin bảo mật của Bên cung cấp thông tin.",
         "label": "Other"
     },
     {
-        "text": "Điều 7. Điều khoản chung.",
+        "text": "Điện thoại: 024 62811298.",
         "label": "Other"
     },
     {
-        "text": "Điện thoại: 028 38229988.",
+        "text": "“Bên nhận thông tin”: là Bên B và/hoặc Người đại diện của Bên B được Bên cung cấp thông tin tiết lộ Thông tin bảo mật.",
         "label": "Other"
     },
     {
-        "text": "Bên nhận thông tin có trách nhiệm thực hiện theo đúng các yêu cầu và biện pháp khắc phục do Bên cung cấp thông tin đưa ra.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Quyền sở hữu: Tất cả quyền sở hữu trí tuệ, quyền tài sản đối với Thông tin bảo mật thuộc về Bên cung cấp thông tin, trừ khi có quy định khác giữa các Bên bằng văn bản.",
-        "label": "Right"
-    },
-    {
-        "text": "Văn bản về việc sửa đổi và/hoặc bổ sung Thỏa thuận là một phần đính kèm và không tách rời của Thỏa thuận này.",
+        "text": "vn; Điện thoại: 0944664688; Người liên hệ: Đặng Đình Đức; Địa chỉ: Tầng 16, Toà nhà Mipec, số 229 Tây Sơn, Phường Ngã Tư Sở, Quận Đống Đa, Thành phố Hà Nội.",
         "label": "Other"
     },
     {
-        "text": "Cam kết không ảnh hưởng: Bên nhận thông tin phải thực hiện và duy trì tất cả các bước bảo mật và biện pháp phòng ngừa hợp lý, cần thiết để giữ bí mật Thông tin bảo mật và chống lại mọi truy cập trái phép và sẽ bồi thường thiệt hại cho Bên cung cấp thông tin liên quan đến các khiếu kiện, khiếu nại, tranh chấp, bất đồng phát sinh từ việc vi phạm các cam kết bảo mật của mình theo Thỏa thuận này và các văn bản liên quan được ký kết giữa các Bên.",
-        "label": "Obligation"
-    },
-    {
-        "text": "ĐẠI DIỆN BÊN B.",
+        "text": "“Thông tin bảo mật”: là bất kỳ và toàn bộ thông tin, dữ liệu, nội dung trao đổi được chứa đựng trong văn bản, hồ sơ, tài liệu có sẵn, tồn tại dưới dạng bản viết, bản in, dữ liệu điện tử, tranh, ảnh, bản vẽ, băng, đĩa, bản ghi hình, ghi âm, lời nói hoặc các dạng khác được tiết lộ, cung cấp bởi Bên cung cấp thông tin và Bên nhận thông tin được Tiếp cận trực tiếp thông qua việc đọc, xem, nghe, ghi chép, sao chép, chụp thông tin hoặc gián tiếp Tiếp cận dưới bất kỳ hình thức nào.",
         "label": "Other"
-    },
-    {
-        "text": "“Người đại diện”: bao gồm người đại diện hợp pháp, người quản lý, người lao động, cộng tác viên của các Bên được giao nhiệm vụ, chỉ định tham gia vào việc đàm phán, thỏa thuận, thực hiện Hợp đồng và có quyền hạn được Tiếp cận thông tin bảo mật.",
-        "label": "Other"
-    },
-    {
-        "text": "Việc liên hệ giữa các Bên theo Thỏa thuận này được thực hiện thông qua một, một số hoặc tất cả các phương thức: (i) thông báo qua điện thoại (được hiểu gồm cả phương thức gọi điện, tin nhắn, liên hệ qua zalo, facebook, viber hoặc bất cứ phần mềm liên lạc có kết nối internet nào khác); (ii) bằng văn bản được chuyển qua bưu điện hoặc giao nhận trực tiếp; hoặc (iii) gửi yêu cầu qua email/fax; hoặc (iv) phương thức khác mà PGBank thấy phù hợp với thực tế vận hành của PGBank.",
-        "label": "Obligation"
     },
     {
         "text": "Chức vụ: Tổng Giám đốc.",
         "label": "Other"
     },
     {
-        "text": "Theo đó, các Bên thừa nhận và đồng ý rằng, mỗi Bên không bị ràng buộc phải tham gia vào bất kỳ giao dịch, mối quan hệ kinh doanh nào trong tương lai, có quyền từ chối mọi đề xuất và chấm dứt các cuộc đàm phán đối với bất kỳ thỏa thuận nào liên quan đến Hợp đồng.",
-        "label": "Right"
-    },
-    {
-        "text": "Hai Bên cam kết thực hiện đầy đủ và đúng các Điều khoản ghi trong Thỏa thuận này.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Giấy ủy quyền: Số 123/GUQ-PGBank ngày 01/01/2024.",
+        "text": "Mã số thuế: 1400116233.",
         "label": "Other"
     },
     {
-        "text": "Địa chỉ: Tầng 16, 23, 24 Toà nhà Mipec, số 229 Tây Sơn, Phường Ngã Tư Sở, Quận Đống Đa, Thành phố Hà Nội.",
+        "text": "“Bên cung cấp thông tin”: là PGBank và/hoặc Người đại diện của PGBank tiết lộ Thông tin bảo mật cho Bên nhận thông tin và/hoặc Người đại diện của Bên nhận thông tin.",
+        "label": "Other"
+    },
+    {
+        "text": "Trường hợp quyền và nghĩa vụ theo Thỏa thuận này được chuyển nhượng lại, Thỏa thuận này cấu thành nghĩa vụ hợp lệ và ràng buộc của các Bên và người kế thừa, người nhận chuyển nhượng của họ.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Các Bên đang trong quá trình thảo luận, đàm phán một cách thiện chí về việc chào hàng cạnh tranh Gói mua sắm Hệ thống Phòng chống rửa tiền (PCRT).",
+        "label": "Other"
+    },
+    {
+        "text": "PGBank: Email: ducdd@pgbank. com.",
+        "label": "Other"
+    },
+    {
+        "text": "Điều 4. Hiệu lực của Thỏa thuận.",
         "label": "Other"
     },
     {
@@ -796,23 +1288,263 @@
         "label": "Prohibition"
     },
     {
-        "text": "Điều 4. Hiệu lực của Thỏa thuận.",
+        "text": "Nếu Bên liên hệ đã áp dụng nhiều phương thức để thông báo/yêu cầu thì thời gian Bên tiếp nhận được coi là nhận được thông báo/yêu cầu được tính theo phương thức mà Bên tiếp nhận nhận được thông tin sớm nhất.",
         "label": "Other"
+    },
+    {
+        "text": "“Người đại diện”: bao gồm người đại diện hợp pháp, người quản lý, người lao động, cộng tác viên của các Bên được giao nhiệm vụ, chỉ định tham gia vào việc đàm phán, thỏa thuận, thực hiện Hợp đồng và có quyền hạn được Tiếp cận thông tin bảo mật.",
+        "label": "Other"
+    },
+    {
+        "text": "Thông tin bảo mật không bao gồm:",
+        "label": "Other"
+    },
+    {
+        "text": "Trả lại hoặc hủy bỏ: Sau khi chấm dứt Thỏa thuận này hoặc khi có yêu cầu của Bên cung cấp thông tin, Bên nhận thông tin phải hoàn trả lại hay hủy bỏ/xóa bỏ ngay lập tức tất cả các bản gốc và bản sao của Thông tin bảo mật và cam kết không còn bất kỳ bản gốc hay bản sao nào của các Thông tin bảo mật đó được lưu lại trên bất kỳ thiết bị, phương tiện lưu trữ nào.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Người đại diện: Ông Nguyễn Văn A.",
+        "label": "Other"
+    },
+    {
+        "text": "Sau 01 (một) năm kể từ ngày ký kết Thỏa thuận này mà các Bên không thỏa thuận gia hạn.",
+        "label": "Termination Condition"
     },
     {
         "text": "Thỏa thuận được lập thành 02 (hai) bản bằng tiếng Việt có giá trị pháp lý như nhau, Bên A giữ 01 (một) bản, Bên B giữ 01 (một) bản để thực hiện.",
-        "label": "Obligation"
-    },
-    {
-        "text": "Bên A và Bên B sau đây được gọi chung là “hai Bên” hoặc “các Bên” và gọi riêng là “Bên” hoặc “mỗi Bên”, tùy theo ngữ cảnh diễn đạt.",
         "label": "Other"
     },
     {
-        "text": "Sau khi Thỏa thuận chấm dứt hiệu lực theo các trường hợp quy định tại Khoản 4.1 Điều này, Bên nhận thông tin vẫn có nghĩa vụ bảo mật các thông tin, dữ liệu do Bên cung cấp thông tin cung cấp theo đúng các nội dung ghi nhận tại Thỏa thuận này trong thời hạn 03 (ba) năm kể từ thời điểm chấm dứt Thỏa thuận này.",
+        "text": "Bên nhận thông tin cũng sẽ thông báo với Người đại diện của mình về các điều khoản của Thoả Thuận này và tiến hành các thủ tục cần thiết để đảm bảo rằng những người này đồng ý tuân thủ và chịu sự ràng buộc của Thoả thuận này.",
         "label": "Obligation"
     },
     {
-        "text": "Các Thông tin bảo mật tồn tại dưới hình thức không có khả năng trả lại hoặc đã được sao chép, Bên nhận thông tin phải hủy hoặc xóa bỏ một cách thích hợp.",
+        "text": "“Bên thứ ba”: là bất kỳ bên nào khác không phải Bên A, Bên B và Người đại diện của họ, bao gồm nhưng không giới hạn bởi: khách hàng, nhà đầu tư, đối tác kinh doanh, đại lý, nhà cung cấp, nhà thầu phụ hoặc nhà tư vấn của các Bên (đơn vị cung cấp dịch vụ tư vấn pháp lý, tài chính - kế toán, thi công xây dựng, kỹ thuật, nhân viên ngân hàng và các đơn vị tư vấn chuyên môn khác).",
+        "label": "Other"
+    },
+    {
+        "text": "Tên đơn vị: NGÂN HÀNG TMCP THỊNH VƯỢNG VÀ PHÁT TRIỂN.",
+        "label": "Other"
+    },
+    {
+        "text": "Căn cứ vào Bộ luật Dân sự số 91/2015/QH13 của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam, ban hành ngày 24/11/2015, có hiệu lực kể từ ngày 01/01/2017.",
+        "label": "Other"
+    },
+    {
+        "text": "ĐẠI DIỆN BÊN A.",
+        "label": "Other"
+    },
+    {
+        "text": "Các Bên hiểu rằng các thông tin mà mình đã được cung cấp hoặc thu thập được từ Bên còn lại đều là các thông tin trọng yếu và cần bảo mật tuyệt đối.",
+        "label": "Other"
+    },
+    {
+        "text": "Trường hợp có tranh chấp hai Bên phải cùng nhau thương lượng và tích cực giải quyết.",
         "label": "Obligation"
+    },
+    {
+        "text": "Trong trường hợp một hoặc một số điều khoản của Thỏa thuận này vô hiệu, hiệu lực của các điều khoản còn lại của Thỏa thuận sẽ không bị ảnh hưởng bởi các điều khoản vô hiệu đó.",
+        "label": "Other"
+    },
+    {
+        "text": "Các điều khoản không ghi trong Thỏa thuận này sẽ được các Bên thực hiện theo quy định pháp luật hiện hành.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Hôm nay, ngày 20 tháng 05 năm 2024, tại Hà Nội, chúng tôi gồm các Bên dưới đây.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên nhận thông tin có trách nhiệm thực hiện theo đúng các yêu cầu và biện pháp khắc phục do Bên cung cấp thông tin đưa ra.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Theo thỏa thuận bằng văn bản của các Bên.",
+        "label": "Other"
+    },
+    {
+        "text": "ĐẠI DIỆN BÊN B.",
+        "label": "Other"
+    },
+    {
+        "text": "vn; Điện thoại: 02838229988; Người liên hệ: Nguyễn Văn C; Địa chỉ: Số 10, Đường Lê Lợi, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh.",
+        "label": "Other"
+    },
+    {
+        "text": "Cung cấp Thông tin bảo mật trong trường hợp bắt buộc: Trong trường hợp Bên nhận thông tin buộc phải cung cấp các Thông tin bảo mật theo yêu cầu bằng văn bản của cơ quan nhà nước có thẩm quyền hoặc theo quy định của pháp luật thì:",
+        "label": "Obligation"
+    },
+    {
+        "text": "Căn cứ vào nhu cầu thực tế và năng lực của hai Bên.",
+        "label": "Other"
+    },
+    {
+        "text": "Thỏa thuận này được điều chỉnh, diễn giải và thực hiện phù hợp với pháp luật Việt Nam.",
+        "label": "Other"
+    },
+    {
+        "text": "Thỏa thuận này có hiệu lực kể từ ngày ký và bị chấm dứt theo một trong các trường hợp sau:",
+        "label": "Other"
+    },
+    {
+        "text": "Điều 7. Điều khoản chung.",
+        "label": "Other"
+    },
+    {
+        "text": "Việc liên hệ giữa các Bên theo Thỏa thuận này được thực hiện thông qua một, một số hoặc tất cả các phương thức: (i) thông báo qua điện thoại (được hiểu gồm cả phương thức gọi điện, tin nhắn, liên hệ qua zalo, facebook, viber hoặc bất cứ phần mềm liên lạc có kết nối internet nào khác); (ii) bằng văn bản được chuyển qua bưu điện hoặc giao nhận trực tiếp; hoặc (iii) gửi yêu cầu qua email/fax; hoặc (iv) phương thức khác mà PGBank thấy phù hợp với thực tế vận hành của PGBank.",
+        "label": "Other"
+    },
+    {
+        "text": "Điều 6. Tranh chấp và giải quyết tranh chấp.",
+        "label": "Other"
+    },
+    {
+        "text": "Điều 3. Vi phạm thỏa thuận.",
+        "label": "Other"
+    },
+    {
+        "text": "Để đảm bảo tính bảo mật và an toàn của Thông tin bảo mật được cung cấp theo Thỏa thuận này và để tránh việc Bên nhận thông tin sử dụng và tiết lộ Thông tin bảo mật mà không nhận được sự cho phép của Bên cung cấp thông tin, sau khi thảo luận, các Bên đồng ý ký kết Thỏa thuận này theo các điều khoản và điều kiện như sau.",
+        "label": "Other"
+    },
+    {
+        "text": "Điều 5. Thông báo.",
+        "label": "Other"
+    },
+    {
+        "text": "Quyết định của Tòa án là quyết định cuối cùng buộc hai Bên phải thi hành.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên nhận thông tin bị nghiêm cấm việc sao chép hoặc trích xuất Thông tin bảo mật cho mục đích cá nhân.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên nhận thông tin không được phép sử dụng Thông tin bảo mật để cạnh tranh trực tiếp với Bên cung cấp thông tin.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Nghiêm cấm việc tiết lộ Thông tin bảo mật cho bất kỳ đối thủ cạnh tranh nào của Bên cung cấp thông tin mà không có sự đồng ý bằng văn bản.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Thỏa thuận này sẽ chấm dứt ngay lập tức nếu một trong hai Bên vi phạm nghiêm trọng các cam kết về bảo mật.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên cung cấp thông tin có quyền đơn phương chấm dứt Thỏa thuận nếu phát hiện Bên nhận thông tin sử dụng sai mục đích.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Thỏa thuận sẽ tự động chấm dứt khi các Bên hoàn tất việc ký kết Hợp đồng cung cấp dịch vụ chính thức.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Trong trường hợp Bên nhận thông tin bị giải thể hoặc phá sản, Thỏa thuận này sẽ chấm dứt hiệu lực.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên cung cấp thông tin có quyền yêu cầu Bên nhận thông tin cung cấp danh sách những người đã tiếp cận thông tin.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên cung cấp thông tin có quyền kiểm tra định kỳ việc lưu trữ và bảo mật dữ liệu tại trụ sở của Bên nhận thông tin.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên nhận thông tin có quyền yêu cầu làm rõ phạm vi Thông tin bảo mật được cung cấp.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên cung cấp thông tin có quyền yêu cầu Bên nhận thông tin bồi thường toàn bộ thiệt hại phát sinh từ hành vi vi phạm.",
+        "label": "Right"
+    },
+    {
+        "text": "Các Bên có quyền yêu cầu tòa án áp dụng các biện pháp khẩn cấp tạm thời để ngăn chặn hành vi tiết lộ thông tin.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên bị vi phạm có quyền đơn phương chấm dứt hợp tác và yêu cầu bồi thường thiệt hại ngay lập tức.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên vi phạm phải chịu mức phạt vi phạm là 500.000.000 VNĐ cho mỗi lần vi phạm nghĩa vụ bảo mật.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Khoản tiền phạt vi phạm hợp đồng được xác định là 10% giá trị gói thầu dự kiến.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vi phạm phải thanh toán khoản tiền phạt 200.000.000 VNĐ trong vòng 07 ngày kể từ khi nhận thông báo.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mức phạt vi phạm nghĩa vụ bảo mật được ấn định là 300.000.000 VNĐ.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vi phạm phải chịu khoản phạt 150.000.000 VNĐ nếu làm rò rỉ dữ liệu khách hàng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trong trường hợp vi phạm, Bên vi phạm phải nộp phạt 50.000.000 VNĐ cho mỗi tài liệu bị tiết lộ trái phép.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Lãi suất chậm trả đối với các khoản tiền phạt được áp dụng là 0.05% mỗi ngày trên tổng số tiền chậm thanh toán.",
+        "label": "Other"
+    },
+    {
+        "text": "Mức lãi suất phạt chậm trả được tính bằng 150% lãi suất cơ bản do Ngân hàng Nhà nước công bố.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên vi phạm phải chịu lãi suất phạt là 12% một năm trên số tiền thiệt hại chưa được bồi thường.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Lãi suất áp dụng cho các khoản nợ quá hạn là 0.03% trên mỗi ngày chậm trả.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mức lãi suất quá hạn được tính theo tỷ lệ 10% mỗi năm trên số dư nợ gốc.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Lãi suất phạt đối với hành vi chậm thanh toán tiền bồi thường là 0.04% mỗi ngày.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vi phạm phải bồi thường số tiền 1.000.000.000 VNĐ cho các tổn thất trực tiếp phát sinh.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tổng số tiền bồi thường thiệt hại không vượt quá 2.000.000.000 VNĐ trừ trường hợp có lỗi cố ý.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên nhận thông tin cam kết bảo mật các dữ liệu có giá trị thương mại lên đến 500.000.000 VNĐ.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Khoản tiền đặt cọc bảo mật là 100.000.000 VNĐ sẽ được hoàn trả sau khi kết thúc dự án.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi khoản tiền bồi thường phải được thanh toán bằng đồng Việt Nam với giá trị tương đương 750.000.000 VNĐ.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Thỏa thuận này được điều chỉnh bởi Luật Các tổ chức tín dụng và các văn bản hướng dẫn thi hành.",
+        "label": "Other"
+    },
+    {
+        "text": "Việc bảo vệ dữ liệu cá nhân được thực hiện theo quy định của Luật An ninh mạng Việt Nam.",
+        "label": "Other"
+    },
+    {
+        "text": "Các tranh chấp phát sinh sẽ được giải quyết dựa trên các quy định của Luật Thương mại năm 2005.",
+        "label": "Other"
     }
 ]

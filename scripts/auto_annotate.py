@@ -4,7 +4,7 @@ import random
 import re
 import sys
 import time
-from math import ceil
+from collections import Counter
 
 from dotenv import load_dotenv
 from google import genai
@@ -62,11 +62,15 @@ def align_bio_tags(text: str, entities: list) -> tuple:
     return tokens, tags
 
 
-def extract_raw_clauses(input_dir: str, target_count: int = 1000) -> list:
-    print(f"📖 Đang đọc hợp đồng từ {input_dir}...")
+def extract_raw_clauses(input_dir: str, clauses_per_file: int = 50) -> list:
+    """
+    Extracts a fixed number of clauses per file to ensure a balanced
+    starting point before data augmentation.
+    """
+    print(f"📖 Reading contracts from {input_dir}...")
     files = [f for f in os.listdir(input_dir) if f.endswith(".txt")]
 
-    file_data = {}
+    selected_data = []
     total_clauses = 0
 
     for file in files:
@@ -86,36 +90,57 @@ def extract_raw_clauses(input_dir: str, target_count: int = 1000) -> list:
                 ):
                     valid_clauses.append(c_clean)
 
-            # Preserve order and remove duplicate clauses.
+            # Preserve order and remove duplicate clauses
             seen = set()
             unique_clauses = [
                 x for x in valid_clauses if not (x in seen or seen.add(x))
             ]
-            file_data[file] = {"full_text": text, "clauses": unique_clauses}
-            total_clauses += len(unique_clauses)
 
-    print(
-        f"Extracted {total_clauses} valid independent clauses from {len(files)} files."
-    )
+            # Sample base clauses for this file
+            sampled_clauses = random.sample(
+                unique_clauses, min(clauses_per_file, len(unique_clauses))
+            )
 
-    # Calculate the number of clauses to be extracted equally from
-    # each file to reach the target_count (1000).
-    clauses_per_file = ceil(target_count / len(files)) if files else 0
+            selected_data.append(
+                {"file": file, "full_text": text, "clauses": sampled_clauses}
+            )
+            total_clauses += len(sampled_clauses)
 
-    selected_data = []
-    for file, data in file_data.items():
-        clauses = data["clauses"]
-        selected_clauses = random.sample(clauses, min(clauses_per_file, len(clauses)))
-        selected_data.append(
-            {"file": file, "full_text": data["full_text"], "clauses": selected_clauses}
-        )
-
-    actual_count = sum(len(d["clauses"]) for d in selected_data)
-    print(
-        f"Randomly selected {actual_count} clauses (evenly distributed across files) for labeling."
-    )
-
+    print(f"Randomly selected {total_clauses} base clauses across {len(files)} files.")
     return selected_data
+
+
+def call_gemini_json(
+    client, prompt: str, max_retries: int = 3, temperature: float = 0.1
+) -> list:
+    """Helper function to cleanly call Gemini and parse JSON arrays."""
+    for attempt in range(max_retries):
+        try:
+            response = client.models.generate_content(
+                model="gemini-3.1-flash-lite-preview",
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    temperature=temperature,
+                    response_mime_type="application/json",
+                ),
+            )
+            json_text = response.text.strip()
+            if json_text.startswith("```json"):
+                json_text = json_text[7:-3].strip()
+
+            return json.loads(json_text)
+
+        except Exception as e:
+            error_msg = str(e).upper()
+            if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
+                print("Rate limit reached. Sleeping for 60 seconds before retrying...")
+                time.sleep(60)
+            else:
+                print(
+                    f"API Error (Attempt {attempt + 1}/{max_retries}): {e}. Retrying in 5 seconds..."
+                )
+                time.sleep(5)
+    return []
 
 
 def generate_annotations(selected_data: list):
@@ -128,7 +153,17 @@ def generate_annotations(selected_data: list):
     client = genai.Client(api_key=api_key)
     annotated_results = []
 
-    prompt_template = """
+    # Minimum threshold per document to solve class imbalance
+    BALANCE_TARGETS = {
+        "intent": {
+            "Prohibition": 4,
+            "Termination Condition": 5,
+            "Right": 6,
+        },
+        "entities": {"PENALTY": 6, "RATE": 6, "MONEY": 5, "LAW": 4},
+    }
+
+    ANNOTATE_PROMPT_TEMPLATE = """
     Bạn là chuyên gia pháp lý và ngôn ngữ học. Nhiệm vụ của bạn là phân tích các mệnh đề (clauses) được trích xuất từ một hợp đồng.
     Để giúp bạn hiểu rõ ngữ cảnh và tránh phân loại nhầm hoặc sinh ra nhãn sai, tôi sẽ cung cấp TOÀN BỘ NỘI DUNG hợp đồng. 
     Bạn chỉ cần phân tích và trả kết quả cho danh sách các mệnh đề được yêu cầu.
@@ -145,17 +180,17 @@ def generate_annotations(selected_data: list):
        - Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
        - Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
        - Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
-       *Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' (nếu là nghĩa vụ nộp phạt) hoặc 'Termination Condition' (nếu liên đới tới hủy hợp đồng/xử lý vi phạm). Tuyệt đối không tự tạo nhãn mới.
+       *Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới.
 
     2. Trích xuất THỰC THỂ (entities) theo các nhãn sau (Chỉ trích xuất phần chữ có trong nguyên văn mệnh đề đang xét):
-       - PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên thuê, Người lao động, Tòa án).
-       - MONEY: Số tiền, giá trị tiền tệ cụ thể (VD: 10.000.000 VNĐ, 50 USD).
-       - DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 05/05/2024, ngày ký hợp đồng).
+       - PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia.
+       - MONEY: Số tiền, giá trị tiền tệ cụ thể. (Lưu ý: Nếu số tiền là khoản tiền phạt vi phạm, hãy ưu tiên gán nhãn PENALTY thay vì MONEY).
+       - DATE: Ngày, tháng, năm, thời hạn, mốc thời gian.
        - RATE: Tỷ lệ phần trăm hoặc hệ số (VD: 10%, 1.5 lần).
-       - PENALTY: Mức phạt hoặc số tiền bồi thường cụ thể liên quan đến vi phạm (VD: phạt 8%, bồi thường 03 tháng tiền thuê, phạt 10.000.000 VNĐ). KHÔNG gán nhãn cho các từ chung chung như "tiền phạt". Nếu trùng với MONEY/RATE nhưng mang ý nghĩa phạt, ưu tiên gán PENALTY.
-       - LAW: Tên văn bản quy phạm pháp luật cụ thể, điều khoản luật tham chiếu (VD: Bộ luật Dân sự 2015, Nghị định 15/2020/NĐ-CP). KHÔNG gán nhãn cho các từ chung như "pháp luật".
+       - PENALTY: Mức phạt hoặc số tiền bồi thường cụ thể liên quan đến vi phạm (VD: phạt 8%, bồi thường 03 tháng tiền thuê, phạt 10.000.000 VNĐ).
+       - LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
 
-    BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY CHO {count} MỆNH ĐỀ ĐƯỢC YÊU CẦU:
+    BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY CHO {count} MỆNH ĐỀ:
     [
       {{
         "clause": "<nguyên văn mệnh đề>",
@@ -170,6 +205,34 @@ def generate_annotations(selected_data: list):
     {clauses_json}
     """
 
+    SYNTHETIC_PROMPT_TEMPLATE = """
+    Bạn là chuyên gia pháp lý và tạo dữ liệu AI. 
+    Dựa vào ngữ cảnh của hợp đồng dưới đây, hãy SÁNG TÁC (Generate) thêm một số mệnh đề mới hoàn toàn, nhưng phải giữ nguyên văn phong và logic của hợp đồng này.
+    Mục đích là để tạo thêm dữ liệu huấn luyện AI cho những nhãn đang bị thiếu hụt.
+
+    --- NGỮ CẢNH HỢP ĐỒNG ---
+    {full_text}
+    -------------------------
+
+    YÊU CẦU SÁNG TÁC:
+    Hãy tạo ra các câu có chứa các thông tin sau đây:
+    {deficits_text}
+
+    Hãy trộn lẫn các yêu cầu trên để tạo ra khoảng {total_sentences_needed} câu hợp lý.
+    Quy tắc gán nhãn (intent và entities) y hệt như đã quy định chuẩn (Obligation, Prohibition, PENALTY, RATE...).
+
+    BẮT BUỘC TRẢ VỀ ĐỊNH DẠNG JSON ARRAY CHO CÁC MỆNH ĐỀ VỪA SÁNG TÁC:
+    [
+      {{
+        "clause": "<câu bạn vừa sáng tác>",
+        "intent": "<ý định>",
+        "entities": [
+          {{"text": "<phần chữ trích xuất chính xác 100% từ câu sáng tác>", "label": "<nhãn>"}}
+        ]
+      }}
+    ]
+    """
+
     for data in selected_data:
         file_name = data["file"]
         full_text = data["full_text"]
@@ -178,55 +241,79 @@ def generate_annotations(selected_data: list):
         if not clauses:
             continue
 
-        print(
-            f"Calling Gemini API to annotate {len(clauses)} sentences from {file_name}..."
-        )
+        print(f"\nProcessing {file_name}...")
+        file_annotations = []
 
-        batch_size = 20
+        # --- STEP 1: ANNOTATE EXISTING CLAUSES ---
+        batch_size = 25
         for i in range(0, len(clauses), batch_size):
             batch = clauses[i : i + batch_size]
-            prompt = prompt_template.format(
+            prompt = ANNOTATE_PROMPT_TEMPLATE.format(
                 full_text=full_text,
                 count=len(batch),
                 clauses_json=json.dumps(batch, ensure_ascii=False, indent=2),
             )
 
-            max_retries = 3
-            for attempt in range(max_retries):
-                try:
-                    response = client.models.generate_content(
-                        model="gemini-3.1-flash-lite-preview",
-                        contents=prompt,
-                        config=types.GenerateContentConfig(
-                            temperature=0.1,
-                            response_mime_type="application/json",
-                        ),
-                    )
+            batch_data = call_gemini_json(client, prompt, temperature=0.1)
+            file_annotations.extend(batch_data)
+            print(
+                f"  - Annotated batch {i // batch_size + 1} ({len(batch_data)}/{len(batch)} sentences)"
+            )
+            time.sleep(2)
 
-                    json_text = response.text.strip()
-                    if json_text.startswith("```json"):
-                        json_text = json_text[7:-3].strip()
+        # --- STEP 2: CALCULATE IMBALANCE DEFICITS ---
+        intent_counts = Counter(item.get("intent") for item in file_annotations)
+        entity_counts = Counter(
+            ent.get("label")
+            for item in file_annotations
+            for ent in item.get("entities", [])
+        )
 
-                    batch_data = json.loads(json_text)
-                    annotated_results.extend(batch_data)
-                    print(
-                        f"Processed batch {i // batch_size + 1} of {file_name} ({len(batch_data)}/{len(batch)} sentences)"
-                    )
-                    time.sleep(2)  # Prevent rate limiting for consecutive batches
-                    break
+        deficits = []
+        total_sentences_needed = 0
 
-                except Exception as e:
-                    error_msg = str(e).upper()
-                    if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
-                        print(
-                            "Rate limit reached. Sleeping for 60 seconds before retrying..."
-                        )
-                        time.sleep(60)
-                    else:
-                        print(
-                            f"API Error (Attempt {attempt + 1}/{max_retries}): {e}. Retrying in 5 seconds..."
-                        )
-                        time.sleep(5)
+        for intent_name, target in BALANCE_TARGETS["intent"].items():
+            if intent_counts[intent_name] < target:
+                shortfall = target - intent_counts[intent_name]
+                deficits.append(
+                    f"- Cần thêm ít nhất {shortfall} câu mang ý định '{intent_name}'"
+                )
+                total_sentences_needed += shortfall
+
+        for entity_name, target in BALANCE_TARGETS["entities"].items():
+            if entity_counts[entity_name] < target:
+                shortfall = target - entity_counts[entity_name]
+                deficits.append(
+                    f"- Cần thêm ít nhất {shortfall} câu chứa thực thể loại '{entity_name}'"
+                )
+                total_sentences_needed = max(
+                    total_sentences_needed, shortfall
+                )  # Overlap is fine
+
+        # --- STEP 3: GENERATE SYNTHETIC CLAUSES TO FILL GAPS ---
+        if deficits:
+            print(
+                f"Imbalance detected. Generating ~{total_sentences_needed} synthetic clauses to fill gaps..."
+            )
+            deficits_text = "\n".join(deficits)
+            synthetic_prompt = SYNTHETIC_PROMPT_TEMPLATE.format(
+                full_text=full_text,
+                deficits_text=deficits_text,
+                total_sentences_needed=total_sentences_needed + 2,  # Add a small buffer
+            )
+
+            synthetic_data = call_gemini_json(
+                client, synthetic_prompt, temperature=0.3
+            )  # Slightly higher temp for creativity
+            file_annotations.extend(synthetic_data)
+            print(
+                f"  + Synthesized {len(synthetic_data)} missing clauses successfully."
+            )
+            time.sleep(2)
+        else:
+            print("Data is well balanced. No synthetic generation needed.")
+
+        annotated_results.extend(file_annotations)
 
     return annotated_results
 
@@ -261,7 +348,7 @@ def split_and_save(annotated_data: list, output_dir: str):
         filepath = os.path.join(output_dir, filename)
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
-        print(f"💾 Đã lưu {len(data)} dòng vào {filepath}")
+        print(f"Đã lưu {len(data)} dòng vào {filepath}")
 
 
 if __name__ == "__main__":
@@ -269,7 +356,7 @@ if __name__ == "__main__":
     ANNOTATED_DIR = "data/annotated"
 
     # 1. Extract sentences and retrieve context from docs
-    selected_data = extract_raw_clauses(PROCESSED_DIR, target_count=1000)
+    selected_data = extract_raw_clauses(PROCESSED_DIR)
 
     if selected_data:
         # 2. Call Gemini to annotate with full context.
