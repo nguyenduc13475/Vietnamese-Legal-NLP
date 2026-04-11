@@ -4,7 +4,6 @@ import os
 import re
 import sys
 
-# Import segmenter từ source của bạn
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.preprocessing.segmenter import segment_clauses
 
@@ -28,14 +27,16 @@ TAG_MAP = {
 
 def align_bio_tags(text: str, entities: list) -> tuple:
     """
-    Tokenize các câu và gán nhãn BIO.
-    MATCH 1:1 STRICT MODE - Tuân thủ tuyệt đối thứ tự và số lượng từ JSON.
-    Mỗi object entity trong JSON chỉ khớp chính xác với 1 cụm token trong câu gốc.
+    Tokenize sentences and assign BIO labels.
+    MATCH 1:1 STRICT MODE - Strictly adheres to the order and number of words in JSON.
+    Each entity object in JSON matches only one token cluster in the original sentence.
     """
     tokens = re.findall(r"\w+|[^\w\s]", text)
     tags = [0] * len(tokens)
 
-    # KHÔNG sắp xếp, KHÔNG gộp trùng lặp. Duyệt trực tiếp list do LLM trả về.
+    # Keep track of the search pointer to ensure left-to-right strict matching
+    search_start_idx = 0
+
     for ent in entities:
         ent_text = ent.get("text", "")
         ent_label = ent.get("label", "")
@@ -47,17 +48,18 @@ def align_bio_tags(text: str, entities: list) -> tuple:
         if ent_len == 0:
             continue
 
-        # Tìm vị trí đầu tiên trong câu khớp với cụm token và CHƯA BỊ CHIẾM
-        for i in range(len(tokens) - ent_len + 1):
+        # Enforce left-to-right matching by starting from search_start_idx
+        for i in range(search_start_idx, len(tokens) - ent_len + 1):
             if tokens[i : i + ent_len] == ent_tokens:
-                # Kiểm tra lấp đầy (đảm bảo không đè lên nhãn của object đã khớp trước đó)
+                # Check for fill (ensure it doesn't overlap the label of a previously matched object)
                 if all(tags[j] == 0 for j in range(i, i + ent_len)):
                     tags[i] = TAG_MAP[f"B-{ent_label}"]
                     for j in range(i + 1, i + ent_len):
                         tags[j] = TAG_MAP[f"I-{ent_label}"]
 
-                    # BẮT BUỘC CÓ BREAK: Đã khớp được 1 chỗ thì lập tức dừng,
-                    # để lại các từ giống hệt (nếu có) phía sau cho các object JSON khác.
+                    # BREAK IS MANDATORY: Once a match is found, stop immediately.
+                    # Update pointer to prevent mapping identical text backwards.
+                    search_start_idx = i + ent_len
                     break
 
     return tokens, tags
@@ -65,8 +67,8 @@ def align_bio_tags(text: str, entities: list) -> tuple:
 
 def extract_raw_clauses(input_dir: str) -> list:
     """
-    Sử dụng segment_clauses để cắt hợp đồng thành các câu,
-    LẤY TOÀN BỘ danh sách mệnh đề hợp lệ theo đúng thứ tự.
+    Use `segment_clauses` to break the contract into sentences,
+    GET THE ENTIRE list of valid clauses in the correct order.
     """
     print(f"📖 Đang đọc và cắt toàn bộ các hợp đồng từ {input_dir}...")
     files = [f for f in os.listdir(input_dir) if f.endswith(".txt")]
@@ -84,14 +86,14 @@ def extract_raw_clauses(input_dir: str) -> list:
                 has_letters = any(char.isalpha() for char in c_clean)
                 word_count = len(c_clean.split())
 
-                # Lọc bỏ rác, giữ lại câu có ý nghĩa
+                # Filter out the irrelevant and keep only the meaningful sentences.
                 if has_letters and (
                     word_count >= 3
                     or c_clean.lower().startswith(("điều", "khoản", "mục", "phần"))
                 ):
                     valid_clauses.append(c_clean)
 
-            # Lọc trùng lặp nhưng vẫn giữ nguyên thứ tự gốc của hợp đồng
+            # Filter out duplicates while maintaining the original order of the contract.
             seen = set()
             unique_clauses = [
                 x for x in valid_clauses if not (x in seen or seen.add(x))
@@ -104,7 +106,8 @@ def extract_raw_clauses(input_dir: str) -> list:
 
 def generate_prompts(selected_data: list, output_dir: str):
     """
-    Tạo prompt yêu cầu AI TỰ DO CHỌN từ list full câu, sau đó gán nhãn và sinh thêm.
+    Create a prompt that prompts the AI to FREELY CHOOSE from a list of full sentences,
+    then assign labels and generate more.
     """
     os.makedirs(output_dir, exist_ok=True)
 
@@ -182,7 +185,7 @@ BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm 
 
 def split_and_save(raw_json_path: str, output_dir: str):
     if not os.path.exists(raw_json_path):
-        print(f"❌ Lỗi: Không tìm thấy file {raw_json_path}.")
+        print(f"Error: File {raw_json_path} not found.")
         sys.exit(1)
 
     with open(raw_json_path, "r", encoding="utf-8") as f:
@@ -217,7 +220,7 @@ def split_and_save(raw_json_path: str, output_dir: str):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="Công cụ xử lý Hợp đồng thành Dataset (Off-API)"
+        description="Tool for converting contracts into datasets (Off-API)"
     )
     parser.add_argument(
         "--mode", type=str, choices=["generate", "parse"], required=True
@@ -233,7 +236,7 @@ if __name__ == "__main__":
         selected_data = extract_raw_clauses(PROCESSED_DIR)
         generate_prompts(selected_data, PROMPT_DIR)
         print(
-            f"\n💡 Copy nội dung trong '{PROMPT_DIR}' lên Gemini Pro để lấy kết quả JSON."
+            f"\n Copy the content from '{PROMPT_DIR}' into Gemini Pro to get the JSON result."
         )
 
     elif args.mode == "parse":

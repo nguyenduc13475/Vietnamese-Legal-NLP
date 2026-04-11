@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 
@@ -28,12 +29,10 @@ def load_custom_data(file_path):
     return Dataset.from_list(data)
 
 
-def train():
-    model_name = "vinai/phobert-base"
+def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-    # Define the label map to be saved directly into the model config,
-    # making future inference easier.
+    # Define the label map to be saved directly into the model config
     id2label = {
         0: "O",
         1: "B-PARTY",
@@ -51,7 +50,6 @@ def train():
     }
     label2id = {v: k for k, v in id2label.items()}
 
-    # Initializing Token Classification model with 13 labels and mapping configuration.
     num_labels = 13
     model = AutoModelForTokenClassification.from_pretrained(
         model_name, num_labels=num_labels, id2label=id2label, label2id=label2id
@@ -60,7 +58,6 @@ def train():
     train_dataset = load_custom_data("data/annotated/ner_train.json")
     eval_dataset = load_custom_data("data/annotated/ner_test.json")
 
-    # Function to align labels manually since PhoBERT doesn't have a fast tokenizer
     def tokenize_and_align_labels(examples):
         tokenized_inputs = {"input_ids": [], "attention_mask": [], "labels": []}
 
@@ -101,21 +98,30 @@ def train():
 
         return tokenized_inputs
 
-    tokenized_datasets = train_dataset.map(tokenize_and_align_labels, batched=True)
+    # Remove the original string columns to prevent PyTorch tensor collation crashes
+    tokenized_datasets = train_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=train_dataset.column_names,
+    )
+
+    tokenized_eval_datasets = eval_dataset.map(
+        tokenize_and_align_labels,
+        batched=True,
+        remove_columns=eval_dataset.column_names,
+    )
 
     training_args = TrainingArguments(
         output_dir="./models/fine_tuned_ner",
         eval_strategy="epoch",
-        learning_rate=2e-5,
-        per_device_train_batch_size=8,
-        num_train_epochs=10,
+        learning_rate=learning_rate,
+        per_device_train_batch_size=batch_size,
+        num_train_epochs=epochs,
         weight_decay=0.01,
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1",
     )
-
-    tokenized_eval_datasets = eval_dataset.map(tokenize_and_align_labels, batched=True)
 
     def compute_metrics(p):
         predictions, labels = p
@@ -148,7 +154,7 @@ def train():
         data_collator=data_collator,
     )
 
-    print("Starting PhoBERT-NER model training...")
+    print(f"Starting NER model training using {model_name}...")
     trainer.train()
 
     output_dir = "./models/fine_tuned_ner"
@@ -159,4 +165,25 @@ def train():
 
 
 if __name__ == "__main__":
-    train()
+    parser = argparse.ArgumentParser(description="Train NER Model for Legal Contracts")
+    parser.add_argument(
+        "--model",
+        type=str,
+        default="vinai/phobert-base",
+        help="Pretrained model (e.g., vinai/phobert-large)",
+    )
+    parser.add_argument(
+        "--epochs", type=int, default=10, help="Number of training epochs"
+    )
+    parser.add_argument(
+        "--batch_size", type=int, default=8, help="Batch size per device"
+    )
+    parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
+    args = parser.parse_args()
+
+    train(
+        model_name=args.model,
+        epochs=args.epochs,
+        batch_size=args.batch_size,
+        learning_rate=args.lr,
+    )

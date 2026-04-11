@@ -21,8 +21,7 @@ clean-docs:
 	python scripts/clean_raw_docs.py --input data/raw --output data/processed
 
 auto-annotate:
-	@echo "Generating 1000 annotated sentences via Gemini..."
-	python scripts/auto_annotate.py
+	python scripts/auto_annotate.py --mode generate
 
 run-pipeline:
 	python main.py --input data/processed/hop_dong_thue_nha.txt
@@ -37,7 +36,7 @@ build-db:
 	python scripts/build_vector_store.py --input data/processed/
 
 train-ner:
-	python scripts/train_ner.py
+	python scripts/train_ner.py --epochs 30
 
 eval-ner:
 	python scripts/evaluate_ner.py

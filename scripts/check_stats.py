@@ -38,13 +38,11 @@ def print_stats(title, intent_path, ner_path):
     print(f"Data set stats: {title.upper()}")
     print("=" * 50)
 
-    # Thống kê Intent
     print("\n1. Intent Classification - No. Clauses:")
     intent_stats = count_intent_labels(intent_path)
     for k, v in sorted(intent_stats.items(), key=lambda x: x[1], reverse=True):
         print(f"   - {k:<25}: {v}")
 
-    # Thống kê NER
     print("\n2. NER - No. Entities:")
     ner_stats = count_ner_entities(ner_path)
     for k, v in sorted(ner_stats.items(), key=lambda x: x[1], reverse=True):
