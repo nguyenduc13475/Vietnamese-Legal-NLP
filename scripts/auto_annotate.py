@@ -200,7 +200,7 @@ def split_and_save(raw_json_path: str, output_dir: str):
         tokens, tags = align_bio_tags(clause_text, item.get("entities", []))
         ner_data.append({"tokens": tokens, "ner_tags": tags})
 
-    split_idx = int(len(intent_data) * 0.8)
+    split_idx = int(len(intent_data) * 0.9)
     datasets = {
         "intent_train.json": intent_data[:split_idx],
         "intent_test.json": intent_data[split_idx:],
