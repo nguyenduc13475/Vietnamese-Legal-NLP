@@ -30,9 +30,9 @@ class RAGGenerator:
             "Answer:"
         )
 
-    def ask(self, question: str) -> dict:
-        # 1. Retrieve relevant clauses from the Vector DB
-        docs = self.retriever.retrieve(question)
+    def ask(self, question: str, source_filter: str = None) -> dict:
+        # 1. Retrieve relevant clauses from the Vector DB with optional filtering
+        docs = self.retriever.retrieve(question, source_filter=source_filter)
 
         if not docs:
             return {

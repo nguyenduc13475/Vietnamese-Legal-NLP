@@ -30,9 +30,23 @@ class LegalRetriever:
         # self.vector_store.persist() is no longer needed/supported in langchain-chroma.
         # It persists automatically when persist_directory is provided during initialization.
 
-    def retrieve(self, query: str, top_k: int = 7) -> list:
-        # Hardcode filter để ép nó CHỈ tìm trong hợp đồng thuê nhà
-        # (Sau này bạn có thể truyền biến filter này từ UI xuống)
-        return self.vector_store.similarity_search(
-            query, k=top_k, filter={"source": "hop_dong_thue_nha.txt"}
-        )
+    def get_available_sources(self) -> list[str]:
+        """Fetch unique document sources currently indexed in the Vector DB."""
+        try:
+            data = self.vector_store.get(include=["metadatas"])
+            metadatas = data.get("metadatas", [])
+            sources = set(
+                meta.get("source") for meta in metadatas if meta and "source" in meta
+            )
+            return sorted(list(sources))
+        except Exception as e:
+            print(f"Error fetching sources from Vector DB: {e}")
+            return []
+
+    def retrieve(self, query: str, top_k: int = 7, source_filter: str = None) -> list:
+        """Retrieve relevant clauses, optionally filtered by a specific source document."""
+        if source_filter and source_filter != "All Contracts":
+            return self.vector_store.similarity_search(
+                query, k=top_k, filter={"source": source_filter}
+            )
+        return self.vector_store.similarity_search(query, k=top_k)

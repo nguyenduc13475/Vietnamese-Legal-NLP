@@ -22,6 +22,7 @@ from src.preprocessing.segmenter import segment_clauses
 from src.qa.generator import RAGGenerator
 from src.qa.retriever import LegalRetriever
 from src.utils.document_parser import parse_and_clean_document
+from src.utils.prompts import DOCUMENT_CLEANING_PROMPT
 
 router = APIRouter()
 
@@ -60,15 +61,24 @@ def extract_info(request: ExtractRequest):
 @router.post("/ask", response_model=QAResponse)
 def ask_question(request: QARequest):
     """
-    Execute the RAG pipeline for Assignment 3.
+    Execute the RAG pipeline with dynamic source filtering.
     """
     if not request.question.strip():
         return QAResponse(
             question="", answer="Please provide a valid query.", sources=[]
         )
 
-    result = qa_system.ask(request.question)
+    result = qa_system.ask(request.question, source_filter=request.source_filter)
     return QAResponse(**result)
+
+
+@router.get("/sources")
+def get_sources():
+    """
+    Retrieve a list of all indexed contracts in the Vector Database.
+    """
+    sources = retriever.get_available_sources()
+    return {"sources": sources}
 
 
 @router.post("/ingest", response_model=IngestResponse)
@@ -122,12 +132,7 @@ async def ingest_file(file: UploadFile = File(...)):
         client = genai.Client(api_key=google_api_key)
 
         uploaded_file = client.files.upload(file=temp_path)
-        prompt = (
-            "Hãy làm sạch nội dung hợp đồng thô sau, sửa lỗi OCR. "
-            "YÊU CẦU QUAN TRỌNG: MỖI DÒNG CHỈ ĐƯỢC CHỨA ĐÚNG MỘT MỆNH ĐỀ / CÂU ĐỘC LẬP. Hãy xuống dòng sau mỗi câu hoặc mục liệt kê. "
-            "NẾU LÀ MẪU TRỐNG (có dấu ... hoặc ___), HÃY ĐIỀN THÔNG TIN THỰC TẾ ẢO VÀO TẤT CẢ CHỖ TRỐNG. "
-            "CHỈ trả về văn bản đã được cấu trúc lại theo định dạng dòng, không giải thích hay bình luận thêm."
-        )
+        prompt = DOCUMENT_CLEANING_PROMPT
         response = client.models.generate_content(
             model="gemini-3.1-flash-lite-preview",
             contents=[prompt, uploaded_file],
