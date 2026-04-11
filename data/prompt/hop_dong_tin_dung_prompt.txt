@@ -1,0 +1,124 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.",
+  "Số hiệu hợp đồng là AA/BB/CC/HĐTD.",
+  "THÔNG TIN CÁ NHÂN, NHU CẦU TÀI CHÍNH VÀ CÁC ĐIỀU KHOẢN LIÊN QUAN.",
+  "Thông tin định danh của người vay.",
+  "Họ và tên khách hàng là Nguyễn Văn A (sau đây gọi là \"Bên vay\").",
+  "Số căn cước công dân là 001099000123, được cấp ngày 01/01/2022 tại Cục Cảnh sát quản lý hành chính về trật tự xã hội.",
+  "Địa chỉ thường trú tại số 123 đường Lê Lợi, quận 1, thành phố Hồ Chí Minh.",
+  "Số điện thoại liên lạc là 0901234567.",
+  "Tài khoản thanh toán bằng đồng Việt Nam số 101000123456 tại Ngân hàng BIDV - Chi nhánh TP.HCM.",
+  "Thông tin thu nhập tự kê khai của Bên vay.",
+  "Thu nhập từ tiền lương và tiền thưởng hàng tháng là 30.000.000 VNĐ.",
+  "Thu nhập từ các hoạt động kinh doanh thương mại là 20.000.000 VNĐ.",
+  "Thu nhập từ các nguồn tài chính khác là 5.000.000 VNĐ.",
+  "Nhu cầu vay vốn.",
+  "Hình thức vay là vay theo món.",
+  "Tổng số tiền vay là 500.000.000 VNĐ (Năm trăm triệu đồng).",
+  "Thời hạn cấp tín dụng là 12 tháng.",
+  "Mục đích sử dụng vốn vay là tiêu dùng và sinh hoạt cá nhân.",
+  "Phương thức giải ngân vốn vay.",
+  "Vốn vay được giải ngân một lần với số tiền 500.000.000 VNĐ (Năm trăm triệu đồng).",
+  "Thời hạn vay là 365 ngày, ngày giải ngân là 20/05/2024, ngày hoàn trả nợ cuối cùng là 20/05/2025.",
+  "Số tiền giải ngân được sử dụng để thanh toán cho đơn vị thụ hưởng là Công ty TNHH Nội thất X, số tài khoản 123456789 tại Ngân hàng Vietcombank.",
+  "Phương án hoàn trả nợ.",
+  "Nguồn tiền trả nợ bao gồm thu nhập từ lương và các nguồn thu hợp pháp khác của khách hàng.",
+  "Trong trường hợp quá hạn mà không trả được bằng thu nhập, nguồn trả nợ sẽ được trích từ việc tất toán tài sản cầm cố.",
+  "Phương thức trả nợ là chuyển khoản hoặc nộp tiền mặt trực tiếp tại quầy.",
+  "Ngân hàng được quyền tự động trích nợ từ tài khoản số 101000123456 của Bên vay tại Chi nhánh BIDV TP.HCM.",
+  "Lịch trình trả nợ gốc và lãi.",
+  "Lịch trả nợ gốc được lập theo bảng kê đính kèm.",
+  "Lãi vay được Bên vay thanh toán một lần vào ngày trả nợ gốc.",
+  "Tài sản cầm cố.",
+  "Tài sản thuộc sở hữu của Bên vay.",
+  "Thông tin tài sản gồm: Sổ tiết kiệm số STK12345, mệnh giá 600.000.000 VNĐ, kỳ hạn 12 tháng, ngày đến hạn 20/05/2025, đơn vị phát hành là Ngân hàng BIDV.",
+  "Bên vay cam kết tài sản cầm cố thuộc quyền sở hữu hợp pháp, không có tranh chấp và không dùng để bảo đảm cho bất kỳ nghĩa vụ nợ nào khác.",
+  "Bên vay khẳng định có toàn quyền sử dụng tài sản này để bảo đảm cho khoản vay tại Ngân hàng.",
+  "Cam kết của Bên vay.",
+  "Các thông tin cung cấp trong hợp đồng này là hoàn toàn chính xác và trung thực.",
+  "Nếu thông tin sai lệch, Bên vay phải chịu mọi trách nhiệm trước quy định của pháp luật.",
+  "Bên vay đồng ý vay vốn theo mức phê duyệt cuối cùng của Ngân hàng nếu không đáp ứng đủ điều kiện vay ban đầu.",
+  "Đơn đề nghị này sau khi được Ngân hàng chấp thuận sẽ trở thành Hợp đồng tín dụng và cầm cố tài sản có giá trị ràng buộc pháp lý.",
+  "Ngân hàng có quyền phong tỏa tài khoản và giữ bản gốc tài sản cầm cố để bảo đảm nghĩa vụ trả nợ.",
+  "Ngân hàng có nghĩa vụ bảo quản và hoàn trả tài sản sau khi Bên vay hoàn tất nghĩa vụ theo hợp đồng.",
+  "Bên vay cam kết sử dụng vốn đúng mục đích đã thỏa thuận và cung cấp đầy đủ chứng từ chứng minh theo yêu cầu của Ngân hàng.",
+  "Bên vay cam kết thanh toán đầy đủ nợ gốc, lãi và phí đúng hạn.",
+  "Nếu không thể thanh toán do nguyên nhân khách quan, Bên vay phải gửi văn bản đề nghị điều chỉnh kỳ hạn nợ trước ngày đến hạn 15 ngày.",
+  "Nếu Bên vay không hoàn trả nợ đúng hạn, Ngân hàng có quyền thu nợ từ tài sản cầm cố mà không cần thêm thủ tục nào khác.",
+  "Ngân hàng có quyền đình chỉ cho vay và thu hồi nợ trước hạn nếu Bên vay sử dụng vốn sai mục đích hoặc vi phạm hợp đồng.",
+  "Bên vay đồng ý chuyển phương thức thanh toán lãi và gốc của tài sản cầm cố sang phương thức gốc quay vòng và lãi nhập gốc.",
+  "Bên vay chấp thuận cho Ngân hàng lưu trữ và sử dụng thông tin cá nhân để phục vụ mục đích quản lý khoản vay.",
+  "Các tài liệu đính kèm bao gồm bản sao CMND, bản gốc tài sản cầm cố và giấy ủy quyền rút tiền.",
+  "PHẦN PHÊ DUYỆT CỦA NGÂN HÀNG.",
+  "Số tiền vay được duyệt là 500.000.000 VNĐ.",
+  "Thời hạn vay là 365 ngày, từ ngày 20/05/2024 đến ngày 20/05/2025.",
+  "Lãi suất và phí.",
+  "Lãi suất cho vay trong hạn là 8%/năm.",
+  "Tiền lãi được tính trên dư nợ thực tế nhân với số ngày duy trì nợ thực tế nhân với lãi suất năm chia cho 365.",
+  "Ngân hàng có quyền điều chỉnh lãi suất đột xuất theo cơ chế điều hành và thông báo bằng văn bản cho Bên vay.",
+  "Lãi suất nợ quá hạn bằng 150% lãi suất trong hạn tại thời điểm chuyển nợ quá hạn.",
+  "Lãi chậm trả đối với số tiền lãi chưa thanh toán tối đa là 10%/năm.",
+  "Các loại phí bao gồm phí trả nợ trước hạn và phí cam kết rút vốn theo biểu phí của Ngân hàng.",
+  "Phạt vi phạm hợp đồng là 5% tính trên giá trị nợ gốc vi phạm.",
+  "LUẬT ÁP DỤNG VÀ GIẢI QUYẾT TRANH CHẤP.",
+  "Hợp đồng này được điều chỉnh bởi pháp luật Việt Nam.",
+  "Mọi tranh chấp sẽ được giải quyết thông qua thương lượng, nếu không thành sẽ đưa ra Tòa án nhân dân quận 1, thành phố Hồ Chí Minh.",
+  "Hiệu lực của hợp đồng.",
+  "Hợp đồng có hiệu lực từ ngày Ngân hàng ký phê duyệt và kết thúc khi Bên vay hoàn thành mọi nghĩa vụ tài chính.",
+  "Các văn bản liên quan là một phần không thể tách rời của hợp đồng.",
+  "Mọi sửa đổi phải được lập thành văn bản có chữ ký của hai bên.",
+  "Nếu một điều khoản bị vô hiệu theo luật pháp, các điều khoản còn lại vẫn giữ nguyên hiệu lực.",
+  "Hợp đồng được lập thành 03 bản gốc, Ngân hàng giữ 02 bản và Bên vay giữ 01 bản.",
+  "Nếu Bên vay vắng mặt tại địa chỉ đã đăng ký liên tục 30 ngày mà không thông báo, Ngân hàng có quyền khởi kiện và xét xử vắng mặt.",
+  "CHỮ KÝ XÁC NHẬN.",
+  "Bên vay xác nhận đã đọc, hiểu và đồng ý với toàn bộ nội dung hợp đồng.",
+  "Đại diện Ngân hàng xác nhận đã tiếp nhận hồ sơ và phê duyệt khoản vay."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

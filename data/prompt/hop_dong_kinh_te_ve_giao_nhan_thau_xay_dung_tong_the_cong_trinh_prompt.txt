@@ -1,0 +1,134 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+  "Độc lập - Tự do - Hạnh phúc.",
+  "HỢP ĐỒNG KINH TẾ VỀ GIAO NHẬN THẦU XÂY DỰNG TỔNG THỂ CÔNG TRÌNH.",
+  "Hợp đồng số: 01/2024/HĐNT.",
+  "Hôm nay ngày 15 tháng 05 năm 2024 tại Hà Nội.",
+  "Chúng tôi gồm có các bên dưới đây.",
+  "Bên A (Bên chủ đầu tư).",
+  "Tên doanh nghiệp: Công ty Cổ phần Đầu tư Phát triển Hạ tầng A.",
+  "Địa chỉ trụ sở chính: Số 123 đường Lê Lợi, quận Hoàn Kiếm, thành phố Hà Nội.",
+  "Điện thoại: 02438222222.",
+  "Tài khoản số: 19022222222001.",
+  "Mở tại ngân hàng: Ngân hàng TMCP Kỹ thương Việt Nam - Chi nhánh Hoàn Kiếm.",
+  "Đại diện là: Ông Nguyễn Văn An.",
+  "Chức vụ: Tổng Giám đốc.",
+  "Giấy ủy quyền số: 05/GUQ-2024 ngày 10 tháng 01 năm 2024.",
+  "Do ông Trần Văn Bình, chức vụ Chủ tịch Hội đồng quản trị ký.",
+  "Bên B (Bên tổ chức nhận thầu xây dựng).",
+  "Tên doanh nghiệp: Công ty TNHH Xây dựng và Thương mại B.",
+  "Địa chỉ trụ sở chính: Số 456 đường Nguyễn Trãi, quận Thanh Xuân, thành phố Hà Nội.",
+  "Điện thoại: 02439999999.",
+  "Tài khoản số: 101888888888.",
+  "Mở tại ngân hàng: Ngân hàng TMCP Ngoại thương Việt Nam - Chi nhánh Hà Nội.",
+  "Đại diện là: Bà Lê Thị Minh.",
+  "Chức vụ: Giám đốc.",
+  "Giấy ủy quyền số: 09/GUQ-2024 ngày 15 tháng 02 năm 2024.",
+  "Do ông Phạm Văn Hùng, chức vụ Chủ tịch Công ty ký.",
+  "Hai bên cùng thỏa thuận những nguyên tắc giao nhận tổng thầu xây dựng công trình tòa nhà văn phòng cao cấp như sau.",
+  "Điều 1: Nội dung công tác.",
+  "Bên A giao cho bên B thực hiện toàn bộ các hạng mục của công trình xây dựng tòa nhà văn phòng bao gồm các công việc sau đây.",
+  "Thực hiện khảo sát khu vực quy hoạch xây dựng công trình theo đúng các yêu cầu kỹ thuật để đảm bảo số liệu đo đạc, giám định và điều tra có độ chính xác khách quan.",
+  "Lập luận chứng kinh tế kỹ thuật cho dự án xây dựng tuân thủ đúng các quy định hiện hành.",
+  "Thiết kế công trình theo yêu cầu và nội dung của bản luận chứng kinh tế - kỹ thuật đã được phê duyệt.",
+  "Tuân thủ nghiêm ngặt quy trình, quy phạm, tiêu chuẩn định mức kinh tế - kỹ thuật và các quy định pháp luật liên quan của Nhà nước.",
+  "Xác định rõ lịch trình bàn giao thiết kế và trách nhiệm đảm bảo tiến độ giao hồ sơ thiết kế.",
+  "Thi công xây lắp các bộ phận công trình theo đúng hồ sơ thiết kế đã được duyệt.",
+  "Toàn bộ vật tư và nhiên liệu phục vụ công trình do bên B chịu trách nhiệm cung cấp.",
+  "Trong trường hợp bên A nhận cấp vật tư, nhiên liệu tại kho thì bên B được thanh toán chi phí vận chuyển dựa trên khối lượng và cự ly thực tế.",
+  "Điều 2: Thời hạn thực hiện.",
+  "Thời hạn thực hiện hợp đồng là 18 tháng, được phân chia cụ thể như sau.",
+  "Công tác khảo sát được tiến hành trong 02 tháng và bên B phải báo cáo kết quả số liệu khảo sát vào ngày 15 tháng 07 năm 2024.",
+  "Bản luận chứng kinh tế - kỹ thuật được hoàn thành trong 01 tháng.",
+  "Bên B chuyển tới bên A sau khi hoàn thành và bên A phải xét duyệt, đưa ra kết luận trong vòng 15 ngày kể từ ngày nhận.",
+  "Công tác thiết kế được thực hiện trong 03 tháng và trình bên A phê duyệt trong 15 ngày.",
+  "Thi công xây lắp dự kiến hoàn thành trong 12 tháng kể từ ngày khởi công.",
+  "Dự kiến khởi công vào ngày 01 tháng 10 năm 2024.",
+  "Điều 3: Trị giá hợp đồng.",
+  "Tổng dự toán công trình là 50.000.000.000 Đồng (Năm mươi tỷ đồng).",
+  "Trị giá công tác khảo sát là 500.000.000 đồng.",
+  "Trị giá phần lập luận chứng kinh tế - kỹ thuật là 1.000.000.000 đồng.",
+  "Trị giá phần thiết kế công trình là 2.500.000.000 đồng.",
+  "Trị giá phần thi công xây lắp công trình là 46.000.000.000 đồng.",
+  "Trong quá trình thực hiện, nếu Nhà nước ban hành các quy định mới liên quan đến giá trị công việc thì hai bên sẽ áp dụng quy định mới để thanh toán cho phù hợp.",
+  "Điều 4: Cách thức thanh toán, quyết toán.",
+  "Thanh toán bằng tiền mặt 20%, hoặc chuyển khoản qua ngân hàng 80%.",
+  "Khi hợp đồng được ký kết, bên A ứng trước cho bên B 30% kinh phí theo dự toán được duyệt để mua sắm vật tư chuẩn bị thi công.",
+  "Phần kinh phí còn lại sẽ được ghi cụ thể tại hợp đồng thi công chi tiết.",
+  "Sau khi nghiệm thu tổng thể công trình và đưa vào sử dụng, hai bên sẽ căn cứ vào các hợp đồng cụ thể và biên bản nghiệm thu khối lượng từng đợt để quyết toán và thanh lý hợp đồng.",
+  "Bên B phải giao cho bên A 03 bộ hồ sơ hoàn công.",
+  "Điều 5: Các biện pháp bảo đảm thực hiện hợp đồng.",
+  "Bên B thực hiện bảo lãnh thực hiện hợp đồng thông qua bảo lãnh ngân hàng với giá trị tương đương 5% tổng giá trị hợp đồng.",
+  "Điều 6: Trách nhiệm bên A.",
+  "Giải tỏa mặt bằng công trình và đền bù hoa màu, nhà cửa trong phạm vi thi công trước khi bên B tổ chức thi công.",
+  "Cử cán bộ kỹ thuật giám sát, theo dõi khối lượng và chất lượng công trình trong suốt thời gian thi công.",
+  "Chuẩn bị đầy đủ kinh phí và thanh toán đúng kỳ hạn cho bên B.",
+  "Tổ chức cho bộ phận thi công của bên B được tạm trú tại địa phương, bố trí bảo vệ an ninh trật tự cho đơn vị thi công, bảo vệ vật tư và phương tiện xây lắp tại công trình.",
+  "Điều 7: Trách nhiệm bên B.",
+  "Bàn giao các loại hồ sơ đúng thời hạn quy định.",
+  "Thi công đúng hồ sơ thiết kế và hoàn thành công trình đúng hợp đồng.",
+  "Bên B có lỗi chậm hoàn thành công trình sẽ bị phạt 0,05% giá trị của khối lượng bị kéo dài cho mỗi ngày chậm trễ.",
+  "Bên B phải chịu trách nhiệm về chất lượng công trình trong thời gian bảo hành là 02 năm.",
+  "Nếu có hư hỏng, bên B phải chịu phạt 10% giá trị dự toán phần không đảm bảo chất lượng.",
+  "Điều 8: Mức thưởng phạt khi các bên vi phạm hợp đồng.",
+  "Nếu hoàn thành từng loại công việc trong hợp đồng này trước thời hạn từ một tháng trở lên sẽ được thưởng 1% giá trị phần việc thực hiện.",
+  "Nếu vi phạm hợp đồng về chất lượng, số lượng, thời hạn hoàn công, thời hạn thanh toán, hai bên thống nhất áp dụng các văn bản pháp luật hiện hành của Nhà nước về hợp đồng kinh tế và xây dựng cơ bản để xử lý.",
+  "Điều 9: Điều khoản thi hành.",
+  "Hợp đồng này có giá trị từ ngày ký đến ngày thanh lý hợp đồng.",
+  "Hai bên cam kết thực hiện đúng các điều khoản của hợp đồng, bên nào vi phạm sẽ phải chịu trách nhiệm theo quy định của pháp luật về hợp đồng kinh tế.",
+  "Trong quá trình thực hiện nếu có vấn đề tranh chấp thì hai bên chủ động thương lượng giải quyết, khi cần sẽ lập phụ lục hợp đồng hoặc biên bản bổ sung hợp đồng.",
+  "Hợp đồng này được lập thành 04 bản có giá trị pháp lý như nhau.",
+  "Mỗi bên giữ 02 bản.",
+  "Gửi các cơ quan có liên quan bao gồm cơ quan thuế và cơ quan quản lý xây dựng địa phương.",
+  "ĐẠI DIỆN BÊN A.",
+  "(Ký tên, đóng dấu).",
+  "ĐẠI DIỆN BÊN B."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

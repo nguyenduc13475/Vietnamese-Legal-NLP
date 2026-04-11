@@ -1,0 +1,111 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "MẪU HỢP ĐỒNG CHUYỂN NHƯỢNG CỔ PHẦN.",
+  "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+  "Độc lập - Tự do - Hạnh phúc.",
+  "HỢP ĐỒNG CHUYỂN NHƯỢNG CỔ PHẦN TẠI CÔNG TY CỔ PHẦN QUẢN LÝ BẢO TRÌ ĐƯỜNG THỦY NỘI ĐỊA SỐ 14.",
+  "Hôm nay ngày 15 tháng 05 năm 2024, tại Hà Nội, chúng tôi gồm các bên dưới đây.",
+  "BÊN CHUYỂN NHƯỢNG: TỔNG CÔNG TY ĐẦU TƯ VÀ KINH DOANH VỐN NHÀ NƯỚC (SCIC).",
+  "Địa chỉ: Số 117 đường Trần Duy Hưng, phường Trung Hòa, quận Cầu Giấy, Thành phố Hà Nội, Việt Nam.",
+  "Điện thoại: (84) 024.",
+  "Fax: (84) 024. 62780136.",
+  "Mã số thuế: 0101992921.",
+  "Số tài khoản: 0011001703566 tại Sở giao dịch Ngân hàng TMCP Ngoại thương Việt Nam.",
+  "Người đại diện: Ông Nguyễn Văn A.",
+  "Chức vụ: Tổng Giám đốc.",
+  "Theo Quyết định ủy quyền số 123/QĐ-SCIC ngày 10 tháng 01 năm 2024.",
+  "BÊN NHẬN CHUYỂN NHƯỢNG: CÔNG TY CỔ PHẦN ĐẦU TƯ PHÁT TRIỂN ABC.",
+  "Địa chỉ: Số 20 đường Lê Lợi, quận 1, Thành phố Hồ Chí Minh.",
+  "Số Giấy chứng nhận đăng ký doanh nghiệp: 0312345678 do Sở Kế hoạch và Đầu tư Thành phố Hồ Chí Minh cấp ngày 20 tháng 02 năm 2020.",
+  "Đại diện: Bà Trần Thị B.",
+  "Chức vụ: Giám đốc.",
+  "Theo giấy ủy quyền số 456/UQ-ABC ngày 01 tháng 05 năm 2024.",
+  "Sau đây gọi tắt là “Bên B”.",
+  "Hai bên tự nguyện, thỏa thuận và cùng thống nhất ký kết Hợp đồng chuyển nhượng cổ phần này với các điều khoản cụ thể như sau.",
+  "Điều 1. Đối tượng của Hợp đồng, số lượng, giá chuyển nhượng và tổng giá trị chuyển nhượng.",
+  "Theo Hợp đồng này, SCIC đồng ý chuyển nhượng cho Bên B và Bên B đồng ý nhận chuyển nhượng cổ phần của SCIC tại Công ty cổ phần Quản lý bảo trì đường thủy nội địa số 14 với chi tiết như sau.",
+  "Tổ chức phát hành: Công ty cổ phần Quản lý bảo trì đường thủy nội địa số 14.",
+  "Loại cổ phần: Cổ phần phổ thông, tự do chuyển nhượng.",
+  "Mệnh giá: 10.000 đồng/cổ phần.",
+  "Số lượng: 364.363 cổ phần (Bằng chữ: Ba trăm sáu mươi bốn nghìn ba trăm sáu mươi ba cổ phần).",
+  "Giá chuyển nhượng: 15.000 đồng/cổ phần (Bằng chữ: Mười lăm nghìn đồng/cổ phần).",
+  "Tổng giá trị chuyển nhượng: 5.465.445.000 đồng (Bằng chữ: Năm tỷ bốn trăm sáu mươi lăm triệu bốn trăm bốn mươi lăm nghìn đồng).",
+  "Điều 2. Phương thức và thời hạn thanh toán.",
+  "Trường hợp 1: Bên B mới đặt cọc mà chưa thanh toán hết tiền mua cổ phần.",
+  "Bên B có nghĩa vụ trả tiền cho SCIC “Tổng giá trị chuyển nhượng” cổ phần bằng đồng Việt Nam như nêu tại Khoản 1.6 Điều 1 của Hợp đồng này (bao gồm cả tiền mà Bên B đã đặt cọc khi đăng ký mua cổ phần của SCIC) là 5.465.445.000 đồng bằng tiền mặt hoặc chuyển khoản vào Tài khoản sau đây.",
+  "Tên người thụ hưởng: Tổng Công ty Đầu tư và kinh doanh vốn Nhà nước.",
+  "Số Tài khoản: 0011001703566.",
+  "Địa chỉ: Sở giao dịch Ngân hàng TMCP Ngoại thương Việt Nam.",
+  "Số tiền mà Bên B đặt cọc khi đăng ký mua cổ phần của SCIC được khấu trừ vào “Tổng giá trị chuyển nhượng” khi Bên B thực hiện nghĩa vụ trả tiền cho SCIC.",
+  "Bên B hoàn thành nghĩa vụ trả tiền cho SCIC như nêu tại Khoản 2.1 Điều này trước 17 giờ 00 phút, ngày 20 tháng 05 năm 2024.",
+  "Trường hợp 2: Trường hợp Bên B đã thực hiện xong nghĩa vụ trả tiền cho SCIC theo hướng dẫn tại Công văn số 789/TB-BVSC ngày 10 tháng 05 năm 2024 của Chi nhánh Công ty cổ phần Chứng khoán Bảo Việt.",
+  "Bên B đã thực hiện xong nghĩa vụ trả tiền cho SCIC “Tổng giá trị chuyển nhượng” cổ phần bằng đồng Việt Nam như nêu tại Khoản 1.6 Điều 1 của Hợp đồng này (bao gồm cả tiền mà Bên B đặt cọc khi đăng ký mua cổ phần của SCIC) là 5.465.445.000 đồng vào ngày 12 tháng 05 năm 2024 theo Quy chế bán đấu giá cổ phần và Thông báo bán Thỏa thuận đã được SCIC công bố công khai.",
+  "Điều 3. Chuyển quyền sở hữu cổ phần.",
+  "SCIC có nghĩa vụ yêu cầu Công ty cổ phần Quản lý bảo trì đường thủy nội địa số 14 thực hiện thủ tục sang tên toàn bộ số cổ phần nêu tại Điều 1 Hợp đồng này cho Bên B ngay sau khi Bên B đã thực hiện xong nghĩa vụ trả tiền cho SCIC để chuyển quyền sở hữu số cổ phần chuyển nhượng theo quy định của pháp luật.",
+  "Thời điểm chuyển quyền sở hữu số cổ phần nêu tại Điều 1 Hợp đồng này từ SCIC sang Bên B thực hiện theo quy định của pháp luật về doanh nghiệp và chứng khoán.",
+  "Điều 4. Quyền và nghĩa vụ của SCIC.",
+  "SCIC cam kết số cổ phần chuyển nhượng nêu tại Điều 1 Hợp đồng này thuộc quyền sở hữu hợp pháp của mình, không thuộc đối tượng của bất kỳ tranh chấp, giao dịch cầm cố, thế chấp nào hoặc của bất kỳ giao dịch đảm bảo và các nghĩa vụ dân sự khác.",
+  "Thực hiện đầy đủ các thủ tục chuyển nhượng cổ phần theo quy định về chuyển nhượng cổ phần của Công ty cổ phần Quản lý bảo trì đường thủy nội địa số 14 theo quy định của pháp luật cho Bên B.",
+  "Các quyền và nghĩa vụ khác theo quy định của pháp luật.",
+  "Điều 5. Quyền và nghĩa vụ của Bên B.",
+  "Cam kết và đảm bảo rằng việc thực hiện giao dịch chuyển nhượng được thanh toán bằng nguồn tiền hợp pháp, đúng thẩm quyền và hoàn toàn chịu trách nhiệm trước pháp luật.",
+  "Chịu trách nhiệm thanh toán các khoản phí chuyển nhượng cổ phần và các chi phí khác (nếu có) liên quan đến việc chuyển nhượng cổ phần theo quy định.",
+  "Yêu cầu SCIC thực hiện đầy đủ các công việc liên quan đến việc thực hiện các thủ tục chuyển quyền sở hữu cổ phần Công ty cổ phần Quản lý bảo trì đường thủy nội địa số 14 và các nghĩa vụ khác theo quy định tại Hợp đồng này.",
+  "Phối hợp với SCIC thực hiện các thủ tục chuyển quyền sở hữu cổ phần nếu SCIC yêu cầu.",
+  "Điều 6. Giải quyết tranh chấp.",
+  "Mọi tranh chấp phát sinh từ và/hoặc liên quan đến Hợp đồng này sẽ được các bên giải quyết thông qua thương lượng, hòa giải.",
+  "Trường hợp các tranh chấp không được giải quyết qua thương lượng, hòa giải thì một trong các Bên có thể đưa tranh chấp ra giải quyết tại Tòa án có thẩm quyền theo quy định của pháp luật.",
+  "Điều 7. Điều khoản khác.",
+  "Hợp đồng này có hiệu lực kể từ ngày ký và sẽ không được hủy ngang nếu không xảy ra vi phạm.",
+  "Hợp đồng này sẽ tự động thanh lý khi hai Bên thực hiện xong các quyền, nghĩa vụ theo quy định tại Hợp đồng này.",
+  "Hợp đồng này được lập thành hai (02) bản, các bản có giá trị pháp lý ngang nhau, SCIC và Bên B mỗi bên giữ một (01) bản.",
+  "ĐẠI DIỆN SCIC.",
+  "ĐẠI DIỆN BÊN B."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

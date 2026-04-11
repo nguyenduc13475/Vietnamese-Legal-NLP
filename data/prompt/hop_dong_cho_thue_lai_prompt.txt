@@ -1,0 +1,88 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "Hợp đồng cho thuê lại.",
+  "Bên cho thuê là ông Nguyễn Văn A, sinh năm 1980, cư trú tại số 10 đường Lê Lợi, quận 1, thành phố Hồ Chí Minh.",
+  "Bên thuê lại là bà Trần Thị B, địa chỉ hiện tại tại số 25 đường Nguyễn Huệ, quận 1, thành phố Hồ Chí Minh.",
+  "Hai bên cùng thống nhất ký kết thỏa thuận cho thuê lại căn hộ với các điều khoản sau đây.",
+  "Điều I. Đối tượng cho thuê lại.",
+  "Vợ chồng ông Nguyễn Văn A và bà Lê Thị C theo hợp đồng thuê nhà ký ngày 01 tháng 01 năm 2023 là những người cùng thuê căn hộ tại ngôi nhà số 15, đường Trần Hưng Đạo, quận 1, thành phố Hồ Chí Minh.",
+  "Căn hộ này có số hiệu 202, nằm ở tầng 2, bao gồm 02 phòng ngủ, 01 phòng bếp cùng các trang thiết bị nội thất cơ bản và các diện tích phụ trợ khác.",
+  "Chủ sở hữu hợp pháp của ngôi nhà là ông Phạm Văn D, cư trú tại số 50 đường Võ Văn Kiệt, quận 1, thành phố Hồ Chí Minh.",
+  "Chủ sở hữu đã đồng ý bằng văn bản về việc cho phép thuê lại căn hộ và văn bản này là một phần không thể tách rời của hợp đồng này.",
+  "Đối tượng cho thuê lại là toàn bộ diện tích căn hộ nêu trên.",
+  "Người thuê lại sẽ tiếp nhận căn hộ từ người thuê vào ngày 01 tháng 02 năm 2024 và tình trạng bàn giao sẽ được ghi nhận cụ thể trong biên bản bàn giao.",
+  "Điều II. Thời hạn cho thuê lại.",
+  "Việc thuê lại được các bên thỏa thuận có thời hạn từ ngày 01 tháng 02 năm 2024 đến ngày 01 tháng 02 năm 2025.",
+  "Điều III. Chi phí thuê và dịch vụ kèm theo.",
+  "Phí thuê căn hộ được ấn định là 10.000.000 đồng mỗi tháng, đã bao gồm các chi phí dịch vụ đi kèm.",
+  "Mức phí này sẽ được hai bên xem xét điều chỉnh định kỳ hàng năm thông qua thỏa thuận bằng văn bản.",
+  "Người thuê lại có nghĩa vụ thanh toán tiền thuê cho người thuê chậm nhất vào ngày 05 hàng tháng.",
+  "Việc thanh toán được thực hiện thông qua chuyển khoản vào tài khoản ngân hàng Vietcombank số 0071001234567 của người thuê hoặc thanh toán trực tiếp bằng tiền mặt.",
+  "Điều IV. Kết thúc hợp đồng thuê lại.",
+  "Hợp đồng thuê lại có thời hạn sẽ chấm dứt khi hết thời hạn đã thỏa thuận.",
+  "Người thuê có quyền đơn phương chấm dứt hợp đồng trước thời hạn trong các trường hợp sau đây.",
+  "Người thuê lại thanh toán tiền thuê chậm quá 01 tháng so với thời hạn đã thỏa thuận.",
+  "Người thuê lại hoặc những người cùng cư trú có hành vi vi phạm trật tự công cộng hoặc chuẩn mực đạo đức tại khu nhà.",
+  "Người thuê lại sử dụng căn hộ sai mục đích hoặc cho bên thứ ba thuê lại mà không có sự đồng ý của người thuê.",
+  "Căn hộ không thể tiếp tục sử dụng do các lý do kỹ thuật hoặc yêu cầu xây dựng từ phía chủ sở hữu.",
+  "Thời hạn thông báo chấm dứt hợp đồng là 30 ngày kể từ ngày người thuê lại nhận được thông báo bằng văn bản.",
+  "Điều V. Các thỏa thuận đặc biệt.",
+  "Người thuê lại có trách nhiệm tự chi trả các chi phí sửa chữa nhỏ phát sinh trong quá trình sử dụng và chi phí bảo dưỡng thông thường của căn hộ.",
+  "Khi kết thúc hợp đồng, người thuê lại có nghĩa vụ di dời toàn bộ tài sản cá nhân và bàn giao lại căn hộ cho người thuê trong tình trạng nguyên trạng như khi tiếp nhận.",
+  "Sau khi hợp đồng chấm dứt, người thuê lại không có quyền yêu cầu người thuê cung cấp căn hộ thay thế hoặc nơi ở tạm thời.",
+  "Các vấn đề chưa được quy định cụ thể trong hợp đồng này sẽ được giải quyết theo các quy định tương ứng của Bộ luật Dân sự hiện hành.",
+  "Điều VI. Điều khoản chung.",
+  "Hợp đồng này được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản và gửi 01 bản sao cho chủ sở hữu căn hộ.",
+  "Hợp đồng có hiệu lực thi hành kể từ ngày ký kết.",
+  "Sự đồng ý của chủ sở hữu bất động sản đã được xác nhận bằng văn bản đính kèm.",
+  "Lập tại thành phố Hồ Chí Minh, ngày 20 tháng 01 năm 2024.",
+  "Người thuê: Nguyễn Văn A.",
+  "Người thuê lại: Trần Thị B."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

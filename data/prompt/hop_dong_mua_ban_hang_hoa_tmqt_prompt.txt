@@ -1,0 +1,124 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "HỢP ĐỒNG MUA BÁN HÀNG HÓA THƯƠNG MẠI QUỐC TẾ (BẢN RÚT GỌN).",
+  "Bên Bán: Công ty TNHH Xuất nhập khẩu ABC.",
+  "Hình thức pháp lý: Công ty trách nhiệm hữu hạn.",
+  "Quốc tịch và số đăng ký kinh doanh: Việt Nam, số ĐKKD 0102030405.",
+  "Địa chỉ: Số 123 đường Lê Lợi, Quận 1, Thành phố Hồ Chí Minh, Việt Nam; Điện thoại: 02838123456; Fax: 02838123457; Email: sales@abc-import.com.",
+  "Đại diện bởi: Ông Nguyễn Văn A, địa chỉ tại 123 Lê Lợi, Quận 1, TP.HCM, chức vụ Giám đốc, thẩm quyền đại diện theo Điều lệ công ty.",
+  "Bên Mua: Công ty TNHH Thương mại XYZ.",
+  "Quốc tịch và số đăng ký kinh doanh: Nhật Bản, số ĐKKD JP987654321.",
+  "Địa chỉ: 4-5-6 Ginza, Chuo-ku, Tokyo, Nhật Bản; Điện thoại: +81312345678; Fax: +81312345679; Email: procurement@xyz-trading.jp.",
+  "Đại diện bởi: Bà Tanaka Yoko, địa chỉ tại 4-5-6 Ginza, Tokyo, chức vụ Tổng giám đốc, thẩm quyền đại diện theo Giấy ủy quyền số 01/2024.",
+  "Sau đây gọi là “Các Bên”.",
+  "Dựa trên các điều khoản đã được thỏa thuận trong hợp đồng này, Bên Bán có nghĩa vụ chuyển giao các hàng hóa được liệt kê dưới đây cho Bên Mua.",
+  "Mô tả Hàng hóa bao gồm: 500 tấn gạo thơm chất lượng cao, có chứng nhận xuất xứ Việt Nam và các tiêu chuẩn kiểm định quốc tế.",
+  "Số lượng Hàng hóa bao gồm đơn vị đo lường cụ thể.",
+  "Tổng số lượng hàng hóa là 500 tấn.",
+  "Mỗi lần giao hàng là 100 tấn.",
+  "Phần trăm dung sai cho phép là cộng hoặc trừ 2%.",
+  "Việc kiểm định Hàng hóa được thực hiện bởi Công ty Giám định SGS tại cảng xuất hàng trước khi giao hàng, chi phí do Bên Bán chịu trách nhiệm.",
+  "Đóng gói hàng hóa trong bao PP 50kg, có nhãn mác đầy đủ theo tiêu chuẩn xuất khẩu.",
+  "Các chi tiết khác bao gồm việc dán nhãn bằng tiếng Anh và tiếng Nhật.",
+  "Hợp đồng áp dụng quy tắc Incoterms 2020 của Phòng Thương mại Quốc tế (ICC).",
+  "Địa điểm giao hàng là Cảng Cát Lái, Thành phố Hồ Chí Minh, Việt Nam.",
+  "Ngày hoặc thời hạn giao hàng là ngày 30 tháng 12 năm 2024.",
+  "Người chuyên chở là Công ty Vận tải biển quốc tế Evergreen.",
+  "Các điều khoản giao hàng khác bao gồm việc thông báo trước 05 ngày cho Bên Mua về lịch tàu.",
+  "Tổng giá trị hợp đồng là 500.000 USD.",
+  "Giá đơn vị là 1.000 USD/tấn.",
+  "Số tiền bằng số là 500.000 USD.",
+  "Số tiền bằng chữ là Năm trăm nghìn đô la Mỹ.",
+  "Loại tiền thanh toán là Đô la Mỹ (USD).",
+  "Phương pháp xác định giá dựa trên giá thị trường tại thời điểm ký kết hợp đồng.",
+  "Điều kiện thanh toán.",
+  "Phương thức thanh toán là chuyển khoản ngân hàng quốc tế (T/T).",
+  "Chi tiết tài khoản ngân hàng của Bên Bán là Ngân hàng Vietcombank, chi nhánh TP.HCM, số tài khoản 0071001234567.",
+  "Thời hạn thanh toán là trong vòng 15 ngày kể từ ngày nhận được bộ chứng từ hợp lệ.",
+  "Các bên chọn phương thức thanh toán là chuyển khoản ngân hàng, cụ thể là thanh toán 30% đặt cọc và 70% còn lại sau khi nhận bản sao vận đơn.",
+  "Bên Bán phải chuẩn bị sẵn cho Bên Mua các chứng từ sau: Hóa đơn thương mại, Chứng từ vận tải, Phiếu đóng gói, Chứng từ bảo hiểm, Giấy chứng nhận xuất xứ, Giấy chứng nhận kiểm định, Chứng từ hải quan.",
+  "Bên Bán có nghĩa vụ cung cấp các chứng từ quy định trong Incoterms của ICC theo điều kiện giao hàng đã chọn.",
+  "Trường hợp Bên Mua không thực hiện nghĩa vụ thanh toán đúng thời điểm đã thỏa thuận.",
+  "Nếu Bên Mua chậm thanh toán, Bên Bán sẽ gia hạn thêm 10 ngày để Bên Mua thực hiện nghĩa vụ.",
+  "Nếu Bên Mua vẫn không thanh toán trong thời gian gia hạn, Bên Bán có quyền tính lãi suất chậm trả là 0,05% mỗi ngày trên số tiền chưa thanh toán.",
+  "Trường hợp Bên Bán không thực hiện nghĩa vụ giao hàng đúng thời điểm đã thỏa thuận.",
+  "Nếu Bên Bán không giao hàng đúng hạn, Bên Mua sẽ gia hạn thêm 15 ngày cho Bên Bán.",
+  "Nếu Bên Bán vẫn không giao hàng, Bên Mua có quyền phạt vi phạm 0,5% giá trị hàng hóa cho mỗi ngày chậm trễ, tối đa không quá 10% tổng giá trị hợp đồng.",
+  "Không phù hợp.",
+  "Bên Mua có nghĩa vụ kiểm tra hàng hóa trong vòng 07 ngày kể từ ngày nhận hàng và thông báo ngay cho Bên Bán về bất kỳ sự không phù hợp nào.",
+  "Nếu có thông báo hợp lý, Bên Mua có quyền yêu cầu Bên Bán giao bù số hàng thiếu, thay thế hàng hóa, sửa chữa hàng hóa, giảm giá hoặc hủy hợp đồng.",
+  "Chuyển giao quyền sở hữu.",
+  "Bên Bán phải giao hàng hóa không có tranh chấp quyền sở hữu của bên thứ ba.",
+  "Quyền sở hữu hàng hóa chỉ được chuyển sang Bên Mua sau khi Bên Bán nhận được toàn bộ số tiền thanh toán.",
+  "Hủy hợp đồng.",
+  "Hợp đồng bị coi là vi phạm nếu một bên không thực hiện đúng nghĩa vụ đã cam kết.",
+  "Vi phạm cơ bản xảy ra khi việc không thực hiện nghĩa vụ tước bỏ quyền lợi cốt lõi của bên bị vi phạm.",
+  "Bên bị vi phạm có quyền gia hạn thời gian thực hiện trước khi tuyên bố hủy hợp đồng.",
+  "Trong trường hợp vi phạm cơ bản, bên bị vi phạm có thể hủy hợp đồng ngay lập tức.",
+  "Tuyên bố hủy hợp đồng chỉ có hiệu lực khi được thông báo bằng văn bản cho bên kia.",
+  "Bất khả kháng.",
+  "Sự kiện bất khả kháng bao gồm chiến tranh, thiên tai, dịch bệnh hoặc các trở ngại nằm ngoài tầm kiểm soát hợp lý.",
+  "Bên bị ảnh hưởng không phải chịu trách nhiệm về việc chậm trễ do sự kiện bất khả kháng gây ra.",
+  "Bên bị ảnh hưởng phải thông báo cho bên kia về sự kiện bất khả kháng trong vòng 05 ngày.",
+  "Nếu sự kiện bất khả kháng kéo dài quá 90 ngày, các bên có quyền chấm dứt hợp đồng bằng văn bản.",
+  "Tính toàn vẹn của hợp đồng.",
+  "Hợp đồng này đại diện cho toàn bộ thỏa thuận giữa các bên và thay thế mọi cam kết trước đó.",
+  "Mọi sửa đổi hợp đồng phải được lập thành văn bản và có chữ ký của cả hai bên.",
+  "Mọi thông báo phải được thực hiện bằng văn bản hoặc email và gửi đến địa chỉ đã nêu tại phần thông tin các bên.",
+  "Thông báo được coi là đã nhận nếu có bằng chứng xác nhận từ bên nhận.",
+  "Thủ tục giải quyết tranh chấp.",
+  "Các bên ưu tiên giải quyết tranh chấp thông qua hòa giải trong vòng 30 ngày.",
+  "Mọi tranh chấp không giải quyết được bằng hòa giải sẽ được đưa ra Trung tâm Trọng tài Quốc tế Việt Nam (VIAC) tại TP.HCM, xét xử bởi 03 trọng tài viên bằng tiếng Anh.",
+  "Luật áp dụng và các quy tắc hướng dẫn.",
+  "Hợp đồng được điều chỉnh bởi Công ước CISG 1980, các Nguyên tắc UNIDROIT và luật pháp Việt Nam.",
+  "Các bên cam kết thực hiện hợp đồng trên tinh thần thiện chí và công bằng.",
+  "NGÀY VÀ CHỮ KÝ CỦA CÁC BÊN.",
+  "Ngày: 01 tháng 11 năm 2024."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

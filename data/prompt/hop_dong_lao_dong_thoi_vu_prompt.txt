@@ -1,0 +1,104 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "HỢP ĐỒNG LAO ĐỘNG THỜI VỤ.",
+  "Chúng tôi, một bên là Ông: Nguyễn Văn A.",
+  "Quốc tịch: Việt Nam.",
+  "Chức vụ: Giám đốc.",
+  "Đại diện cho: CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ XÂY DỰNG BÌNH MINH.",
+  "Địa chỉ: Số 123, đường Lê Lợi, Quận 1, Thành phố Hồ Chí Minh.",
+  "Mã số thuế: 0301234567.",
+  "Số tài khoản: 1900123456789 tại Ngân hàng TMCP Ngoại thương Việt Nam.",
+  "Và một bên là Bà: Trần Thị B.",
+  "Sinh ngày 15 tháng 05 năm 1995 tại: Thành phố Đà Nẵng.",
+  "Địa chỉ thường trú: Số 45, đường Nguyễn Huệ, Quận Hải Châu, Thành phố Đà Nẵng.",
+  "Số CCCD: 048195000123 cấp ngày 10 tháng 10 năm 2021 tại Cục Cảnh sát quản lý hành chính về trật tự xã hội.",
+  "Hai bên thỏa thuận ký kết hợp đồng lao động và cam kết thực hiện đúng những điều khoản sau đây.",
+  "Điều 1: Thời hạn và công việc hợp đồng.",
+  "Loại hợp đồng lao động: Thời vụ 06 tháng.",
+  "Từ ngày 01 tháng 01 năm 2024 đến ngày 30 tháng 06 năm 2024.",
+  "Địa điểm làm việc: Trụ sở chính của Công ty tại Thành phố Hồ Chí Minh.",
+  "Chức danh chuyên môn: Nhân viên hành chính.",
+  "Chức vụ: Nhân viên.",
+  "Công việc phải làm: Thực hiện các công việc văn phòng và hỗ trợ bộ phận kinh doanh.",
+  "Điều 2: Chế độ làm việc.",
+  "Thời giờ làm việc: 08 giờ mỗi ngày và 48 giờ mỗi tuần.",
+  "Người lao động được cấp phát các công cụ làm việc dựa trên yêu cầu thực tế của công việc.",
+  "Điều 3: Nghĩa vụ và quyền lợi của người lao động.",
+  "Phương tiện đi lại làm việc: Người lao động tự túc phương tiện đi lại.",
+  "Mức lương chính hoặc tiền công: 10.000.000 đồng/tháng đã bao gồm các khoản bảo hiểm xã hội và bảo hiểm y tế.",
+  "Hình thức trả lương: Trả lương qua hình thức chuyển khoản ngân hàng.",
+  "Phụ cấp gồm: Phụ cấp ăn trưa và phụ cấp điện thoại.",
+  "Thời hạn trả lương: Vào ngày 05 của tháng kế tiếp.",
+  "Tiền thưởng: Dựa trên tình hình tài chính và kết quả kinh doanh của công ty.",
+  "Chế độ nâng lương: Xem xét dựa trên hiệu quả công việc cá nhân.",
+  "Chế độ nghỉ ngơi: Mỗi tháng người lao động được nghỉ 04 ngày.",
+  "Bảo hiểm xã hội và bảo hiểm y tế: Được chi trả theo quy định của pháp luật hiện hành.",
+  "Chế độ đào tạo: Được tham gia các khóa tập huấn kỹ năng nội bộ.",
+  "Những thỏa thuận khác: Tuân thủ các quy định bảo mật thông tin của công ty.",
+  "Hoàn thành đầy đủ các nhiệm vụ đã cam kết trong hợp đồng này.",
+  "Chấp hành nghiêm chỉnh lệnh điều hành sản xuất, nội quy kỷ luật lao động và các quy định an toàn lao động.",
+  "Bồi thường thiệt hại về vật chất nếu để xảy ra hư hỏng tài sản do lỗi cá nhân.",
+  "Điều 4: Nghĩa vụ và quyền hạn của người sử dụng lao động.",
+  "Đảm bảo việc làm và thực hiện đầy đủ các cam kết trong hợp đồng lao động.",
+  "Thanh toán đầy đủ và đúng hạn các chế độ, quyền lợi cho người lao động theo hợp đồng và thỏa ước lao động tập thể.",
+  "Điều hành người lao động hoàn thành công việc theo hợp đồng bao gồm việc bố trí, điều chuyển hoặc tạm ngừng việc.",
+  "Tạm hoãn, chấm dứt hợp đồng lao động hoặc kỷ luật người lao động theo quy định pháp luật và nội quy doanh nghiệp.",
+  "Điều 5: Điều khoản chấm dứt hợp đồng.",
+  "Chấm dứt khi hợp đồng lao động hết thời hạn.",
+  "Chấm dứt trước thời hạn theo thỏa thuận của hai bên.",
+  "Đơn phương chấm dứt hợp đồng theo quy định pháp luật.",
+  "Điều 6: Điều khoản thi hành.",
+  "Các vấn đề về lao động không được ghi trong hợp đồng này sẽ áp dụng theo thỏa ước lao động tập thể hoặc pháp luật lao động hiện hành.",
+  "Hợp đồng lao động này được lập thành 02 bản có giá trị pháp lý ngang nhau, mỗi bên giữ một bản và có hiệu lực từ ngày 01 tháng 01 năm 2024.",
+  "Khi hai bên ký kết phụ lục hợp đồng, nội dung của phụ lục đó cũng có giá trị pháp lý như bản hợp đồng chính này.",
+  "Hợp đồng này được lập tại Thành phố Hồ Chí Minh, ngày 01 tháng 01 năm 2024.",
+  "NGƯỜI LAO ĐỘNG (Ký và ghi rõ họ tên): Trần Thị B.",
+  "NGƯỜI SỬ DỤNG LAO ĐỘNG (Ký, ghi rõ họ tên và đóng dấu): Nguyễn Văn A."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

@@ -1,0 +1,187 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+  "Độc lập - Tự do - Hạnh phúc.",
+  "HỢP ĐỒNG CUNG CẤP DỊCH VỤ PHẦN MỀM QUẢN LÝ NHÀ THUỐC.",
+  "Căn cứ Bộ luật dân sự số 91/2015/QH13 và các văn bản hướng dẫn thi hành.",
+  "Căn cứ Luật thương mại số 36/2005/QH11 và các văn bản hướng dẫn thi hành.",
+  "Căn cứ Luật viễn thông số 41/2009/QH12 và các văn bản hướng dẫn thi hành.",
+  "Căn cứ Luật công nghệ thông tin số 67/2006/QH11 và các văn bản hướng dẫn thi hành.",
+  "Căn cứ các văn bản pháp luật khác có liên quan.",
+  "Căn cứ vào năng lực và điều kiện thực tế của các bên.",
+  "Hợp đồng cung cấp dịch vụ phần mềm quản lý nhà thuốc (“Hợp đồng”) được xác lập và ký kết vào ngày 20 tháng 05 năm 2024, tại Hà Nội, giữa các Bên dưới đây.",
+  "BÊN SỬ DỤNG DỊCH VỤ (BÊN A):",
+  "Tên đơn vị: Công ty TNHH Dược phẩm An Khang.",
+  "Địa chỉ: Số 123, đường Lê Lợi, quận Hoàn Kiếm, thành phố Hà Nội.",
+  "Điện thoại: 0243.999.8888.",
+  "Tài khoản: 19030000000000 tại Ngân hàng TMCP Kỹ Thương Việt Nam (Techcombank).",
+  "Mã số thuế: 0101234567.",
+  "Người đại diện: Ông Nguyễn Văn A.",
+  "Chức vụ: Giám đốc.",
+  "Theo Giấy ủy quyền số 01/GUQ-AK ngày 02 tháng 01 năm 2024 của Hội đồng thành viên.",
+  "BÊN CUNG CẤP DỊCH VỤ (BÊN B):",
+  "Tên đơn vị: Tập đoàn Bưu chính Viễn thông Việt Nam - VNPT.",
+  "Địa chỉ: Số 57, đường Huỳnh Thúc Kháng, quận Đống Đa, thành phố Hà Nội.",
+  "Điện thoại: 0243.888.9999.",
+  "Tài khoản: 100000000000 tại Ngân hàng TMCP Ngoại thương Việt Nam (Vietcombank).",
+  "Mã số thuế: 0100686054.",
+  "Người đại diện: Ông Trần Văn B.",
+  "Chức vụ: Phó Tổng Giám đốc.",
+  "Theo Giấy ủy quyền số 99/GUQ-VNPT ngày 15 tháng 02 năm 2024 của Tổng Giám đốc.",
+  "Sau khi thảo luận và thống nhất, các bên đồng ý ký kết Hợp đồng với các điều khoản và điều kiện như sau.",
+  "ĐIỀU 1. GIẢI THÍCH TỪ NGỮ.",
+  "Trong Hợp đồng này, các thuật ngữ được hiểu như sau.",
+  "“Dịch vụ Phần mềm quản lý nhà thuốc” là dịch vụ VNPT Pharmacy.",
+  "“Biên bản khảo sát triển khai hệ thống” là văn bản được hai bên ký kết sau khi Bên B hoàn thành việc khảo sát toàn bộ hệ thống, xác nhận tình trạng thực tế và khả năng triển khai dịch vụ.",
+  "“Kịch bản kiểm thử” là văn bản được hai bên ký kết khi Bên B triển khai xong các hạng mục công việc của Hợp đồng (trừ bảo dưỡng, nâng cấp), quy định các nội dung chạy thử để kiểm tra tính năng dịch vụ.",
+  "“Biên bản nghiệm thu kỹ thuật hệ thống” là văn bản hai bên ký xác nhận tình trạng kỹ thuật của hệ thống sau khi lắp đặt, đo kiểm để đưa dịch vụ vào vận hành.",
+  "“Chuyển giao công nghệ” là hình thức đào tạo, hướng dẫn để nhân viên Bên A hiểu và sử dụng dịch vụ do Bên B cung cấp.",
+  "“Ngày làm việc” là các ngày từ thứ 2 đến thứ 6, không bao gồm ngày nghỉ lễ, tết theo quy định pháp luật Việt Nam.",
+  "ĐIỀU 2. ĐỐI TƯỢNG CỦA HỢP ĐỒNG.",
+  "Bên B đồng ý cung cấp và Bên A đồng ý sử dụng dịch vụ theo quy định tại Phụ lục Hợp đồng.",
+  "Thông tin dịch vụ được niêm yết tại website hoặc các điểm giao dịch của Bên B và có thể được điều chỉnh theo từng thời điểm.",
+  "ĐIỀU 3. CƯỚC PHÍ DỊCH VỤ.",
+  "Cước phí dịch vụ dựa trên gói dịch vụ Bên A đã đăng ký, chi tiết tại Phụ lục Hợp đồng.",
+  "Ngày bắt đầu tính cước là ngày hai bên ký biên bản nghiệm thu.",
+  "Nếu Bên A có nhu cầu nâng cấp gói dịch vụ, Bên A phải thanh toán chi phí nâng cấp dựa trên quy mô và các chi phí liên quan tại thời điểm hiện hành.",
+  "Hai bên sẽ ký Phụ lục bổ sung Hợp đồng.",
+  "Bản nghiệm thu hệ thống mới nhất sẽ thay thế các bản cũ và là cơ sở tính cước từ thời điểm thay đổi.",
+  "ĐIỀU 4. THANH TOÁN.",
+  "Phương thức thanh toán.",
+  "Trong thời hạn 05 ngày làm việc kể từ ngày nhận bàn giao tài khoản, Bên A phải thanh toán đủ cước phí cho Bên B.",
+  "Dịch vụ được coi là gia hạn với thời gian và cước phí tương ứng nếu Bên A tiếp tục sử dụng sau khi hết hạn.",
+  "Trong thời hạn 05 ngày làm việc kể từ ngày gia hạn, Bên A phải thanh toán cước phí cho kỳ tiếp theo.",
+  "Nếu Bên A thanh toán chậm, Bên B có quyền ngừng cung cấp dịch vụ và không chịu trách nhiệm về hậu quả hoặc mất mát dữ liệu của Bên A.",
+  "Bên B xuất hóa đơn cho Bên A trong vòng 10 ngày kể từ ngày nhận thanh toán.",
+  "Hóa đơn được coi là hợp lệ nếu Bên A không có khiếu nại bằng văn bản trong vòng 05 ngày kể từ ngày nhận hóa đơn.",
+  "Bên A không được hoàn trả giá trị đã thanh toán trong bất kỳ trường hợp nào.",
+  "Hình thức thanh toán.",
+  "Bên A thanh toán bằng tiền Việt Nam đồng qua hình thức tiền mặt hoặc chuyển khoản vào tài khoản ngân hàng của Bên B.",
+  "Giá trị thanh toán có thể bù trừ với các khoản công nợ khác giữa hai bên nếu có.",
+  "Bên A chịu mọi chi phí liên quan đến việc thanh toán để đảm bảo Bên B nhận đủ số tiền ghi trên hóa đơn.",
+  "ĐIỀU 5. QUYỀN VÀ NGHĨA VỤ CỦA BÊN A.",
+  "Quyền của Bên A.",
+  "Yêu cầu Bên B cung cấp dịch vụ đúng nội dung Điều 2 và kế hoạch triển khai.",
+  "Quản trị, khai thác dịch vụ theo hướng dẫn của Bên B.",
+  "Nếu muốn xử lý số liệu trực tiếp tại máy chủ Bên B, Bên A phải thông báo trước 03 ngày làm việc và được Bên B đồng ý bằng văn bản.",
+  "Khiếu nại về chất lượng dịch vụ và cước phí trong vòng 05 ngày kể từ thời điểm phát sinh.",
+  "Đề nghị tạm ngừng dịch vụ bằng văn bản và thanh toán đầy đủ cước phí tính đến thời điểm tạm ngừng.",
+  "Nghĩa vụ của Bên A.",
+  "Thanh toán đầy đủ, đúng hạn cước phí dịch vụ.",
+  "Phối hợp, tạo điều kiện cho Bên B khảo sát hiện trạng hệ thống để lập phương án tích hợp.",
+  "Tự làm việc và chi trả chi phí cho đơn vị thứ ba nếu phải tích hợp với hệ thống riêng của Bên A.",
+  "Chịu trách nhiệm về tính hợp pháp, quyền sở hữu trí tuệ của dữ liệu đưa lên hệ thống.",
+  "Tự bảo mật dữ liệu và thực hiện sao lưu nội bộ.",
+  "Chịu trách nhiệm về mọi thiệt hại do lỗi của Bên A trong quá trình sử dụng dịch vụ.",
+  "Sử dụng đúng mục đích, không chuyển giao dịch vụ cho bên thứ ba khi chưa được Bên B đồng ý.",
+  "Thông báo kịp thời cho Bên B khi có sự cố và tự sửa chữa các lỗi thuộc phạm vi quản lý của mình.",
+  "ĐIỀU 6. QUYỀN VÀ NGHĨA VỤ CỦA BÊN B.",
+  "Quyền của Bên B.",
+  "Yêu cầu Bên A cung cấp thông tin cần thiết và thanh toán đầy đủ cước phí.",
+  "Kiểm tra, giám sát việc sử dụng dịch vụ.",
+  "Nếu phát hiện vi phạm, Bên B có quyền yêu cầu giải trình hoặc đề nghị cơ quan chức năng can thiệp.",
+  "Không chịu trách nhiệm về nội dung dữ liệu của Bên A.",
+  "Có quyền xóa dữ liệu khi chấm dứt Hợp đồng.",
+  "Không chịu trách nhiệm về các lỗi do phần mềm khác gây ra hoặc các vấn đề pháp lý phát sinh từ việc sử dụng dịch vụ của Bên A.",
+  "Nghĩa vụ của Bên B.",
+  "Cung cấp dịch vụ đúng kế hoạch và đảm bảo chất lượng.",
+  "Kiểm tra, thử nghiệm hệ thống trước khi vận hành chính thức.",
+  "Cung cấp tài khoản và mật khẩu cho Bên A.",
+  "Hỗ trợ kỹ thuật và khắc phục sự cố theo yêu cầu của Bên A.",
+  "Bảo dưỡng hệ thống để đảm bảo vận hành ổn định.",
+  "Bảo mật dữ liệu của Bên A và khách hàng của Bên A.",
+  "Cung cấp thông tin, dữ liệu theo yêu cầu hợp pháp của cơ quan nhà nước.",
+  "Phối hợp điều chỉnh phần mềm nếu có thay đổi về pháp luật.",
+  "ĐIỀU 7. THỜI HẠN VÀ CHẤM DỨT HỢP ĐỒNG.",
+  "Hợp đồng có thời hạn theo gói đã đăng ký và tự động gia hạn.",
+  "Hợp đồng chấm dứt trong các trường hợp: thỏa thuận, đơn phương chấm dứt do vi phạm sau 15 ngày không khắc phục, hoặc theo quy định pháp luật.",
+  "Hậu quả chấm dứt.",
+  "Bên A phải thanh toán toàn bộ cước phí đến ngày chấm dứt.",
+  "Việc chấm dứt không làm mất hiệu lực các quyền và nghĩa vụ phát sinh trước đó.",
+  "Các bên tiến hành thủ tục thanh lý khi hoàn thành mọi nghĩa vụ.",
+  "ĐIỀU 8. TẠM NGỪNG CUNG CẤP DỊCH VỤ.",
+  "Bên A muốn tạm ngừng phải gửi đề nghị trước 05 ngày làm việc và thanh toán đủ cước phí.",
+  "Bên B được quyền tạm ngừng nếu Bên A vi phạm nghĩa vụ, hoặc khi cần bảo trì mạng lưới, hoặc theo yêu cầu cơ quan nhà nước.",
+  "Bên B thông báo cho Bên A trong vòng 03 ngày kể từ khi có căn cứ tạm ngừng.",
+  "ĐIỀU 9. TRÁCH NHIỆM DO VI PHẠM.",
+  "Bồi thường thiệt hại.",
+  "Bên vi phạm phải bồi thường thiệt hại trực tiếp cho bên bị vi phạm.",
+  "Nếu Bên A chậm thanh toán, Bên B có quyền tính lãi 150% lãi suất tiết kiệm 12 tháng của ngân hàng nhưng không quá 20%/năm.",
+  "Phạt vi phạm.",
+  "Bên vi phạm phải nộp phạt 08% giá trị phần nghĩa vụ bị vi phạm.",
+  "ĐIỀU 10. BẢO MẬT THÔNG TIN.",
+  "Các bên cam kết giữ bí mật thông tin liên quan đến Hợp đồng và không tiết lộ cho bên thứ ba nếu không có sự đồng ý bằng văn bản.",
+  "Nghĩa vụ bảo mật không giới hạn thời gian và không gian.",
+  "Vi phạm phải bồi thường thiệt hại thực tế.",
+  "ĐIỀU 11. SỰ KIỆN BẤT KHẢ KHÁNG.",
+  "Sự kiện bất khả kháng là các sự kiện khách quan, không thể lường trước như thiên tai, chiến tranh, dịch bệnh, thay đổi chính sách pháp luật.",
+  "Bên bị ảnh hưởng được miễn trách nhiệm nhưng phải thông báo kịp thời và áp dụng mọi biện pháp khắc phục.",
+  "Nếu sự kiện kéo dài, các bên có thể thỏa thuận chấm dứt Hợp đồng.",
+  "ĐIỀU 12. QUYỀN SỞ HỮU TRÍ TUỆ.",
+  "Quyền sở hữu trí tuệ đối với phần mềm và ứng dụng thuộc về Bên B hoặc chủ sở hữu hợp pháp.",
+  "ĐIỀU 13. LUẬT ĐIỀU CHỈNH VÀ GIẢI QUYẾT TRANH CHẤP.",
+  "Hợp đồng được điều chỉnh bởi pháp luật Việt Nam.",
+  "Tranh chấp được ưu tiên giải quyết qua thương lượng, hòa giải.",
+  "Nếu không hòa giải được, tranh chấp sẽ được đưa ra Tòa án có thẩm quyền.",
+  "Bên thua kiện chịu án phí.",
+  "ĐIỀU 14. THÔNG BÁO.",
+  "Các bên thông báo đầu mối liên hệ chính thức.",
+  "Thông báo phải bằng văn bản, gửi qua thư bảo đảm, fax hoặc email.",
+  "Thông báo cuối cùng theo thời gian sẽ được áp dụng.",
+  "Các bên phải thông báo ngay khi có thay đổi về địa chỉ, số điện thoại hoặc đầu mối liên hệ.",
+  "ĐIỀU 15. ĐIỀU KHOẢN THI HÀNH.",
+  "Hợp đồng có hiệu lực kể từ ngày ký.",
+  "Các bên cam kết thực hiện đúng các điều khoản với tinh thần thiện chí.",
+  "Mọi sửa đổi phải được lập thành văn bản và có chữ ký của đại diện có thẩm quyền.",
+  "Hợp đồng được lập thành 04 bản, mỗi bên giữ 02 bản có giá trị pháp lý như nhau.",
+  "ĐẠI DIỆN BÊN A.",
+  "(Ký, ghi rõ họ tên, đóng dấu).",
+  "ĐẠI DIỆN BÊN B."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

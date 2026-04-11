@@ -1,0 +1,179 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+  "Độc lập - Tự do - Hạnh phúc.",
+  "Hà Nội, ngày 15 tháng 05 năm 2024.",
+  "HỢP ĐỒNG GIA CÔNG CƠ KHÍ.",
+  "Dựa trên Luật Thương mại của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam ban hành năm 2005.",
+  "Dựa trên Bộ luật Dân sự của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam ký kết ngày 24 tháng 01 năm 2015.",
+  "Dựa trên chức năng, nhiệm vụ và năng lực thực tế của hai đơn vị.",
+  "Hôm nay, ngày 15 tháng 05 năm 2024, tại địa chỉ số 10, đường Lê Lợi, quận Hoàn Kiếm, thành phố Hà Nội, chúng tôi bao gồm các bên sau đây.",
+  "Bên A: Công ty TNHH Sản xuất Cơ khí Chính xác Alpha.",
+  "Địa chỉ: Số 10, đường Lê Lợi, quận Hoàn Kiếm, thành phố Hà Nội.",
+  "Điện thoại: 02438255678.",
+  "Mã số thuế: 0101234567.",
+  "Đại diện pháp luật: Bà Nguyễn Thị C.",
+  "Chức vụ: Giám đốc.",
+  "Số tài khoản: 190222333444555 tại Ngân hàng TMCP Kỹ thương Việt Nam (Techcombank).",
+  "Bên B: Công ty TNHH Gia công Kim loại Beta.",
+  "Trụ sở: Số 50, đường Nguyễn Trãi, quận Thanh Xuân, thành phố Hà Nội.",
+  "Điện thoại: 02435556666.",
+  "Số tài khoản: 103888999000 tại Ngân hàng TMCP Ngoại thương Việt Nam (Vietcombank).",
+  "Hai bên cùng bàn bạc và thống nhất các điều khoản dưới đây.",
+  "Điều 1: Nội dung thỏa thuận.",
+  "Bên A và bên B đồng ý thiết lập quan hệ gia công cơ khí theo yêu cầu của bên A.",
+  "Bên A có trách nhiệm tiếp nhận sản phẩm hoàn thiện và thanh toán tiền công cho bên B.",
+  "Điều 2: Đối tượng hợp đồng.",
+  "Đối tượng của hợp đồng gia công bao gồm các nội dung sau.",
+  "Tên sản phẩm gia công cơ khí: Vỏ hộp số xe máy loại X-200.",
+  "Quy cách phẩm chất: Sản phẩm phải đạt tiêu chuẩn kỹ thuật ISO 9001:2015.",
+  "Điều 3: Nguyên vật liệu chính và phụ.",
+  "Bên A chịu trách nhiệm cung ứng nguyên vật liệu chính bao gồm.",
+  "Tên từng loại: Thép hợp kim nhôm A360.",
+  "Số lượng: 500 đơn vị.",
+  "Chất lượng: Đạt chuẩn độ cứng HRC 45-50.",
+  "Thời gian giao: Ngày 20 tháng 05 năm 2024.",
+  "Tại địa điểm: Xưởng sản xuất của bên B tại số 50, đường Nguyễn Trãi, quận Thanh Xuân, Hà Nội.",
+  "Trách nhiệm bảo quản: Bên B chịu toàn bộ trách nhiệm về số lượng và chất lượng nguyên liệu do bên A bàn giao.",
+  "Bên B phải sử dụng đúng chủng loại nguyên liệu đã nhận vào quá trình sản xuất sản phẩm.",
+  "Bên B có trách nhiệm cung ứng các phụ liệu cần thiết cho quá trình sản xuất.",
+  "Tên từng loại phụ liệu: Dầu làm mát và dung dịch chống gỉ.",
+  "Số lượng: 50 lít.",
+  "Đơn giá: 200.000 VNĐ trên mỗi lít.",
+  "Bên A ứng trước tiền để bên B mua các phụ liệu nêu trên.",
+  "Tổng chi phí dự tính cho phụ liệu là: 10.000.000 VNĐ.",
+  "Điều 4: Quy trình gia công cơ khí.",
+  "Bước 1: Bản vẽ thiết kế.",
+  "Bên B tiến hành nghiên cứu bản vẽ chi tiết, phân tích chức năng làm việc và phân loại chi tiết.",
+  "Bên B xác định các yêu cầu kỹ thuật cần đạt và tính công nghệ khi chế tạo chi tiết.",
+  "Bước 2: Xác định dạng sản xuất.",
+  "Quy trình bao gồm 3 dạng sản xuất chính.",
+  "Sản xuất đơn chiếc.",
+  "Sản xuất hàng loạt.",
+  "Sản xuất hàng khối.",
+  "Bước 3: Chọn phôi và phương pháp chế tạo phôi.",
+  "Người thiết kế quy trình công nghệ phải chọn phương pháp chế tạo phôi và xác định kích thước phôi phù hợp để đạt yêu cầu kỹ thuật và chỉ tiêu kinh tế.",
+  "Bước 4: Xác định thứ tự các nguyên công, các bước và chọn sơ đồ gá đặt.",
+  "Bên B đưa ra các phương án công nghệ khác nhau để chế tạo chi tiết.",
+  "Bên B phải xác định hợp lý thứ tự các nguyên công sao cho chu trình gia công là ngắn nhất.",
+  "Bên B đảm bảo chất lượng gia công với chi phí thấp nhất.",
+  "Bước 5: Chọn thiết bị cho các nguyên công.",
+  "Bên B phân tích và lựa chọn thiết bị, dụng cụ, gá lắp phù hợp để đảm bảo chất lượng và năng suất.",
+  "Bước 6: Xác định lượng dư gia công cho các nguyên công và các bước.",
+  "Bên B so sánh các phương án công nghệ để chọn ra phương án hiệu quả nhất.",
+  "Bên B xây dựng các tài liệu, phiếu công nghệ để hướng dẫn sản xuất.",
+  "Bước 7: Chọn dụng cụ gia công và dụng cụ đo.",
+  "Bước 8: Xác định chế độ gia công cho các nguyên công và các bước.",
+  "Bước 9: Chọn đồ gá hoặc thiết kế đồ gá cho các nguyên công cần thiết.",
+  "Bước 10: Xác định bậc thợ cho các nguyên công.",
+  "Bước 11: Thực thi gia công trên máy công cụ.",
+  "Bước 12: Kiểm tra chất lượng.",
+  "Bên B đảm bảo thực hiện đúng quy trình đã thỏa thuận để tạo ra sản phẩm đúng yêu cầu của bên A.",
+  "Điều 5: Giá trị hợp đồng.",
+  "Tổng chi phí gia công là: 200.000.000 VNĐ.",
+  "Chi phí này bao gồm các khoản mục được liệt kê chi tiết trong bảng kê hóa đơn kèm theo hợp đồng.",
+  "Điều 6: Vận chuyển.",
+  "Bên B chịu trách nhiệm vận chuyển sản phẩm đến địa điểm giao hàng đã thỏa thuận.",
+  "Phương tiện vận chuyển: Xe tải chuyên dụng của bên B.",
+  "Điều 7: Giao, nhận sản phẩm gia công.",
+  "Bên B phải bàn giao sản phẩm vào ngày 15 tháng 06 năm 2024.",
+  "Địa điểm giao nhận là tại kho của bên A ở số 10, đường Lê Lợi, Hà Nội.",
+  "Nếu bên B chậm giao hàng, bên A có quyền gia hạn thêm 05 ngày.",
+  "Nếu quá thời hạn gia hạn mà bên B vẫn không giao hàng, bên A có quyền đơn phương chấm dứt hợp đồng và yêu cầu bồi thường thiệt hại.",
+  "Khi bên B giao hàng đúng hẹn, bên A có trách nhiệm kiểm tra chất lượng sản phẩm.",
+  "Nếu sản phẩm không đạt yêu cầu, bên A có quyền trả lại hàng và yêu cầu bên B gia công lại trong thời hạn 07 ngày.",
+  "Nếu quá thời hạn này, bên A sẽ đơn phương chấm dứt hợp đồng và yêu cầu bồi thường.",
+  "Nếu bên A chậm nhận hàng, bên B có quyền gửi sản phẩm tại nơi lưu kho và thông báo cho bên A.",
+  "Mọi chi phí lưu kho sẽ do bên A chịu trách nhiệm.",
+  "Điều 8: Trách nhiệm rủi ro.",
+  "Bên B chịu mọi rủi ro đối với sản phẩm và nguyên vật liệu cho đến khi bàn giao cho bên A.",
+  "Nếu bên A chậm nhận hàng, bên A phải chịu rủi ro trong thời gian chậm trễ đó.",
+  "Nếu bên B giao hàng không đúng hạn gây thiệt hại cho bên A, bên B phải bồi thường thiệt hại.",
+  "Điều 9: Thanh toán.",
+  "Bên A thanh toán đầy đủ số tiền hợp đồng cho bên B sau khi xác nhận nhận hàng.",
+  "Bên A không được giảm tiền công nếu sản phẩm không đạt chuẩn do nguyên vật liệu của bên A hoặc do chỉ dẫn không hợp lý của bên A.",
+  "Bên A thực hiện chuyển khoản cho bên B theo thông tin tài khoản đã cung cấp.",
+  "Mọi chi phí chuyển khoản do bên B chịu trách nhiệm.",
+  "Điều 10: Quyền và nghĩa vụ các bên.",
+  "Nghĩa vụ của bên A: Cung cấp nguyên vật liệu đúng số lượng, chất lượng, thời hạn và địa điểm.",
+  "Bên A cung cấp các giấy tờ cần thiết liên quan đến việc gia công.",
+  "Bên A chỉ dẫn cho bên B thực hiện hợp đồng.",
+  "Bên A thanh toán đầy đủ tiền đúng hạn.",
+  "Quyền của bên A: Nhận sản phẩm gia công theo đúng thỏa thuận.",
+  "Bên A có quyền cử người giám sát việc gia công và kiểm tra chất lượng sản phẩm.",
+  "Bên A có quyền bán, tiêu hủy, tặng biếu phế phẩm hoặc vật tư dư thừa theo quy định pháp luật.",
+  "Bên A có quyền đơn phương chấm dứt hợp đồng và yêu cầu bồi thường khi bên B vi phạm.",
+  "Nghĩa vụ của bên B: Bảo quản nguyên vật liệu do bên A cung cấp.",
+  "Bên B phải báo cho bên A đổi nguyên liệu nếu phát hiện không đảm bảo chất lượng.",
+  "Bên B từ chối gia công nếu nguyên liệu có thể tạo ra sản phẩm nguy hại.",
+  "Bên B giao hàng đúng thỏa thuận.",
+  "Bên B giữ bí mật thông tin về quá trình gia công.",
+  "Bên B chịu trách nhiệm về tính hợp pháp của hoạt động gia công.",
+  "Bên B hoàn trả lại cho bên A những nguyên liệu không sử dụng đến.",
+  "Quyền của bên B: Được thanh toán tiền công đầy đủ.",
+  "Bên B có quyền từ chối chỉ dẫn gia công nếu chỉ dẫn đó không đảm bảo chất lượng sản phẩm.",
+  "Bên B yêu cầu bên A cung cấp đủ số lượng và nhận hàng đúng thỏa thuận.",
+  "Điều 11: Chấm dứt hợp đồng.",
+  "Hợp đồng chấm dứt khi hai bên hoàn thành nghĩa vụ và ký biên bản thanh lý.",
+  "Hợp đồng chấm dứt khi việc thực hiện không còn mang lại lợi ích cho các bên.",
+  "Khi bên A chấm dứt hợp đồng, bên A phải trả tiền công tương ứng với công việc đã hoàn thành.",
+  "Khi bên B chấm dứt hợp đồng, bên B sẽ không nhận được tiền công cho công việc chưa hoàn thành.",
+  "Nếu một bên chấm dứt hợp đồng gây thiệt hại cho bên kia, bên gây thiệt hại phải bồi thường.",
+  "Điều 12: Giải quyết tranh chấp.",
+  "Các bên ưu tiên giải quyết tranh chấp thông qua thương lượng, trao đổi.",
+  "Việc thương lượng được thực hiện tối đa 03 lần và phải lập thành văn bản.",
+  "Nếu không thỏa thuận được, các bên có quyền đưa vụ việc ra Tòa án có thẩm quyền để giải quyết theo luật định.",
+  "Điều 13: Hiệu lực hợp đồng.",
+  "Hợp đồng có hiệu lực từ ngày 15 tháng 05 năm 2024.",
+  "Hợp đồng được lập thành 04 bản có giá trị pháp lý như nhau.",
+  "Bên A giữ 02 bản, bên B giữ 02 bản.",
+  "Bên A ký tên.",
+  "Bên B ký tên."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

@@ -1,0 +1,99 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "HỢP ĐỒNG GIẢNG DẠY.",
+  "Căn cứ Bộ Luật Dân Sự số 91/2015/QH13 được Quốc hội khóa XIII thông qua vào ngày 24 tháng 11 năm 2015.",
+  "Căn cứ quyết định số 54/2008/QĐ–BGDĐT ban hành ngày 24/9/2008 của Bộ trưởng Bộ Giáo dục và Đào tạo về quy chế thỉnh giảng tại các cơ sở giáo dục đại học.",
+  "Căn cứ nhu cầu thực tế về công tác giảng dạy trong năm học 2016-2017 của Trường Đại học Tây Nguyên.",
+  "Hôm nay, ngày 15 tháng 01 năm 2017, tại Trường Đại học Tây Nguyên, chúng tôi bao gồm các bên dưới đây.",
+  "BÊN A: TRƯỜNG ĐẠI HỌC TÂY NGUYÊN.",
+  "Ông: Nguyễn Văn B, giữ chức vụ Phó Hiệu trưởng.",
+  "Ông: Trần Văn C, giữ chức vụ Trưởng Khoa.",
+  "Địa chỉ trụ sở: 567 Lê Duẩn, thành phố Buôn Ma Thuột, tỉnh Đăk Lăk.",
+  "Số tài khoản giao dịch: 952311055537 tại Kho bạc Nhà nước tỉnh Đăk Lăk.",
+  "Mã đơn vị có quan hệ với ngân sách là 1055537.",
+  "Số điện thoại liên hệ: 05003 825 185.",
+  "Số Fax: 05003 825 184.",
+  "BÊN B: TS. Nguyễn Văn A, giữ chức vụ Giảng viên chính.",
+  "Địa chỉ thường trú: Đại học Đà Nẵng.",
+  "Số điện thoại liên lạc: 0905123456.",
+  "Mã số thuế cá nhân: 8123456789.",
+  "Số CMND: 201567890, ngày cấp 10/05/2010, nơi cấp tại Công an thành phố Đà Nẵng.",
+  "Số tài khoản cá nhân: 0041000123456 tại Ngân hàng Vietcombank chi nhánh Đà Nẵng.",
+  "Sau khi thảo luận, hai bên đồng ý ký kết hợp đồng giảng dạy với các điều khoản cụ thể như sau.",
+  "Điều 1. Nội dung hợp đồng.",
+  "Bên A thuê Bên B thực hiện giảng dạy học phần: Công nghệ sản xuất phân vi sinh (1/1TC).",
+  "Lớp học: CNSH K13.",
+  "Số lượng sinh viên: 37 sinh viên.",
+  "Tổng số tín chỉ: 2/0 tín chỉ.",
+  "Số tín chỉ lý thuyết: 1/0 tín chỉ.",
+  "Số tín chỉ thực hành: 1/0 tín chỉ.",
+  "Trình độ đào tạo: Đại học.",
+  "Ngành đào tạo: Cử nhân Sinh học.",
+  "Yêu cầu về công tác giảng dạy và hướng dẫn: Bên B phải đảm bảo thời gian và nội dung chương trình theo quy định của học kỳ I, năm học 2016 - 2017.",
+  "Thời gian giảng dạy: học kỳ I năm học 2016-2017.",
+  "Điều 2. Trách nhiệm của Bên A.",
+  "Bên A có trách nhiệm sắp xếp chỗ ăn, ở cho giảng viên thỉnh giảng tại nhà khách của Trường.",
+  "Trong trường hợp nhà khách hết chỗ, Bên A sẽ bố trí nơi ở tại nhà nghỉ, nhà khách tỉnh hoặc khách sạn và thanh toán các chi phí phát sinh theo quy định hiện hành.",
+  "Bên A chịu trách nhiệm chuẩn bị giảng đường, phòng thí nghiệm và các mẫu vật cần thiết để phục vụ công tác giảng dạy, thực hành.",
+  "Bên A thực hiện trả thù lao cho Bên B một lần bằng tiền mặt hoặc chuyển khoản sau khi hoàn tất việc giảng dạy dựa trên bảng thanh toán chi tiết và biên bản thanh lý hợp đồng được hai bên ký kết.",
+  "Điều 3. Trách nhiệm và quyền lợi của Bên B.",
+  "Bên B có nghĩa vụ chấp hành các quy định của pháp luật và nghĩa vụ công dân.",
+  "Bên B phải đảm bảo hoàn thành các yêu cầu giảng dạy, ra đề thi và thực hiện chấm thi kết thúc học phần theo quy định tại Điều 1.",
+  "Bên B được thanh toán các khoản chi phí bao gồm tiền vé máy bay, tàu xe theo đúng quy định và đúng tuyến với đầy đủ chứng từ như phiếu thu, hóa đơn, thẻ lên máy bay hoặc vé tàu xe.",
+  "Bên B được hưởng tiền thù lao giảng dạy, tiền chấm thi, tiền ăn và chi phí đi lại theo quy định của Bên A.",
+  "Điều 4. Cam kết chung.",
+  "Hai bên cam kết thực hiện nghiêm túc các điều khoản đã được ghi trong hợp đồng này.",
+  "Trong quá trình thực hiện, nếu phát sinh vướng mắc, hai bên sẽ thông báo cho nhau và cùng bàn bạc, trao đổi để thống nhất giải quyết trên tinh thần hợp tác, tránh gây thiệt hại cho cả hai bên.",
+  "Hợp đồng này được lập thành 03 bản có giá trị pháp lý như nhau.",
+  "Bên A giữ 02 bản, Bên B giữ 01 bản.",
+  "Hợp đồng này có hiệu lực kể từ ngày ký kết.",
+  "ĐẠI DIỆN BÊN A.",
+  "ĐẠI DIỆN BÊN B."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

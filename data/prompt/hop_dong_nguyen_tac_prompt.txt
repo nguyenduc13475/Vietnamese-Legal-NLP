@@ -1,0 +1,165 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+  "Độc lập – Tự do – Hạnh phúc.",
+  "Đà Nẵng, ngày 15 tháng 05 năm 2023.",
+  "HỢP ĐỒNG NGUYÊN TẮC (Số: 10/HĐNT/2023-CT).",
+  "Hôm nay, ngày 15 tháng 05 năm 2023, tại Văn phòng Công ty TNHH Sản xuất Thương mại ABC, chúng tôi gồm có.",
+  "BÊN A: Công ty TNHH Thương mại Quốc tế XYZ.",
+  "Địa chỉ: Số 123 đường Lê Lợi, quận Hải Châu, thành phố Đà Nẵng.",
+  "Đại diện: Ông Nguyễn Văn A, Chức vụ: Giám đốc.",
+  "Điện thoại: 02363123456, Fax: 02363123457.",
+  "Mã số thuế: 0400123456.",
+  "Tài khoản số: 19030000000001 tại Ngân hàng TMCP Kỹ thương Việt Nam - Chi nhánh Đà Nẵng.",
+  "BÊN B: Công ty TNHH Sản xuất và Gia công Cơ khí Hùng Cường.",
+  "Địa chỉ: Lô B2, Khu công nghiệp Hòa Khánh, quận Liên Chiểu, thành phố Đà Nẵng.",
+  "Đại diện: Bà Trần Thị B, Chức vụ: Tổng Giám đốc.",
+  "Điện thoại: 02363987654, Fax: 02363987655.",
+  "Mã số thuế: 0400654321.",
+  "Tài khoản số: 101000000002 tại Ngân hàng TMCP Ngoại thương Việt Nam - Chi nhánh Đà Nẵng.",
+  "Sau khi thảo luận, hai Bên thống nhất ký kết Hợp đồng nguyên tắc (sau đây gọi là \"Hợp đồng\") với các điều khoản sau.",
+  "Điều 1. Các nguyên tắc chung.",
+  "Hai Bên tham gia ký kết Hợp đồng này dựa trên quan hệ hợp tác kinh doanh nhằm mục đích tối ưu hóa nguồn lực, phát huy tiềm năng, tạo doanh thu và mang lại lợi ích kinh tế cho các bên.",
+  "Các Bên liên kết trên nguyên tắc bình đẳng, tôn trọng lẫn nhau và tuân thủ quy định pháp luật hiện hành.",
+  "Các bên cùng hưởng lợi và phân chia lợi nhuận theo thỏa thuận cụ thể.",
+  "Không bên nào được phép tự ý thực hiện các hành vi gây tổn hại lợi ích của bên còn lại, trừ trường hợp có thỏa thuận hoặc pháp luật cho phép.",
+  "Mọi nội dung trong Hợp đồng nguyên tắc này chỉ được thay đổi khi có sự đồng ý của cả hai bên và phải được lập thành văn bản.",
+  "Văn bản sửa đổi, bổ sung Hợp đồng nguyên tắc này được coi là Phụ lục và là một phần không thể tách rời của Hợp đồng.",
+  "Các chi tiết về hợp tác, mua bán hàng hóa tại từng thời điểm sẽ được quy định cụ thể trong các Hợp đồng mua bán hàng hóa riêng biệt và là một phần không tách rời của Hợp đồng này.",
+  "Nếu có sự mâu thuẫn giữa các điều khoản trong Hợp đồng mua bán hàng hóa với Hợp đồng này thì các điều khoản trong Hợp đồng này sẽ được ưu tiên áp dụng.",
+  "Các tài liệu đính kèm và gắn liền với Hợp đồng này bao gồm.",
+  "Các hợp đồng mua bán hàng hóa được ký kết trong thời hạn hiệu lực của Hợp đồng nguyên tắc này.",
+  "Các Phụ lục đi kèm.",
+  "Các tài liệu, hồ sơ kỹ thuật hàng hóa, hồ sơ pháp lý của các chủ thể ký kết và các tài liệu liên quan đến việc giao kết hợp đồng giữa các bên.",
+  "Điều 2. Giải thích từ ngữ.",
+  "Trong phạm vi Hợp đồng này và các tài liệu liên quan, các từ ngữ được hiểu như sau.",
+  "\"Hợp đồng nguyên tắc\" là văn bản thể hiện các nguyên tắc chung làm nền tảng cho sự hợp tác cung ứng hàng hóa và là căn cứ cho các Hợp đồng mua bán hàng hóa cụ thể sau này.",
+  "\"Hợp đồng mua bán hàng hóa\" là sự thỏa thuận giữa các Bên, theo đó Bên B có trách nhiệm giao hàng và nhận thanh toán, còn Bên A có trách nhiệm nhận hàng và thanh toán tiền hàng cho Bên B.",
+  "Trong trường hợp Bên A không trực tiếp mua hàng từ Bên B mà giới thiệu một bên thứ ba ký hợp đồng với Bên B, Bên B có nghĩa vụ trích hoa hồng cho Bên A và thực hiện các nghĩa vụ khác theo Hợp đồng này.",
+  "\"Pháp luật Việt Nam\" là toàn bộ hệ thống luật, nghị định, quy định có hiệu lực tại nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.",
+  "Điều 3. Thời hạn của Hợp đồng.",
+  "Hợp đồng này có hiệu lực cho đến khi hai bên thỏa thuận chấm dứt bằng văn bản hoặc chấm dứt theo các trường hợp quy định tại Điều này.",
+  "Hợp đồng có thể chấm dứt trước thời hạn trong các trường hợp sau.",
+  "Các bên có quyền đơn phương chấm dứt Hợp đồng nếu bên còn lại vi phạm các quy định tại Điều 7, Điều 8 hoặc vi phạm các quyền, nghĩa vụ đã cam kết trong Hợp đồng này.",
+  "Các trường hợp khác theo quy định của pháp luật.",
+  "Khi chấm dứt Hợp đồng theo Khoản a Điều 3.2, bên vi phạm phải nhận thông báo từ bên kia trong vòng 07 ngày kể từ ngày phát hiện hành vi vi phạm.",
+  "Điều 4. Quyền và nghĩa vụ của các bên.",
+  "Quyền và nghĩa vụ của Bên A.",
+  "Yêu cầu Bên B đảm bảo tiến độ sản xuất và chất lượng kỹ thuật hàng hóa theo tiêu chuẩn của từng Dự án đã thỏa thuận trong các Hợp đồng mua bán hàng hóa.",
+  "Được quyền mời bên thứ ba đến tham quan cơ sở vật chất, trụ sở và quy trình sản xuất của Bên B, với điều kiện phải thông báo trước cho Bên B 05 ngày làm việc.",
+  "Hỗ trợ và phối hợp chặt chẽ với Bên B trong quá trình sản xuất hàng hóa theo yêu cầu của Dự án.",
+  "Được sử dụng hình ảnh sản xuất, nhà máy, trang thiết bị và sản phẩm của Bên B để quảng bá và kêu gọi đối tác mua hàng.",
+  "Được lưu giữ hàng hóa đã hoàn thiện tại kho của Bên B trong điều kiện an toàn tối đa để chờ xuất khẩu, thời hạn lưu giữ không quá 30 ngày kể từ ngày đóng gói hoàn thiện.",
+  "Được nhận phí hoa hồng giới thiệu là 5% tổng giá trị hợp đồng khi Bên A giới thiệu bên thứ ba ký hợp đồng với Bên B.",
+  "Bên B phải thanh toán phí hoa hồng này trong vòng 03 ngày làm việc kể từ ngày Bên B và bên thứ ba ký kết hợp đồng.",
+  "Có nghĩa vụ thanh toán cho Bên B theo thỏa thuận tại Hợp đồng mua bán hàng hóa.",
+  "Cung cấp đầy đủ, kịp thời các thông tin, tài liệu liên quan đến sản phẩm mà Bên A yêu cầu Bên B sản xuất.",
+  "Quyền và nghĩa vụ của Bên B.",
+  "Yêu cầu Bên A thanh toán tiền hàng đúng thời hạn theo Hợp đồng mua bán hàng hóa đã ký.",
+  "Cung cấp hàng hóa đúng số lượng, chất lượng đã cam kết với Bên A.",
+  "Thông báo kịp thời cho Bên A nếu thông tin cung cấp không đầy đủ hoặc không chính xác để thực hiện công việc.",
+  "Sản xuất hàng hóa theo tiêu chuẩn của Bên A và phù hợp với yêu cầu của từng đơn hàng.",
+  "Cung cấp danh sách nhân sự được phép tiếp cận thông tin bảo mật liên quan đến Hợp đồng.",
+  "Có trách nhiệm bảo mật thông tin về Bên A, đối tác do Bên A giới thiệu, đơn đặt hàng và các thông tin liên quan đến Dự án.",
+  "Không được sao chép, nhân bản sản phẩm hoặc sử dụng thông tin của Bên A cho mục đích cá nhân ngoài phạm vi hợp tác.",
+  "Tạo điều kiện thuận lợi để Bên A thực hiện các quyền theo khoản 4.1 Điều 4.",
+  "Thực hiện đúng các quy định tại Hợp đồng này và các Hợp đồng mua bán hàng hóa đã ký kết.",
+  "Điều 5. Sửa đổi, chuyển nhượng hợp đồng.",
+  "Mọi sự sửa đổi, điều chỉnh Hợp đồng này phải được lập thành văn bản và có chữ ký của người có thẩm quyền từ hai bên.",
+  "Trong thời hạn hiệu lực, các bên không được chuyển giao quyền và nghĩa vụ cho bên thứ ba nếu không có sự đồng ý bằng văn bản của bên kia.",
+  "Điều 6. Bất khả kháng.",
+  "Bất khả kháng là các sự kiện khách quan, không thể lường trước và không thể khắc phục dù đã áp dụng mọi biện pháp cần thiết.",
+  "Sự kiện bất khả kháng bao gồm nhưng không giới hạn bởi.",
+  "(i) Thay đổi chính sách pháp luật hoặc quyết định của cơ quan nhà nước có thẩm quyền.",
+  "(ii) Thiên tai như bão, động đất, lũ lụt có sức tàn phá không thể lường trước.",
+  "(iii) Chiến tranh, chiến sự, xâm lược, bạo động, đình công, phá hoại của công nhân.",
+  "Khi xảy ra sự kiện bất khả kháng, các bên phải thông báo cho nhau trong vòng 20 ngày kể từ ngày xảy ra biến cố.",
+  "Các bên không phải bồi thường thiệt hại phát sinh do sự kiện bất khả kháng.",
+  "Điều 7. Bồi thường thiệt hại và phạt vi phạm hợp đồng.",
+  "Nếu một bên thực hiện không đúng nghĩa vụ, bên đó phải bồi thường toàn bộ tổn thất trực tiếp và gián tiếp cho bên kia.",
+  "Bên vi phạm còn phải chịu một khoản tiền phạt vi phạm hợp đồng tương đương 8% giá trị phần nghĩa vụ bị vi phạm.",
+  "Điều 8. Bảo mật.",
+  "Các tài liệu, thông tin được hai bên thỏa thuận là bí mật không được tiết lộ cho bên thứ ba nếu không có sự đồng ý bằng văn bản.",
+  "Không bên nào được sử dụng thông tin bí mật cho mục đích khác ngoài việc thực hiện Hợp đồng này.",
+  "Không được sao chép, cung cấp thông tin bí mật cho bên thứ ba khi chưa có sự chấp thuận của bên sở hữu.",
+  "Không được sử dụng thông tin bảo mật cho các mục đích ngoài phạm vi Dự án đã ký kết.",
+  "Nếu pháp luật hoặc cơ quan nhà nước yêu cầu tiết lộ thông tin, bên có nghĩa vụ tiết lộ phải thông báo trước bằng văn bản cho bên kia.",
+  "Bên vi phạm quy định bảo mật phải chịu trách nhiệm pháp lý và bồi thường mọi thiệt hại phát sinh.",
+  "Điều 9. Cam kết của các Bên.",
+  "Bên B cam kết đảm bảo nhân sự của mình không tiết lộ thông tin bảo mật cho bên thứ ba.",
+  "Trách nhiệm bảo mật này kéo dài ngay cả khi Hợp đồng chấm dứt.",
+  "Nếu vi phạm, Bên B phải bồi thường toàn bộ giá trị Hợp đồng mua bán hàng hóa liên quan cho Bên A.",
+  "Các Bên cam kết không vi phạm quyền sở hữu trí tuệ của nhau trong quá trình thực hiện dự án.",
+  "Các Bên cam kết giữ bí mật mọi thông tin kinh doanh, cơ cấu tổ chức, tài sản, khách hàng và không sử dụng cho mục đích riêng.",
+  "Thực hiện đúng và đầy đủ các thỏa thuận đã ghi trong Hợp đồng này.",
+  "Điều 10. Phương thức giải quyết tranh chấp.",
+  "Mọi tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng, hòa giải.",
+  "Nếu không đạt được thỏa thuận, tranh chấp sẽ được đưa ra Trung tâm Trọng tài Thương mại Miền Trung (MCAC) để giải quyết.",
+  "Địa điểm tiến hành trọng tài tại thành phố Đà Nẵng.",
+  "Ngôn ngữ trọng tài là tiếng Việt.",
+  "Luật áp dụng là pháp luật Việt Nam.",
+  "Điều 11. Trách nhiệm pháp lý.",
+  "Các bên cam kết có đủ năng lực pháp luật, cơ sở vật chất và tuân thủ các quy định về bảo mật thông tin, dữ liệu cá nhân.",
+  "Bên B chịu trách nhiệm hoàn toàn về hoạt động sản xuất và phải bồi thường nếu gây thiệt hại đến vật chất hoặc uy tín của Bên A.",
+  "Điều 12. Điều khoản chung.",
+  "Hợp đồng này thay thế cho mọi thỏa thuận trước đây và là thỏa thuận duy nhất giữa các bên.",
+  "Nếu một điều khoản bị tuyên là vô hiệu, các điều khoản còn lại vẫn có hiệu lực thi hành.",
+  "Hai bên sẽ thảo luận để thay thế điều khoản vô hiệu bằng điều khoản khác phù hợp pháp luật.",
+  "Việc một bên không thực hiện quyền của mình không có nghĩa là từ bỏ quyền đó trong tương lai.",
+  "Điều 13. Điều khoản thực hiện.",
+  "Hợp đồng có hiệu lực kể từ ngày ký, mọi sửa đổi phải được lập thành văn bản.",
+  "Trong trường hợp không đạt được thỏa thuận hợp tác dự án, Hợp đồng vẫn có hiệu lực ràng buộc trong 18 tháng kể từ ngày xác nhận hủy bỏ bằng văn bản.",
+  "Nếu một hoặc nhiều điều khoản bị cơ quan nhà nước tuyên là vô hiệu, các điều khoản khác vẫn giữ nguyên hiệu lực.",
+  "Các bên đã đọc kỹ, hiểu rõ nội dung và tự nguyện ký kết Hợp đồng này.",
+  "Hợp đồng được lập thành 04 bản, mỗi bản có 06 trang, có giá trị pháp lý như nhau, mỗi bên giữ 02 bản.",
+  "CÁC THỎA THUẬN KHÁC: Không có.",
+  "Đại diện Bên A: Nguyễn Văn A.",
+  "Đại diện Bên B: Trần Thị B."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

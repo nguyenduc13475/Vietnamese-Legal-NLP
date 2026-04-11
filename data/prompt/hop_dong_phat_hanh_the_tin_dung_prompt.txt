@@ -1,0 +1,250 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "HỢP ĐỒNG PHÁT HÀNH VÀ SỬ DỤNG THẺ TÍN DỤNG.",
+  "Số: 886/HĐ-AGR-2024 ngày 20 tháng 05 năm 2024.",
+  "(Dành cho khách hàng cá nhân).",
+  "Bộ luật Dân sự hiện hành.",
+  "Luật các tổ chức tín dụng hiện hành và các văn bản sửa đổi, bổ sung.",
+  "Các quy định hiện hành của Ngân hàng Nhà nước Việt Nam về hoạt động thẻ ngân hàng và nghiệp vụ cấp tín dụng.",
+  "Các quy định hiện hành của Agribank về phát hành, quản lý, sử dụng và thanh toán thẻ trong hệ thống Agribank.",
+  "Nhu cầu và khả năng của hai Bên.",
+  "Hôm nay, ngày 20 tháng 05 năm 2024, tại Trụ sở Agribank Chi nhánh Hà Nội.",
+  "Chúng tôi gồm có:.",
+  "Bên A: Agribank Chi nhánh Hà Nội.",
+  "Địa chỉ: Số 18 Trần Hưng Đạo, Hoàn Kiếm, Hà Nội.",
+  "Điện thoại: 02438242903. Fax: 02438243972.",
+  "Đại diện: Ông Nguyễn Văn An.",
+  "Chức vụ: Giám đốc chi nhánh.",
+  "Quyết định/Giấy uỷ quyền số: 123/QĐ-NHNN ngày 15 tháng 01 năm 2024 do Tổng giám đốc ký.",
+  "Bên B: Ông Trần Minh Tuấn.",
+  "Địa chỉ thường trú: Số 55 Nguyễn Trãi, Thanh Xuân, Hà Nội.",
+  "Số CMT/Thẻ căn cước công dân/Hộ chiếu: 001089001234.",
+  "Ngày cấp: 10/10/2021. Nơi cấp: Cục Cảnh sát Quản lý hành chính về trật tự xã hội.",
+  "Hai Bên thỏa thuận ký kết Hợp đồng phát hành và sử dụng thẻ tín dụng với các điều kiện, điều khoản sau:.",
+  "Điều 1. Giải thích thuật ngữ.",
+  "Trong Hợp đồng này, các từ ngữ dưới đây được hiểu như sau:.",
+  "Thẻ tín dụng: Là thẻ cho phép chủ thẻ sử dụng trong phạm vi hạn mức tín dụng do Agribank cấp.",
+  "Thẻ tín dụng được sử dụng để thanh toán tiền hàng hóa, dịch vụ; nạp, rút tiền mặt; không được sử dụng thẻ tín dụng để chuyển khoản (hoặc ghi có) vào tài khoản thanh toán, thẻ ghi nợ, thẻ trả trước.",
+  "Chủ thẻ: Là cá nhân được Agribank phát hành thẻ để sử dụng, bao gồm chủ thẻ chính và chủ thẻ phụ.",
+  "Chủ thẻ chính: Là cá nhân đứng tên ký hợp đồng phát hành và sử dụng thẻ với Agribank.",
+  "Chủ thẻ phụ: Là cá nhân được chủ thẻ chính cho phép sử dụng thẻ và được chủ thẻ chính cam kết bằng văn bản thực hiện toàn bộ các nghĩa vụ phát sinh liên quan đến việc sử dụng thẻ theo Hợp đồng phát hành và sử dụng thẻ đã ký với Agribank.",
+  "Tổ chức thẻ quốc tế (TCTQT): Là tổ chức được thành lập, hoạt động ở nước ngoài theo quy định của pháp luật nước ngoài, có thỏa thuận với các Tổ chức phát hành thẻ, Tổ chức thanh toán thẻ, tổ chức chuyển mạch thẻ và/hoặc các bên liên quan để hợp tác về hoạt động thẻ ngân hàng đối với thẻ có mã TCPHT do TCTQT cấp hoặc thẻ có mã TCPHT của quốc gia khác, phù hợp với các quy định của pháp luật Việt Nam và cam kết quốc tế.",
+  "Tổ chức phát hành thẻ (TCPHT): Là thành viên chính thức hoặc liên kết của tổ chức thẻ trong nước, quốc tế thực hiện nghiệp vụ phát hành thẻ.",
+  "Tổ chức thanh toán thẻ (TCTTT): Là thành viên chính thức hoặc liên kết của tổ chức thẻ trong nước, quốc tế thực hiện nghiệp vụ thanh toán thẻ.",
+  "Đơn vị chấp nhận thẻ (ĐVCNT): Là tổ chức hoặc cá nhân chấp nhận thanh toán hàng hóa, dịch vụ bằng thẻ qua POS và/hoặc các ứng dụng QR Code, Samsung Pay, v.v.",
+  "theo hợp đồng thanh toán thẻ ký kết với Agribank.",
+  "Mã số xác định chủ thẻ (mã PIN): Là mã số mật của cá nhân được Agribank cấp cho chủ thẻ lần đầu và sau đó chủ thẻ thay đổi theo quy trình được xác định để sử dụng trong các giao dịch thẻ nhằm xác thực chủ thẻ.",
+  "Trong các giao dịch thẻ có sử dụng mã PIN, mã PIN được coi là chữ ký của chủ thẻ và chủ thẻ có trách nhiệm bảo mật.",
+  "OTP (One Time Password): Là mật khẩu sử dụng một lần trong một khoảng thời gian nhất định, có thể tùy biến do Agribank cấp cho chủ thẻ qua các phương tiện khác nhau như Website, thư điện tử, điện thoại di động và các thiết bị cung cấp mật khẩu chuyên dùng khác khi thanh toán trực tuyến.",
+  "Thời hạn hiệu lực của thẻ: Là khoảng thời gian chủ thẻ được phép sử dụng thẻ theo quy định của Agribank.",
+  "Giao dịch thẻ: Là việc sử dụng thẻ để ứng tiền mặt, thanh toán hàng hóa, dịch vụ và sử dụng các dịch vụ khác do Agribank và các Tổ chức thanh toán thẻ khác cung ứng.",
+  "Hoá đơn giao dịch: Là chứng từ xác nhận giao dịch hoàn thành do chủ thẻ thực hiện bằng thẻ.",
+  "Sao kê thẻ tín dụng: Là bảng kê chi tiết các khoản chi tiêu, hoàn trả, trả nợ của chủ thẻ cùng lãi và phí phát sinh trong một khoảng thời gian nhất định do Agribank quy định.",
+  "Số tiền thanh toán tối thiểu: Là số tiền tối thiểu mà chủ thẻ phải thanh toán cho Agribank trong mỗi kỳ sao kê.",
+  "Ngày đến hạn thanh toán: Là ngày cuối cùng của kỳ thanh toán (sau 15 ngày kể từ Ngày sao kê), chủ thẻ phải thanh toán cho Agribank các khoản chi tiêu cùng lãi và phí phát sinh trong kỳ sao kê, ít nhất bằng số tiền thanh toán tối thiểu trên sao kê.",
+  "Trường hợp ngày đến hạn thanh toán trùng vào ngày nghỉ, ngày lễ được tính vào ngày làm việc tiếp theo.",
+  "Máy giao dịch tự động (ATM/CDM): Là thiết bị được ngân hàng sử dụng để cung cấp cho khách hàng một số dịch vụ ngân hàng tự động, bao gồm nhưng không giới hạn các dịch vụ, như: Rút/gửi tiền, chuyển khoản, thanh toán hóa đơn, v.v.",
+  "Thiết bị chấp nhận thẻ tại điểm bán (POS, mPOS, QR Code, v.v.): Là các loại thiết bị và/hoặc ứng dụng được cài đặt và sử dụng tại các ĐVCNT/chi nhánh, phòng giao dịch của Ngân hàng mà chủ thẻ có thể sử dụng thẻ để thanh toán hàng hóa, dịch vụ hoặc rút/ứng tiền mặt và các dịch vụ khác do Ngân hàng cung cấp.",
+  "Giao dịch thanh toán khống tại ĐVCNT: Là việc sử dụng thẻ, thông tin thẻ để thanh toán tiền hàng hóa, dịch vụ nhưng thực tế không phát sinh việc mua bán, cung ứng hàng hóa, dịch vụ.",
+  "Sự kiện bất khả kháng: Là sự kiện do nguyên nhân khách quan gây ra vượt quá khả năng kiểm soát của các Bên tham gia Hợp đồng, như: Chiến tranh, nổi loạn, khủng bố, hỏa hoạn, lũ lụt, cháy nổ, thiên tai, bạo động, v.v.",
+  "Điều 2. Nội dung hợp đồng.",
+  "Bên A cung cấp cho Bên B dịch vụ thẻ tín dụng theo đề nghị của Bên B tại Giấy đề nghị phát hành thẻ tín dụng ngày 15 tháng 05 năm 2024, bao gồm: Thẻ chính và 01 thẻ phụ.",
+  "Điều 3. Các loại hạn mức.",
+  "Hạn mức tín dụng thẻ: Bên B được Bên A cấp một hạn mức tín dụng thẻ là: 50.000.000 VND.",
+  "(Bằng chữ: Năm mươi triệu đồng).",
+  "Hạn mức tín dụng thẻ được tính vào hạn mức cho vay tối đa của Agribank đối với Bên B.",
+  "Hạn mức ứng tiền mặt: Hạn mức ứng tiền mặt tối đa bằng 50% hạn mức tín dụng được cấp.",
+  "Hạn mức thanh toán hàng hóa, dịch vụ: Là phần còn lại của hạn mức tín dụng được cấp, sau khi trừ đi hạn mức ứng tiền mặt đã sử dụng trong kỳ chưa được thanh toán.",
+  "Hạn mức giao dịch ngày: Là hạn mức giao dịch tối đa mà chủ thẻ được phép thực hiện trong 01 ngày.",
+  "Hạn mức giao dịch ngày được Agribank quy định trong từng thời kỳ.",
+  "Bên B có thể đề nghị Bên A thay đổi hạn mức giao dịch ngày, tối đa không quá hạn mức tín dụng được cấp.",
+  "Điều 4. Bảo đảm tiền vay.",
+  "Hình thức bảo đảm tiền vay: Có bảo đảm bằng tài sản.",
+  "Nghĩa vụ của Hợp đồng này được bảo đảm bằng Hợp đồng bảo đảm số: 10/HĐBĐ ngày 20 tháng 05 năm 2024.",
+  "Giải chấp tài sản bảo đảm của Bên B sau 45 ngày làm việc kể từ ngày chấm dứt sử dụng thẻ và tất cả các khiếu nại (nếu có) liên quan đến việc sử dụng thẻ đã được giải quyết dứt điểm.",
+  "Điều 5. Thời hạn hiệu lực của thẻ.",
+  "Thời hạn hiệu lực của thẻ: 05 năm kể từ ngày phát hành.",
+  "Thời hạn hiệu lực của thẻ phụ bằng thời hạn hiệu lực còn lại của thẻ chính.",
+  "Điều 6. Thẻ chính và thẻ phụ.",
+  "Bên B có quyền yêu cầu Bên A phát hành thẻ phụ.",
+  "Bên B và chủ thẻ phụ sẽ sử dụng cùng một tài khoản tiền vay đối với hạn mức tín dụng được cấp.",
+  "Giao dịch của thẻ chính và thẻ phụ được thể hiện trên cùng một sao kê và được Bên A gửi cho Bên B để thanh toán.",
+  "Bên B là người chịu trách nhiệm thanh toán toàn bộ các khoản chi tiêu cùng lãi và phí phát sinh liên quan đến việc sử dụng thẻ của chủ thẻ chính và của chủ thẻ phụ.",
+  "Bên B có quyền yêu cầu Bên A tạm ngừng/chấm dứt sử dụng thẻ của chủ thẻ phụ.",
+  "Trường hợp Bên B chấm dứt Hợp đồng thì việc sử dụng thẻ của chủ thẻ phụ cũng đương nhiên chấm dứt.",
+  "Điều 7. Nguyên tắc tính phí, lãi cho vay thẻ tín dụng.",
+  "Đối với giao dịch ứng tiền mặt: Khi thực hiện giao dịch ứng tiền mặt, Bên B phải trả Agribank phí ứng tiền mặt và lãi suất tiền vay kể từ thời điểm giao dịch được cập nhật vào hệ thống quản lý thẻ của Agribank cho đến ngày trả nợ.",
+  "Đối với giao dịch thanh toán hàng hoá, dịch vụ:.",
+  "Đến hạn thanh toán, trường hợp Bên B thanh toán toàn bộ dư nợ cuối kỳ (bao gồm cả dư nợ ứng tiền mặt), Agribank sẽ miễn lãi cho toàn bộ các giao dịch thanh toán hàng hóa, dịch vụ phát sinh trong kỳ sao kê.",
+  "Trường hợp Bên B thanh toán một phần dư nợ cuối kỳ, Agribank sẽ tính lãi đối với toàn bộ dư nợ kể từ ngày giao dịch được cập nhật vào hệ thống quản lý thẻ của Agribank đến ngày Bên B trả nợ, đồng thời tiếp tục tính lãi đối với phần dư nợ còn lại.",
+  "Các khoản lãi này sẽ được thể hiện trên sao kê kỳ tiếp theo.",
+  "Đối với các giao dịch có liên quan đến tra soát, khiếu nại chưa thanh toán, lãi và phí cũng được tính theo nguyên tắc trên.",
+  "Agribank sẽ hoàn lại các khoản lãi, phí (nếu có) đối với các giao dịch Bên B khiếu nại đúng.",
+  "Phí chậm trả và lãi quá hạn:.",
+  "Vào ngày đến hạn thanh toán, nếu Bên B không thanh toán hoặc thanh toán không đủ số tiền thanh toán tối thiểu, Agribank sẽ thu phí chậm trả tính trên số tiền thanh toán tối thiểu chưa được thanh toán.",
+  "Số tiền phí này được thể hiện trên sao kê kỳ tiếp theo.",
+  "Trường hợp sau 02 (hai) kỳ sao kê liên tiếp và sau ngày đến hạn thanh toán của kỳ sao kê thứ hai, nếu Bên B không thanh toán hoặc thanh toán không đủ số tiền thanh toán tối thiểu vào ngày đến hạn thanh toán, hệ thống Bên A sẽ tự động khóa thẻ và tính lãi quá hạn với lãi suất bằng 150% lãi suất cho vay trong hạn trên toàn bộ dư nợ, số tiền thanh toán tối thiểu được tính bằng toàn bộ dư nợ trên sao kê kỳ tiếp theo.",
+  "Điều 8. Sao kê và thanh toán.",
+  "Hàng tháng, Bên A sẽ gửi sao kê cho Bên B, liệt kê đầy đủ các giao dịch của Bên B phát sinh trong kỳ đã được chuyển đổi trị giá sang VND theo tỷ giá do TCTQT quy định phù hợp với quy định của NHNN.",
+  "Dư nợ cuối kỳ = Dư nợ đầu kỳ + Phát sinh Nợ trong kỳ + Lãi, phí phát sinh trong kỳ - Phát sinh Có trong kỳ.",
+  "Bên B có trách nhiệm kiểm tra và thanh toán đúng hạn cho Bên A các khoản nợ phát sinh thể hiện trên sao kê theo quy định.",
+  "Bên B có trách nhiệm thanh toán cho Bên A toàn bộ các giao dịch, trong đó có giao dịch Internet/MOTO và các giao dịch khác được cho là hợp lệ theo quy định của Agribank nếu Bên A cung cấp được bằng chứng chứng minh thẻ đã được sử dụng mà không cần chữ ký của Bên B trên chứng từ giao dịch.",
+  "Các giao dịch có sử dụng mã PIN và các giao dịch có chữ ký của Bên B là bằng chứng xác thực chứng minh rằng Bên B đã thực hiện giao dịch.",
+  "Điều này không loại trừ trách nhiệm của Bên B trong trường hợp Bên A có các bằng chứng về việc Bên B đã thực hiện giao dịch mà không cần có chữ ký của Bên B.",
+  "Nếu Bên B sử dụng thẻ để đặt trước cho các dịch vụ nhưng không sử dụng dịch vụ đó và không thông báo hủy dịch vụ trong thời gian quy định của ĐVCNT, Bên B vẫn phải chịu trách nhiệm thanh toán toàn bộ giá trị dịch vụ, các loại thuế và phí liên quan theo quy định của từng ĐVCNT.",
+  "Điều 9. Các loại phí, lãi.",
+  "Quá trình sử dụng thẻ tín dụng do Agribank phát hành, Bên B phải thanh toán cho Bên A các loại phí, lãi liên quan đến việc sử dụng thẻ theo Biểu phí dịch vụ thẻ của Agribank trong từng thời kỳ được thông báo trên Website (www.agribank.com.vn) hoặc các kênh thông tin khác của Agribank ít nhất 07 (bảy) ngày trước khi có sự thay đổi.",
+  "Điều 10. Phát hành lại thẻ, chấm dứt sử dụng thẻ.",
+  "Phát hành lại thẻ: Trường hợp thẻ bị mất/bị đánh cắp hoặc yêu cầu phát hành thẻ mới thay thế thẻ cũ, Bên B có quyền yêu cầu Bên A phát hành lại thẻ.",
+  "Tạm ngừng hoặc chấm dứt sử dụng thẻ: Bên A có quyền tạm ngừng hoặc chấm dứt sử dụng thẻ của Bên B trong các trường hợp sau:.",
+  "Sau 02 (hai) kỳ đến hạn thanh toán liên tiếp, Bên B không thanh toán hoặc thanh toán không đủ số tiền thanh toán tối thiểu.",
+  "Bên B vi phạm các điều kiện, điều khoản của Hợp đồng đã ký.",
+  "Bên B có hành vi gian lận, giả mạo thẻ hoặc thẻ bị nghi ngờ gian lận, giả mạo.",
+  "Bên B có hành vi vi phạm pháp luật, ảnh hưởng trực tiếp đến việc sử dụng thẻ.",
+  "Thẻ hết hạn hiệu lực, Bên B không có nhu cầu tiếp tục sử dụng thẻ.",
+  "Khi nhận được thông báo chuyển công tác/nghỉ việc của Đơn vị trả lương (đối với trường hợp phát hành thẻ tín dụng không có bảo đảm bằng tài sản).",
+  "Điều 11. Quyền và nghĩa vụ của Bên A.",
+  "Quyền của Bên A:.",
+  "Đề nghị Bên B cung cấp đầy đủ các thông tin theo quy định.",
+  "Tự động ghi Nợ tài khoản cho vay thẻ tín dụng của Bên B mở tại Bên A giá trị các giao dịch thẻ, phí, lãi và các khoản khác phát sinh trong quá trình sử dụng thẻ.",
+  "Tự động trích tài khoản thanh toán của Bên B mở tại Bên A để thu các khoản nợ liên quan đến sử dụng thẻ.",
+  "Nếu không đủ, Bên A có quyền áp dụng các biện pháp khác theo quy định của pháp luật để thu hồi nợ.",
+  "Được quyền tạm ngừng/chấm dứt sử dụng thẻ của Bên B trong các trường hợp được quy định tại Khoản 2, Điều 10, Hợp đồng này.",
+  "Được miễn trách nhiệm trong trường hợp phát sinh sự cố kỹ thuật, lỗi hệ thống ngoài ý muốn của Bên A hoặc do các sự kiện bất khả kháng khác hoặc các trường hợp khác do lỗi của Bên B.",
+  "Không chịu trách nhiệm về việc giao nhận hàng, chất lượng hàng hoá, dịch vụ được thanh toán bằng thẻ và các khoản phí, lãi phát sinh liên quan đến việc Bên B hủy giao dịch hoặc trả lại hàng hóa, dịch vụ cho ĐVCNT.",
+  "Thu hồi thẻ của Bên B trong các trường hợp quy định tại Khoản 2, Điều 10 Hợp đồng này bằng cách thông báo trực tiếp cho Bên B hoặc thông qua TCTTT, ĐVCNT về việc thu hồi thẻ.",
+  "Trong trường hợp này, Bên A được miễn trách nhiệm đối với bất kỳ sự phương hại nào tới danh dự, uy tín của Bên B.",
+  "Trường hợp Bên B không thanh toán đúng hạn, Bên A có quyền xử lý tài sản bảo đảm tiền vay của Bên B để thu hồi nợ hoặc đề nghị cơ quan nơi Bên B đang công tác trích tiền lương/thu nhập tháng của bên B để thu nợ.",
+  "Nếu không đủ, Bên A có quyền xử lý các tài sản khác của Bên B để thu hồi nợ theo quy định của pháp luật.",
+  "Yêu cầu Bên B cam kết và cung cấp các bằng chứng chứng minh không thực hiện giao dịch trong trường hợp Bên B khiếu nại không thực hiện giao dịch.",
+  "Cung cấp cho cơ quan nhà nước có thẩm quyền thông tin về tài khoản, giao dịch và các thông tin khác của Bên B theo yêu cầu của cơ quan nhà nước có thẩm quyền.",
+  "Gửi tin nhắn thông báo các chương trình quảng cáo, khuyến mại của Agribank đến Bên B.",
+  "Được quyền từ chối các khiếu nại của chủ thẻ đối với các giao dịch thẻ có giá trị/giá trị quy đổi nhỏ hơn 25 USD tại các ĐVCNT thuộc loại hình du lịch và giải trí (bao gồm: hàng không, dịch vụ thuê xe, khách sạn, nhà nghỉ, nhà hàng, v.v.) và các giao dịch thẻ có giá trị/giá trị quy đổi nhỏ hơn 10 USD tại các ĐVCNT kinh doanh xăng dầu.",
+  "Số tiền khiếu nại tối thiểu có thể thay đổi theo quy định của TCTQT trong từng thời kỳ và được Agribank thông báo trên Trang thông tin điện tử chính thức của Agribank.",
+  "Các quyền khác theo quy định của pháp luật.",
+  "Nghĩa vụ của Bên A:.",
+  "Tuân thủ các quy định về phát hành và thanh toán thẻ của Ngân hàng Nhà nước và các Tổ chức thẻ trong nước, quốc tế.",
+  "Tôn trọng và đảm bảo quyền của Bên B theo Hợp đồng.",
+  "Cung cấp các thông tin về số dư tài khoản, lịch sử giao dịch thẻ và các thông tin cần thiết khác cho Bên B khi Bên B yêu cầu.",
+  "Giải quyết các yêu cầu tra soát, khiếu nại của Bên B liên quan đến việc sử dụng thẻ.",
+  "Thời hạn giải quyết các yêu cầu tra soát, khiếu nại cho Bên B liên quan đến việc sử dụng thẻ là 180 ngày làm việc kể từ ngày Agribank nhận được tra soát, khiếu nại của Bên B.",
+  "Trường hợp giao dịch tra soát, khiếu nại được hoàn tiền, Bên A sẽ hoàn tiền cho Bên B trong phạm vi 05 (năm) ngày làm việc kể từ ngày thông báo kết quả tra soát khiếu nại cho Bên B đối với những tổn thất phát sinh không do lỗi của Bên B và/hoặc không thuộc các trường hợp bất khả kháng theo quy định của Hợp đồng.",
+  "Trường hợp hết thời hạn xử lý đề nghị tra soát, khiếu nại theo quy định tại Hợp đồng này mà chưa xác định được nguyên nhân hay lỗi thuộc Bên nào thì trong vòng 15 ngày làm việc tiếp theo, Bên A thỏa thuận với Bên B về phương án xử lý hoặc tạm thời bồi hoàn tổn thất cho chủ thẻ cho đến khi có kết luận cuối cùng của cơ quan nhà nước có thẩm quyền phân định rõ lỗi và trách nhiệm của các bên.",
+  "Trường hợp vụ việc có dấu hiệu tội phạm, Bên A thực hiện thông báo cho cơ quan nhà nước có thẩm quyền theo quy định của pháp luật về tố tụng hình sự và báo cáo NHNN (Vụ thanh toán, NHNN chi nhánh tỉnh, thành phố trên địa bàn); đồng thời thông báo cho Bên B về tình trạng xử lý đề nghị tra soát, khiếu nại.",
+  "Việc xử lý kết quả tra soát, khiếu nại thuộc trách nhiệm giải quyết của cơ quan nhà nước có thẩm quyền.",
+  "Trong trường hợp cơ quan nhà nước có thẩm quyền thông báo kết quả giải quyết không có yếu tố tội phạm, trong vòng 15 ngày làm việc kể từ ngày có kết luận của cơ quan nhà nước có thẩm quyền, Bên A thỏa thuận với Bên B về phương án xử lý kết quả tra soát, khiếu nại.",
+  "Bảo mật tài liệu, thông tin thẻ, giao dịch thẻ, tài khoản của Bên B, không cung cấp thông tin về tài khoản và giao dịch thẻ của bên B cho bất kỳ bên thứ ba nào, trừ trường hợp hai Bên có thỏa thuận khác hoặc theo yêu cầu của cơ quan nhà nước có thẩm quyền.",
+  "Bảo vệ dữ liệu cá nhân, quyền riêng tư cá nhân của chủ thẻ.",
+  "Thực hiện ngay các biện pháp để khóa thẻ khi Bên B đề nghị do nghi ngờ có gian lận hoặc tổn thất và chịu trách nhiệm đối với mọi rủi ro, tổn thất tài chính phát sinh sau thời điểm thẻ được khóa thành công trên hệ thống quản lý thẻ của Agribank.",
+  "Các nghĩa vụ khác theo quy định của pháp luật.",
+  "Điều 12. Quyền và nghĩa vụ của Bên B.",
+  "Quyền của Bên B:.",
+  "Trực tiếp nhận thẻ, mã PIN hoặc uỷ quyền bằng văn bản cho người khác đến nhận thẻ, mã PIN tại trụ sở Bên A.",
+  "Sử dụng thẻ để thực hiện các giao dịch ứng tiền mặt, thanh toán hàng hóa, dịch vụ hợp pháp theo quy định của pháp luật Việt Nam và các dịch vụ khác trong phạm vi hạn mức tín dụng được cấp.",
+  "Đề nghị Bên A thay đổi hạn mức thẻ tín dụng, hạn mức giao dịch ngày theo quy định của Agribank.",
+  "Đề nghị Bên A phát hành lại thẻ, thay đổi mã PIN, tạm ngừng hoặc chấm dứt sử dụng thẻ, bao gồm cả thẻ phụ (nếu có).",
+  "Khiếu nại Bên A về các phát sinh liên quan đến sử dụng thẻ trong phạm vi 07 (bảy) ngày làm việc kể từ ngày sao kê.",
+  "Được tham gia các chương trình khuyễn mãi, ưu đãi theo quy định của Agribank và các tổ chức thẻ.",
+  "Đơn phương chấm dứt Hợp đồng sau khi đã thanh toán cho Bên A toàn bộ dư nợ và các khoản khác liên quan đến việc sử dụng thẻ.",
+  "Nghĩa vụ của Bên B:.",
+  "Chấp hành đầy đủ các quy trình kỹ thuật nghiệp vụ, tài liệu hướng dẫn liên quan đến sử dụng thẻ theo quy định hiện hành của Agribank.",
+  "Sử dụng thẻ tín dụng vào mục đích hợp pháp.",
+  "Ký vào dải chữ ký mặt sau của thẻ ngay khi nhận được thẻ.",
+  "Sử dụng chữ ký theo đúng chữ ký mẫu đã đăng ký tại Agribank.",
+  "Kiểm đếm đủ số tiền giao dịch trước khi rời ATM.",
+  "Ký hóa đơn thanh toán khi sử dụng thẻ để thanh toán hàng hóa, dịch vụ hoặc ứng tiền mặt tại các ĐVCNT.",
+  "Bảo quản thẻ, bảo mật mã PIN, OTP.",
+  "Không được cho người khác mượn thẻ/mã PIN hoặc tiết lộ mã PIN, OTP cho người khác.",
+  "Trường hợp để mất thẻ hoặc để lộ mã PIN, OTP, Bên B phải hoàn toàn chịu trách nhiệm về mọi rủi ro, tổn thất phát sinh.",
+  "Hoàn toàn chịu trách nhiệm đối với các giao dịch thẻ có chữ ký và (hoặc) sử dụng mã PIN, các giao dịch khác trong trường hợp không cần chữ ký của chủ thẻ nhưng Ngân hàng cung cấp được bằng chứng về giao dịch đã được thực hiện.",
+  "Hoàn toàn chịu trách nhiệm về mọi rủi ro, tổn thất phát sinh liên quan đến các giao dịch thẻ thực hiện qua ứng dụng Agribank E-Mobile Banking, giao dịch Internet/MOTO.",
+  "Không thực hiện các giao dịch trái với quy định của pháp luật Việt Nam và nước sở tại.",
+  "Chủ động thông báo qua tổng đài điện thoại của Agribank hoặc chi nhánh Agribank gần nhất ngay khi phát hiện thẻ bị mất/bị đánh cắp/bị lộ mã PIN hoặc có nghi ngờ thẻ bị gian lận, lợi dụng.",
+  "Sau đó phải đến bất kỳ chi nhánh nào của Agribank để hoàn tất thủ tục báo mất thẻ.",
+  "Các thông tin cần cung cấp trong trường hợp này bao gồm: Họ tên, số CMT/Hộ chiếu/Thẻ căn cước công dân, số thẻ, loại thẻ, ngày hiệu lực của thẻ, địa điểm thẻ bị mất/bị đánh cắp, thời gian mất, chi nhánh phát hành thẻ.",
+  "Chịu trách nhiệm đối với mọi rủi ro, tổn thất phát sinh trước thời điểm thẻ được khóa trên hệ thống quản lý thẻ của Agribank trong trường hợp thẻ bị mất/bị đánh cắp.",
+  "Thông báo kịp thời cho Agribank khi có những thay đổi của chủ thẻ về các thông tin, như: CMT/Thẻ căn cước công dân, số điện thoại nhận mật khẩu OTP, địa chỉ liên lạc/nơi cư trú/nơi làm việc, v.v.",
+  "Trường hợp không thông báo, nếu có phát sinh rủi ro, tổn thất thì Bên B phải hoàn toàn chịu trách nhiệm.",
+  "Thanh toán đầy đủ, đúng hạn cho Bên A các khoản chi tiêu, lãi và phí phát sinh liên quan đến việc sử dụng thẻ bao gồm cả thẻ phụ (nếu có), kể cả khoản phí phải trả cho TCTQT trong trường hợp Bên B yêu cầu Agribank chuyển tranh chấp lên Ủy ban trọng tài TCTQT giải quyết.",
+  "Chịu trách nhiệm giải quyết tranh chấp với ĐVCNT về các vấn đề liên quan đến hàng hóa, dịch vụ.",
+  "Chịu trách nhiệm trước pháp luật về các hành vi gian lận, giả mạo thẻ và các giao dịch thẻ liên quan đến gian lận, giả mạo.",
+  "Không vi phạm các hành vi bị cấm trong hoạt động thẻ theo quy định của Ngân hàng Nhà nước Việt Nam, bao gồm:.",
+  "Làm, sử dụng, chuyển nhượng và lưu hành thẻ giả.",
+  "Thực hiện, tổ chức thực hiện hoặc tạo điều kiện để người khác thực hiện các hành vi giao dịch thẻ gian lận, giả mạo, giao dịch thanh toán khống tại ĐVCNT.",
+  "Lấy cắp, thông đồng để lấy cắp thông tin thẻ; tiết lộ và cung cấp thông tin thẻ, chủ thẻ và giao dịch thẻ không đúng quy định của pháp luật.",
+  "Sử dụng thẻ để thực hiện các giao dịch cho các mục đích rửa tiền, tài trợ khủng bố, lừa đảo, gian lận và các hành vi vi phạm pháp luật khác.",
+  "Mua, bán, thuê, cho thuê thẻ hoặc thông tin thẻ, mở hộ thẻ (trừ trường hợp thẻ trả trước vô danh).",
+  "Tuân thủ các quy định của pháp luật về quản lý ngoại hối.",
+  "Điều 13. Sửa đổi, bổ sung Hợp đồng.",
+  "Trường hợp có nhu cầu sửa đổi, bổ sung Hợp đồng, Bên A sẽ thông báo cho Bên B bằng văn bản, trên các phương tiện thông tin đại chúng hoặc trên Website của Agribank về việc sửa đổi, bổ sung Hợp đồng.",
+  "Bên B có một khoảng thời gian nhất định (theo thông báo của Bên A) để cân nhắc việc tiếp tục sử dụng thẻ theo nội dung sửa đổi, bổ sung Hợp đồng được Bên A thông báo.",
+  "Trường hợp Bên B không có ý kiến phản hồi trong thời hạn nêu trên, Bên B được coi là chấp thuận toàn bộ nội dung sửa đổi, bổ sung Hợp đồng theo thông báo của Bên A.",
+  "Điều 14. Chấm dứt hợp đồng.",
+  "Đơn phương chấm dứt Hợp đồng: Hai Bên có quyền đơn phương chấm dứt Hợp đồng trước hạn khi thông báo cho Bên kia bằng văn bản trước 30 ngày làm việc.",
+  "Trường hợp Bên B vi phạm các điều kiện, điều khoản Hợp đồng, hoặc có các hành vi gian lận, giả mạo thẻ, Bên A có quyền đơn phương chấm dứt Hợp đồng mà không cần thông báo trước cho Bên B.",
+  "Các trường hợp chấm dứt Hợp đồng:.",
+  "Các Bên đơn phương chấm dứt Hợp đồng.",
+  "Chấm dứt Hợp đồng theo thỏa thuận của hai Bên.",
+  "Các trường hợp chấm dứt sử dụng thẻ.",
+  "Các trường hợp khác theo quy định của pháp luật.",
+  "Trách nhiệm thanh toán khi chấm dứt Hợp đồng: Trong trường hợp chấm dứt hợp đồng, Bên B có trách nhiệm thanh toán toàn bộ các khoản nợ còn lại cho Bên A.",
+  "Điều 15. Luật điều chỉnh, giải quyết tranh chấp.",
+  "Hợp đồng này được thiết lập và điều chỉnh bởi pháp luật Việt Nam.",
+  "Hai Bên xác nhận đã đọc, hiểu rõ và hoàn toàn nhất trí với nội dung Hợp đồng, đồng thời cam kết nghiêm chỉnh thực hiện các điều kiện, điều khoản đã ký.",
+  "Trường hợp phát sinh tranh chấp trong quá trình thực hiện, hai Bên sẽ trực tiếp bàn bạc, giải quyết trên cơ sở thương lượng, đôi Bên cùng có lợi.",
+  "Nếu không tự giải quyết được, một trong hai Bên có quyền chuyển tranh chấp ra Tòa án nhân dân có thẩm quyền để giải quyết.",
+  "Quyết định của Tòa án có hiệu lực cuối cùng và bắt buộc thi hành đối với các Bên.",
+  "Án phí do Bên thua kiện chịu.",
+  "Điều 16. Điều khoản thanh lý Hợp đồng.",
+  "Hợp đồng này được thanh lý sau khi các Bên hoàn thành đầy đủ các nghĩa vụ theo Hợp đồng, đồng thời toàn bộ khiếu nại, tranh chấp phát sinh đã được giải quyết dứt điểm.",
+  "Điều 17. Điều khoản thi hành.",
+  "Hợp đồng này có hiệu lực thi hành kể từ ngày ký cho đến khi được thanh lý theo qui định tại Điều 16 của Hợp đồng.",
+  "Hợp đồng này được lập thành 02 (hai) bản có giá trị pháp lý như nhau, mỗi Bên giữ 01 (một) bản."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

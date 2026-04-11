@@ -1,0 +1,144 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+  "Độc lập - Tự do - Hạnh phúc.",
+  "Hà Nội, ngày 15 tháng 05 năm 2024.",
+  "HỢP ĐỒNG THUÊ MẶT BẰNG.",
+  "Căn cứ vào Bộ luật Dân sự năm 2015 nước Cộng hòa xã hội chủ nghĩa Việt Nam.",
+  "Căn cứ vào Luật Nhà ở năm 2014 nước Cộng hòa xã hội chủ nghĩa Việt Nam.",
+  "Căn cứ vào năng lực và nhu cầu thực tế của các bên tham gia.",
+  "Hôm nay, ngày 15 tháng 05 năm 2024, tại số 18 Duy Tân, Cầu Giấy, Hà Nội, chúng tôi gồm các bên dưới đây.",
+  "BÊN CHO THUÊ (Sau đây gọi là Bên A).",
+  "Ông: Nguyễn Văn An.",
+  "Sinh ngày: 01 tháng 01 năm 1980.",
+  "Địa chỉ thường trú: Số 18 Duy Tân, phường Dịch Vọng Hậu, quận Cầu Giấy, Hà Nội.",
+  "Số căn cước công dân: 001080001234.",
+  "Số điện thoại: 0912345678.",
+  "Số tài khoản ngân hàng: 19030000000001 tại Ngân hàng TMCP Kỹ Thương Việt Nam (Techcombank).",
+  "Đồng sở hữu: Bà Trần Thị Bình.",
+  "BÊN THUÊ (Sau đây gọi là Bên B).",
+  "Tên công ty: Công ty TNHH Giải pháp Công nghệ ABC.",
+  "Mã số thuế: 0109876543.",
+  "Địa chỉ trụ sở: Tầng 5, tòa nhà văn phòng, số 18 Duy Tân, Cầu Giấy, Hà Nội.",
+  "Số điện thoại: 02439998888.",
+  "Số tài khoản ngân hàng: 102030405060 tại Ngân hàng TMCP Ngoại thương Việt Nam (Vietcombank).",
+  "Đại diện pháp luật: Ông Lê Văn Cường.",
+  "Chức vụ: Giám đốc.",
+  "Hai bên thống nhất ký kết hợp đồng thuê nhà với các điều khoản cụ thể như sau.",
+  "ĐIỀU 1: ĐỐI TƯỢNG HỢP ĐỒNG.",
+  "Đối tượng của hợp đồng là căn nhà số 18 Duy Tân, quận Cầu Giấy, Hà Nội.",
+  "Diện tích mặt bằng cho thuê là 100 mét vuông.",
+  "Hình thức sử dụng là sử dụng riêng biệt.",
+  "Số tầng cho thuê là 02 tầng.",
+  "Tình trạng tài sản được ghi nhận chi tiết tại Phụ lục 01 đính kèm hợp đồng này.",
+  "Phụ lục 01 được lập vào ngày bàn giao mặt bằng và có sự ký xác nhận của hai bên.",
+  "Bên B sử dụng mặt bằng để làm văn phòng đại diện và nơi làm việc.",
+  "ĐIỀU 2: ĐẶT CỌC HỢP ĐỒNG.",
+  "Bên B thực hiện đặt cọc cho Bên A số tiền 100.000.000 VNĐ (Một trăm triệu đồng chẵn).",
+  "Số tiền này tương đương với 02 tháng tiền thuê nhà, được thanh toán vào ngày 15 tháng 05 năm 2024.",
+  "Khi chấm dứt hợp đồng, Bên A sẽ hoàn trả tiền cọc cho Bên B sau khi khấu trừ các khoản phí điện, nước, internet chưa thanh toán hoặc chi phí sửa chữa hư hỏng do Bên B gây ra (nếu có).",
+  "ĐIỀU 3: THỜI HẠN THUÊ VÀ GIÁ THUÊ.",
+  "Thời hạn thuê là 24 tháng, tính từ ngày 01 tháng 06 năm 2024 đến ngày 31 tháng 05 năm 2026.",
+  "Giá thuê mỗi tháng là 50.000.000 VNĐ (Năm mươi triệu đồng chẵn).",
+  "Giá thuê này đã bao gồm chi phí quản lý tòa nhà và phí vệ sinh khu vực chung.",
+  "ĐIỀU 4: PHƯƠNG THỨC THANH TOÁN.",
+  "Bên B thanh toán tiền thuê cho Bên A theo định kỳ 06 tháng một lần.",
+  "Ngay sau khi ký hợp đồng, Bên B thanh toán trước 06 tháng tiền thuê đầu tiên.",
+  "Các kỳ thanh toán tiếp theo được thực hiện trong vòng 05 ngày đầu tiên của tháng bắt đầu kỳ thanh toán mới.",
+  "Tiền thuê nhà được thanh toán bằng hình thức chuyển khoản ngân hàng vào tài khoản của Bên A.",
+  "ĐIỀU 5: NGHĨA VỤ VÀ QUYỀN CỦA BÊN A.",
+  "Nghĩa vụ của Bên A.",
+  "Cung cấp cho Bên B bản sao công chứng giấy chứng nhận quyền sở hữu tài sản và bản sao căn cước công dân.",
+  "Bàn giao mặt bằng cho Bên B đúng theo Phụ lục 01 vào ngày nhận nhà.",
+  "Cho phép Bên B thực hiện sửa chữa, cải tạo phục vụ kinh doanh sau khi có sự đồng ý bằng văn bản của Bên A.",
+  "Đảm bảo quyền sử dụng ổn định cho Bên B trong suốt thời gian thuê.",
+  "Tạo điều kiện thuận lợi để Bên B khai thác diện tích thuê.",
+  "Hỗ trợ Bên B thực hiện các thủ tục thuế để xuất hóa đơn tài chính.",
+  "Hỗ trợ sửa chữa các hư hỏng về điện, nước không do lỗi của Bên B gây ra.",
+  "Nếu Bên A đơn phương chấm dứt hợp đồng trước hạn, phải thông báo trước 03 tháng.",
+  "Bên A phải hoàn lại tiền thuê chưa sử dụng và trả lại tiền cọc, đồng thời bồi thường thêm 01 tháng tiền thuê.",
+  "Thực hiện các nghĩa vụ khác theo quy định pháp luật.",
+  "Quyền của Bên A.",
+  "Yêu cầu Bên B thanh toán tiền thuê đúng hạn theo Điều 4.",
+  "Nhận đủ số tiền thuê theo thỏa thuận.",
+  "Kiểm tra định kỳ 03 tháng một lần việc sử dụng mặt bằng của Bên B.",
+  "Thu hồi lại mặt bằng nguyên trạng khi hợp đồng hết hạn.",
+  "Truy cập vào mặt bằng trong các trường hợp khẩn cấp mà không cần báo trước.",
+  "Đơn phương chấm dứt hợp đồng nếu Bên B chậm thanh toán, sử dụng sai mục đích, làm hư hỏng tài sản, gây mất trật tự hoặc vi phạm pháp luật.",
+  "ĐIỀU 6: QUYỀN VÀ NGHĨA VỤ CỦA BÊN B.",
+  "Nghĩa vụ của Bên B.",
+  "Sử dụng mặt bằng đúng mục đích đã cam kết.",
+  "Thanh toán tiền thuê đầy đủ và đúng kỳ hạn.",
+  "Tuân thủ các quy tắc sinh hoạt và trật tự công cộng.",
+  "Chịu trách nhiệm pháp lý về hoạt động kinh doanh và tuân thủ quy định chính quyền địa phương.",
+  "Không tàng trữ vũ khí hoặc chất cháy nổ, đảm bảo an toàn phòng cháy chữa cháy.",
+  "Thanh toán các chi phí điện, nước, internet và phí dịch vụ phát sinh.",
+  "Thông báo kịp thời cho Bên A về các khó khăn phát sinh để được hỗ trợ.",
+  "Nếu muốn chấm dứt hợp đồng trước hạn, phải thông báo trước 01 tháng và bồi thường 01 tháng tiền thuê.",
+  "Phối hợp với Bên A thực hiện các nghĩa vụ thuế liên quan.",
+  "Quyền của Bên B.",
+  "Tiếp nhận mặt bằng theo đúng thỏa thuận.",
+  "Cải tạo nội thất sau khi được Bên A chấp thuận và tự chi trả chi phí.",
+  "Tháo dỡ các thiết bị, tài sản riêng của mình khi kết thúc hợp đồng.",
+  "ĐIỀU 7: CHẤM DỨT HỢP ĐỒNG.",
+  "Hợp đồng chấm dứt khi hết thời hạn thuê.",
+  "Hợp đồng chấm dứt trước hạn nếu mặt bằng bị phá dỡ bởi quyết định cơ quan nhà nước hoặc do sự kiện bất khả kháng.",
+  "Nếu một bên vi phạm hợp đồng, bên còn lại có quyền đơn phương chấm dứt và yêu cầu bồi thường 02 tháng tiền thuê.",
+  "Nếu đơn phương chấm dứt không có căn cứ pháp luật, bên vi phạm phải bồi thường 02 tháng tiền thuê cho bên còn lại.",
+  "ĐIỀU 8: CAM KẾT CỦA CÁC BÊN.",
+  "Hai bên cam kết thực hiện nghiêm túc và đầy đủ các nội dung đã thỏa thuận trong hợp đồng này.",
+  "ĐIỀU 9: ĐIỀU KHOẢN CUỐI CÙNG.",
+  "Hai bên xác nhận đã hiểu rõ quyền, nghĩa vụ và hậu quả pháp lý của hợp đồng.",
+  "Mọi tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng, nếu không thành sẽ đưa ra Tòa án nhân dân quận Cầu Giấy, Hà Nội để giải quyết.",
+  "Các văn bản kèm theo là một phần không thể tách rời của hợp đồng này.",
+  "Hợp đồng được lập thành 04 bản có giá trị pháp lý như nhau, Bên A giữ 02 bản, Bên B giữ 01 bản, 01 bản gửi cơ quan thuế.",
+  "(Ký, ghi rõ họ tên).",
+  "BÊN CHO THUÊ."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]

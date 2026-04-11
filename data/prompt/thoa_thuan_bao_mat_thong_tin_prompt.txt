@@ -1,0 +1,143 @@
+Bạn là chuyên gia pháp lý và kỹ sư dữ liệu AI. 
+Dưới đây là TOÀN BỘ danh sách các mệnh đề đã được HỆ THỐNG MÁY TÍNH CẮT TỰ ĐỘNG từ một hợp đồng, được xếp theo đúng thứ tự.
+*Lưu ý: Do máy tính tự cắt nên một số câu có thể chứa các tiền tố lửng lơ như "Điều 1.", "Khoản 2.", số thứ tự. ĐÂY LÀ ĐIỀU CỐ Ý ĐỂ HUẤN LUYỆN MODEL.*
+
+--- DANH SÁCH MỆNH ĐỀ GỐC CỦA HỢP ĐỒNG ---
+[
+  "THỎA THUẬN BẢO MẬT THÔNG TIN.",
+  "Căn cứ vào Bộ luật Dân sự số 91/2015/QH13 của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam, ban hành ngày 24/11/2015, có hiệu lực kể từ ngày 01/01/2017.",
+  "Căn cứ vào nhu cầu thực tế và năng lực của hai Bên.",
+  "Hôm nay, ngày 20 tháng 05 năm 2024, tại Hà Nội, chúng tôi gồm các Bên dưới đây.",
+  "Tên đơn vị: NGÂN HÀNG TMCP THỊNH VƯỢNG VÀ PHÁT TRIỂN.",
+  "Địa chỉ: Tầng 16, 23, 24 Toà nhà Mipec, số 229 Tây Sơn, Phường Ngã Tư Sở, Quận Đống Đa, Thành phố Hà Nội.",
+  "Điện thoại: 024 62811298.",
+  "Fax: 024 62811299.",
+  "Mã số thuế: 1400116233.",
+  "Người đại diện: Ông Nguyễn Văn A.",
+  "Chức vụ: Tổng Giám đốc.",
+  "Giấy ủy quyền: Số 123/GUQ-PGBank ngày 01/01/2024.",
+  "(Sau đây gọi tắt là “PGBank” hoặc “Bên A”).",
+  "Tên đơn vị: CÔNG TY CỔ PHẦN CÔNG NGHỆ GIẢI PHÁP SỐ XYZ.",
+  "Địa chỉ: Số 10, Đường Lê Lợi, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh.",
+  "Điện thoại: 028 38229988.",
+  "Mã số thuế: 0301234567.",
+  "Người đại diện: Bà Trần Thị B.",
+  "Chức vụ: Giám đốc.",
+  "Giấy ủy quyền: Số 456/GUQ-XYZ ngày 15/02/2024.",
+  "(Sau đây gọi tắt là “Bên B”).",
+  "Bên A và Bên B sau đây được gọi chung là “hai Bên” hoặc “các Bên” và gọi riêng là “Bên” hoặc “mỗi Bên”, tùy theo ngữ cảnh diễn đạt.",
+  "Các Bên đang trong quá trình thảo luận, đàm phán một cách thiện chí về việc chào hàng cạnh tranh Gói mua sắm Hệ thống Phòng chống rửa tiền (PCRT).",
+  "Theo đó, mỗi Bên sẽ tiết lộ cho Bên còn lại các Thông tin bảo mật (như được định nghĩa tại Điều 1 của Thoả thuận này) cho mục đích đánh giá thông tin, nhu cầu và năng lực của các Bên để ký kết Hợp đồng cung cấp dịch vụ (“Hợp đồng”) (nếu có).",
+  "Các Bên hiểu rằng các thông tin mà mình đã được cung cấp hoặc thu thập được từ Bên còn lại đều là các thông tin trọng yếu và cần bảo mật tuyệt đối.",
+  "Để đảm bảo tính bảo mật và an toàn của Thông tin bảo mật được cung cấp theo Thỏa thuận này và để tránh việc Bên nhận thông tin sử dụng và tiết lộ Thông tin bảo mật mà không nhận được sự cho phép của Bên cung cấp thông tin, sau khi thảo luận, các Bên đồng ý ký kết Thỏa thuận này theo các điều khoản và điều kiện như sau.",
+  "Điều 1. Định nghĩa.",
+  "“Bên cung cấp thông tin”: là PGBank và/hoặc Người đại diện của PGBank tiết lộ Thông tin bảo mật cho Bên nhận thông tin và/hoặc Người đại diện của Bên nhận thông tin.",
+  "“Bên nhận thông tin”: là Bên B và/hoặc Người đại diện của Bên B được Bên cung cấp thông tin tiết lộ Thông tin bảo mật.",
+  "“Người đại diện”: bao gồm người đại diện hợp pháp, người quản lý, người lao động, cộng tác viên của các Bên được giao nhiệm vụ, chỉ định tham gia vào việc đàm phán, thỏa thuận, thực hiện Hợp đồng và có quyền hạn được Tiếp cận thông tin bảo mật.",
+  "“Bên thứ ba”: là bất kỳ bên nào khác không phải Bên A, Bên B và Người đại diện của họ, bao gồm nhưng không giới hạn bởi: khách hàng, nhà đầu tư, đối tác kinh doanh, đại lý, nhà cung cấp, nhà thầu phụ hoặc nhà tư vấn của các Bên (đơn vị cung cấp dịch vụ tư vấn pháp lý, tài chính - kế toán, thi công xây dựng, kỹ thuật, nhân viên ngân hàng và các đơn vị tư vấn chuyên môn khác).",
+  "“Thông tin bảo mật”: là bất kỳ và toàn bộ thông tin, dữ liệu, nội dung trao đổi được chứa đựng trong văn bản, hồ sơ, tài liệu có sẵn, tồn tại dưới dạng bản viết, bản in, dữ liệu điện tử, tranh, ảnh, bản vẽ, băng, đĩa, bản ghi hình, ghi âm, lời nói hoặc các dạng khác được tiết lộ, cung cấp bởi Bên cung cấp thông tin và Bên nhận thông tin được Tiếp cận trực tiếp thông qua việc đọc, xem, nghe, ghi chép, sao chép, chụp thông tin hoặc gián tiếp Tiếp cận dưới bất kỳ hình thức nào.",
+  "“Tiếp cận thông tin bảo mật” hoặc “Tiếp cận”: là việc đọc, xem, nghe, ghi chép, sao chép, chụp Thông tin bảo mật.",
+  "Thông tin bảo mật không bao gồm:",
+  "Thông tin đã được công khai bởi Bên cung cấp thông tin và/hoặc cơ quan nhà nước có thẩm quyền trước thời điểm được Tiết lộ, cung cấp cho Bên nhận thông tin.",
+  "Thông tin do Bên nhận thông tin tạo lập, phân tích độc lập hoặc có được một cách hợp pháp mà không cần sử dụng Thông tin bảo mật của Bên cung cấp thông tin.",
+  "Điều 2. Nguyên tắc sử dụng Thông tin bảo mật.",
+  "Không tiết lộ: Trên cơ sở Thỏa thuận này, Bên nhận thông tin cam kết tuyệt đối sẽ không cung cấp, tiết lộ Thông tin bảo mật cho bất kỳ Bên thứ ba nào trừ khi có sự chấp thuận trước bằng văn bản của Bên cung cấp thông tin.",
+  "Nghĩa vụ bảo mật của Người đại diện: Bên nhận thông tin chỉ được quyền cung cấp Thông tin bảo mật cho Người đại diện trong chừng mực những người đó bắt buộc phải biết thông tin để tiến hành các công việc liên quan đến việc đàm phán, thỏa thuận, thực hiện Hợp đồng.",
+  "Bên nhận thông tin cũng sẽ thông báo với Người đại diện của mình về các điều khoản của Thoả Thuận này và tiến hành các thủ tục cần thiết để đảm bảo rằng những người này đồng ý tuân thủ và chịu sự ràng buộc của Thoả thuận này.",
+  "Trong trường hợp Bên nhận thông tin không thực hiện nghĩa vụ quy định tại khoản này, Bên nhận thông tin sẽ phải liên đới chịu trách nhiệm cùng với Người đại diện trong trường hợp Người đại diện có hành vi vi phạm Thỏa thuận này.",
+  "Trả lại hoặc hủy bỏ: Sau khi chấm dứt Thỏa thuận này hoặc khi có yêu cầu của Bên cung cấp thông tin, Bên nhận thông tin phải hoàn trả lại hay hủy bỏ/xóa bỏ ngay lập tức tất cả các bản gốc và bản sao của Thông tin bảo mật và cam kết không còn bất kỳ bản gốc hay bản sao nào của các Thông tin bảo mật đó được lưu lại trên bất kỳ thiết bị, phương tiện lưu trữ nào.",
+  "Các Thông tin bảo mật tồn tại dưới hình thức không có khả năng trả lại hoặc đã được sao chép, Bên nhận thông tin phải hủy hoặc xóa bỏ một cách thích hợp.",
+  "Mục đích sử dụng Thông tin bảo mật: Bên nhận thông tin cam kết thiết lập, thực hiện và duy trì các điều kiện, thủ tục cần thiết nhằm đảm bảo rằng các Thông tin bảo mật không bị Tiếp cận cho bất cứ mục đích nào khác ngoài việc đàm phán, thỏa thuận hoặc thực hiện Hợp đồng đã hoặc sẽ được ký kết giữa các Bên.",
+  "Nếu Bên nhận thông tin nhận thấy nguy cơ vi phạm hoặc bất cứ vi phạm nào đối với Thoả thuận này, Bên nhận thông tin sẽ thông báo ngay lập tức cho Bên cung cấp thông tin và sẽ nỗ lực hợp tác tốt nhất với Bên cung cấp thông tin nhằm thực hiện các giải pháp thích hợp để ngăn chặn, khắc phục, xử lý vi phạm.",
+  "Cung cấp Thông tin bảo mật trong trường hợp bắt buộc: Trong trường hợp Bên nhận thông tin buộc phải cung cấp các Thông tin bảo mật theo yêu cầu bằng văn bản của cơ quan nhà nước có thẩm quyền hoặc theo quy định của pháp luật thì:",
+  "Trong thời hạn tối đa 05 (năm) ngày làm việc kể từ ngày nhận được yêu cầu cung cấp Thông tin bảo mật, Bên nhận thông tin sẽ gửi văn bản thông báo cho Bên cung cấp thông tin và cung cấp bằng chứng về yêu cầu này để các Bên có thể thực hiện các hành động thích hợp hoặc các biện pháp bảo vệ phù hợp.",
+  "Bên nhận thông tin có trách nhiệm thực hiện theo đúng các yêu cầu và biện pháp khắc phục do Bên cung cấp thông tin đưa ra.",
+  "Trong trường hợp không thể thực hiện được các biện pháp bảo vệ này, Bên nhận thông tin cam kết sẽ chỉ cung cấp đúng theo yêu cầu của cơ quan nhà nước có thẩm quyền và theo cách thức phù hợp để vẫn có thể bảo vệ được tính chất mật của Thông tin bảo mật.",
+  "Trong trường hợp Bên nhận thông tin không thông báo và/hoặc không thống nhất với Bên cung cấp thông tin về phạm vi, nội dung Thông tin bảo mật cần/sẽ cung cấp cho cơ quan nhà nước có thẩm quyền, Bên nhận thông tin tự chịu trách nhiệm về tính chính xác, xác thực của Thông tin bảo mật mà mình cung cấp.",
+  "Quyền sở hữu: Tất cả quyền sở hữu trí tuệ, quyền tài sản đối với Thông tin bảo mật thuộc về Bên cung cấp thông tin, trừ khi có quy định khác giữa các Bên bằng văn bản.",
+  "Cam kết không ảnh hưởng: Bên nhận thông tin phải thực hiện và duy trì tất cả các bước bảo mật và biện pháp phòng ngừa hợp lý, cần thiết để giữ bí mật Thông tin bảo mật và chống lại mọi truy cập trái phép và sẽ bồi thường thiệt hại cho Bên cung cấp thông tin liên quan đến các khiếu kiện, khiếu nại, tranh chấp, bất đồng phát sinh từ việc vi phạm các cam kết bảo mật của mình theo Thỏa thuận này và các văn bản liên quan được ký kết giữa các Bên.",
+  "Không cam kết: Không một điều khoản nào trong Thỏa thuận này được coi là nghĩa vụ bắt đầu hay tiếp tục đàm phán hoặc làm tiền đề cho bất kỳ thỏa thuận nào liên quan đến Hợp đồng.",
+  "Theo đó, các Bên thừa nhận và đồng ý rằng, mỗi Bên không bị ràng buộc phải tham gia vào bất kỳ giao dịch, mối quan hệ kinh doanh nào trong tương lai, có quyền từ chối mọi đề xuất và chấm dứt các cuộc đàm phán đối với bất kỳ thỏa thuận nào liên quan đến Hợp đồng.",
+  "Điều 3. Vi phạm thỏa thuận.",
+  "Các Bên tham gia đồng ý rằng tổn thất sẽ có thể không được khắc phục một cách toàn diện và Bên không vi phạm có quyền khởi kiện tại tòa án hoặc yêu cầu một hình thức bồi thường công bằng trong trường hợp Thỏa thuận này có nguy cơ bị vi phạm hoặc bị vi phạm.",
+  "Các Bên đồng ý rằng, bất cứ Bên nào vi phạm nghĩa vụ trong Thỏa thuận này mà gây thiệt hại cho Bên còn lại thì phải có trách nhiệm bồi thường thiệt hại về những tổn thất do hành vi vi phạm gây ra.",
+  "Đồng thời, bên vi phạm phải thanh toán khoản tiền phạt và lãi chậm trả trong thời hạn do Bên không vi phạm yêu cầu.",
+  "Điều 4. Hiệu lực của Thỏa thuận.",
+  "Thỏa thuận này có hiệu lực kể từ ngày ký và bị chấm dứt theo một trong các trường hợp sau:",
+  "Sau 01 (một) năm kể từ ngày ký kết Thỏa thuận này mà các Bên không thỏa thuận gia hạn.",
+  "Theo thỏa thuận bằng văn bản của các Bên.",
+  "Một Bên đơn phương chấm dứt Thỏa thuận bằng cách đưa ra thông báo chấm dứt bằng văn bản trước 30 (ba mươi) ngày tính đến ngày chấm dứt Thỏa thuận.",
+  "Sau khi Thỏa thuận chấm dứt hiệu lực theo các trường hợp quy định tại Khoản 4.1 Điều này, Bên nhận thông tin vẫn có nghĩa vụ bảo mật các thông tin, dữ liệu do Bên cung cấp thông tin cung cấp theo đúng các nội dung ghi nhận tại Thỏa thuận này trong thời hạn 03 (ba) năm kể từ thời điểm chấm dứt Thỏa thuận này.",
+  "Không Bên nào được chuyển nhượng toàn bộ hoặc một phần quyền và nghĩa vụ của mình theo Thỏa thuận này mà không có sự đồng ý bằng văn bản của Bên còn lại.",
+  "Trường hợp quyền và nghĩa vụ theo Thỏa thuận này được chuyển nhượng lại, Thỏa thuận này cấu thành nghĩa vụ hợp lệ và ràng buộc của các Bên và người kế thừa, người nhận chuyển nhượng của họ.",
+  "Mỗi Bên cam kết với Bên còn lại rằng họ đã đáp ứng đầy đủ các điều kiện theo quy định của pháp luật và quy định nội bộ của mỗi Bên để trở thành một Bên của Thỏa thuận này.",
+  "Trong trường hợp một hoặc một số điều khoản của Thỏa thuận này vô hiệu, hiệu lực của các điều khoản còn lại của Thỏa thuận sẽ không bị ảnh hưởng bởi các điều khoản vô hiệu đó.",
+  "Điều 5. Thông báo.",
+  "Phương thức liên hệ:",
+  "Việc liên hệ giữa các Bên theo Thỏa thuận này được thực hiện thông qua một, một số hoặc tất cả các phương thức: (i) thông báo qua điện thoại (được hiểu gồm cả phương thức gọi điện, tin nhắn, liên hệ qua zalo, facebook, viber hoặc bất cứ phần mềm liên lạc có kết nối internet nào khác); (ii) bằng văn bản được chuyển qua bưu điện hoặc giao nhận trực tiếp; hoặc (iii) gửi yêu cầu qua email/fax; hoặc (iv) phương thức khác mà PGBank thấy phù hợp với thực tế vận hành của PGBank.",
+  "Thông tin tiếp nhận tại của các Bên là:",
+  "PGBank: Email: ducdd@pgbank.com.vn; Điện thoại: 0944664688; Người liên hệ: Đặng Đình Đức; Địa chỉ: Tầng 16, Toà nhà Mipec, số 229 Tây Sơn, Phường Ngã Tư Sở, Quận Đống Đa, Thành phố Hà Nội.",
+  "Bên B: Email: contact@xyztech.vn; Điện thoại: 02838229988; Người liên hệ: Nguyễn Văn C; Địa chỉ: Số 10, Đường Lê Lợi, Phường Bến Nghé, Quận 1, Thành phố Hồ Chí Minh.",
+  "Trường hợp thay đổi người hoặc một trong các thông tin để làm căn cứ tiếp nhận yêu cầu nêu trên, các Bên phải thông báo cho nhau trong vòng 15 (mười lăm) ngày làm việc trước thời điểm thông tin thay đổi có hiệu lực áp dụng.",
+  "Thời gian các Bên được coi là đã nhận được thông báo/yêu cầu của nhau là ngay khi kết thúc cuộc điện thoại/Bên tiếp nhận đã nhận được văn bản (đối với phương thức thông báo qua điện thoại; giao, nhận văn bản trực tiếp; giao nhận văn bản qua bưu điện) hoặc 01 giờ làm việc kể từ khi Bên liên hệ đã gửi Email/Fax (đối với phương thức gửi Email/Fax) và đối với phương thức khác.",
+  "Nếu Bên liên hệ đã áp dụng nhiều phương thức để thông báo/yêu cầu thì thời gian Bên tiếp nhận được coi là nhận được thông báo/yêu cầu được tính theo phương thức mà Bên tiếp nhận nhận được thông tin sớm nhất.",
+  "Điều 6. Tranh chấp và giải quyết tranh chấp.",
+  "Trường hợp có tranh chấp hai Bên phải cùng nhau thương lượng và tích cực giải quyết.",
+  "Việc giải quyết tranh chấp phải được lập thành văn bản giữa các Bên, văn bản này là phần không tách rời của Thỏa thuận này.",
+  "Trường hợp hai Bên không tự thương lượng được thì việc tranh chấp sẽ được đưa ra giải quyết tại Tòa án nhân dân có thẩm quyền tại Việt Nam.",
+  "Quyết định của Tòa án là quyết định cuối cùng buộc hai Bên phải thi hành.",
+  "Điều 7. Điều khoản chung.",
+  "Hai Bên cam kết thực hiện đầy đủ và đúng các Điều khoản ghi trong Thỏa thuận này.",
+  "Các điều khoản không ghi trong Thỏa thuận này sẽ được các Bên thực hiện theo quy định pháp luật hiện hành.",
+  "Thỏa thuận này được điều chỉnh, diễn giải và thực hiện phù hợp với pháp luật Việt Nam.",
+  "Thỏa thuận này cũng như tất cả các tài liệu, thông tin liên quan đến Thỏa thuận và Hợp đồng sẽ được các Bên quản lý theo quy định hiện hành của nhà nước về bảo mật thông tin.",
+  "Mọi sửa đổi, bổ sung các nội dung của Thỏa thuận này phải được các Bên thỏa thuận, xác lập bằng văn bản, có đầy đủ chữ ký trực tiếp hoặc chữ ký điện tử hợp pháp của người đại diện và con dấu của mỗi Bên.",
+  "Văn bản về việc sửa đổi và/hoặc bổ sung Thỏa thuận là một phần đính kèm và không tách rời của Thỏa thuận này.",
+  "Thỏa thuận được lập thành 02 (hai) bản bằng tiếng Việt có giá trị pháp lý như nhau, Bên A giữ 01 (một) bản, Bên B giữ 01 (một) bản để thực hiện.",
+  "Với sự hiểu biết và tin cậy, đại diện hợp lệ của Các Bên đã tiến hành ký kết và đóng dấu hợp lệ vào Thỏa thuận này vào ngày, tháng, năm được ghi tại phần đầu Thỏa thuận này.",
+  "ĐẠI DIỆN BÊN A.",
+  "ĐẠI DIỆN BÊN B."
+]
+------------------------------------------
+
+NHIỆM VỤ CỦA BẠN:
+1. LỰA CHỌN TỰ DO: Hãy tự do "cherry-pick" (lựa chọn) ra GẦN 50 MỆNH ĐỀ (nếu hợp đồng quá ngắn thì có thể chọn ít hơn) sao cho đa dạng và chứa nhiều thông tin pháp lý nhất (ưu tiên các câu có tiền phạt, ngày tháng, quyền/nghĩa vụ) từ danh sách trên để gán nhãn. TUYỆT ĐỐI GIỮ NGUYÊN VĂN 100% CÁC CÂU NÀY, không tự ý sửa đổi từ ngữ hay xóa bỏ "Điều...", "Khoản...".
+2. XỬ LÝ IMBALANCE (SÁNG TÁC THÊM): Đánh giá sự thiếu hụt nhãn của gần 50 câu vừa chọn và SÁNG TÁC THÊM GẦN 25 MỆNH ĐỀ MỚI để cân bằng dữ liệu.
+   -> *Quan trọng: Các câu sáng tác thêm CŨNG PHẢI MÔ PHỎNG LẠI CÁCH CẮT CÂU CỦA MÁY TÍNH (Thêm ngẫu nhiên "Điều X.", "Mục Y.", "a)" vào đầu câu để model làm quen).*
+3. TỔNG KẾT: Trả về gần 75 MỆNH ĐỀ.
+
+YÊU CẦU PHÂN LOẠI & GÁN NHÃN:
+1. Ý ĐỊNH (intent) (Bắt buộc 1 trong 5 loại):
+- Obligation (Nghĩa vụ phải làm, cam kết thực hiện, trách nhiệm thanh toán)
+- Prohibition (Bị cấm làm, không được phép, tuyệt đối không)
+- Right (Quyền lợi được hưởng, quyền yêu cầu, có quyền)
+- Termination Condition (Điều kiện chấm dứt, hủy bỏ hợp đồng, các trường hợp vi phạm bị phạt/bồi thường dẫn đến hậu quả)
+- Other (Các định nghĩa, thông tin chung, thời điểm có hiệu lực, tiêu đề)
+*Lưu ý: Các điều khoản phạt (Penalty) nên được xếp vào 'Obligation' hoặc 'Termination Condition'. Tuyệt đối không tạo nhãn mới (ví dụ tạo thêm intent "Penalty" là sai).
+   *CHÚ Ý: Đảm bảo 'Prohibition', 'Termination Condition', 'Right' có ÍT NHẤT 10 CÂU cho mỗi loại trong tổng số gần 75 câu.*
+
+2. TRÍCH XUẤT THỰC THỂ (entities) - BẮT BUỘC TUÂN THỦ 3 QUY TẮC THÉP SAU:
+   [Quy tắc 1: Quét từ Trái sang Phải] - Các thực thể trong JSON array phải được liệt kê theo ĐÚNG THỨ TỰ xuất hiện từ đầu câu đến cuối câu.
+   [Quy tắc 2: Không lồng nhau] - Mỗi phần chữ (text) chỉ được thuộc về 1 nhãn duy nhất. TUYỆT ĐỐI KHÔNG trích xuất 2 thực thể đè lên nhau (VD: Không được xuất cả "phạt 8%" và "8%").
+   [Quy tắc 3: Tính Nguyên Tử (Atomic)] - Chỉ lấy GIÁ TRỊ CỐT LÕI nhưng đủ Ý NGHĨA. Tuyệt đối KHÔNG gộp các động từ/quan hệ từ (như: "phạt", "bồi thường", "chịu", "bằng") vào trong thực thể.
+
+DANH SÁCH NHÃN THỰC THỂ:
+- PARTY: Tên công ty, cá nhân, danh xưng các bên tham gia (VD: Bên A, Bên B, Người Thuê, Người Cho Thuê).
+- DATE: Ngày, tháng, năm, thời hạn, mốc thời gian (VD: 30 ngày, 15/08/2023).
+- LAW: Tên văn bản quy phạm pháp luật cụ thể. KHÔNG gán cho từ "pháp luật" chung chung.
+- PENALTY: (ƯU TIÊN CAO NHẤT). Bất kỳ chuỗi giá trị nào mang ý nghĩa PHẠT/BỒI THƯỜNG vi phạm thì CHỈ gán nhãn PENALTY. (VD: "8% giá trị phần nghĩa vụ bị vi phạm", "03 tháng tiền thuê", "10.000.000 VNĐ" --> TUYỆT ĐỐI KHÔNG trích xuất dài dòng kiểu "phạt 8% giá trị phần nghĩa vụ bị vi phạm" hay "bồi thường 10.000.000 VNĐ").
+- MONEY: Số tiền, giá trị tiền tệ thông thường. (Luật loại trừ: Nếu số tiền đó là tiền phạt, TUYỆT ĐỐI KHÔNG dùng nhãn MONEY, chỉ dùng PENALTY).
+- RATE: Tỷ lệ phần trăm hoặc hệ số thông thường (VD: 10%, 1.5 lần, 20%/Năm). Luật loại trừ: Nếu tỷ lệ đó là mức phạt, TUYỆT ĐỐI KHÔNG dùng nhãn RATE, chỉ dùng PENALTY. Ví dụ "10% giá trị cổ phần" thì "10%" là RATE.
+
+   *CHÚ Ý XỬ LÝ IMBALANCE: Đảm bảo 'PENALTY', 'RATE', 'LAW' xuất hiện ÍT NHẤT 8-10 LẦN mỗi loại trong tổng số mệnh đề trả về.*
+
+BẮT BUỘC TRẢ VỀ ĐÚNG ĐỊNH DẠNG JSON ARRAY SAU (Không sinh thêm text giải thích ngoài JSON):
+[
+  {
+    "clause": "<nguyên văn mệnh đề đã chọn hoặc mệnh đề sáng tác thêm>",
+    "intent": "<ý định>",
+    "entities": [
+      {"text": "<phần chữ trích xuất chính xác 100%>", "label": "<nhãn>"}
+    ]
+  }
+]
