@@ -142,12 +142,20 @@ def extract_srl(
     # Extract Condition & Purpose recursively
     if dependencies:
 
-        def get_subtree(node_id):
-            """Hàm đệ quy gom toàn bộ nhánh cây phụ thuộc"""
+        def get_subtree(node_id, visited=None):
+            """Recursive function to gather the dependency tree, with cycle prevention."""
+            if visited is None:
+                visited = set()
+
+            # Prevent infinite recursion if the parser generates a cyclic dependency graph
+            if node_id in visited:
+                return []
+            visited.add(node_id)
+
             nodes = [d for d in dependencies if d.get("id") == node_id]
             children = [d for d in dependencies if d.get("head_index") == node_id]
             for child in children:
-                nodes.extend(get_subtree(child.get("id")))
+                nodes.extend(get_subtree(child.get("id"), visited))
             return nodes
 
         for d in dependencies:

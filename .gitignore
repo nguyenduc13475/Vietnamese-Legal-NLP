@@ -2,8 +2,7 @@
 .env
 venv/
 output/
-models/fine_tuned/
-models/fine_tuned_ner/
+models/
 data/vector_db/
 __pycache__/
 *.pyc

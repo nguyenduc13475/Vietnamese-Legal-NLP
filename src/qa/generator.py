@@ -1,54 +1,64 @@
-from langchain_core.prompts import PromptTemplate
+from google import genai
+from google.genai import types
 
 from src.qa.retriever import LegalRetriever
 
 
 class RAGGenerator:
-    def __init__(self, llm_pipeline, retriever: LegalRetriever):
+    def __init__(self, api_key: str, retriever: LegalRetriever):
         """
-        llm_pipeline: A Langchain compatible LLM (e.g., Google GenAI, OpenAI, or local HuggingFace pipeline)
+        Initialize RAG with the new google-genai SDK.
         """
-        self.llm = llm_pipeline
+        self.api_key = api_key
+        self.client = None
+
+        # Only initialize the client if a valid API key is provided
+        if self.api_key and self.api_key != "your_google_gemini_api_key_here":
+            self.client = genai.Client(api_key=self.api_key)
+
         self.retriever = retriever
 
-        self.prompt_template = PromptTemplate(
-            input_variables=["context", "question"],
-            template=(
-                "Bạn là một trợ lý pháp lý AI chuyên nghiệp. Dựa TUYỆT ĐỐI vào các điều khoản hợp đồng được cung cấp dưới đây, "
-                "hãy trả lời câu hỏi của người dùng một cách chính xác, ngắn gọn và dễ hiểu.\n"
-                "YÊU CẦU QUAN TRỌNG:\n"
-                "1. CHỈ sử dụng thông tin từ 'Ngữ cảnh' (Context). KHÔNG ĐƯỢC TỰ BỊA RA CÂU TRẢ LỜI (Tuyệt đối không ảo giác).\n"
-                "2. Nếu thông tin không có trong ngữ cảnh, hãy trả lời đúng nguyên văn: 'Tôi không tìm thấy thông tin liên quan trong hợp đồng.'\n"
-                "3. Bắt buộc phải trích dẫn nguồn ở cuối câu trả lời theo định dạng: (Nguồn: [Trích lục nội dung mệnh đề gốc]).\n\n"
-                "Ngữ cảnh:\n{context}\n\n"
-                "Câu hỏi: {question}\n\n"
-                "Trả lời:"
-            ),
+        self.prompt_template = (
+            "You are a professional legal AI assistant. Based STRICTLY on the contract clauses provided below, "
+            "answer the user's question accurately, concisely, and comprehensively.\n"
+            "IMPORTANT REQUIREMENTS:\n"
+            "1. ONLY use information from the 'Context'. DO NOT HALLUCINATE OR MAKE UP ANSWERS.\n"
+            "2. If the information is not present in the context, answer exactly: 'I cannot find relevant information in the contract.'\n"
+            "3. You must cite the source at the end of your answer in the format: (Source: [Extract of the original clause]).\n\n"
+            "Context:\n{context}\n\n"
+            "Question: {question}\n\n"
+            "Answer:"
         )
 
     def ask(self, question: str) -> dict:
-        # 1. Retrieve relevant clauses
+        # 1. Retrieve relevant clauses from the Vector DB
         docs = self.retriever.retrieve(question)
 
         if not docs:
             return {
                 "question": question,
-                "answer": "Xin lỗi, tôi không tìm thấy thông tin nào trong hợp đồng liên quan đến câu hỏi của bạn.",
+                "answer": "Sorry, I could not find any information in the contract related to your question.",
                 "sources": [],
             }
 
         context = "\n".join([f"- {doc.page_content}" for doc in docs])
 
-        # 2. Format Prompt
+        # 2. Format Prompt using native python strings
         prompt = self.prompt_template.format(context=context, question=question)
 
-        # 3. Generate Answer with Error Handling
-        try:
-            answer = self.llm.invoke(prompt)
-            answer_text = answer.content if hasattr(answer, "content") else str(answer)
-            answer_text = answer_text.strip()
-        except Exception as e:
-            answer_text = f"Language model call error (Please check GOOGLE_API_KEY in the .env file): {str(e)}"
+        # 3. Generate Answer with Error Handling using the new google-genai SDK
+        if not self.client:
+            answer_text = "[WARNING: GOOGLE_API_KEY not found in .env file]. Please provide a valid API Key to enable context-aware responses."
+        else:
+            try:
+                response = self.client.models.generate_content(
+                    model="gemini-3.1-flash-lite-preview",  # You can change this to gemini-2.5-flash if needed
+                    contents=prompt,
+                    config=types.GenerateContentConfig(temperature=0.1),
+                )
+                answer_text = response.text.strip()
+            except Exception as e:
+                answer_text = f"Language model call error: {str(e)}"
 
         return {
             "question": question,

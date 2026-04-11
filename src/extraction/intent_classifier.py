@@ -2,7 +2,7 @@ import os
 import pickle
 
 import torch
-from transformers import pipeline
+from transformers import AutoTokenizer, pipeline
 
 TFIDF_MODEL_PATH = "models/fine_tuned/intent_model.pkl"
 VECTORIZER_PATH = "models/fine_tuned/intent_vectorizer.pkl"
@@ -19,10 +19,15 @@ if (
 ):
     try:
         device_id = 0 if torch.cuda.is_available() else -1
+        tokenizer = AutoTokenizer.from_pretrained(
+            TRANSFORMER_MODEL_PATH,
+            clean_up_tokenization_spaces=True,
+            model_max_length=256,
+        )
         transformer_pipeline = pipeline(
             "text-classification",
             model=TRANSFORMER_MODEL_PATH,
-            tokenizer=TRANSFORMER_MODEL_PATH,
+            tokenizer=tokenizer,
             truncation=True,
             max_length=256,
             device=device_id,

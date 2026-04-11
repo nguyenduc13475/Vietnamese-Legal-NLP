@@ -4,8 +4,6 @@ import tempfile
 from fastapi import APIRouter, File, UploadFile
 from google import genai
 from google.genai import types
-from langchain_community.llms.fake import FakeListLLM
-from langchain_google_genai import ChatGoogleGenerativeAI
 
 from api.schemas import (
     ExtractRequest,
@@ -28,20 +26,9 @@ from src.utils.document_parser import parse_and_clean_document
 router = APIRouter()
 
 google_api_key = os.getenv("GOOGLE_API_KEY")
-if google_api_key and google_api_key != "your_google_gemini_api_key_here":
-    llm = ChatGoogleGenerativeAI(
-        model="gemini-1.5-flash", temperature=0.1, google_api_key=google_api_key
-    )
-else:
-    llm = FakeListLLM(
-        responses=[
-            "[WARNING: GOOGLE_API_KEY not found in .env file]. Please provide a valid API Key to enable context-aware responses."
-        ]
-        * 1000
-    )
 
 retriever = LegalRetriever()
-qa_system = RAGGenerator(llm_pipeline=llm, retriever=retriever)
+qa_system = RAGGenerator(api_key=google_api_key, retriever=retriever)
 
 
 @router.post("/extract", response_model=ExtractResponse)

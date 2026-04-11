@@ -2,6 +2,7 @@ import argparse
 import glob
 import os
 import sys
+import warnings
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -12,6 +13,11 @@ from src.preprocessing.chunker import chunk_np
 from src.preprocessing.parser import parse_dependency
 from src.preprocessing.segmenter import segment_clauses
 from src.qa.retriever import LegalRetriever
+
+# Suppress lingering tokenization FutureWarnings from Langchain's internal initializations
+warnings.filterwarnings(
+    "ignore", category=FutureWarning, module="transformers.tokenization_utils_base"
+)
 
 
 def build_db(input_path: str):

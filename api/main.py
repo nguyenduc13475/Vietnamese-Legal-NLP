@@ -1,9 +1,10 @@
 from dotenv import load_dotenv
+
+load_dotenv()
+
 from fastapi import FastAPI
 
 from api.routes import router
-
-load_dotenv()
 
 app = FastAPI(
     title="Vietnamese Legal NLP API",
