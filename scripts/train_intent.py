@@ -11,6 +11,7 @@ from sklearn.metrics import accuracy_score, classification_report, f1_score
 from transformers import (
     AutoModelForSequenceClassification,
     AutoTokenizer,
+    DataCollatorWithPadding,
     Trainer,
     TrainingArguments,
 )
@@ -68,8 +69,10 @@ def train_tfidf():
     print("Saved TF-IDF model to models/fine_tuned/")
 
 
-def train_transformer():
-    print("Training Intent Classifier (PhoBERT)...")
+def train_transformer(
+    model_name: str, epochs: int, batch_size: int, learning_rate: float
+):
+    print(f"Training Intent Classifier ({model_name})...")
     train_path = "data/annotated/intent_train.json"
     test_path = "data/annotated/intent_test.json"
 
@@ -82,39 +85,46 @@ def train_transformer():
     label2id = {label: i for i, label in enumerate(labels)}
     id2label = {i: label for i, label in enumerate(labels)}
 
+    # Renamed "label" to "labels" to match PyTorch/HuggingFace expected input
     def format_data(data):
         return {
             "text": [item["text"] for item in data],
-            "label": [label2id[item["label"]] for item in data],
+            "labels": [label2id[item["label"]] for item in data],
         }
 
     train_dataset = Dataset.from_dict(format_data(train_data))
     test_dataset = Dataset.from_dict(format_data(test_data))
 
-    model_name = "vinai/phobert-base"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
+    # Use dynamic padding instead of fixed max_length to save GPU memory
     def tokenize_function(examples):
-        return tokenizer(
-            examples["text"], padding="max_length", truncation=True, max_length=256
-        )
+        return tokenizer(examples["text"], truncation=True, max_length=256)
 
-    tokenized_train = train_dataset.map(tokenize_function, batched=True)
-    tokenized_test = test_dataset.map(tokenize_function, batched=True)
+    # Remove the string "text" column to prevent tensor collation errors
+    tokenized_train = train_dataset.map(
+        tokenize_function, batched=True, remove_columns=["text"]
+    )
+    tokenized_test = test_dataset.map(
+        tokenize_function, batched=True, remove_columns=["text"]
+    )
 
     model = AutoModelForSequenceClassification.from_pretrained(
         model_name, num_labels=len(labels), id2label=id2label, label2id=label2id
     )
 
+    data_collator = DataCollatorWithPadding(tokenizer=tokenizer)
+
     training_args = TrainingArguments(
         output_dir="models/fine_tuned_intent_transformer",
         eval_strategy="epoch",
-        learning_rate=2e-5,
-        per_device_train_batch_size=8,
-        num_train_epochs=10,
+        learning_rate=learning_rate,
+        per_device_train_batch_size=batch_size,
+        num_train_epochs=epochs,
         weight_decay=0.01,
         save_strategy="epoch",
         load_best_model_at_end=True,
+        metric_for_best_model="f1",  # Explicitly look for the best F1 score
     )
 
     def compute_metrics(eval_pred):
@@ -131,15 +141,17 @@ def train_transformer():
         train_dataset=tokenized_train,
         eval_dataset=tokenized_test,
         compute_metrics=compute_metrics,
+        data_collator=data_collator,
     )
 
     trainer.train()
+
     # Detailed Evaluation for Classification Report
     predictions = trainer.predict(tokenized_test)
     preds = np.argmax(predictions.predictions, axis=-1)
 
     # Converting label IDs back to label names
-    y_true = [id2label[label] for label in tokenized_test["label"]]
+    y_true = [id2label[label] for label in tokenized_test["labels"]]
     y_pred = [id2label[p] for p in preds]
 
     report_str = classification_report(y_true, y_pred, zero_division=0)
@@ -160,18 +172,31 @@ def train_transformer():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--model",
+        "--model", type=str, default="all", choices=["tfidf", "transformer", "all"]
+    )
+    parser.add_argument(
+        "--transformer_model",
         type=str,
-        default="all",
-        choices=["tfidf", "transformer", "all"],
-        help="Choose a model to train",
+        default="vinai/phobert-base",
+        help="Pretrained model base",
+    )
+    parser.add_argument(
+        "--epochs", type=int, default=10, help="Number of epochs for Transformer"
+    )
+    parser.add_argument(
+        "--batch_size", type=int, default=16, help="Batch size for Transformer"
+    )
+    parser.add_argument(
+        "--lr", type=float, default=2e-5, help="Learning rate for Transformer"
     )
     args = parser.parse_args()
 
-    if args.model == "tfidf":
+    if args.model in ["tfidf", "all"]:
         train_tfidf()
-    elif args.model == "transformer":
-        train_transformer()
-    elif args.model == "all":
-        train_tfidf()
-        train_transformer()
+    if args.model in ["transformer", "all"]:
+        train_transformer(
+            model_name=args.transformer_model,
+            epochs=args.epochs,
+            batch_size=args.batch_size,
+            learning_rate=args.lr,
+        )

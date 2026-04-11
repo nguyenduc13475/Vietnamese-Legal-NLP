@@ -42,7 +42,7 @@ eval-ner:
 	python scripts/evaluate_ner.py
 
 train-intent:
-	python scripts/train_intent.py --model all
+	python scripts/train_intent.py --epochs 30
 
 eval-intent:
 	python scripts/evaluate_intent.py
