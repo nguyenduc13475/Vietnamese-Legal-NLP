@@ -81,6 +81,7 @@ def ask_question(request: QARequest):
         answer=result["answer"],
         sources=[SourceInfo(**s) for s in result["sources"]],
         debug_prompt=result.get("debug_prompt"),
+        routing_debug=result.get("routing_debug"),
     )
 
 

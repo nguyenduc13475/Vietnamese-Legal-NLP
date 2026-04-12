@@ -1,3 +1,5 @@
+import ast
+
 import torch
 from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -47,33 +49,193 @@ class LegalRetriever:
             print(f"Error fetching sources from Vector DB: {e}")
             return []
 
+    def get_sources_with_titles(self) -> dict:
+        """Fetch mapping of {filename: contract_title} for LLM routing."""
+        try:
+            data = self.vector_store.get(include=["metadatas"])
+            metadatas = data.get("metadatas", [])
+
+            source_map = {}
+            for meta in metadatas:
+                if meta and "source" in meta:
+                    src = meta["source"]
+                    # Map the filename to its title (fallback to filename if title is missing)
+                    if src not in source_map:
+                        source_map[src] = meta.get("contract_title", src)
+            return source_map
+        except Exception as e:
+            print(f"Error fetching source mappings: {e}")
+            return {}
+
+    def _calculate_srl_score(self, blueprint_srl: dict, doc_metadata: dict) -> float:
+        """
+        Heuristic rule-based scoring for SRL. Range [0, 1].
+        """
+        if not blueprint_srl or not isinstance(blueprint_srl, dict):
+            return 0.0
+
+        try:
+            doc_pred = str(doc_metadata.get("predicate", "")).lower().strip()
+            doc_roles = ast.literal_eval(doc_metadata.get("srl_roles", "{}"))
+        except:
+            return 0.0
+
+        bp_pred = str(blueprint_srl.get("predicate", "N/A")).lower().strip()
+        bp_roles = blueprint_srl.get("roles", {})
+
+        score = 0.0
+        # 1. Predicate Similarity (Weight 0.4)
+        if bp_pred != "n/a" and doc_pred:
+            if bp_pred == doc_pred:
+                score += 0.4
+            elif bp_pred in doc_pred or doc_pred in bp_pred:
+                score += 0.25
+            else:
+                # Syllable/Word overlap for Vietnamese
+                bp_words = set(bp_pred.split())
+                doc_words = set(doc_pred.split())
+                overlap = len(bp_words & doc_words)
+                if overlap > 0:
+                    score += (overlap / max(len(bp_words), len(doc_words))) * 0.2
+
+        # 2. Roles Similarity (Weight 0.6)
+        role_score = 0.0
+        bp_active_roles = {
+            k: str(v).lower().strip()
+            for k, v in bp_roles.items()
+            if v and str(v).lower() != "n/a"
+        }
+
+        if not bp_active_roles:
+            return score  # Return predicate score if no roles requested
+
+        for k, bp_val in bp_active_roles.items():
+            doc_val = str(doc_roles.get(k, "")).lower().strip()
+            if not doc_val:
+                continue
+
+            if bp_val == doc_val:
+                role_score += 1.0
+            elif bp_val in doc_val or doc_val in bp_val:
+                role_score += 0.6
+            else:
+                # Word overlap for values (e.g., "Bên B" vs "Bên còn lại")
+                bp_v_words = set(bp_val.split())
+                doc_v_words = set(doc_val.split())
+                overlap = len(bp_v_words & doc_v_words)
+                if overlap > 0:
+                    role_score += (
+                        overlap / max(len(bp_v_words), len(doc_v_words))
+                    ) * 0.4
+
+        score += (role_score / len(bp_active_roles)) * 0.6
+        return min(score, 1.0)
+
     def retrieve(
-        self, query: str, top_k: int = 10, source_filters: list[str] = None
+        self,
+        query: str,
+        top_k: int = 10,
+        source_filters: list[str] = None,
+        intent_filters: list[str] = None,
+        entity_filters: list[str] = None,
+        srl_filter: dict = None,
     ) -> list:
         """
-        Retrieve relevant clauses using Max Marginal Relevance (MMR).
-        Supports filtering by multiple source documents simultaneously from Phase 1.
+        Retrieval: Hard Filter (Metadata) -> Soft Re-rank (SRL + Vector Norm).
         """
-        search_kwargs = {
-            "k": top_k,
-            "fetch_k": 30,
-        }  # Fetch 30 then select 10 most diverse
+        # Phase 1: Hard Filter (Source & Intent)
+        # Fetching a larger candidate pool for re-ranking
+        fetch_k = 100
+        filters = []
 
         if source_filters:
-            # Clean out UI wildcard strings if they accidentally get passed
-            valid_filters = [
+            valid_src = [
                 s
                 for s in source_filters
                 if s not in ["All Contracts", "Tất cả Hợp đồng"]
             ]
+            if valid_src:
+                filters.append(
+                    {"source": {"$in": valid_src}}
+                    if len(valid_src) > 1
+                    else {"source": valid_src[0]}
+                )
 
-            if len(valid_filters) == 1:
-                search_kwargs["filter"] = {"source": valid_filters[0]}
-            elif len(valid_filters) > 1:
-                # Use ChromaDB's $in operator to search across multiple specific files
-                search_kwargs["filter"] = {"source": {"$in": valid_filters}}
+        if intent_filters:
+            valid_intents = [
+                i
+                for i in intent_filters
+                if i
+                in [
+                    "Obligation",
+                    "Prohibition",
+                    "Right",
+                    "Termination Condition",
+                    "Other",
+                ]
+            ]
+            if valid_intents:
+                filters.append(
+                    {"intent": {"$in": valid_intents}}
+                    if len(valid_intents) > 1
+                    else {"intent": valid_intents[0]}
+                )
 
-        return self.vector_store.max_marginal_relevance_search(query, **search_kwargs)
+        where_filter = (
+            {"$and": filters} if len(filters) > 1 else (filters[0] if filters else None)
+        )
+
+        # Use similarity_search_with_score to get raw distances (Chroma returns L2/IP distances)
+        candidates = self.vector_store.similarity_search_with_score(
+            query, k=fetch_k, filter=where_filter
+        )
+
+        if not candidates:
+            return []
+
+        # Normalization: Invert distance to score. Higher is better.
+        # Handle the case where distances might be negative or very large.
+        raw_distances = [c[1] for c in candidates]
+        min_dist, max_dist = min(raw_distances), max(raw_distances)
+
+        normalized_candidates = []
+        for doc, dist in candidates:
+            # Simple Min-Max normalization for distance -> similarity score [0, 1]
+            # If distance is small, score is close to 1.
+            norm_vec_score = (
+                1.0
+                if max_dist == min_dist
+                else (max_dist - dist) / (max_dist - min_dist)
+            )
+            normalized_candidates.append((doc, norm_vec_score))
+
+        # Phase 1.5: Entity Filtering (Hard Filter)
+        final_candidates = []
+        if entity_filters:
+            for doc, v_score in normalized_candidates:
+                try:
+                    doc_ents_str = doc.metadata.get("entities", "[]")
+                    doc_ents = ast.literal_eval(doc_ents_str)
+                    doc_labels = [e["label"] for e in doc_ents if isinstance(e, dict)]
+                    if any(ef in doc_labels for ef in entity_filters):
+                        final_candidates.append((doc, v_score))
+                except:
+                    continue
+        else:
+            final_candidates = normalized_candidates
+
+        # Phase 2: Soft SRL Re-ranking
+        # Final Score = VectorScore + (SRL_Lambda * SRLScore)
+        # Lambda=0.7 balances the specific semantic matching with semantic similarity
+        srl_lambda = 0.7
+        re_ranked = []
+        for doc, v_score in final_candidates:
+            srl_score = self._calculate_srl_score(srl_filter, doc.metadata)
+            combined_score = v_score + (srl_lambda * srl_score)
+            re_ranked.append((doc, combined_score))
+
+        re_ranked.sort(key=lambda x: x[1], reverse=True)
+        return [item[0] for item in re_ranked[:top_k]]
 
     def get_total_count(self) -> int:
         """Get total number of documents in the vector store."""
@@ -82,25 +244,39 @@ class LegalRetriever:
         except Exception:
             return 0
 
-    def get_top_sources_by_title(self, query: str, top_k: int = 2) -> list[str]:
+    def get_relevant_sources_by_threshold(
+        self, query: str, threshold: float = 0.35, max_docs: int = 5
+    ) -> list[str]:
         """
-        Phase 1 Retrieval: Search ONLY against clauses marked as 'is_title'.
-        This returns the filenames of the most relevant contracts to the query.
+        Phase 1 Retrieval: Route query to specific documents by comparing query against [TITLE] clauses.
+        Uses a relevance threshold instead of fixed Top-K to allow for dynamic multi-doc matching.
         """
         try:
-            results = self.vector_store.similarity_search(
-                query, k=top_k, filter={"is_title": "True"}
+            # fetch_k is higher to ensure we find potential title matches across the whole collection
+            results_with_scores = (
+                self.vector_store.similarity_search_with_relevance_scores(
+                    query, k=max_docs, filter={"is_title": "True"}
+                )
             )
-            # Extract unique sources from the matching title clauses
-            sources = set(
-                doc.metadata.get("source")
-                for doc in results
-                if "source" in doc.metadata
-            )
-            return list(sources)
+
+            # results_with_scores is a list of tuples: (Document, Score)
+            # Scores are typically normalized [0, 1] in LangChain relevance implementations
+            sources = []
+            for doc, score in results_with_scores:
+                print(
+                    f"DEBUG: Found potential source '{doc.metadata.get('source')}' with score {score:.4f}"
+                )
+                if score >= threshold:
+                    sources.append(doc.metadata.get("source"))
+
+            return list(set(sources))  # Return unique sources
         except Exception as e:
-            print(f"Phase 1 Title Search Error: {e}")
-            return []
+            print(f"Phase 1 Routing Error (Threshold mode): {e}")
+            # Fallback to standard similarity search if relevance scoring fails/not supported by the specific model config
+            results = self.vector_store.similarity_search(
+                query, k=max_docs, filter={"is_title": "True"}
+            )
+            return list(set([doc.metadata.get("source") for doc in results]))
 
     def get_all_records(self, limit: int = None, offset: int = 0) -> list[dict]:
         """Fetch raw records from the Vector DB with optional pagination."""

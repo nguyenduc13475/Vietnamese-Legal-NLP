@@ -337,8 +337,13 @@ with tab_chat:
 
                     st.markdown(f"### 🤖 Trả lời\n{res['answer']}")
 
-                    with st.expander("🛠️ Dành cho Giảng viên: Xem Prompt gửi cho LLM"):
-                        st.code(res.get("debug_prompt"), language="markdown")
+                    c1, c2 = st.columns(2)
+                    with c1:
+                        with st.expander("🔍 Phase 1: Routing Debug (Document Picker)"):
+                            st.code(res.get("routing_debug"), language="markdown")
+                    with c2:
+                        with st.expander("🛠️ Phase 2: RAG Prompt (Semantic Context)"):
+                            st.code(res.get("debug_prompt"), language="markdown")
 
                     st.markdown("### 📚 Nguồn trích dẫn (Citations)")
                     for i, src in enumerate(res["sources"]):

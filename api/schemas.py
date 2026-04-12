@@ -41,6 +41,7 @@ class QAResponse(BaseModel):
     answer: str
     sources: List[SourceInfo]
     debug_prompt: str | None = None
+    routing_debug: str | None = None
 
 
 class IngestRequest(BaseModel):
