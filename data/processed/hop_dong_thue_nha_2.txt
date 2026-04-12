@@ -1,4 +1,4 @@
-CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
+[Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 HỢP ĐỒNG THUÊ NHÀ.
 Tại địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.
@@ -12,40 +12,40 @@ Cả hai ông bà cùng đăng ký hộ khẩu thường trú tại: Số 15, ph
 2. BÊN THUÊ (BÊN B).
 Ông Lê Văn Cường, sinh năm 1985, CMND số 013456789 do Công an thành phố Hà Nội cấp ngày 10/08/2015, đăng ký hộ khẩu thường trú tại: Số 20, phố Bà Triệu, quận Hai Bà Trưng, thành phố Hà Nội.
 Hai bên thống nhất thực hiện việc thuê nhà theo các điều khoản sau đây.
-ĐIỀU 1: TÀI SẢN CHO THUÊ.
-1.1. Bên A là chủ sở hữu hợp pháp của căn nhà gắn liền với đất tại địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.
+[Điều 1] ĐIỀU 1: TÀI SẢN CHO THUÊ.
+[Điều 1 - Khoản 1] 1.1. Bên A là chủ sở hữu hợp pháp của căn nhà gắn liền với đất tại địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.
 Tài sản thuộc quyền sở hữu theo “Giấy chứng nhận quyền sử dụng đất và tài sản gắn liền với đất” số CH123456.
 Hồ sơ gốc số 6789/2010 do UBND quận Hoàn Kiếm, thành phố Hà Nội cấp ngày 05/09/2010.
 Đặc điểm tài sản cho thuê như sau.
-a/ Nhà ở.
+[Điều 1 - Khoản 1 - Điểm a] a/ Nhà ở.
 - Địa chỉ: Số 15, phố Trần Hưng Đạo, quận Hoàn Kiếm, thành phố Hà Nội.
 - Tổng diện tích sử dụng: 150 m2 (Một trăm năm mươi mét vuông).
 - Diện tích xây dựng: 100 m2 (Một trăm mét vuông).
 - Kết cấu nhà: Nhà bê tông cốt thép, 03 tầng.
 - Số tầng: 03 tầng.
-b/ Đất ở.
+[Điều 1 - Khoản 1 - Điểm b] b/ Đất ở.
 - Thửa đất số: 10.
 - Tờ bản đồ số: 05.
 - Diện tích: 150 m2 (Một trăm năm mươi mét vuông).
 - Hình thức sử dụng:
 + Riêng: 150 m2 (Một trăm năm mươi mét vuông).
 + Chung: 0 m2 (Không mét vuông).
-1.2. Bên A đồng ý cho Bên B thuê toàn bộ diện tích tầng 01, 02 và 03 của căn nhà nêu trên với tổng diện tích cho thuê là 150 m2 (Một trăm năm mươi mét vuông).
-ĐIỀU 2: THỜI HẠN THUÊ.
+[Điều 1 - Khoản 2] 1.2. Bên A đồng ý cho Bên B thuê toàn bộ diện tích tầng 01, 02 và 03 của căn nhà nêu trên với tổng diện tích cho thuê là 150 m2 (Một trăm năm mươi mét vuông).
+[Điều 2] ĐIỀU 2: THỜI HẠN THUÊ.
 Thời hạn thuê nhà đất nêu tại Điều 1 của hợp đồng này là: 03 (ba) năm kể từ ngày 01/11/2023 đến hết ngày 31/10/2026.
 Sau thời hạn trên, nếu Bên A vẫn có nhu cầu cho thuê và Bên B vẫn có nhu cầu thuê thì Bên A ưu tiên cho Bên B tiếp tục thuê, khi đó hai bên sẽ ký kết hợp đồng mới.
-ĐIỀU 3: MỤC ĐÍCH THUÊ.
+[Điều 3] ĐIỀU 3: MỤC ĐÍCH THUÊ.
 Mục đích thuê nhà nêu tại Điều 1 của hợp đồng này là để làm văn phòng đại diện công ty.
-ĐIỀU 4: GIÁ THUÊ VÀ PHƯƠNG THỨC THANH TOÁN.
-4.1. Giá thuê nhà nêu tại Điều 1 của hợp đồng này là: 30.000.000 đồng/tháng (Ba mươi triệu đồng một tháng).
+[Điều 4] ĐIỀU 4: GIÁ THUÊ VÀ PHƯƠNG THỨC THANH TOÁN.
+[Điều 4 - Khoản 1] 4.1. Giá thuê nhà nêu tại Điều 1 của hợp đồng này là: 30.000.000 đồng/tháng (Ba mươi triệu đồng một tháng).
 Giá thuê này đã bao gồm thuế giá trị gia tăng (VAT).
-4.2. Phương thức thanh toán.
+[Điều 4 - Khoản 2] 4.2. Phương thức thanh toán.
 - Thanh toán bằng đồng Việt Nam tương đương với đô la Mỹ theo tỷ giá bán ra của Ngân hàng Ngoại thương Việt Nam - Chi nhánh thành phố Hà Nội tại thời điểm thanh toán.
 - Tiền thuê nhà được thanh toán 03 tháng một lần, trong thời hạn 05 ngày đầu tiên của kỳ thanh toán.
 - Số tiền thuê nhà của 03 tháng đầu tiên sẽ được thanh toán ngay sau khi ký hợp đồng này.
-4.3. Việc giao nhận tiền nêu tại khoản 4.1 Điều này do hai bên tự thực hiện và chịu trách nhiệm trước pháp luật.
-ĐIỀU 5: NGHĨA VỤ VÀ QUYỀN CỦA BÊN A.
-5.1. Bên A có các nghĩa vụ sau đây.
+[Điều 4 - Khoản 3] 4.3. Việc giao nhận tiền nêu tại khoản 4.1 Điều này do hai bên tự thực hiện và chịu trách nhiệm trước pháp luật.
+[Điều 5] ĐIỀU 5: NGHĨA VỤ VÀ QUYỀN CỦA BÊN A.
+[Điều 5 - Khoản 1] 5.1. Bên A có các nghĩa vụ sau đây.
 - Bàn giao căn nhà xây trên đất nêu tại Điều 1 của hợp đồng này cho Bên B vào ngày 01/11/2023.
 - Việc bàn giao này sẽ được lập thành biên bản có chữ ký xác nhận của đại diện mỗi bên.
 - Kiểm tra, nhắc nhở Bên B bảo vệ, giữ gìn căn nhà thuê và sử dụng căn nhà đúng mục đích đã thỏa thuận.
@@ -53,13 +53,13 @@ Giá thuê này đã bao gồm thuế giá trị gia tăng (VAT).
 - Thanh toán toàn bộ tiền điện, nước, điện thoại, phí vệ sinh, an ninh trật tự và các nghĩa vụ tài chính khác phát sinh trước thời điểm bàn giao nhà cho Bên B.
 - Tạo mọi điều kiện thuận lợi để Bên B sử dụng căn nhà, không gây ảnh hưởng đến hoạt động của Bên B, hỗ trợ Bên B các thủ tục pháp lý liên quan đến việc sử dụng nhà.
 - Đóng thuế cho thuê nhà theo quy định pháp luật và cung cấp hóa đơn cho Bên B.
-5.2. Bên A có các quyền sau đây.
+[Điều 5 - Khoản 2] 5.2. Bên A có các quyền sau đây.
 - Yêu cầu Bên B chấm dứt ngay việc sử dụng căn nhà không đúng mục đích, hủy hoại hoặc làm giảm giá trị căn nhà.
 - Nếu Bên B không chấm dứt hành vi vi phạm, Bên A có quyền đơn phương chấm dứt hợp đồng theo điểm 8.1 Điều 8 và yêu cầu Bên B hoàn trả nhà kèm bồi thường thiệt hại (nếu có).
 - Nhận tiền thuê nhà theo thỏa thuận tại hợp đồng này.
 - Yêu cầu Bên B trả lại nhà khi hợp đồng chấm dứt hoặc khi thời hạn thuê đã hết.
-ĐIỀU 6: NGHĨA VỤ VÀ QUYỀN CỦA BÊN B.
-6.1. Bên B có các nghĩa vụ sau đây.
+[Điều 6] ĐIỀU 6: NGHĨA VỤ VÀ QUYỀN CỦA BÊN B.
+[Điều 6 - Khoản 1] 6.1. Bên B có các nghĩa vụ sau đây.
 - Sử dụng căn nhà đúng mục đích và đúng thời hạn thuê.
 - Trả đủ tiền thuê theo phương thức đã thỏa thuận.
 - Không được hủy hoại hoặc làm giảm sút giá trị sử dụng của căn nhà.
@@ -70,42 +70,42 @@ Giá thuê này đã bao gồm thuế giá trị gia tăng (VAT).
 - Tự thanh toán tiền điện, nước, điện thoại, phí vệ sinh, an ninh trật tự và các chi phí phát sinh trong quá trình sử dụng kể từ ngày nhận bàn giao.
 - Khi chấm dứt hợp đồng, phải bàn giao lại toàn bộ diện tích nhà cùng trang thiết bị kèm theo trong tình trạng hiện có.
 - Đối với phần thiết bị Bên B đã lắp đặt thêm, hai bên sẽ bàn bạc để thỏa thuận giải quyết.
-6.2. Bên B có các quyền sau đây.
+[Điều 6 - Khoản 2] 6.2. Bên B có các quyền sau đây.
 - Yêu cầu Bên A bàn giao căn nhà đúng như đã thỏa thuận.
 - Được sử dụng căn nhà ổn định trong suốt thời hạn thuê.
 - Được hưởng hoa lợi, lợi tức từ việc sử dụng căn nhà.
 - Lắp đặt các thiết bị như hệ thống dây điện thoại, mạng cho các tầng, lắp đặt cửa kính một số phòng.
 - Được ưu tiên ký tiếp hợp đồng thuê khi kết thúc thời hạn thuê.
-ĐIỀU 7: ĐĂNG KÝ CHO THUÊ NHÀ VÀ NỘP LỆ PHÍ.
-7.1. Việc đăng ký cho thuê nhà tại cơ quan có thẩm quyền theo quy định pháp luật do Bên A chịu trách nhiệm thực hiện.
-7.2. Thuế, phí và lệ phí liên quan đến việc thuê nhà theo Hợp đồng này do Bên A chịu trách nhiệm nộp.
-ĐIỀU 8: CHẤM DỨT HỢP ĐỒNG.
-8.1. Trong thời hạn hợp đồng, nếu một bên phát hiện bên kia có hành vi vi phạm hợp đồng, bên đó phải thông báo bằng văn bản để yêu cầu khắc phục.
+[Điều 7] ĐIỀU 7: ĐĂNG KÝ CHO THUÊ NHÀ VÀ NỘP LỆ PHÍ.
+[Điều 7 - Khoản 1] 7.1. Việc đăng ký cho thuê nhà tại cơ quan có thẩm quyền theo quy định pháp luật do Bên A chịu trách nhiệm thực hiện.
+[Điều 7 - Khoản 2] 7.2. Thuế, phí và lệ phí liên quan đến việc thuê nhà theo Hợp đồng này do Bên A chịu trách nhiệm nộp.
+[Điều 8] ĐIỀU 8: CHẤM DỨT HỢP ĐỒNG.
+[Điều 8 - Khoản 1] 8.1. Trong thời hạn hợp đồng, nếu một bên phát hiện bên kia có hành vi vi phạm hợp đồng, bên đó phải thông báo bằng văn bản để yêu cầu khắc phục.
 Trong thời hạn 15 (mười lăm) ngày kể từ ngày nhận thông báo mà bên vi phạm không khắc phục, bên bị vi phạm có quyền đơn phương chấm dứt hợp đồng và không phải bồi thường thiệt hại.
 Bên vi phạm phải chịu trách nhiệm theo quy định tại điều này.
-8.2. Nếu một bên muốn chấm dứt hợp đồng trước thời hạn, phải thông báo cho bên kia biết trước ít nhất 30 (ba mươi) ngày.
+[Điều 8 - Khoản 2] 8.2. Nếu một bên muốn chấm dứt hợp đồng trước thời hạn, phải thông báo cho bên kia biết trước ít nhất 30 (ba mươi) ngày.
 Các bên vẫn phải thực hiện nghĩa vụ của mình đến thời điểm chấm dứt.
 Quyền lợi của các bên được giải quyết như sau.
 - Trường hợp Bên A tự ý chấm dứt hợp đồng trước thời hạn: Phải chịu phạt số tiền tương đương 03 tháng tiền thuê nhà và bồi thường thiệt hại theo pháp luật.
 Ngoài ra, Bên A phải hoàn trả lại cho Bên B số tiền thuê nhà của những tháng Bên B đã trả trước nhưng chưa sử dụng.
 - Trường hợp Bên B tự ý chấm dứt hợp đồng trước thời hạn: Phải chịu phạt số tiền tương đương 03 tháng tiền thuê nhà và bồi thường thiệt hại theo pháp luật.
-ĐIỀU 9: PHƯƠNG THỨC GIẢI QUYẾT TRANH CHẤP.
+[Điều 9] ĐIỀU 9: PHƯƠNG THỨC GIẢI QUYẾT TRANH CHẤP.
 Trong quá trình thực hiện hợp đồng, nếu phát sinh tranh chấp, các bên cùng nhau thương lượng giải quyết trên tinh thần tôn trọng quyền lợi của nhau.
 Trong trường hợp không thương lượng được, một trong hai bên có quyền khởi kiện yêu cầu tòa án có thẩm quyền giải quyết theo quy định pháp luật.
-ĐIỀU 10: CAM ĐOAN CỦA CÁC BÊN.
+[Điều 10] ĐIỀU 10: CAM ĐOAN CỦA CÁC BÊN.
 Bên A và Bên B chịu trách nhiệm trước pháp luật về những lời cam đoan sau đây.
-10.1. Bên A cam đoan.
+[Điều 10 - Khoản 1] 10.1. Bên A cam đoan.
 - Những thông tin về nhân thân và căn nhà gắn liền với đất đã ghi trong hợp đồng này là đúng sự thật.
 - Tại thời điểm giao kết, căn nhà không có tranh chấp và không bị kê biên để bảo đảm thi hành án.
 - Việc giao kết hợp đồng hoàn toàn tự nguyện, không bị lừa dối, không bị ép buộc.
 - Thực hiện đúng và đầy đủ các thỏa thuận đã ghi trong hợp đồng này.
-10.2. Bên B cam đoan.
+[Điều 10 - Khoản 2] 10.2. Bên B cam đoan.
 - Những thông tin về nhân thân đã ghi trong hợp đồng này là đúng sự thật.
 - Đã xem xét kỹ, biết rõ về căn nhà và các giấy tờ về quyền sử dụng đất, quyền sở hữu tài sản gắn liền với đất.
 - Việc giao kết hợp đồng hoàn toàn tự nguyện, không bị lừa dối, không bị ép buộc.
 - Thực hiện đúng và đầy đủ các thỏa thuận đã ghi trong hợp đồng này.
-ĐIỀU 11: ĐIỀU KHOẢN CUỐI CÙNG.
+[Điều 11] ĐIỀU 11: ĐIỀU KHOẢN CUỐI CÙNG.
 Hai bên đã hiểu rõ quyền, nghĩa vụ, lợi ích hợp pháp của mình và hậu quả pháp lý của việc giao kết hợp đồng.
 Các bên ký tên dưới đây để làm bằng chứng.
 Hợp đồng này được lập thành 04 (bốn) bản chính có giá trị pháp lý như nhau.
-BÊN CHO THUÊ (BÊN A) BÊN THUÊ (BÊN B).
+[Phần ký tên] BÊN CHO THUÊ (BÊN A) BÊN THUÊ (BÊN B).

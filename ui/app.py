@@ -1,3 +1,5 @@
+import ast
+
 import pandas as pd
 import requests
 import streamlit as st
@@ -11,9 +13,8 @@ st.markdown(
     """
     <style>
     .stApp header {background-color: transparent;}
-    .status-badge-indexed {background-color: #d1e7dd; color: #0f5132; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;}
-    .status-badge-pending {background-color: #fff3cd; color: #664d03; padding: 4px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold;}
-    div[data-testid="stMetricValue"] {font-size: 2rem;}
+    .iob-tag {padding: 3px 6px; border-radius: 4px; font-size: 0.85em; margin: 2px; display: inline-block;}
+    .bio-tag {padding: 3px 6px; border-radius: 4px; font-size: 0.85em; margin: 2px; border: 1px solid #ccc;}
     </style>
     """,
     unsafe_allow_html=True,
@@ -21,10 +22,11 @@ st.markdown(
 
 
 # --- UTILS ---
-@st.cache_data()  # Cache persists until explicitly cleared during document ingestion to prevent random UI stutters
+@st.cache_data()
 def fetch_sources():
     try:
-        res = requests.get(f"{API_URL}/sources")
+        # Connect to the correct endpoint provided by the LegalRetriever
+        res = requests.get(f"{API_URL}/database/sources")
         if res.status_code == 200:
             return res.json().get("sources", [])
     except Exception:
@@ -32,368 +34,324 @@ def fetch_sources():
     return []
 
 
+def render_nlp_dashboard(clause_data):
+    """Visualizer đẹp mắt cho các yêu cầu của Bài tập lớn"""
+    for item in clause_data:
+        st.markdown(f'#### 🖋️ Mệnh đề: *"{item["clause"]}"*')
+
+        # Assignment 2.3: Intent
+        st.info(f"**Ý định (Intent):** {item['intent']}")
+
+        # Assignment 1.2: NP Chunking (IOB Visualization)
+        st.write("**[Tác vụ 1.2] Noun Phrase Chunking (Định dạng IOB)**")
+        iob_html = ""
+        for word, tag in item["np_chunks"]:
+            color = "#e1f5fe" if "NP" in tag else "#f8f9fa"
+            border = "2px solid #03a9f4" if "B-NP" in tag else "1px solid #dee2e6"
+            iob_html += f"<div class='iob-tag' style='background:{color}; border:{border};'><b>{word}</b><br><small style='color:#6c757d'>{tag}</small></div>"
+        st.markdown(iob_html, unsafe_allow_html=True)
+
+        # Assignment 2.1: NER (BIO Visualization)
+        st.write("**[Tác vụ 2.1] Named Entity Recognition (Định dạng BIO)**")
+        import re
+
+        bio_html = ""
+
+        # Use the exact same tokenizer from auto_annotate.py to separate punctuation
+        tokens = re.findall(r"\w+|[^\w\s]", item["clause"])
+        tags = ["O"] * len(tokens)
+
+        # Left-to-right strict matching pointer
+        search_start_idx = 0
+
+        # Check if entities is a string (from DB) or list (from direct API)
+        current_entities = item["entities"]
+        if isinstance(current_entities, str):
+            try:
+                current_entities = ast.literal_eval(current_entities)
+            except Exception as e:
+                print(e)
+                current_entities = []
+
+        for ent in current_entities:
+            # Handle both dictionary objects and fallback strings
+            if isinstance(ent, dict):
+                ent_text = ent.get("text", "")
+                ent_label = ent.get("label", "ENTITY")
+            else:
+                ent_text = str(ent)
+                ent_label = "ENTITY"
+
+            ent_tokens = re.findall(r"\w+|[^\w\s]", ent_text)
+            ent_len = len(ent_tokens)
+
+            if ent_len == 0:
+                continue
+
+            for i in range(search_start_idx, len(tokens) - ent_len + 1):
+                if tokens[i : i + ent_len] == ent_tokens:
+                    # Check for overlap
+                    if all(tags[j] == "O" for j in range(i, i + ent_len)):
+                        tags[i] = f"B-{ent_label}"
+                        for j in range(1, ent_len):
+                            tags[i + j] = f"I-{ent_label}"
+
+                        # Update pointer to prevent backward matching
+                        search_start_idx = i + ent_len
+                        break
+
+        for tok, tag in zip(tokens, tags):
+            bg = "#fff3cd" if tag != "O" else "transparent"
+            border = "1px solid #ffc107" if tag != "O" else "1px solid transparent"
+            bio_html += f"<span class='bio-tag' style='background:{bg}; border:{border};'><b>{tok}</b> <small style='color:#dc3545'>[{tag}]</small></span>"
+        st.markdown(bio_html, unsafe_allow_html=True)
+
+        col_left, col_right = st.columns(2)
+        with col_left:
+            # Assignment 1.3: Dependency Tree
+            st.write("**[Tác vụ 1.3] Cây phụ thuộc (Dependency Relations)**")
+            if item["dependencies"]:
+                df_dep = pd.DataFrame(item["dependencies"])
+                st.dataframe(
+                    df_dep[["token", "relation", "head_token"]],
+                    hide_index=True,
+                    width="stretch",
+                )
+            else:
+                st.write("Không có dữ liệu dependency.")
+
+        with col_right:
+            # Assignment 2.2: SRL
+            st.write("**[Tác vụ 2.2] Gán nhãn vai trò ngữ nghĩa (SRL)**")
+            st.json(item["srl"])
+        st.divider()
+
+
 # --- SIDEBAR ---
 with st.sidebar:
     st.title("⚖️ Legal Intelligence")
-    st.caption("Enterprise NLP & RAG Platform")
+    st.caption("Hệ thống NLP & RAG Hợp đồng Pháp lý")
     st.divider()
-
-    st.header("📥 Ingest Document")
-    st.caption(
-        "Upload contracts to clean, process, and index them into the semantic database."
-    )
-    uploaded_file = st.file_uploader(
-        "Upload Contract", type=["txt", "pdf", "docx"], label_visibility="collapsed"
-    )
-
-    if uploaded_file is not None:
-        if st.button("Process & Index", type="primary", width="stretch"):
-            with st.spinner("Processing via LLM & Indexing..."):
-                try:
-                    files = {
-                        "file": (
-                            uploaded_file.name,
-                            uploaded_file.getvalue(),
-                            uploaded_file.type,
-                        )
-                    }
-                    res = requests.post(f"{API_URL}/ingest_file", files=files)
-                    if res.status_code == 200:
-                        st.toast(
-                            f"Indexed {res.json()['num_clauses']} clauses successfully!",
-                            icon="✅",
-                        )
-                        st.cache_data.clear()  # Force refresh source list
-                        if "db_data" in st.session_state:
-                            del st.session_state[
-                                "db_data"
-                            ]  # Clear cached DB records so it re-fetches
-                    else:
-                        st.error(f"Ingestion failed: {res.text}")
-                except Exception:
-                    st.error("API Connection Error. Ensure Backend is running.")
-
-    st.divider()
-    st.caption("System Status: **Online** 🟢")
+    st.caption("Trạng thái hệ thống: **Online** 🟢")
 
 # --- MAIN LAYOUT ---
-tab1, tab2, tab3, tab4 = st.tabs(
-    ["🗄️ Document Hub", "🗃️ DB Explorer", "📊 Semantic Engine", "💬 Intelligent Q&A"]
+tabs = st.tabs(
+    [
+        "📁 Raw Docs",
+        "📄 Processed Docs",
+        "🗃️ Database Explorer",
+        "📊 Semantic Engine",
+        "💬 Chatbot RAG",
+    ]
 )
+tab_raw, tab_proc, tab_db, tab_viz, tab_chat = tabs
 
-# --- TAB 1: DOCUMENT HUB ---
-with tab1:
-    st.header("Document Repository")
-    st.markdown(
-        "Manage your processed legal contracts and monitor vector indexing status."
-    )
+# --- TAB: RAW DOCUMENTS ---
+with tab_raw:
+    st.subheader("📦 Raw Files (data/raw)")
+    with st.container(border=True):
+        up_file = st.file_uploader("Upload new document", type=["pdf", "docx", "txt"])
+        if st.button("🚀 Process Pipeline", type="primary"):
+            if up_file:
+                with st.spinner("Processing..."):
+                    files = {"file": (up_file.name, up_file.getvalue())}
+                    requests.post(f"{API_URL}/ingest_file", files=files)
+                    st.success("Ingestion pipeline triggered!")
+                    st.rerun()
 
-    sources = fetch_sources()
+    raw_files = requests.get(f"{API_URL}/documents/raw").json().get("files", [])
+    for rf in raw_files:
+        with st.expander(f"📄 {rf}"):
+            c1, c2, c3 = st.columns([2, 1, 1])
+            if c1.button("🔄 Reprocess", key=f"re_{rf}"):
+                requests.post(f"{API_URL}/documents/{rf}/reprocess")
+                st.rerun()
+            if c2.button("📝 Rename", key=f"rn_raw_{rf}"):
+                st.session_state.rename_obj = {"name": rf, "dir": "data/raw"}
+            if c3.button("🗑️ Delete", key=f"dl_raw_{rf}"):
+                requests.delete(f"{API_URL}/documents/raw/{rf}")
+                st.rerun()
 
-    if not sources:
-        st.info(
-            "No processed documents found. Upload a document via the sidebar to begin."
-        )
-    else:
-        # Format data for an enterprise table
-        table_data = []
-        for src in sources:
-            status_html = (
-                '<span class="status-badge-indexed">Indexed</span>'
-                if src["indexed"]
-                else '<span class="status-badge-pending">Unindexed</span>'
+# --- TAB: PROCESSED DOCUMENTS ---
+with tab_proc:
+    st.subheader("⚙️ Processed Text (data/processed)")
+    proc_files = requests.get(f"{API_URL}/documents/processed").json().get("files", [])
+    for pf in proc_files:
+        with st.expander(f"📄 {pf}"):
+            c1, c2, c3 = st.columns([2, 1, 1])
+            if c1.button("🔍 Visualize", key=f"viz_{pf}"):
+                # Fetch pre-computed state from the database endpoint
+                res = requests.get(f"{API_URL}/database/state")
+                all_records = res.json().get("records", [])
+
+                # Filter records that belong exactly to this file
+                file_records = [r for r in all_records if r.get("source") == pf]
+
+                if not file_records:
+                    st.warning(
+                        f"No data found in DB for {pf}. Please 'Process Pipeline' first."
+                    )
+                else:
+                    # Reconstruct the UI data format from DB metadata
+
+                    viz_data = []
+                    for r in file_records:
+                        try:
+                            # Safely evaluate stringified DB lists back to Python objects
+                            entities = ast.literal_eval(r.get("entities", "[]"))
+                            deps = ast.literal_eval(r.get("dependencies", "[]"))
+                            srl_roles = ast.literal_eval(r.get("srl_roles", "{}"))
+
+                            # Ensure we don't double-process or lose labels during reconstruction
+                            viz_data.append(
+                                {
+                                    "clause": r.get("document", ""),
+                                    "intent": r.get("intent", ""),
+                                    "entities": entities
+                                    if isinstance(entities, list)
+                                    else [],
+                                    "np_chunks": ast.literal_eval(
+                                        r.get("np_chunks", "[]")
+                                    ),
+                                    "dependencies": [
+                                        {
+                                            "token": d.split("(")[0],
+                                            "relation": d.split("(")[1][:-1],
+                                            "head_token": "",
+                                        }
+                                        for d in deps
+                                        if "(" in d
+                                    ],
+                                    "srl": {
+                                        "predicate": r.get("predicate", ""),
+                                        "roles": srl_roles,
+                                    },
+                                }
+                            )
+                        except Exception:
+                            pass
+
+                    st.session_state.viz_data = viz_data
+                    st.session_state.viz_name = pf
+                    st.success("Data loaded from DB! Ready in Semantic Engine tab")
+            if c2.button("📝 Rename", key=f"rn_proc_{pf}"):
+                st.session_state.rename_obj = {"name": pf, "dir": "data/processed"}
+            if c3.button("🗑️ Delete", key=f"dl_proc_{pf}"):
+                requests.delete(f"{API_URL}/documents/processed/{pf}")
+                st.rerun()
+
+if "rename_obj" in st.session_state:
+    with st.sidebar.form("rename_form_global"):
+        obj = st.session_state.rename_obj
+        st.write(f"Renaming in **{obj['dir']}**")
+        new_name = st.text_input("New filename:", value=obj["name"])
+        if st.form_submit_button("Confirm"):
+            requests.post(
+                f"{API_URL}/documents/rename?target_dir={obj['dir']}&old_name={obj['name']}&new_name={new_name}"
             )
-            if src.get("missing_file"):
-                status_html = '<span class="status-badge-pending" style="background-color:#f8d7da; color:#842029;">Missing Source File</span>'
-
-            table_data.append(
-                {
-                    "Document Name": src["filename"],
-                    "Vector DB Status": status_html,
-                    "Action": "Ready for Q&A" if src["indexed"] else "Needs Indexing",
-                }
-            )
-
-        df_docs = pd.DataFrame(table_data)
-        st.write(df_docs.to_html(escape=False, index=False), unsafe_allow_html=True)
-
-# --- TAB 2: DB EXPLORER ---
-with tab2:
-    st.header("Database Explorer")
-    st.markdown(
-        "Inspect the raw vectorized clauses and metadata currently residing in ChromaDB."
-    )
-
-    if "db_page" not in st.session_state:
-        st.session_state.db_page = 1
-
-    def reset_page():
-        st.session_state.db_page = 1
-
-    def fetch_all_db_records():
-        try:
-            res = requests.get(f"{API_URL}/database/state")
-            if res.status_code == 200:
-                return res.json()
-        except Exception:
-            return None
-        return None
-
-    # Fetch once and store in session state to avoid lag on page change
-    if "db_data" not in st.session_state:
-        with st.spinner("Fetching all records from database..."):
-            st.session_state.db_data = fetch_all_db_records()
-
-    # Control Bar
-    col1, col2, col3 = st.columns([2, 5, 2])
-    with col1:
-        page_size_val = st.selectbox(
-            "Rows per page", [100, 500, 1000, "All"], index=0, on_change=reset_page
-        )
-    with col3:
-        st.write("")
-        st.write("")
-        if st.button("🔄 Refresh Data", width="stretch"):
-            with st.spinner("Refreshing database records..."):
-                st.session_state.db_data = fetch_all_db_records()
-            st.cache_data.clear()
+            del st.session_state.rename_obj
             st.rerun()
 
-    db_data = st.session_state.db_data
+# --- TAB: DATABASE EXPLORER ---
+with tab_db:
+    st.header("Vector DB Records")
 
-    if not db_data or (not db_data.get("records") and db_data.get("total", 0) == 0):
-        st.info("The Vector Database is currently empty or unreachable.")
+    if st.button("🔄 Reload Database"):
+        res = requests.get(f"{API_URL}/database/state").json()
+        st.session_state.full_df = pd.DataFrame(res.get("records", []))
+        st.rerun()
+
+    if "full_df" not in st.session_state:
+        res = requests.get(f"{API_URL}/database/state").json()
+        st.session_state.full_df = pd.DataFrame(res.get("records", []))
+
+    df = st.session_state.full_df
+    if df.empty:
+        st.info("Database is empty")
     else:
-        records = db_data.get("records", [])
-        total_records = len(records)
-        limit = total_records if page_size_val == "All" else int(page_size_val)
-
-        if limit <= 0:
-            limit = 1
-
-        max_page = max(1, (total_records + limit - 1) // limit)
-
-        # Pagination Callbacks
-        def go_first():
-            st.session_state.db_page = 1
-
-        def go_prev():
-            st.session_state.db_page -= 1
-
-        def go_next():
-            st.session_state.db_page += 1
-
-        def go_last():
-            st.session_state.db_page = max_page
-
-        def set_page():
-            st.session_state.db_page = st.session_state.page_input
-
-        # Pagination Controls
-        col_p1, col_p2, col_p3, col_p4, col_p5, col_p6 = st.columns(
-            [1, 1, 1.5, 1, 1, 2.5]
+        # Optimization: Filter and search
+        search_q = st.text_input("Search in clauses:")
+        filtered_df = (
+            df[df["document"].str.contains(search_q, case=False)] if search_q else df
         )
 
-        with col_p1:
-            st.write("")
-            st.button(
-                "⏮ First",
-                disabled=(st.session_state.db_page <= 1),
-                width="stretch",
-                on_click=go_first,
-            )
-        with col_p2:
-            st.write("")
-            st.button(
-                "◀ Prev",
-                disabled=(st.session_state.db_page <= 1),
-                width="stretch",
-                on_click=go_prev,
-            )
-        with col_p3:
-            st.number_input(
-                "Page:",
-                min_value=1,
-                max_value=max_page,
-                value=min(st.session_state.db_page, max_page),
-                key="page_input",
-                on_change=set_page,
-            )
-        with col_p4:
-            st.write("")
-            st.button(
-                "Next ▶",
-                disabled=(st.session_state.db_page >= max_page),
-                width="stretch",
-                on_click=go_next,
-            )
-        with col_p5:
-            st.write("")
-            st.button(
-                "Last ⏭",
-                disabled=(st.session_state.db_page >= max_page),
-                width="stretch",
-                on_click=go_last,
-            )
-        with col_p6:
-            st.write("")
-            st.caption(
-                f"Showing page **{min(st.session_state.db_page, max_page)}** of **{max_page}** (Total: **{total_records}** records)"
-            )
+        # Super-fast pagination using Streamlit native dataframe features
+        st.dataframe(filtered_df, width="stretch", height=600, hide_index=True)
 
-        # Slice Data Instantly (in-memory)
-        current_page = min(st.session_state.db_page, max_page)
-        offset = (current_page - 1) * limit
-        page_records = records[offset : offset + limit]
+        # Source-based deletion
+        st.divider()
+        st.subheader("Manage Vector Sources")
+        sources_in_db = (
+            requests.get(f"{API_URL}/database/sources").json().get("sources", [])
+        )
+        for sdb in sources_in_db:
+            c1, c2 = st.columns([4, 1])
+            c1.write(f"Source: `{sdb}`")
+            if c2.button("🗑️ Wipe Vectors", key=f"wipe_{sdb}"):
+                requests.delete(f"{API_URL}/database/source/{sdb}")
+                st.rerun()
 
-        df_db = pd.DataFrame(page_records)
-        if not df_db.empty:
-            df_db = df_db[
-                [
-                    "source",
-                    "intent",
-                    "document",
-                    "entities",
-                    "predicate",
-                    "srl_roles",
-                    "dependencies",
-                    "id",
-                ]
-            ]
-
-            # Ensure empty dicts/lists or missing values are clearly displayed as N/A
-            for col in ["entities", "srl_roles", "dependencies"]:
-                df_db[col] = (
-                    df_db[col].astype(str).replace(["{}", "[]", "", "None"], "N/A")
-                )
-
-            df_db.columns = [
-                "Source File",
-                "Intent",
-                "Clause Text",
-                "Entities",
-                "Predicate",
-                "SRL Roles",
-                "Dependencies",
-                "Chroma ID",
-            ]
-
-            st.dataframe(
-                df_db,
-                width="stretch",
-                hide_index=True,
-                height=600,
-                column_config={
-                    "Clause Text": st.column_config.TextColumn(width="large"),
-                    "Entities": st.column_config.TextColumn(width="large"),
-                    "SRL Roles": st.column_config.TextColumn(width="large"),
-                    "Dependencies": st.column_config.TextColumn(width="large"),
-                },
-            )
-
-# --- TAB 3: SEMANTIC ENGINE ---
-with tab3:
-    st.header("Real-time NLP Extraction")
-    st.markdown(
-        "Extract structured metadata, intents, and obligations instantly on CPU."
-    )
-
-    default_text = "Bên B sẽ thanh toán toàn bộ tiền thuê 10,000,000 VNĐ trước ngày 5 hàng tháng, và nếu thanh toán trễ hạn, mức phạt 1% mỗi ngày sẽ được áp dụng."
-    contract_text = st.text_area(
-        "Input Contract Clause(s):", height=120, value=default_text
-    )
-
-    if st.button("Run Extraction", type="primary"):
-        with st.spinner("Analyzing semantics..."):
-            try:
-                res = requests.post(f"{API_URL}/extract", json={"text": contract_text})
-                if res.status_code == 200:
-                    data = res.json().get("results", [])
-
-                    if not data:
-                        st.warning("No valid legal clauses detected.")
-                    else:
-                        st.success("Extraction Complete.")
-
-                        # -- TOP LEVEL METRICS --
-                        col1, col2, col3, col4 = st.columns(4)
-                        total_clauses = len(data)
-                        total_entities = sum(len(item["entities"]) for item in data)
-                        intents = [item["intent"] for item in data]
-                        penalties = sum(
-                            1
-                            for item in data
-                            if any(e["label"] == "PENALTY" for e in item["entities"])
-                        )
-
-                        col1.metric("Total Clauses", total_clauses)
-                        col2.metric("Entities Extracted", total_entities)
-                        col3.metric("Obligations Found", intents.count("Obligation"))
-                        col4.metric("Penalty Clauses", penalties)
-
-                        st.divider()
-
-                        # -- DETAILED DATA TABLE --
-                        st.subheader("Extraction Ledger")
-                        df_extract = pd.DataFrame(
-                            [
-                                {
-                                    "Clause": item["clause"],
-                                    "Intent": item["intent"],
-                                    "Entities": ", ".join(
-                                        set(e["label"] for e in item["entities"])
-                                    ),
-                                    "Predicate (SRL)": item["srl"].get("predicate", ""),
-                                }
-                                for item in data
-                            ]
-                        )
-                        st.dataframe(df_extract, width="stretch", hide_index=True)
-                else:
-                    st.error(f"Extraction failed: {res.text}")
-            except Exception:
-                st.error("API Connection Error. Ensure FastAPI backend is running.")
+# --- TAB 3: SEMANTIC ENGINE (VISUALIZER) ---
+with tab_viz:
+    if "viz_data" in st.session_state:
+        st.header(f"Chi tiết Phân tích: {st.session_state.viz_name}")
+        render_nlp_dashboard(st.session_state.viz_data)
+    else:
+        st.info(
+            "Chưa có dữ liệu để hiển thị. Hãy vào tab 'Quản lý Hợp đồng' và bấm nút 'Visualize' ở một hợp đồng bất kỳ."
+        )
 
 # --- TAB 4: RAG Q&A ---
-with tab4:
-    st.header("Context-Aware Q&A")
-    st.markdown("Query your indexed legal repository using natural language.")
+with tab_chat:
+    st.header("Hỏi Đáp Hợp Đồng Thông Minh (RAG)")
+    st.markdown(
+        "Hệ thống sẽ truy xuất các mệnh đề chính xác nhất trong DB để trả lời câu hỏi của bạn."
+    )
 
     sources = fetch_sources()
-    # Only allow filtering by documents that are actually indexed
-    available_filters = ["All Contracts"] + [
-        s["filename"] for s in sources if s.get("indexed")
-    ]
+    # available_filters now correctly handles the list of strings returned by the API
+    available_filters = ["Tất cả Hợp đồng"] + sources
 
     colA, colB = st.columns([3, 1])
     with colA:
         question = st.text_input(
-            "Ask a question about the contracts:",
-            placeholder="e.g., Điều kiện chấm dứt hợp đồng là gì?",
+            "Đặt câu hỏi:",
+            placeholder="VD: Điều kiện chấm dứt hợp đồng thuê nhà là gì?",
         )
     with colB:
-        selected_source = st.selectbox("Target Document:", available_filters)
+        selected_source = st.selectbox("Phạm vi tìm kiếm:", available_filters)
 
-    if st.button("Query Database", type="primary"):
+    # Map back to API format
+    api_source_filter = (
+        None if selected_source == "Tất cả Hợp đồng" else selected_source
+    )
+
+    if st.button("Truy vấn Hệ thống", type="primary"):
         if not question:
-            st.warning("Please enter a query.")
+            st.warning("Vui lòng nhập câu hỏi.")
         else:
-            with st.spinner("Searching Vector Database & Generating Response..."):
+            with st.spinner("Đang tìm kiếm trong DB và Gọi Gemini..."):
                 try:
-                    payload = {"question": question, "source_filter": selected_source}
-                    res = requests.post(f"{API_URL}/ask", json=payload)
+                    payload = {"question": question, "source_filter": api_source_filter}
+                    res = requests.post(f"{API_URL}/ask", json=payload).json()
 
-                    if res.status_code == 200:
-                        ans_data = res.json()
-                        st.info(f"**AI Response:**\n\n{ans_data['answer']}")
+                    st.markdown(f"### 🤖 Trả lời\n{res['answer']}")
 
-                        with st.expander(
-                            "🔍 View Retrieved Sources & Citations", expanded=False
-                        ):
-                            for idx, src in enumerate(ans_data["sources"]):
-                                st.markdown(f"**[{idx + 1}]** {src}")
-                                st.divider()
-                    else:
-                        st.error(f"Query failed: {res.text}")
-                except Exception:
-                    st.error("API Connection Error. Ensure FastAPI backend is running.")
+                    with st.expander("🛠️ Dành cho Giảng viên: Xem Prompt gửi cho LLM"):
+                        st.code(res.get("debug_prompt"), language="markdown")
+
+                    st.markdown("### 📚 Nguồn trích dẫn (Citations)")
+                    for i, src in enumerate(res["sources"]):
+                        meta = src["metadata"]
+                        # Cải tiến phần trích dẫn để hiển thị File và Ngữ cảnh (Điều/Khoản)
+                        st.markdown(
+                            f"""
+                        <div style='background:#f9f9f9; padding:15px; border-left:5px solid #0d6efd; margin-bottom:10px; border-radius: 4px;'>
+                            <b>[{i + 1}] File:</b> <code>{meta.get("source")}</code> | <b>Vị trí:</b> <span style='color:#d63384'><b>{meta.get("context", "Chung")}</b></span><br>
+                            <i>"{src["content"]}"</i>
+                        </div>
+                        """,
+                            unsafe_allow_html=True,
+                        )
+                except Exception as e:
+                    st.error(f"Lỗi kết nối API: {e}")

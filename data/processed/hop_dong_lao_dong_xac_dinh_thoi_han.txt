@@ -1,4 +1,4 @@
-CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
+[Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 Tên đơn vị: Trường Đại học Khoa học Tự nhiên.
 Số: 01/2024/HĐLĐ.
@@ -20,18 +20,18 @@ Số căn cước công dân: 079090001234.
 Ngày cấp: 20 tháng 10 năm 2021.
 Nơi cấp: Cục Cảnh sát quản lý hành chính về trật tự xã hội.
 Hai bên cùng thống nhất ký kết hợp đồng lao động và cam kết thực hiện các điều khoản sau đây.
-Điều 1: Thời hạn và nội dung công việc.
+[Điều 1] Điều 1: Thời hạn và nội dung công việc.
 Loại hợp đồng lao động: Hợp đồng xác định thời hạn.
 Thời hạn hợp đồng: Từ ngày 01 tháng 01 năm 2024 đến ngày 31 tháng 12 năm 2026.
 Địa điểm làm việc: 227 Nguyễn Văn Cừ, Phường 4, Quận 5, Thành phố Hồ Chí Minh.
 Chức danh chuyên môn: Chuyên viên kỹ thuật.
 Chức vụ: Nhân viên hành chính.
 Công việc đảm nhiệm: Thực hiện các công việc theo sự phân công của đơn vị và quy định về ngạch bậc.
-Điều 2: Chế độ làm việc.
+[Điều 2] Điều 2: Chế độ làm việc.
 Thời giờ làm việc: Theo sự phân công của đơn vị.
 Trang thiết bị làm việc: Đơn vị cung cấp đầy đủ máy tính và văn phòng phẩm cần thiết.
-Điều 3: Quyền lợi và nghĩa vụ của người lao động.
-1. Quyền lợi.
+[Điều 3] Điều 3: Quyền lợi và nghĩa vụ của người lao động.
+[Điều 3 - Khoản 1] 1. Quyền lợi.
 Phương tiện đi lại: Người lao động tự túc.
 Mức lương chính: Theo ngạch lương chuyên viên.
 Mã ngạch: 01.003.
@@ -48,22 +48,22 @@ Bảo hiểm xã hội và bảo hiểm y tế: Người lao động đóng 10,5
 Người sử dụng lao động đóng 21,5%.
 Chế độ đào tạo: Được tham gia các khóa tập huấn chuyên môn theo kế hoạch của đơn vị.
 Các thỏa thuận khác: Không có.
-2. Nghĩa vụ.
+[Điều 3 - Khoản 2] 2. Nghĩa vụ.
 Người lao động phải hoàn thành các công việc đã cam kết trong hợp đồng.
 Người lao động phải chấp hành nghiêm túc mệnh lệnh điều hành sản xuất, nội quy kỷ luật và an toàn lao động.
 Người lao động phải bồi thường thiệt hại vật chất nếu vi phạm theo quy định của Luật lao động.
-Điều 4: Nghĩa vụ và quyền hạn của người sử dụng lao động.
-1. Nghĩa vụ.
+[Điều 4] Điều 4: Nghĩa vụ và quyền hạn của người sử dụng lao động.
+[Điều 4 - Khoản 1] 1. Nghĩa vụ.
 Đơn vị đảm bảo việc làm và thực hiện đầy đủ các cam kết trong hợp đồng.
 Đơn vị thanh toán đầy đủ, đúng hạn các chế độ và quyền lợi cho người lao động theo hợp đồng và thỏa ước lao động tập thể.
-2. Quyền hạn.
+[Điều 4 - Khoản 2] 2. Quyền hạn.
 Đơn vị có quyền điều hành người lao động hoàn thành công việc theo hợp đồng.
 Đơn vị có quyền tạm hoãn, chấm dứt hợp đồng lao động hoặc kỷ luật người lao động theo quy định của pháp luật và nội quy doanh nghiệp.
-Điều 5: Điều khoản thi hành.
+[Điều 5] Điều 5: Điều khoản thi hành.
 Các vấn đề về lao động không được ghi trong hợp đồng này sẽ áp dụng theo thỏa ước lao động tập thể hoặc pháp luật lao động hiện hành.
 Hợp đồng được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản.
 Hợp đồng có hiệu lực kể từ ngày 01 tháng 01 năm 2024.
 Phụ lục hợp đồng lao động nếu có sẽ là một phần không thể tách rời của hợp đồng này.
 Hợp đồng được ký tại Trường Đại học Khoa học Tự nhiên vào ngày 01 tháng 01 năm 2024.
-Người lao động: Trần Văn B.
+[Phần ký tên] Người lao động: Trần Văn B.
 Người sử dụng lao động: Trưởng Phòng Tổ chức – Hành chính - Nguyễn Văn A.

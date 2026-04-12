@@ -45,3 +45,7 @@ class IngestRequest(BaseModel):
 class IngestResponse(BaseModel):
     message: str
     num_clauses: int
+
+
+class RawFilesResponse(BaseModel):
+    files: List[str]

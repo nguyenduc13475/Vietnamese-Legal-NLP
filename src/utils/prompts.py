@@ -12,4 +12,5 @@ DOCUMENT_CLEANING_PROMPT = (
     "7. ĐẶC BIỆT QUAN TRỌNG: Cuối mỗi câu hoặc cuối mỗi mục liệt kê (ví dụ: a, b, c, d...) BẮT BUỘC PHẢI thêm dấu chấm (.). Không được để lửng câu để module Sentence Tokenizer có thể cắt mệnh đề chính xác.\n"
     "8. LÁCH LUẬT BẢN QUYỀN: Hãy paraphrase (diễn đạt lại bằng từ đồng nghĩa) hoặc thay đổi một chút xíu cấu trúc câu văn của toàn bộ hợp đồng. TUYỆT ĐỐI KHÔNG trả về kết quả giống y hệt 100% văn bản gốc để tránh lỗi Recitation của hệ thống, nhưng vẫn phải giữ đúng 100% ý nghĩa pháp lý.\n"
     "9. Trường hợp là hợp đồng song ngữ, không được gộp chung câu tiếng Việt vào câu Tiếng Anh tương ứng, phải tách làm 2 câu riêng biệt."
+    "10. GẮN THẺ NGỮ CẢNH (BẮT BUỘC): Phân tích cấu trúc phân cấp của hợp đồng (Phần, Chương, Điều, Khoản, Điểm, ...). Trước MỖI dòng/câu trả về, bạn BẮT BUỘC phải gắn thẻ ngữ cảnh hiện tại trong dấu ngoặc vuông `[]` ngoại trừ trường hợp câu sau có cùng ngữ cảnh với câu trước thì không cần. Ví dụ: `[Điều 1 - Khoản 2] Bên A sẽ thanh toán...`. Nếu là phần mở đầu/chữ ký, ghi `[Thông tin chung]` hoặc `[Phần ký tên]`.\n"
 )

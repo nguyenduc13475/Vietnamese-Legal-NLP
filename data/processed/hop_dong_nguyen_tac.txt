@@ -1,4 +1,4 @@
-CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
+[Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập – Tự do – Hạnh phúc.
 Đà Nẵng, ngày 15 tháng 05 năm 2023.
 HỢP ĐỒNG NGUYÊN TẮC (Số: 10/HĐNT/2023-CT).
@@ -17,36 +17,36 @@ Mã số thuế: 0400654321.
 Tài khoản số: 101000000002 tại Ngân hàng TMCP Ngoại thương Việt Nam - Chi nhánh Đà Nẵng.
 Sau khi thảo luận, hai Bên thống nhất ký kết Hợp đồng nguyên tắc (sau đây gọi là "Hợp đồng") với các điều khoản sau.
 
-Điều 1. Các nguyên tắc chung.
-1.1. Hai Bên tham gia ký kết Hợp đồng này dựa trên quan hệ hợp tác kinh doanh nhằm mục đích tối ưu hóa nguồn lực, phát huy tiềm năng, tạo doanh thu và mang lại lợi ích kinh tế cho các bên.
+[Điều 1] Điều 1. Các nguyên tắc chung.
+[Điều 1 - Khoản 1] 1.1. Hai Bên tham gia ký kết Hợp đồng này dựa trên quan hệ hợp tác kinh doanh nhằm mục đích tối ưu hóa nguồn lực, phát huy tiềm năng, tạo doanh thu và mang lại lợi ích kinh tế cho các bên.
 Các Bên liên kết trên nguyên tắc bình đẳng, tôn trọng lẫn nhau và tuân thủ quy định pháp luật hiện hành.
 Các bên cùng hưởng lợi và phân chia lợi nhuận theo thỏa thuận cụ thể.
 Không bên nào được phép tự ý thực hiện các hành vi gây tổn hại lợi ích của bên còn lại, trừ trường hợp có thỏa thuận hoặc pháp luật cho phép.
-1.2. Mọi nội dung trong Hợp đồng nguyên tắc này chỉ được thay đổi khi có sự đồng ý của cả hai bên và phải được lập thành văn bản.
+[Điều 1 - Khoản 2] 1.2. Mọi nội dung trong Hợp đồng nguyên tắc này chỉ được thay đổi khi có sự đồng ý của cả hai bên và phải được lập thành văn bản.
 Văn bản sửa đổi, bổ sung Hợp đồng nguyên tắc này được coi là Phụ lục và là một phần không thể tách rời của Hợp đồng.
-1.3. Các chi tiết về hợp tác, mua bán hàng hóa tại từng thời điểm sẽ được quy định cụ thể trong các Hợp đồng mua bán hàng hóa riêng biệt và là một phần không tách rời của Hợp đồng này.
-1.4. Nếu có sự mâu thuẫn giữa các điều khoản trong Hợp đồng mua bán hàng hóa với Hợp đồng này thì các điều khoản trong Hợp đồng này sẽ được ưu tiên áp dụng.
-1.5. Các tài liệu đính kèm và gắn liền với Hợp đồng này bao gồm.
+[Điều 1 - Khoản 3] 1.3. Các chi tiết về hợp tác, mua bán hàng hóa tại từng thời điểm sẽ được quy định cụ thể trong các Hợp đồng mua bán hàng hóa riêng biệt và là một phần không tách rời của Hợp đồng này.
+[Điều 1 - Khoản 4] 1.4. Nếu có sự mâu thuẫn giữa các điều khoản trong Hợp đồng mua bán hàng hóa với Hợp đồng này thì các điều khoản trong Hợp đồng này sẽ được ưu tiên áp dụng.
+[Điều 1 - Khoản 5] 1.5. Các tài liệu đính kèm và gắn liền với Hợp đồng này bao gồm.
 a. Các hợp đồng mua bán hàng hóa được ký kết trong thời hạn hiệu lực của Hợp đồng nguyên tắc này.
 b. Các Phụ lục đi kèm.
 c. Các tài liệu, hồ sơ kỹ thuật hàng hóa, hồ sơ pháp lý của các chủ thể ký kết và các tài liệu liên quan đến việc giao kết hợp đồng giữa các bên.
 
-Điều 2. Giải thích từ ngữ.
+[Điều 2] Điều 2. Giải thích từ ngữ.
 Trong phạm vi Hợp đồng này và các tài liệu liên quan, các từ ngữ được hiểu như sau.
-2.1. "Hợp đồng nguyên tắc" là văn bản thể hiện các nguyên tắc chung làm nền tảng cho sự hợp tác cung ứng hàng hóa và là căn cứ cho các Hợp đồng mua bán hàng hóa cụ thể sau này.
-2.2. "Hợp đồng mua bán hàng hóa" là sự thỏa thuận giữa các Bên, theo đó Bên B có trách nhiệm giao hàng và nhận thanh toán, còn Bên A có trách nhiệm nhận hàng và thanh toán tiền hàng cho Bên B.
+[Điều 2 - Khoản 1] 2.1. "Hợp đồng nguyên tắc" là văn bản thể hiện các nguyên tắc chung làm nền tảng cho sự hợp tác cung ứng hàng hóa và là căn cứ cho các Hợp đồng mua bán hàng hóa cụ thể sau này.
+[Điều 2 - Khoản 2] 2.2. "Hợp đồng mua bán hàng hóa" là sự thỏa thuận giữa các Bên, theo đó Bên B có trách nhiệm giao hàng và nhận thanh toán, còn Bên A có trách nhiệm nhận hàng và thanh toán tiền hàng cho Bên B.
 Trong trường hợp Bên A không trực tiếp mua hàng từ Bên B mà giới thiệu một bên thứ ba ký hợp đồng với Bên B, Bên B có nghĩa vụ trích hoa hồng cho Bên A và thực hiện các nghĩa vụ khác theo Hợp đồng này.
-2.3. "Pháp luật Việt Nam" là toàn bộ hệ thống luật, nghị định, quy định có hiệu lực tại nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.
+[Điều 2 - Khoản 3] 2.3. "Pháp luật Việt Nam" là toàn bộ hệ thống luật, nghị định, quy định có hiệu lực tại nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.
 
-Điều 3. Thời hạn của Hợp đồng.
-3.1. Hợp đồng này có hiệu lực cho đến khi hai bên thỏa thuận chấm dứt bằng văn bản hoặc chấm dứt theo các trường hợp quy định tại Điều này.
-3.2. Hợp đồng có thể chấm dứt trước thời hạn trong các trường hợp sau.
+[Điều 3] Điều 3. Thời hạn của Hợp đồng.
+[Điều 3 - Khoản 1] 3.1. Hợp đồng này có hiệu lực cho đến khi hai bên thỏa thuận chấm dứt bằng văn bản hoặc chấm dứt theo các trường hợp quy định tại Điều này.
+[Điều 3 - Khoản 2] 3.2. Hợp đồng có thể chấm dứt trước thời hạn trong các trường hợp sau.
 a. Các bên có quyền đơn phương chấm dứt Hợp đồng nếu bên còn lại vi phạm các quy định tại Điều 7, Điều 8 hoặc vi phạm các quyền, nghĩa vụ đã cam kết trong Hợp đồng này.
 b. Các trường hợp khác theo quy định của pháp luật.
-3.3. Khi chấm dứt Hợp đồng theo Khoản a Điều 3.2, bên vi phạm phải nhận thông báo từ bên kia trong vòng 07 ngày kể từ ngày phát hiện hành vi vi phạm.
+[Điều 3 - Khoản 3] 3.3. Khi chấm dứt Hợp đồng theo Khoản a Điều 3.2, bên vi phạm phải nhận thông báo từ bên kia trong vòng 07 ngày kể từ ngày phát hiện hành vi vi phạm.
 
-Điều 4. Quyền và nghĩa vụ của các bên.
-4.1. Quyền và nghĩa vụ của Bên A.
+[Điều 4] Điều 4. Quyền và nghĩa vụ của các bên.
+[Điều 4 - Khoản 1] 4.1. Quyền và nghĩa vụ của Bên A.
 a. Yêu cầu Bên B đảm bảo tiến độ sản xuất và chất lượng kỹ thuật hàng hóa theo tiêu chuẩn của từng Dự án đã thỏa thuận trong các Hợp đồng mua bán hàng hóa.
 b. Được quyền mời bên thứ ba đến tham quan cơ sở vật chất, trụ sở và quy trình sản xuất của Bên B, với điều kiện phải thông báo trước cho Bên B 05 ngày làm việc.
 c. Hỗ trợ và phối hợp chặt chẽ với Bên B trong quá trình sản xuất hàng hóa theo yêu cầu của Dự án.
@@ -56,7 +56,7 @@ f. Được nhận phí hoa hồng giới thiệu là 5% tổng giá trị hợp
 Bên B phải thanh toán phí hoa hồng này trong vòng 03 ngày làm việc kể từ ngày Bên B và bên thứ ba ký kết hợp đồng.
 g. Có nghĩa vụ thanh toán cho Bên B theo thỏa thuận tại Hợp đồng mua bán hàng hóa.
 h. Cung cấp đầy đủ, kịp thời các thông tin, tài liệu liên quan đến sản phẩm mà Bên A yêu cầu Bên B sản xuất.
-4.2. Quyền và nghĩa vụ của Bên B.
+[Điều 4 - Khoản 2] 4.2. Quyền và nghĩa vụ của Bên B.
 a. Yêu cầu Bên A thanh toán tiền hàng đúng thời hạn theo Hợp đồng mua bán hàng hóa đã ký.
 b. Cung cấp hàng hóa đúng số lượng, chất lượng đã cam kết với Bên A.
 c. Thông báo kịp thời cho Bên A nếu thông tin cung cấp không đầy đủ hoặc không chính xác để thực hiện công việc.
@@ -67,11 +67,11 @@ g. Không được sao chép, nhân bản sản phẩm hoặc sử dụng thông
 h. Tạo điều kiện thuận lợi để Bên A thực hiện các quyền theo khoản 4.1 Điều 4.
 i. Thực hiện đúng các quy định tại Hợp đồng này và các Hợp đồng mua bán hàng hóa đã ký kết.
 
-Điều 5. Sửa đổi, chuyển nhượng hợp đồng.
-5.1. Mọi sự sửa đổi, điều chỉnh Hợp đồng này phải được lập thành văn bản và có chữ ký của người có thẩm quyền từ hai bên.
-5.2. Trong thời hạn hiệu lực, các bên không được chuyển giao quyền và nghĩa vụ cho bên thứ ba nếu không có sự đồng ý bằng văn bản của bên kia.
+[Điều 5] Điều 5. Sửa đổi, chuyển nhượng hợp đồng.
+[Điều 5 - Khoản 1] 5.1. Mọi sự sửa đổi, điều chỉnh Hợp đồng này phải được lập thành văn bản và có chữ ký của người có thẩm quyền từ hai bên.
+[Điều 5 - Khoản 2] 5.2. Trong thời hạn hiệu lực, các bên không được chuyển giao quyền và nghĩa vụ cho bên thứ ba nếu không có sự đồng ý bằng văn bản của bên kia.
 
-Điều 6. Bất khả kháng.
+[Điều 6] Điều 6. Bất khả kháng.
 Bất khả kháng là các sự kiện khách quan, không thể lường trước và không thể khắc phục dù đã áp dụng mọi biện pháp cần thiết.
 Sự kiện bất khả kháng bao gồm nhưng không giới hạn bởi.
 (i) Thay đổi chính sách pháp luật hoặc quyết định của cơ quan nhà nước có thẩm quyền.
@@ -80,50 +80,50 @@ Sự kiện bất khả kháng bao gồm nhưng không giới hạn bởi.
 Khi xảy ra sự kiện bất khả kháng, các bên phải thông báo cho nhau trong vòng 20 ngày kể từ ngày xảy ra biến cố.
 Các bên không phải bồi thường thiệt hại phát sinh do sự kiện bất khả kháng.
 
-Điều 7. Bồi thường thiệt hại và phạt vi phạm hợp đồng.
+[Điều 7] Điều 7. Bồi thường thiệt hại và phạt vi phạm hợp đồng.
 Nếu một bên thực hiện không đúng nghĩa vụ, bên đó phải bồi thường toàn bộ tổn thất trực tiếp và gián tiếp cho bên kia.
 Bên vi phạm còn phải chịu một khoản tiền phạt vi phạm hợp đồng tương đương 8% giá trị phần nghĩa vụ bị vi phạm.
 
-Điều 8. Bảo mật.
-8.1. Các tài liệu, thông tin được hai bên thỏa thuận là bí mật không được tiết lộ cho bên thứ ba nếu không có sự đồng ý bằng văn bản.
-8.2. Không bên nào được sử dụng thông tin bí mật cho mục đích khác ngoài việc thực hiện Hợp đồng này.
-8.3. Không được sao chép, cung cấp thông tin bí mật cho bên thứ ba khi chưa có sự chấp thuận của bên sở hữu.
+[Điều 8] Điều 8. Bảo mật.
+[Điều 8 - Khoản 1] 8.1. Các tài liệu, thông tin được hai bên thỏa thuận là bí mật không được tiết lộ cho bên thứ ba nếu không có sự đồng ý bằng văn bản.
+[Điều 8 - Khoản 2] 8.2. Không bên nào được sử dụng thông tin bí mật cho mục đích khác ngoài việc thực hiện Hợp đồng này.
+[Điều 8 - Khoản 3] 8.3. Không được sao chép, cung cấp thông tin bí mật cho bên thứ ba khi chưa có sự chấp thuận của bên sở hữu.
 Không được sử dụng thông tin bảo mật cho các mục đích ngoài phạm vi Dự án đã ký kết.
-8.4. Nếu pháp luật hoặc cơ quan nhà nước yêu cầu tiết lộ thông tin, bên có nghĩa vụ tiết lộ phải thông báo trước bằng văn bản cho bên kia.
-8.5. Bên vi phạm quy định bảo mật phải chịu trách nhiệm pháp lý và bồi thường mọi thiệt hại phát sinh.
+[Điều 8 - Khoản 4] 8.4. Nếu pháp luật hoặc cơ quan nhà nước yêu cầu tiết lộ thông tin, bên có nghĩa vụ tiết lộ phải thông báo trước bằng văn bản cho bên kia.
+[Điều 8 - Khoản 5] 8.5. Bên vi phạm quy định bảo mật phải chịu trách nhiệm pháp lý và bồi thường mọi thiệt hại phát sinh.
 
-Điều 9. Cam kết của các Bên.
-9.1. Bên B cam kết đảm bảo nhân sự của mình không tiết lộ thông tin bảo mật cho bên thứ ba.
+[Điều 9] Điều 9. Cam kết của các Bên.
+[Điều 9 - Khoản 1] 9.1. Bên B cam kết đảm bảo nhân sự của mình không tiết lộ thông tin bảo mật cho bên thứ ba.
 Trách nhiệm bảo mật này kéo dài ngay cả khi Hợp đồng chấm dứt.
 Nếu vi phạm, Bên B phải bồi thường toàn bộ giá trị Hợp đồng mua bán hàng hóa liên quan cho Bên A.
-9.2. Các Bên cam kết không vi phạm quyền sở hữu trí tuệ của nhau trong quá trình thực hiện dự án.
-9.3. Các Bên cam kết giữ bí mật mọi thông tin kinh doanh, cơ cấu tổ chức, tài sản, khách hàng và không sử dụng cho mục đích riêng.
-9.4. Thực hiện đúng và đầy đủ các thỏa thuận đã ghi trong Hợp đồng này.
+[Điều 9 - Khoản 2] 9.2. Các Bên cam kết không vi phạm quyền sở hữu trí tuệ của nhau trong quá trình thực hiện dự án.
+[Điều 9 - Khoản 3] 9.3. Các Bên cam kết giữ bí mật mọi thông tin kinh doanh, cơ cấu tổ chức, tài sản, khách hàng và không sử dụng cho mục đích riêng.
+[Điều 9 - Khoản 4] 9.4. Thực hiện đúng và đầy đủ các thỏa thuận đã ghi trong Hợp đồng này.
 
-Điều 10. Phương thức giải quyết tranh chấp.
+[Điều 10] Điều 10. Phương thức giải quyết tranh chấp.
 Mọi tranh chấp phát sinh sẽ được giải quyết thông qua thương lượng, hòa giải.
 Nếu không đạt được thỏa thuận, tranh chấp sẽ được đưa ra Trung tâm Trọng tài Thương mại Miền Trung (MCAC) để giải quyết.
 Địa điểm tiến hành trọng tài tại thành phố Đà Nẵng.
 Ngôn ngữ trọng tài là tiếng Việt.
 Luật áp dụng là pháp luật Việt Nam.
 
-Điều 11. Trách nhiệm pháp lý.
-11.1. Các bên cam kết có đủ năng lực pháp luật, cơ sở vật chất và tuân thủ các quy định về bảo mật thông tin, dữ liệu cá nhân.
-11.2. Bên B chịu trách nhiệm hoàn toàn về hoạt động sản xuất và phải bồi thường nếu gây thiệt hại đến vật chất hoặc uy tín của Bên A.
+[Điều 11] Điều 11. Trách nhiệm pháp lý.
+[Điều 11 - Khoản 1] 11.1. Các bên cam kết có đủ năng lực pháp luật, cơ sở vật chất và tuân thủ các quy định về bảo mật thông tin, dữ liệu cá nhân.
+[Điều 11 - Khoản 2] 11.2. Bên B chịu trách nhiệm hoàn toàn về hoạt động sản xuất và phải bồi thường nếu gây thiệt hại đến vật chất hoặc uy tín của Bên A.
 
-Điều 12. Điều khoản chung.
-12.1. Hợp đồng này thay thế cho mọi thỏa thuận trước đây và là thỏa thuận duy nhất giữa các bên.
-12.2. Nếu một điều khoản bị tuyên là vô hiệu, các điều khoản còn lại vẫn có hiệu lực thi hành.
+[Điều 12] Điều 12. Điều khoản chung.
+[Điều 12 - Khoản 1] 12.1. Hợp đồng này thay thế cho mọi thỏa thuận trước đây và là thỏa thuận duy nhất giữa các bên.
+[Điều 12 - Khoản 2] 12.2. Nếu một điều khoản bị tuyên là vô hiệu, các điều khoản còn lại vẫn có hiệu lực thi hành.
 Hai bên sẽ thảo luận để thay thế điều khoản vô hiệu bằng điều khoản khác phù hợp pháp luật.
-12.3. Việc một bên không thực hiện quyền của mình không có nghĩa là từ bỏ quyền đó trong tương lai.
+[Điều 12 - Khoản 3] 12.3. Việc một bên không thực hiện quyền của mình không có nghĩa là từ bỏ quyền đó trong tương lai.
 
-Điều 13. Điều khoản thực hiện.
-13.1. Hợp đồng có hiệu lực kể từ ngày ký, mọi sửa đổi phải được lập thành văn bản.
-13.2. Trong trường hợp không đạt được thỏa thuận hợp tác dự án, Hợp đồng vẫn có hiệu lực ràng buộc trong 18 tháng kể từ ngày xác nhận hủy bỏ bằng văn bản.
-13.3. Nếu một hoặc nhiều điều khoản bị cơ quan nhà nước tuyên là vô hiệu, các điều khoản khác vẫn giữ nguyên hiệu lực.
-13.4. Các bên đã đọc kỹ, hiểu rõ nội dung và tự nguyện ký kết Hợp đồng này.
-13.5. Hợp đồng được lập thành 04 bản, mỗi bản có 06 trang, có giá trị pháp lý như nhau, mỗi bên giữ 02 bản.
+[Điều 13] Điều 13. Điều khoản thực hiện.
+[Điều 13 - Khoản 1] 13.1. Hợp đồng có hiệu lực kể từ ngày ký, mọi sửa đổi phải được lập thành văn bản.
+[Điều 13 - Khoản 2] 13.2. Trong trường hợp không đạt được thỏa thuận hợp tác dự án, Hợp đồng vẫn có hiệu lực ràng buộc trong 18 tháng kể từ ngày xác nhận hủy bỏ bằng văn bản.
+[Điều 13 - Khoản 3] 13.3. Nếu một hoặc nhiều điều khoản bị cơ quan nhà nước tuyên là vô hiệu, các điều khoản khác vẫn giữ nguyên hiệu lực.
+[Điều 13 - Khoản 4] 13.4. Các bên đã đọc kỹ, hiểu rõ nội dung và tự nguyện ký kết Hợp đồng này.
+[Điều 13 - Khoản 5] 13.5. Hợp đồng được lập thành 04 bản, mỗi bản có 06 trang, có giá trị pháp lý như nhau, mỗi bên giữ 02 bản.
 CÁC THỎA THUẬN KHÁC: Không có.
 
-Đại diện Bên A: Nguyễn Văn A.
+[Phần ký tên] Đại diện Bên A: Nguyễn Văn A.
 Đại diện Bên B: Trần Thị B.

@@ -36,6 +36,9 @@ def extract_entities(text: str) -> list[dict]:
     Prioritize using the fine-tuned PhoBERT model.
     If the model is not trained, fallback to Rule-based extraction.
     """
+    if not text or not isinstance(text, str) or not text.strip():
+        return []
+
     entities = []
 
     if ner_pipeline:
@@ -43,9 +46,13 @@ def extract_entities(text: str) -> list[dict]:
         ml_entities = ner_pipeline(text)
 
         for ent in ml_entities:
+            # simple aggregation strategy returns 'entity_group'
             label = ent.get("entity_group", "")
-            if label in ["PARTY", "MONEY", "DATE", "RATE", "PENALTY", "LAW"]:
+            if label:
                 clean_text = ent["word"].replace("_", " ").replace("@@", "").strip()
+                # Ensure we don't save empty/junk strings as entities
+                if len(clean_text) < 1:
+                    continue
 
                 # PhoBERT lacks a Fast Tokenizer, so start/end offsets are often None.
                 # We fallback to manual string matching to find the span.

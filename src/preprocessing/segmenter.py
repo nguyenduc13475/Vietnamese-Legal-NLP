@@ -1,13 +1,14 @@
 import re
 
 
-def segment_clauses(text: str) -> list[str]:
+def segment_clauses(text: str) -> list[dict]:
     """
-    Splits contract text into independent clauses based on a period
-    followed by a space, avoiding splits in numbers or emails.
+    Extracts independent clauses line-by-line.
+    Extracts context tags (e.g., [Điều 1]) if present for RAG metadata.
     """
     raw_lines = text.split("\n")
     clauses = []
+    current_context = "General"
 
     # Regex to identify basic list items (1., a), I., -)
     bullet_pattern = re.compile(
@@ -19,39 +20,20 @@ def segment_clauses(text: str) -> list[str]:
         if not line:
             continue
 
+        # Extract context if present (e.g., "[Điều 1] Nội dung...")
+        ctx_match = re.match(r"^\[(.*?)\]\s*(.*)", line)
+        if ctx_match:
+            current_context = ctx_match.group(1).strip()
+            line = ctx_match.group(2).strip()
+
         # Clean up bullet points at the start
         clean_line = bullet_pattern.sub("", line).strip()
 
+        # Discard fragments that are too short to be meaningful
         if len(clean_line) <= 5:
             continue
 
-        # REGEX EXPLANATION:
-        # (?<=\.) : Lookbehind - find a period
-        # \s+     : Followed by one or more spaces
-        # This splits "Hello. World" into ["Hello.", "World"]
-        # but leaves "10.000.000" alone.
-        sentences = re.split(r"(?<=\.)\s+", clean_line)
-
-        current_sentence = ""
-
-        for sent in sentences:
-            sent = sent.strip()
-            if not sent:
-                continue
-
-            if not current_sentence:
-                current_sentence = sent
-            else:
-                current_sentence += " " + sent
-
-            # Threshold check: only flush the sentence if it has >= 4 words
-            # to avoid fragments like "Tp. HCM" being isolated.
-            if len(current_sentence.split()) >= 4:
-                clauses.append(current_sentence)
-                current_sentence = ""
-
-        # Final cleanup for remaining text
-        if current_sentence and len(current_sentence) > 2:
-            clauses.append(current_sentence)
+        # Since one line = one clause, we simply append it directly
+        clauses.append({"text": clean_line, "context": current_context})
 
     return clauses

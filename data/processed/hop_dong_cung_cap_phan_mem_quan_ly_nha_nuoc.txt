@@ -1,4 +1,4 @@
-CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
+[Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 HỢP ĐỒNG CUNG CẤP DỊCH VỤ PHẦN MỀM QUẢN LÝ NHÀ THUỐC.
 Số: 240520-VNPT-VNP-KHDN-PKHTCDN/HD-PHARMA.
@@ -9,7 +9,7 @@ Căn cứ Luật công nghệ thông tin số 67/2006/QH11 và các văn bản h
 Căn cứ các văn bản pháp luật khác có liên quan.
 Căn cứ vào năng lực và điều kiện thực tế của các bên.
 Hợp đồng cung cấp dịch vụ phần mềm quản lý nhà thuốc (“Hợp đồng”) được xác lập và ký kết vào ngày 20 tháng 05 năm 2024, tại Hà Nội, giữa các Bên dưới đây.
-I. BÊN SỬ DỤNG DỊCH VỤ (BÊN A):
+[Mục I. BÊN SỬ DỤNG DỊCH VỤ] I. BÊN SỬ DỤNG DỊCH VỤ (BÊN A):
 Tên đơn vị: Công ty TNHH Dược phẩm An Khang.
 Địa chỉ: Số 123, đường Lê Lợi, quận Hoàn Kiếm, thành phố Hà Nội.
 Điện thoại: 0243.999.8888.
@@ -19,7 +19,7 @@ Mã số thuế: 0101234567.
 Người đại diện: Ông Nguyễn Văn A.
 Chức vụ: Giám đốc.
 Theo Giấy ủy quyền số 01/GUQ-AK ngày 02 tháng 01 năm 2024 của Hội đồng thành viên.
-II. BÊN CUNG CẤP DỊCH VỤ (BÊN B):
+[Mục I. BÊN CUNG CẤP DỊCH VỤ] II. BÊN CUNG CẤP DỊCH VỤ (BÊN B):
 Tên đơn vị: Tập đoàn Bưu chính Viễn thông Việt Nam - VNPT.
 Địa chỉ: Số 57, đường Huỳnh Thúc Kháng, quận Đống Đa, thành phố Hà Nội.
 Điện thoại: 0243.888.9999.
@@ -29,102 +29,102 @@ Mã số thuế: 0100686054.
 Người đại diện: Ông Trần Văn B.
 Chức vụ: Phó Tổng Giám đốc.
 Theo Giấy ủy quyền số 99/GUQ-VNPT ngày 15 tháng 02 năm 2024 của Tổng Giám đốc.
-Sau khi thảo luận và thống nhất, các bên đồng ý ký kết Hợp đồng với các điều khoản và điều kiện như sau.
-ĐIỀU 1. GIẢI THÍCH TỪ NGỮ.
+[Thông tin chung] Sau khi thảo luận và thống nhất, các bên đồng ý ký kết Hợp đồng với các điều khoản và điều kiện như sau.
+[Điều 1] ĐIỀU 1. GIẢI THÍCH TỪ NGỮ.
 Trong Hợp đồng này, các thuật ngữ được hiểu như sau.
-1.1. “Dịch vụ Phần mềm quản lý nhà thuốc” là dịch vụ VNPT Pharmacy.
-1.2. “Biên bản khảo sát triển khai hệ thống” là văn bản được hai bên ký kết sau khi Bên B hoàn thành việc khảo sát toàn bộ hệ thống, xác nhận tình trạng thực tế và khả năng triển khai dịch vụ.
-1.3. “Kịch bản kiểm thử” là văn bản được hai bên ký kết khi Bên B triển khai xong các hạng mục công việc của Hợp đồng (trừ bảo dưỡng, nâng cấp), quy định các nội dung chạy thử để kiểm tra tính năng dịch vụ.
-1.4. “Biên bản nghiệm thu kỹ thuật hệ thống” là văn bản hai bên ký xác nhận tình trạng kỹ thuật của hệ thống sau khi lắp đặt, đo kiểm để đưa dịch vụ vào vận hành.
-1.5. “Chuyển giao công nghệ” là hình thức đào tạo, hướng dẫn để nhân viên Bên A hiểu và sử dụng dịch vụ do Bên B cung cấp.
-1.6. “Ngày làm việc” là các ngày từ thứ 2 đến thứ 6, không bao gồm ngày nghỉ lễ, tết theo quy định pháp luật Việt Nam.
-ĐIỀU 2. ĐỐI TƯỢNG CỦA HỢP ĐỒNG.
-2.1. Bên B đồng ý cung cấp và Bên A đồng ý sử dụng dịch vụ theo quy định tại Phụ lục Hợp đồng.
-2.2. Thông tin dịch vụ được niêm yết tại website hoặc các điểm giao dịch của Bên B và có thể được điều chỉnh theo từng thời điểm.
-ĐIỀU 3. CƯỚC PHÍ DỊCH VỤ.
-3.1. Cước phí dịch vụ dựa trên gói dịch vụ Bên A đã đăng ký, chi tiết tại Phụ lục Hợp đồng. Ngày bắt đầu tính cước là ngày hai bên ký biên bản nghiệm thu.
-3.2. Nếu Bên A có nhu cầu nâng cấp gói dịch vụ, Bên A phải thanh toán chi phí nâng cấp dựa trên quy mô và các chi phí liên quan tại thời điểm hiện hành. Hai bên sẽ ký Phụ lục bổ sung Hợp đồng. Bản nghiệm thu hệ thống mới nhất sẽ thay thế các bản cũ và là cơ sở tính cước từ thời điểm thay đổi.
-ĐIỀU 4. THANH TOÁN.
-4.1. Phương thức thanh toán.
-a. Trong thời hạn 05 ngày làm việc kể từ ngày nhận bàn giao tài khoản, Bên A phải thanh toán đủ cước phí cho Bên B.
-b. Dịch vụ được coi là gia hạn với thời gian và cước phí tương ứng nếu Bên A tiếp tục sử dụng sau khi hết hạn. Trong thời hạn 05 ngày làm việc kể từ ngày gia hạn, Bên A phải thanh toán cước phí cho kỳ tiếp theo.
-c. Nếu Bên A thanh toán chậm, Bên B có quyền ngừng cung cấp dịch vụ và không chịu trách nhiệm về hậu quả hoặc mất mát dữ liệu của Bên A.
-d. Bên B xuất hóa đơn cho Bên A trong vòng 10 ngày kể từ ngày nhận thanh toán. Hóa đơn được coi là hợp lệ nếu Bên A không có khiếu nại bằng văn bản trong vòng 05 ngày kể từ ngày nhận hóa đơn.
-e. Bên A không được hoàn trả giá trị đã thanh toán trong bất kỳ trường hợp nào.
-4.2. Hình thức thanh toán.
-a. Bên A thanh toán bằng tiền Việt Nam đồng qua hình thức tiền mặt hoặc chuyển khoản vào tài khoản ngân hàng của Bên B. Giá trị thanh toán có thể bù trừ với các khoản công nợ khác giữa hai bên nếu có.
-b. Bên A chịu mọi chi phí liên quan đến việc thanh toán để đảm bảo Bên B nhận đủ số tiền ghi trên hóa đơn.
-ĐIỀU 5. QUYỀN VÀ NGHĨA VỤ CỦA BÊN A.
-5.1. Quyền của Bên A.
-a. Yêu cầu Bên B cung cấp dịch vụ đúng nội dung Điều 2 và kế hoạch triển khai.
-b. Quản trị, khai thác dịch vụ theo hướng dẫn của Bên B. Nếu muốn xử lý số liệu trực tiếp tại máy chủ Bên B, Bên A phải thông báo trước 03 ngày làm việc và được Bên B đồng ý bằng văn bản.
-c. Khiếu nại về chất lượng dịch vụ và cước phí trong vòng 05 ngày kể từ thời điểm phát sinh.
-d. Đề nghị tạm ngừng dịch vụ bằng văn bản và thanh toán đầy đủ cước phí tính đến thời điểm tạm ngừng.
-5.2. Nghĩa vụ của Bên A.
-a. Thanh toán đầy đủ, đúng hạn cước phí dịch vụ.
-b. Phối hợp, tạo điều kiện cho Bên B khảo sát hiện trạng hệ thống để lập phương án tích hợp.
-c. Tự làm việc và chi trả chi phí cho đơn vị thứ ba nếu phải tích hợp với hệ thống riêng của Bên A.
-d. Chịu trách nhiệm về tính hợp pháp, quyền sở hữu trí tuệ của dữ liệu đưa lên hệ thống. Tự bảo mật dữ liệu và thực hiện sao lưu nội bộ.
-e. Chịu trách nhiệm về mọi thiệt hại do lỗi của Bên A trong quá trình sử dụng dịch vụ.
-f. Sử dụng đúng mục đích, không chuyển giao dịch vụ cho bên thứ ba khi chưa được Bên B đồng ý.
-g. Thông báo kịp thời cho Bên B khi có sự cố và tự sửa chữa các lỗi thuộc phạm vi quản lý của mình.
-ĐIỀU 6. QUYỀN VÀ NGHĨA VỤ CỦA BÊN B.
-6.1. Quyền của Bên B.
-a. Yêu cầu Bên A cung cấp thông tin cần thiết và thanh toán đầy đủ cước phí.
-b. Kiểm tra, giám sát việc sử dụng dịch vụ. Nếu phát hiện vi phạm, Bên B có quyền yêu cầu giải trình hoặc đề nghị cơ quan chức năng can thiệp.
-c. Không chịu trách nhiệm về nội dung dữ liệu của Bên A. Có quyền xóa dữ liệu khi chấm dứt Hợp đồng.
-d. Không chịu trách nhiệm về các lỗi do phần mềm khác gây ra hoặc các vấn đề pháp lý phát sinh từ việc sử dụng dịch vụ của Bên A.
-6.2. Nghĩa vụ của Bên B.
-a. Cung cấp dịch vụ đúng kế hoạch và đảm bảo chất lượng.
-b. Kiểm tra, thử nghiệm hệ thống trước khi vận hành chính thức.
-c. Cung cấp tài khoản và mật khẩu cho Bên A.
-d. Hỗ trợ kỹ thuật và khắc phục sự cố theo yêu cầu của Bên A.
-e. Bảo dưỡng hệ thống để đảm bảo vận hành ổn định.
-f. Bảo mật dữ liệu của Bên A và khách hàng của Bên A.
-g. Cung cấp thông tin, dữ liệu theo yêu cầu hợp pháp của cơ quan nhà nước.
-h. Phối hợp điều chỉnh phần mềm nếu có thay đổi về pháp luật.
-ĐIỀU 7. THỜI HẠN VÀ CHẤM DỨT HỢP ĐỒNG.
-7.1. Hợp đồng có thời hạn theo gói đã đăng ký và tự động gia hạn.
-7.2. Hợp đồng chấm dứt trong các trường hợp: thỏa thuận, đơn phương chấm dứt do vi phạm sau 15 ngày không khắc phục, hoặc theo quy định pháp luật.
-7.3. Hậu quả chấm dứt.
-a. Bên A phải thanh toán toàn bộ cước phí đến ngày chấm dứt.
-b. Việc chấm dứt không làm mất hiệu lực các quyền và nghĩa vụ phát sinh trước đó.
-7.4. Các bên tiến hành thủ tục thanh lý khi hoàn thành mọi nghĩa vụ.
-ĐIỀU 8. TẠM NGỪNG CUNG CẤP DỊCH VỤ.
-8.1. Bên A muốn tạm ngừng phải gửi đề nghị trước 05 ngày làm việc và thanh toán đủ cước phí.
-8.2. Bên B được quyền tạm ngừng nếu Bên A vi phạm nghĩa vụ, hoặc khi cần bảo trì mạng lưới, hoặc theo yêu cầu cơ quan nhà nước.
-8.3. Bên B thông báo cho Bên A trong vòng 03 ngày kể từ khi có căn cứ tạm ngừng.
-ĐIỀU 9. TRÁCH NHIỆM DO VI PHẠM.
-9.1. Bồi thường thiệt hại.
-a. Bên vi phạm phải bồi thường thiệt hại trực tiếp cho bên bị vi phạm.
-b. Nếu Bên A chậm thanh toán, Bên B có quyền tính lãi 150% lãi suất tiết kiệm 12 tháng của ngân hàng nhưng không quá 20%/năm.
-9.2. Phạt vi phạm.
+[Điều 1 - Khoản 1] 1.1. “Dịch vụ Phần mềm quản lý nhà thuốc” là dịch vụ VNPT Pharmacy.
+[Điều 1 - Khoản 2] 1.2. “Biên bản khảo sát triển khai hệ thống” là văn bản được hai bên ký kết sau khi Bên B hoàn thành việc khảo sát toàn bộ hệ thống, xác nhận tình trạng thực tế và khả năng triển khai dịch vụ.
+[Điều 1 - Khoản 3] 1.3. “Kịch bản kiểm thử” là văn bản được hai bên ký kết khi Bên B triển khai xong các hạng mục công việc của Hợp đồng (trừ bảo dưỡng, nâng cấp), quy định các nội dung chạy thử để kiểm tra tính năng dịch vụ.
+[Điều 1 - Khoản 4] 1.4. “Biên bản nghiệm thu kỹ thuật hệ thống” là văn bản hai bên ký xác nhận tình trạng kỹ thuật của hệ thống sau khi lắp đặt, đo kiểm để đưa dịch vụ vào vận hành.
+[Điều 1 - Khoản 5] 1.5. “Chuyển giao công nghệ” là hình thức đào tạo, hướng dẫn để nhân viên Bên A hiểu và sử dụng dịch vụ do Bên B cung cấp.
+[Điều 1 - Khoản 6] 1.6. “Ngày làm việc” là các ngày từ thứ 2 đến thứ 6, không bao gồm ngày nghỉ lễ, tết theo quy định pháp luật Việt Nam.
+[Điều 2] ĐIỀU 2. ĐỐI TƯỢNG CỦA HỢP ĐỒNG.
+[Điều 2 - Khoản 1] 2.1. Bên B đồng ý cung cấp và Bên A đồng ý sử dụng dịch vụ theo quy định tại Phụ lục Hợp đồng.
+[Điều 2 - Khoản 2] 2.2. Thông tin dịch vụ được niêm yết tại website hoặc các điểm giao dịch của Bên B và có thể được điều chỉnh theo từng thời điểm.
+[Điều 3] ĐIỀU 3. CƯỚC PHÍ DỊCH VỤ.
+[Điều 3 - Khoản 1] 3.1. Cước phí dịch vụ dựa trên gói dịch vụ Bên A đã đăng ký, chi tiết tại Phụ lục Hợp đồng. Ngày bắt đầu tính cước là ngày hai bên ký biên bản nghiệm thu.
+[Điều 3 - Khoản 2] 3.2. Nếu Bên A có nhu cầu nâng cấp gói dịch vụ, Bên A phải thanh toán chi phí nâng cấp dựa trên quy mô và các chi phí liên quan tại thời điểm hiện hành. Hai bên sẽ ký Phụ lục bổ sung Hợp đồng. Bản nghiệm thu hệ thống mới nhất sẽ thay thế các bản cũ và là cơ sở tính cước từ thời điểm thay đổi.
+[Điều 4] ĐIỀU 4. THANH TOÁN.
+[Điều 4 - Khoản 1] 4.1. Phương thức thanh toán.
+[Điều 4 - Khoản 1 - Điểm a] a. Trong thời hạn 05 ngày làm việc kể từ ngày nhận bàn giao tài khoản, Bên A phải thanh toán đủ cước phí cho Bên B.
+[Điều 4 - Khoản 1 - Điểm b] b. Dịch vụ được coi là gia hạn với thời gian và cước phí tương ứng nếu Bên A tiếp tục sử dụng sau khi hết hạn. Trong thời hạn 05 ngày làm việc kể từ ngày gia hạn, Bên A phải thanh toán cước phí cho kỳ tiếp theo.
+[Điều 4 - Khoản 1 - Điểm c] c. Nếu Bên A thanh toán chậm, Bên B có quyền ngừng cung cấp dịch vụ và không chịu trách nhiệm về hậu quả hoặc mất mát dữ liệu của Bên A.
+[Điều 4 - Khoản 1 - Điểm d] d. Bên B xuất hóa đơn cho Bên A trong vòng 10 ngày kể từ ngày nhận thanh toán. Hóa đơn được coi là hợp lệ nếu Bên A không có khiếu nại bằng văn bản trong vòng 05 ngày kể từ ngày nhận hóa đơn.
+[Điều 4 - Khoản 1 - Điểm e] e. Bên A không được hoàn trả giá trị đã thanh toán trong bất kỳ trường hợp nào.
+[Điều 4 - Khoản 2] 4.2. Hình thức thanh toán.
+[Điều 4 - Khoản 2 - Điểm a] a. Bên A thanh toán bằng tiền Việt Nam đồng qua hình thức tiền mặt hoặc chuyển khoản vào tài khoản ngân hàng của Bên B. Giá trị thanh toán có thể bù trừ với các khoản công nợ khác giữa hai bên nếu có.
+[Điều 4 - Khoản 2 - Điểm b] b. Bên A chịu mọi chi phí liên quan đến việc thanh toán để đảm bảo Bên B nhận đủ số tiền ghi trên hóa đơn.
+[Điều 5] ĐIỀU 5. QUYỀN VÀ NGHĨA VỤ CỦA BÊN A.
+[Điều 5 - Khoản 1] 5.1. Quyền của Bên A.
+[Điều 5 - Khoản 1 - Điểm a] a. Yêu cầu Bên B cung cấp dịch vụ đúng nội dung Điều 2 và kế hoạch triển khai.
+[Điều 5 - Khoản 1 - Điểm b] b. Quản trị, khai thác dịch vụ theo hướng dẫn của Bên B. Nếu muốn xử lý số liệu trực tiếp tại máy chủ Bên B, Bên A phải thông báo trước 03 ngày làm việc và được Bên B đồng ý bằng văn bản.
+[Điều 5 - Khoản 1 - Điểm c] c. Khiếu nại về chất lượng dịch vụ và cước phí trong vòng 05 ngày kể từ thời điểm phát sinh.
+[Điều 5 - Khoản 1 - Điểm d] d. Đề nghị tạm ngừng dịch vụ bằng văn bản và thanh toán đầy đủ cước phí tính đến thời điểm tạm ngừng.
+[Điều 5 - Khoản 2] 5.2. Nghĩa vụ của Bên A.
+[Điều 5 - Khoản 2 - Điểm a] a. Thanh toán đầy đủ, đúng hạn cước phí dịch vụ.
+[Điều 5 - Khoản 2 - Điểm b] b. Phối hợp, tạo điều kiện cho Bên B khảo sát hiện trạng hệ thống để lập phương án tích hợp.
+[Điều 5 - Khoản 2 - Điểm c] c. Tự làm việc và chi trả chi phí cho đơn vị thứ ba nếu phải tích hợp với hệ thống riêng của Bên A.
+[Điều 5 - Khoản 2 - Điểm d] d. Chịu trách nhiệm về tính hợp pháp, quyền sở hữu trí tuệ của dữ liệu đưa lên hệ thống. Tự bảo mật dữ liệu và thực hiện sao lưu nội bộ.
+[Điều 5 - Khoản 2 - Điểm e] e. Chịu trách nhiệm về mọi thiệt hại do lỗi của Bên A trong quá trình sử dụng dịch vụ.
+[Điều 5 - Khoản 2 - Điểm f] f. Sử dụng đúng mục đích, không chuyển giao dịch vụ cho bên thứ ba khi chưa được Bên B đồng ý.
+[Điều 5 - Khoản 2 - Điểm g] g. Thông báo kịp thời cho Bên B khi có sự cố và tự sửa chữa các lỗi thuộc phạm vi quản lý của mình.
+[Điều 6] ĐIỀU 6. QUYỀN VÀ NGHĨA VỤ CỦA BÊN B.
+[Điều 6 - Khoản 1] 6.1. Quyền của Bên B.
+[Điều 6 - Khoản 1 - Điểm a] a. Yêu cầu Bên A cung cấp thông tin cần thiết và thanh toán đầy đủ cước phí.
+[Điều 6 - Khoản 1 - Điểm b] b. Kiểm tra, giám sát việc sử dụng dịch vụ. Nếu phát hiện vi phạm, Bên B có quyền yêu cầu giải trình hoặc đề nghị cơ quan chức năng can thiệp.
+[Điều 6 - Khoản 1 - Điểm c] c. Không chịu trách nhiệm về nội dung dữ liệu của Bên A. Có quyền xóa dữ liệu khi chấm dứt Hợp đồng.
+[Điều 6 - Khoản 1 - Điểm d] d. Không chịu trách nhiệm về các lỗi do phần mềm khác gây ra hoặc các vấn đề pháp lý phát sinh từ việc sử dụng dịch vụ của Bên A.
+[Điều 6 - Khoản 2] 6.2. Nghĩa vụ của Bên B.
+[Điều 6 - Khoản 2 - Điểm a] a. Cung cấp dịch vụ đúng kế hoạch và đảm bảo chất lượng.
+[Điều 6 - Khoản 2 - Điểm b] b. Kiểm tra, thử nghiệm hệ thống trước khi vận hành chính thức.
+[Điều 6 - Khoản 2 - Điểm c] c. Cung cấp tài khoản và mật khẩu cho Bên A.
+[Điều 6 - Khoản 2 - Điểm d] d. Hỗ trợ kỹ thuật và khắc phục sự cố theo yêu cầu của Bên A.
+[Điều 6 - Khoản 2 - Điểm e] e. Bảo dưỡng hệ thống để đảm bảo vận hành ổn định.
+[Điều 6 - Khoản 2 - Điểm f] f. Bảo mật dữ liệu của Bên A và khách hàng của Bên A.
+[Điều 6 - Khoản 2 - Điểm g] g. Cung cấp thông tin, dữ liệu theo yêu cầu hợp pháp của cơ quan nhà nước.
+[Điều 6 - Khoản 2 - Điểm h] h. Phối hợp điều chỉnh phần mềm nếu có thay đổi về pháp luật.
+[Điều 7] ĐIỀU 7. THỜI HẠN VÀ CHẤM DỨT HỢP ĐỒNG.
+[Điều 7 - Khoản 1] 7.1. Hợp đồng có thời hạn theo gói đã đăng ký và tự động gia hạn.
+[Điều 7 - Khoản 2] 7.2. Hợp đồng chấm dứt trong các trường hợp: thỏa thuận, đơn phương chấm dứt do vi phạm sau 15 ngày không khắc phục, hoặc theo quy định pháp luật.
+[Điều 7 - Khoản 3] 7.3. Hậu quả chấm dứt.
+[Điều 7 - Khoản 3 - Điểm a] a. Bên A phải thanh toán toàn bộ cước phí đến ngày chấm dứt.
+[Điều 7 - Khoản 3 - Điểm b] b. Việc chấm dứt không làm mất hiệu lực các quyền và nghĩa vụ phát sinh trước đó.
+[Điều 7 - Khoản 4] 7.4. Các bên tiến hành thủ tục thanh lý khi hoàn thành mọi nghĩa vụ.
+[Điều 8] ĐIỀU 8. TẠM NGỪNG CUNG CẤP DỊCH VỤ.
+[Điều 8 - Khoản 1] 8.1. Bên A muốn tạm ngừng phải gửi đề nghị trước 05 ngày làm việc và thanh toán đủ cước phí.
+[Điều 8 - Khoản 2] 8.2. Bên B được quyền tạm ngừng nếu Bên A vi phạm nghĩa vụ, hoặc khi cần bảo trì mạng lưới, hoặc theo yêu cầu cơ quan nhà nước.
+[Điều 8 - Khoản 3] 8.3. Bên B thông báo cho Bên A trong vòng 03 ngày kể từ khi có căn cứ tạm ngừng.
+[Điều 9] ĐIỀU 9. TRÁCH NHIỆM DO VI PHẠM.
+[Điều 9 - Khoản 1] 9.1. Bồi thường thiệt hại.
+[Điều 9 - Khoản 1 - Điểm a] a. Bên vi phạm phải bồi thường thiệt hại trực tiếp cho bên bị vi phạm.
+[Điều 9 - Khoản 1 - Điểm b] b. Nếu Bên A chậm thanh toán, Bên B có quyền tính lãi 150% lãi suất tiết kiệm 12 tháng của ngân hàng nhưng không quá 20%/năm.
+[Điều 9 - Khoản 2] 9.2. Phạt vi phạm.
 Bên vi phạm phải nộp phạt 08% giá trị phần nghĩa vụ bị vi phạm.
-ĐIỀU 10. BẢO MẬT THÔNG TIN.
-10.1. Các bên cam kết giữ bí mật thông tin liên quan đến Hợp đồng và không tiết lộ cho bên thứ ba nếu không có sự đồng ý bằng văn bản.
-10.2. Nghĩa vụ bảo mật không giới hạn thời gian và không gian. Vi phạm phải bồi thường thiệt hại thực tế.
-ĐIỀU 11. SỰ KIỆN BẤT KHẢ KHÁNG.
-11.1. Sự kiện bất khả kháng là các sự kiện khách quan, không thể lường trước như thiên tai, chiến tranh, dịch bệnh, thay đổi chính sách pháp luật.
-11.2. Bên bị ảnh hưởng được miễn trách nhiệm nhưng phải thông báo kịp thời và áp dụng mọi biện pháp khắc phục.
-11.3. Nếu sự kiện kéo dài, các bên có thể thỏa thuận chấm dứt Hợp đồng.
-ĐIỀU 12. QUYỀN SỞ HỮU TRÍ TUỆ.
+[Điều 10] ĐIỀU 10. BẢO MẬT THÔNG TIN.
+[Điều 10 - Khoản 1] 10.1. Các bên cam kết giữ bí mật thông tin liên quan đến Hợp đồng và không tiết lộ cho bên thứ ba nếu không có sự đồng ý bằng văn bản.
+[Điều 10 - Khoản 2] 10.2. Nghĩa vụ bảo mật không giới hạn thời gian và không gian. Vi phạm phải bồi thường thiệt hại thực tế.
+[Điều 11] ĐIỀU 11. SỰ KIỆN BẤT KHẢ KHÁNG.
+[Điều 11 - Khoản 1] 11.1. Sự kiện bất khả kháng là các sự kiện khách quan, không thể lường trước như thiên tai, chiến tranh, dịch bệnh, thay đổi chính sách pháp luật.
+[Điều 11 - Khoản 2] 11.2. Bên bị ảnh hưởng được miễn trách nhiệm nhưng phải thông báo kịp thời và áp dụng mọi biện pháp khắc phục.
+[Điều 11 - Khoản 3] 11.3. Nếu sự kiện kéo dài, các bên có thể thỏa thuận chấm dứt Hợp đồng.
+[Điều 12] ĐIỀU 12. QUYỀN SỞ HỮU TRÍ TUỆ.
 Quyền sở hữu trí tuệ đối với phần mềm và ứng dụng thuộc về Bên B hoặc chủ sở hữu hợp pháp.
-ĐIỀU 13. LUẬT ĐIỀU CHỈNH VÀ GIẢI QUYẾT TRANH CHẤP.
-13.1. Hợp đồng được điều chỉnh bởi pháp luật Việt Nam.
-13.2. Tranh chấp được ưu tiên giải quyết qua thương lượng, hòa giải.
-13.3. Nếu không hòa giải được, tranh chấp sẽ được đưa ra Tòa án có thẩm quyền. Bên thua kiện chịu án phí.
-ĐIỀU 14. THÔNG BÁO.
-14.1. Các bên thông báo đầu mối liên hệ chính thức.
-14.2. Thông báo phải bằng văn bản, gửi qua thư bảo đảm, fax hoặc email.
-14.3. Thông báo cuối cùng theo thời gian sẽ được áp dụng.
-14.4. Các bên phải thông báo ngay khi có thay đổi về địa chỉ, số điện thoại hoặc đầu mối liên hệ.
-ĐIỀU 15. ĐIỀU KHOẢN THI HÀNH.
-15.1. Hợp đồng có hiệu lực kể từ ngày ký.
-15.2. Các bên cam kết thực hiện đúng các điều khoản với tinh thần thiện chí.
-15.3. Mọi sửa đổi phải được lập thành văn bản và có chữ ký của đại diện có thẩm quyền.
-15.4. Hợp đồng được lập thành 04 bản, mỗi bên giữ 02 bản có giá trị pháp lý như nhau.
+[Điều 13] ĐIỀU 13. LUẬT ĐIỀU CHỈNH VÀ GIẢI QUYẾT TRANH CHẤP.
+[Điều 13 - Khoản 1] 13.1. Hợp đồng được điều chỉnh bởi pháp luật Việt Nam.
+[Điều 13 - Khoản 2] 13.2. Tranh chấp được ưu tiên giải quyết qua thương lượng, hòa giải.
+[Điều 13 - Khoản 3] 13.3. Nếu không hòa giải được, tranh chấp sẽ được đưa ra Tòa án có thẩm quyền. Bên thua kiện chịu án phí.
+[Điều 14] ĐIỀU 14. THÔNG BÁO.
+[Điều 14 - Khoản 1] 14.1. Các bên thông báo đầu mối liên hệ chính thức.
+[Điều 14 - Khoản 2] 14.2. Thông báo phải bằng văn bản, gửi qua thư bảo đảm, fax hoặc email.
+[Điều 14 - Khoản 3] 14.3. Thông báo cuối cùng theo thời gian sẽ được áp dụng.
+[Điều 14 - Khoản 4] 14.4. Các bên phải thông báo ngay khi có thay đổi về địa chỉ, số điện thoại hoặc đầu mối liên hệ.
+[Điều 15] ĐIỀU 15. ĐIỀU KHOẢN THI HÀNH.
+[Điều 15 - Khoản 1] 15.1. Hợp đồng có hiệu lực kể từ ngày ký.
+[Điều 15 - Khoản 2] 15.2. Các bên cam kết thực hiện đúng các điều khoản với tinh thần thiện chí.
+[Điều 15 - Khoản 3] 15.3. Mọi sửa đổi phải được lập thành văn bản và có chữ ký của đại diện có thẩm quyền.
+[Điều 15 - Khoản 4] 15.4. Hợp đồng được lập thành 04 bản, mỗi bên giữ 02 bản có giá trị pháp lý như nhau.
 
-ĐẠI DIỆN BÊN A.
+[Phần ký tên] ĐẠI DIỆN BÊN A.
 (Ký, ghi rõ họ tên, đóng dấu).
 
 ĐẠI DIỆN BÊN B.

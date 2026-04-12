@@ -1,4 +1,4 @@
-CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
+[Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập – Tự do – Hạnh phúc.
 Hà Nội, ngày 20 tháng 05 năm 2024.
 HỢP ĐỒNG GIAO KHOÁN.
@@ -6,7 +6,7 @@ Số: 123/2024/HĐGK-TUANHUY.
 DỰ ÁN: Xây dựng hạ tầng kỹ thuật khu đô thị mới An Khánh.
 GÓI THẦU: Cung cấp và lắp đặt hệ thống tủ điện phân phối trung thế.
 GIỮA 02 BÊN GỒM:
-CHỦ ĐẦU TƯ (SAU ĐÂY GỌI LÀ “BÊN A”).
+[Mục Bên A] CHỦ ĐẦU TƯ (SAU ĐÂY GỌI LÀ “BÊN A”).
 CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG AN KHÁNH.
 Giấy đăng ký doanh nghiệp số: 0102030405 do Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 10/01/2015.
 Mã số thuế: 0102030405.
@@ -15,7 +15,7 @@ Mã số thuế: 0102030405.
 Fax: 0243.555.777.
 Đại diện bởi: Ông Nguyễn Văn An.
 Chức vụ: Tổng Giám đốc.
-NHÀ CUNG CẤP (SAU ĐÂY GỌI LÀ “BÊN B”).
+[Mục Bên B] NHÀ CUNG CẤP (SAU ĐÂY GỌI LÀ “BÊN B”).
 CÔNG TY TNHH THIẾT BỊ ĐIỆN TUẤN HUY.
 Giấy đăng ký doanh nghiệp số: 0306070809 do Sở Kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 15/02/2018.
 Mã số thuế: 0306070809.
@@ -24,49 +24,49 @@ Mã số thuế: 0306070809.
 Fax: 0283.999.777.
 Đại diện bởi: Bà Trần Thị Bích.
 Chức vụ: Giám đốc.
-XÉT RẰNG:
+[Căn cứ] XÉT RẰNG:
 Bên A là một doanh nghiệp được thành lập hợp pháp theo pháp luật Việt Nam, hiện đã được cấp phép thực hiện Dự án xây dựng hạ tầng kỹ thuật khu đô thị mới An Khánh tại huyện Hoài Đức, thành phố Hà Nội.
 Bên B là một doanh nghiệp được thành lập hợp pháp theo pháp luật Việt Nam, có đầy đủ năng lực thực hiện Gói thầu cung cấp và lắp đặt hệ thống tủ điện phân phối trung thế cho Dự án nêu trên của Bên A.
 Bên A chấp thuận và Bên B đồng ý cung cấp Gói thầu nêu trên cho Dự án của Bên A theo Hồ sơ mời thầu với giá trị hợp đồng là 18.236.874.500 VNĐ (Bằng chữ: Mười tám tỷ, hai trăm ba mươi sáu triệu, tám trăm bảy mươi bốn nghìn, năm trăm đồng Việt Nam), chưa bao gồm thuế giá trị gia tăng (VAT).
 Giá trị này bao gồm chi phí thực hiện, hoàn thành công trình và khắc phục các sự cố trong quá trình lắp đặt, với thông số kỹ thuật, chi tiết sản phẩm, số lượng, đơn giá và thành tiền theo phụ lục chi tiết đính kèm hợp đồng ngày 20/05/2024.
 Hai Bên thiết lập hợp đồng này nhằm quy định các điều khoản và điều kiện điều chỉnh quyền và nghĩa vụ của các Bên theo nội dung thỏa thuận thống nhất.
-VÌ VẬY, CÁC BÊN THỎA THUẬN NHƯ SAU:
-ĐIỀU KHOẢN ĐỊNH NGHĨA.
+[Thông tin chung] VÌ VẬY, CÁC BÊN THỎA THUẬN NHƯ SAU:
+[Điều khoản định nghĩa] ĐIỀU KHOẢN ĐỊNH NGHĨA.
 Trừ khi ngữ cảnh có quy định khác, các thuật ngữ dưới đây được hiểu như sau:
-1.1. "Hàng hoá cung cấp, lắp đặt" nghĩa là các thiết bị điện trung thế, chi tiết thể hiện theo Phụ lục về Danh mục hàng hóa đính kèm.
+[Điều khoản định nghĩa - 1.1] 1.1. "Hàng hoá cung cấp, lắp đặt" nghĩa là các thiết bị điện trung thế, chi tiết thể hiện theo Phụ lục về Danh mục hàng hóa đính kèm.
 "Các Dịch vụ liên quan" nghĩa là các dịch vụ hỗ trợ cho hoạt động cung cấp, lắp đặt và bảo hành hàng hóa bao gồm vận chuyển, bảo hiểm, vận hành, hỗ trợ kỹ thuật sau lắp đặt và các nghĩa vụ khác của Bên B.
 "Địa điểm thực hiện" nghĩa là khu vực thi công Dự án tại huyện Hoài Đức, thành phố Hà Nội.
 "Hợp đồng" nghĩa là các thỏa thuận được ký kết bởi đại diện hợp pháp của Bên A và Bên B, bao gồm tất cả các hồ sơ đính kèm, phụ lục, các văn bản tham chiếu, chỉ dẫn nhà thầu, mẫu đơn dự thầu, chỉ dẫn kỹ thuật và biểu tiên lượng.
-1.2. "Các hồ sơ liên quan hợp đồng" bao gồm tất cả các phụ lục đính kèm và biểu mẫu được coi là một phần không thể tách rời của hợp đồng.
+[Điều khoản định nghĩa - 1.2] 1.2. "Các hồ sơ liên quan hợp đồng" bao gồm tất cả các phụ lục đính kèm và biểu mẫu được coi là một phần không thể tách rời của hợp đồng.
 Nếu có sự mơ hồ hoặc không thống nhất giữa các hồ sơ, thứ tự ưu tiên áp dụng như sau:
 1) Thỏa thuận hợp đồng.
 2) Thư chấp nhận ngày 10/05/2024.
 3) Mức giá cuối cùng từ Bên B gửi cho Bên A vào ngày 04/07/2017.
 4) Biên bản đàm phán kỹ thuật ngày 15/05/2024.
 5) Phụ lục hợp đồng.
-1.3. "Giá trị hợp đồng" nghĩa là tổng số tiền Bên A phải thanh toán cho Bên B để thực hiện các quyền và nghĩa vụ theo Điều 1.
+[Điều khoản định nghĩa - 1.3] 1.3. "Giá trị hợp đồng" nghĩa là tổng số tiền Bên A phải thanh toán cho Bên B để thực hiện các quyền và nghĩa vụ theo Điều 1.
 "Đồng" hoặc "VNĐ" nghĩa là đơn vị tiền tệ hợp pháp của nước Cộng hòa xã hội chủ nghĩa Việt Nam.
 "Pháp luật Việt Nam" nghĩa là toàn bộ hệ thống văn bản quy phạm pháp luật của nhà nước Việt Nam đã được ban hành, có hiệu lực pháp lý cũng như các sửa đổi, bổ sung tại từng thời điểm.
-ĐIỀU 1. GIÁ TRỊ HỢP ĐỒNG VÀ PHƯƠNG THỨC THANH TOÁN.
-1.1. Giá trị hợp đồng.
+[Điều 1] ĐIỀU 1. GIÁ TRỊ HỢP ĐỒNG VÀ PHƯƠNG THỨC THANH TOÁN.
+[Điều 1 - 1.1] 1.1. Giá trị hợp đồng.
 Tổng giá trị hợp đồng là 18.236.874.500 VNĐ (Bằng chữ: Mười tám tỷ, hai trăm ba mươi sáu triệu, tám trăm bảy mươi bốn nghìn, năm trăm đồng Việt Nam).
 Giá trị này không bao gồm thuế giá trị gia tăng (VAT).
 Đơn giá hợp đồng là cố định trong suốt thời gian thực hiện.
 Giá trị hợp đồng đã bao gồm chi phí cung cấp, vận chuyển, lắp đặt hàng hóa đến chân công trình và các dịch vụ liên quan, các loại thuế, phí theo quy định pháp luật (trừ VAT).
 Đối với hàng hóa phát sinh ngoài Phụ lục, Bên A sẽ gửi yêu cầu, Bên B lập báo giá, sau khi hai bên thống nhất sẽ ký xác nhận bằng Phụ lục bổ sung.
-1.2. Điều kiện thanh toán.
+[Điều 1 - 1.2] 1.2. Điều kiện thanh toán.
 Số lượng hàng hóa theo Biên bản giao nhận thực tế được hai bên xác nhận là cơ sở thanh toán.
 Thanh toán được thực hiện bằng hình thức chuyển khoản theo thông tin tài khoản ngân hàng do Bên B cung cấp:
 - Chủ tài khoản: Công ty TNHH Thiết bị điện Tuấn Huy.
 - Số tài khoản: 1900123456789.
 - Ngân hàng: Ngân hàng TMCP Ngoại thương Việt Nam (Vietcombank) – Chi nhánh TP.HCM.
-1.3. Phương thức thanh toán.
+[Điều 1 - 1.3] 1.3. Phương thức thanh toán.
 Việc thanh toán được chia làm 04 giai đoạn:
 Giai đoạn 01 (tạm ứng): Bên A tạm ứng 30% giá trị hợp đồng, tương đương 5.471.062.350 VNĐ trong vòng 03 ngày làm việc kể từ khi nhận được Giấy đề nghị tạm ứng và Bản gốc Thư bảo lãnh hoàn tạm ứng.
 Giai đoạn 02: Sau khi Bên A nhận được thông báo tập kết hàng, cán bộ kỹ thuật kiểm tra đạt yêu cầu, Bên A thanh toán đến 60% giá trị hợp đồng trong vòng 05 ngày làm việc.
 Giai đoạn 03: Sau khi Bên B thi công lắp đặt xong và có Biên bản nghiệm thu hoàn thành, Bên A thanh toán 05% giá trị hợp đồng trong vòng 05 ngày làm việc kể từ khi hoàn thành thử nghiệm.
 Giai đoạn 04: Bên A thanh toán 05% giá trị hợp đồng còn lại trong vòng 10 ngày làm việc sau khi nhận giấy chứng nhận nghiệm thu từ chủ đầu tư.
-ĐIỀU 2. THỜI GIAN, ĐỊA ĐIỂM VÀ PHƯƠNG THỨC GIAO HÀNG.
+[Điều 2] ĐIỀU 2. THỜI GIAN, ĐỊA ĐIỂM VÀ PHƯƠNG THỨC GIAO HÀNG.
 Bên B chịu trách nhiệm bốc xếp và giao hàng đến chân công trình trong vòng 45 ngày kể từ ngày nhận được đơn đặt hàng chính thức của Bên A.
 Thời gian giao hàng phải được tuân thủ nghiêm ngặt.
 Trước khi bàn giao, Bên B phải cung cấp các giấy tờ:
@@ -77,47 +77,47 @@ Trước khi bàn giao, Bên B phải cung cấp các giấy tờ:
 5. Bản gốc Phiếu đóng gói.
 6. Hóa đơn gốc.
 Địa điểm giao hàng: Công trường Dự án tại huyện Hoài Đức, thành phố Hà Nội.
-ĐIỀU 3. PHẠT DO CHẬM TRỄ GIAO NHẬN HÀNG, CHẬM THANH TOÁN.
-3.1. Nếu Bên B chậm trễ giao hàng hoặc lắp đặt không do lỗi của Bên A, Bên B bị phạt 0,2% mỗi tuần trên giá trị đơn hàng bị chậm, tối đa không quá 5%.
-3.2. Mức phạt này không được thay đổi bằng Thư chấp nhận.
-3.3. Việc thanh toán tiền phạt không miễn trừ nghĩa vụ của Bên B.
-3.4. Nếu gặp khó khăn, Bên B phải thông báo bằng văn bản cho Bên A để xem xét gia hạn.
-3.5. Nếu Bên A không nhận hàng theo yêu cầu, Bên A bị phạt 2% giá trị hợp đồng mỗi ngày chậm trễ, tối đa 10 ngày.
-3.6. Nếu Bên A chậm thanh toán, Bên A bị phạt 2% giá trị hợp đồng mỗi ngày chậm trễ, tối đa 10 ngày.
-ĐIỀU 4. KIỂM TRA HÀNG HÓA KHI GIAO NHẬN.
-4.1. Bên B chịu rủi ro và chi phí vận chuyển đến chân công trình.
+[Điều 3] ĐIỀU 3. PHẠT DO CHẬM TRỄ GIAO NHẬN HÀNG, CHẬM THANH TOÁN.
+[Điều 3 - 3.1] 3.1. Nếu Bên B chậm trễ giao hàng hoặc lắp đặt không do lỗi của Bên A, Bên B bị phạt 0,2% mỗi tuần trên giá trị đơn hàng bị chậm, tối đa không quá 5%.
+[Điều 3 - 3.2] 3.2. Mức phạt này không được thay đổi bằng Thư chấp nhận.
+[Điều 3 - 3.3] 3.3. Việc thanh toán tiền phạt không miễn trừ nghĩa vụ của Bên B.
+[Điều 3 - 3.4] 3.4. Nếu gặp khó khăn, Bên B phải thông báo bằng văn bản cho Bên A để xem xét gia hạn.
+[Điều 3 - 3.5] 3.5. Nếu Bên A không nhận hàng theo yêu cầu, Bên A bị phạt 2% giá trị hợp đồng mỗi ngày chậm trễ, tối đa 10 ngày.
+[Điều 3 - 3.6] 3.6. Nếu Bên A chậm thanh toán, Bên A bị phạt 2% giá trị hợp đồng mỗi ngày chậm trễ, tối đa 10 ngày.
+[Điều 4] ĐIỀU 4. KIỂM TRA HÀNG HÓA KHI GIAO NHẬN.
+[Điều 4 - 4.1] 4.1. Bên B chịu rủi ro và chi phí vận chuyển đến chân công trình.
 Bên A có quyền kiểm tra hàng hóa, nếu phát hiện không đúng thông số kỹ thuật hoặc thiếu chứng từ, Bên B phải giải trình trong 15 ngày và thay thế hàng hóa phù hợp trong 15 ngày tiếp theo.
-4.2. Bên B có trách nhiệm mua bảo hiểm hàng hóa trong quá trình vận chuyển.
-4.3. Nếu Bên A không bố trí người nhận hàng, Bên B có quyền vận chuyển hàng về kho và Bên A phải chịu mọi chi phí phát sinh.
-ĐIỀU 5. CHẤT LƯỢNG, QUY CÁCH KỸ THUẬT.
-5.1. Hàng hóa phải mới 100%, nguyên đai, nguyên kiện.
+[Điều 4 - 4.2] 4.2. Bên B có trách nhiệm mua bảo hiểm hàng hóa trong quá trình vận chuyển.
+[Điều 4 - 4.3] 4.3. Nếu Bên A không bố trí người nhận hàng, Bên B có quyền vận chuyển hàng về kho và Bên A phải chịu mọi chi phí phát sinh.
+[Điều 5] ĐIỀU 5. CHẤT LƯỢNG, QUY CÁCH KỸ THUẬT.
+[Điều 5 - 5.1] 5.1. Hàng hóa phải mới 100%, nguyên đai, nguyên kiện.
 Bên B đảm bảo hàng hóa không có khuyết tật do thiết kế, vật liệu hoặc tay nghề.
 Nhà cung cấp chịu trách nhiệm về mọi chi phí, tổn thất nếu hàng hóa hư hỏng do lỗi sản xuất hoặc lắp đặt cho đến khi hết hạn bảo hành.
-5.2. Bên B cung cấp đầy đủ chứng nhận xuất xứ (CO), chứng nhận chất lượng (CQ) và đào tạo cán bộ kỹ thuật của Bên A vận hành hệ thống.
-ĐIỀU 6. QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN.
-6.1. Quyền và nghĩa vụ của Bên A:
+[Điều 5 - 5.2] 5.2. Bên B cung cấp đầy đủ chứng nhận xuất xứ (CO), chứng nhận chất lượng (CQ) và đào tạo cán bộ kỹ thuật của Bên A vận hành hệ thống.
+[Điều 6] ĐIỀU 6. QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN.
+[Điều 6 - 6.1] 6.1. Quyền và nghĩa vụ của Bên A:
 a. Kiểm tra chất lượng, số lượng hàng hóa khi nhận.
 b. Bố trí nhân sự, phương tiện để nhận hàng.
 c. Thanh toán đầy đủ tiền hàng đúng hạn.
-6.2. Quyền và nghĩa vụ của Bên B:
+[Điều 6 - 6.2] 6.2. Quyền và nghĩa vụ của Bên B:
 a. Cung cấp đầy đủ chứng từ, hóa đơn GTGT hợp pháp.
 b. Đảm bảo số lượng, chủng loại, chất lượng hàng hóa đúng tiến độ.
 c. Thông báo kịp thời nếu không có hàng để giao và chịu trách nhiệm bồi thường thiệt hại nếu chậm trễ.
-ĐIỀU 7. BẢO HÀNH.
-7.1. Hàng hóa được bảo hành theo tiêu chuẩn nhà sản xuất, tối đa 24 tháng.
+[Điều 7] ĐIỀU 7. BẢO HÀNH.
+[Điều 7 - 7.1] 7.1. Hàng hóa được bảo hành theo tiêu chuẩn nhà sản xuất, tối đa 24 tháng.
 Khi có thông báo bảo hành, trong vòng 24 giờ, Bên B phải có mặt tại hiện trường để xác định lỗi.
 Đối với các dịch vụ khẩn cấp như sửa chữa sự cố hệ thống điện, đội ngũ của Bên B phải có mặt trong vòng 02 giờ.
-7.2. Bảo hành không áp dụng cho các hư hỏng do vận hành sai quy trình hoặc nguyên nhân khách quan.
-7.3. Các yêu cầu bồi thường về khuyết tật sản xuất phải được giải quyết trước khi kết thúc thời hạn bảo hành.
-ĐIỀU 8. CHẤM DỨT HỢP ĐỒNG.
-8.1. Bên A chỉ được chấm dứt hợp đồng nếu Bên B vi phạm nghĩa vụ mà không khắc phục sau khi đã được thông báo bằng văn bản.
-8.2. Bên B có quyền tạm ngưng hoặc đơn phương chấm dứt hợp đồng nếu Bên A vi phạm nghĩa vụ thanh toán hoặc các nghĩa vụ cơ bản khác.
+[Điều 7 - 7.2] 7.2. Bảo hành không áp dụng cho các hư hỏng do vận hành sai quy trình hoặc nguyên nhân khách quan.
+[Điều 7 - 7.3] 7.3. Các yêu cầu bồi thường về khuyết tật sản xuất phải được giải quyết trước khi kết thúc thời hạn bảo hành.
+[Điều 8] ĐIỀU 8. CHẤM DỨT HỢP ĐỒNG.
+[Điều 8 - 8.1] 8.1. Bên A chỉ được chấm dứt hợp đồng nếu Bên B vi phạm nghĩa vụ mà không khắc phục sau khi đã được thông báo bằng văn bản.
+[Điều 8 - 8.2] 8.2. Bên B có quyền tạm ngưng hoặc đơn phương chấm dứt hợp đồng nếu Bên A vi phạm nghĩa vụ thanh toán hoặc các nghĩa vụ cơ bản khác.
 Bên B phải thông báo bằng văn bản trước 03 ngày khi đơn phương chấm dứt.
-ĐIỀU 9. QUY ĐỊNH VỀ TRỤC LỢI.
+[Điều 9] ĐIỀU 9. QUY ĐỊNH VỀ TRỤC LỢI.
 Hai bên cam kết không chi hoặc nhận hoa hồng, chiết khấu, tiền chênh lệch giá.
 Nếu phát hiện hành vi trục lợi, bên bị hại có quyền chấm dứt hợp đồng và yêu cầu bồi thường thiệt hại.
-ĐIỀU 10. BẤT KHẢ KHÁNG.
-10.1. Sự kiện bất khả kháng là các sự kiện khách quan không thể lường trước như thiên tai, chiến tranh, thay đổi chính sách pháp luật.
-10.2. Các bên được miễn trừ nghĩa vụ nếu việc thực hiện bị chậm trễ do sự kiện bất khả kháng.
-10.3. Bên gặp sự kiện bất khả kháng phải thông báo cho bên kia trong vòng 10 ngày.
-10.4. Nếu sự kiện bất khả kháng kéo dài quá 06 tháng, mỗi bên có quyền chấm dứt hợp đồng mà không phải bồi thường.
+[Điều 10] ĐIỀU 10. BẤT KHẢ KHÁNG.
+[Điều 10 - 10.1] 10.1. Sự kiện bất khả kháng là các sự kiện khách quan không thể lường trước như thiên tai, chiến tranh, thay đổi chính sách pháp luật.
+[Điều 10 - 10.2] 10.2. Các bên được miễn trừ nghĩa vụ nếu việc thực hiện bị chậm trễ do sự kiện bất khả kháng.
+[Điều 10 - 10.3] 10.3. Bên gặp sự kiện bất khả kháng phải thông báo cho bên kia trong vòng 10 ngày.
+[Điều 10 - 10.4] 10.4. Nếu sự kiện bất khả kháng kéo dài quá 06 tháng, mỗi bên có quyền chấm dứt hợp đồng mà không phải bồi thường.

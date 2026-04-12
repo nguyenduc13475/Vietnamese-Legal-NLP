@@ -1,10 +1,7 @@
 import os
-import tempfile
 
-import aspose.words as aw
 from fastapi import APIRouter, File, UploadFile
 from google import genai
-from google.genai import types
 
 from api.schemas import (
     ExtractRequest,
@@ -13,6 +10,7 @@ from api.schemas import (
     IngestResponse,
     QARequest,
     QAResponse,
+    RawFilesResponse,
 )
 from src.extraction.intent_classifier import classify_intent
 from src.extraction.ner_engine import extract_entities
@@ -38,21 +36,27 @@ def extract_info(request: ExtractRequest):
     """
     Execute the full pipeline for Assignment 1 & 2.
     """
-    clauses = segment_clauses(request.text)
+    # segment_clauses returns a list of dicts: [{"text": "...", "context": "..."}]
+    clauses_data = segment_clauses(request.text)
     results = []
 
-    for clause in clauses:
-        ents = extract_entities(clause)
-        deps = parse_dependency(clause)
-        chunks = chunk_np(clause)
+    for item in clauses_data:
+        clause_text = item["text"]
+
+        # Ensure we pass the string 'text' to NLP engines, not the dictionary
+        ents = extract_entities(clause_text)
+        deps = parse_dependency(clause_text)
+        chunks = chunk_np(clause_text)
+
         results.append(
             {
-                "clause": clause,
+                "clause": clause_text,
                 "np_chunks": chunks,
                 "dependencies": deps,
-                "entities": ents,
-                "srl": extract_srl(clause, ents, deps, chunks),
-                "intent": classify_intent(clause),
+                # Explicitly pass entity objects with labels
+                "entities": [{"text": e["text"], "label": e["label"]} for e in ents],
+                "srl": extract_srl(clause_text, ents, deps, chunks),
+                "intent": classify_intent(clause_text),
             }
         )
 
@@ -73,31 +77,106 @@ def ask_question(request: QARequest):
     return QAResponse(**result)
 
 
-@router.get("/sources")
-def get_sources():
-    """
-    Retrieve a list of all processed contracts in data/processed
-    and cross-reference them with their indexing status in the Vector DB.
-    """
+@router.get("/documents/processed")
+def list_processed_documents():
+    """List all cleaned text files in data/processed independently."""
     processed_dir = "data/processed"
     os.makedirs(processed_dir, exist_ok=True)
+    files = [f for f in os.listdir(processed_dir) if f.endswith(".txt")]
+    return {"files": files}
 
-    # Read physical files
-    processed_files = [f for f in os.listdir(processed_dir) if f.endswith(".txt")]
+
+@router.get("/database/sources")
+def get_indexed_sources():
+    """List only sources currently existing in the Vector Database."""
     indexed_sources = retriever.get_available_sources()
+    return {"sources": indexed_sources}
 
-    sources_status = []
-    for pf in processed_files:
-        sources_status.append({"filename": pf, "indexed": pf in indexed_sources})
 
-    # Catch edge case: files in Vector DB but deleted from the physical folder
-    for src in indexed_sources:
-        if src not in processed_files and src != "unknown":
-            sources_status.append(
-                {"filename": src, "indexed": True, "missing_file": True}
-            )
+@router.get("/documents/raw", response_model=RawFilesResponse)
+def list_raw_documents():
+    """List all original files in data/raw."""
+    raw_dir = "data/raw"
+    os.makedirs(raw_dir, exist_ok=True)
+    files = [
+        f
+        for f in os.listdir(raw_dir)
+        if os.path.isfile(os.path.join(raw_dir, f)) and not f.startswith(".")
+    ]
+    return RawFilesResponse(files=files)
 
-    return {"sources": sources_status}
+
+@router.post("/documents/{filename}/reprocess", response_model=IngestResponse)
+async def reprocess_raw_document(filename: str):
+    """
+    Take an existing file from data/raw, clean it via Gemini,
+    and update the processed/vector database (overriding existing data).
+    """
+    raw_path = os.path.join("data/raw", filename)
+    if not os.path.exists(raw_path):
+        return IngestResponse(
+            message=f"Error: Raw file {filename} not found.", num_clauses=0
+        )
+
+    # 1. Clean/Anonymize using Gemini
+    try:
+        client = genai.Client(api_key=google_api_key)
+        uploaded_file = client.files.upload(file=raw_path)
+        response = client.models.generate_content(
+            model="gemini-3.1-flash-lite-preview",
+            contents=[DOCUMENT_CLEANING_PROMPT, uploaded_file],
+        )
+        text = response.text.strip()
+        # Cleanup Gemini cloud file
+        client.files.delete(name=uploaded_file.name)
+    except Exception as e:
+        print(f"Gemini Processing Error for {filename}: {e}")
+        return IngestResponse(
+            message=f"Gemini processing failed: {str(e)}", num_clauses=0
+        )
+
+    # 2. Overwrite processed txt
+    processed_dir = "data/processed"
+    os.makedirs(processed_dir, exist_ok=True)
+    processed_filename = os.path.splitext(filename)[0] + ".txt"
+    with open(
+        os.path.join(processed_dir, processed_filename), "w", encoding="utf-8"
+    ) as f:
+        f.write(text)
+
+    # 3. Synchronize Vector DB (Delete old if exists, then add new)
+    retriever.delete_document(filename)
+
+    clauses_with_ctx = segment_clauses(text)
+    metadata = []
+    texts = []
+    for item in clauses_with_ctx:
+        clause_text = item["text"]
+        if len(clause_text.strip()) < 5:
+            continue
+
+        texts.append(clause_text)
+        ents = extract_entities(clause_text)
+        deps = parse_dependency(clause_text)
+        chunks = chunk_np(clause_text)
+        srl = extract_srl(clause_text, ents, deps, chunks)
+
+        metadata.append(
+            {
+                "source": str(filename),
+                "context": str(item.get("context", "General")),
+                "intent": str(classify_intent(clause_text)),
+                "entities": str([e["text"] for e in ents]),
+                "predicate": str(srl.get("predicate", "N/A")),
+                "srl_roles": str(srl.get("roles", {})),
+                "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
+            }
+        )
+
+    retriever.add_clauses(texts, metadata)
+    return IngestResponse(
+        message=f"Successfully reprocessed {filename}", num_clauses=len(texts)
+    )
 
 
 @router.get("/database/state")
@@ -109,6 +188,85 @@ def get_database_state(limit: int | None = None, offset: int = 0):
     records = retriever.get_all_records(limit=limit, offset=offset)
     total = retriever.get_total_count()
     return {"total": total, "records": records}
+
+
+@router.delete("/documents/raw/{filename}")
+def delete_raw_document(filename: str):
+    """Delete only the raw source file. No impact on processed data."""
+    try:
+        raw_path = os.path.join("data/raw", filename)
+        if os.path.exists(raw_path):
+            os.remove(raw_path)
+            return {"status": "success", "message": f"Deleted raw file: {filename}"}
+        return {"status": "error", "message": "File not found"}
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
+
+
+@router.delete("/documents/processed/{filename}")
+def delete_processed_document(filename: str):
+    """Delete only the processed .txt file. No impact on raw files or Vector DB."""
+    try:
+        processed_path = os.path.join("data/processed", filename)
+        if os.path.exists(processed_path):
+            os.remove(processed_path)
+            return {
+                "status": "success",
+                "message": f"Deleted processed file: {filename}",
+            }
+        return {"status": "error", "message": "File not found"}
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
+
+
+@router.delete("/database/source/{source_name}")
+def delete_vector_source(source_name: str):
+    """Delete vectors belonging to a specific source from the DB only."""
+    try:
+        success = retriever.delete_document(source_name)
+        if success:
+            return {
+                "status": "success",
+                "message": f"Deleted vectors for source: {source_name}",
+            }
+        return {"status": "error", "message": "Failed to delete vectors"}
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
+
+
+@router.post("/documents/rename")
+def rename_document(target_dir: str, old_name: str, new_name: str):
+    """
+    Rename a file and synchronize with Vector DB if target is data/processed.
+    """
+    try:
+        valid_dirs = ["data/raw", "data/processed"]
+        if target_dir not in valid_dirs:
+            return {"status": "error", "message": "Invalid directory"}
+
+        old_path = os.path.join(target_dir, old_name)
+        new_path = os.path.join(target_dir, new_name)
+
+        if not os.path.exists(old_path):
+            return {"status": "error", "message": "Source file not found"}
+
+        # Perform filesystem rename
+        os.rename(old_path, new_path)
+
+        # Synchronize Vector DB metadata if the processed file is renamed
+        # Since processed filenames often map to the 'source' field in DB
+        if target_dir == "data/processed":
+            # Check if we need to map .txt back to original raw filename or just sync the string
+            # Convention: source field in DB usually matches the RAW filename.
+            # If your convention is processed filename, use this:
+            retriever.update_source_name(old_name, new_name)
+
+        return {
+            "status": "success",
+            "message": f"Renamed {old_name} to {new_name} and synced DB.",
+        }
+    except Exception as e:
+        return {"status": "error", "detail": str(e)}
 
 
 @router.post("/ingest", response_model=IngestResponse)
@@ -134,7 +292,8 @@ def ingest_document(request: IngestRequest):
         meta = {
             "source": request.filename,
             "intent": intent,
-            "entities": str([e["text"] for e in ents]),
+            # Fix: preserve labels for the vector DB
+            "entities": str([{"text": e["text"], "label": e["label"]} for e in ents]),
             "predicate": str(srl.get("predicate", "")),
             "srl_roles": str(srl.get("roles", {})),
             "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
@@ -150,110 +309,72 @@ def ingest_document(request: IngestRequest):
 
 @router.post("/ingest_file", response_model=IngestResponse)
 async def ingest_file(file: UploadFile = File(...)):
-    """
-    Process uploaded documents (TXT, PDF, DOCX) by converting to PDF if necessary,
-    cleaning via Gemini LLM, and ingesting into the Vector Database.
-    """
     content = await file.read()
     filename = file.filename
 
-    # Save initial upload to temporary file
-    temp_fd, temp_path = tempfile.mkstemp(suffix=f"_{filename}")
-    with os.fdopen(temp_fd, "wb") as f:
+    # Check for duplicates
+    raw_dir = "data/raw"
+    os.makedirs(raw_dir, exist_ok=True)
+    raw_path = os.path.join(raw_dir, filename)
+
+    # Save to data/raw immediately
+    with open(raw_path, "wb") as f:
         f.write(content)
 
-    upload_filepath = temp_path
-    temp_pdf_path = None
-    uploaded_file = None
-
+    # Use Gemini to clean
     try:
-        # Step 1: Convert non-PDF files to PDF to ensure Gemini compatibility
-        if not filename.lower().endswith(".pdf"):
-            try:
-                # Use Aspose.Words for conversion to maintain formatting
-                doc = aw.Document(temp_path)
-                temp_pdf_path = temp_path + ".pdf"
-                doc.save(temp_pdf_path)
-                upload_filepath = temp_pdf_path
-            except Exception as e:
-                print(
-                    f"File conversion failed for {filename}: {e}. Attempting direct upload."
-                )
-
-        # Step 2: Process with Gemini API using the new google-genai SDK
         client = genai.Client(api_key=google_api_key)
-        uploaded_file = client.files.upload(file=upload_filepath)
-
-        prompt = DOCUMENT_CLEANING_PROMPT
+        uploaded_file = client.files.upload(file=raw_path)
         response = client.models.generate_content(
             model="gemini-3.1-flash-lite-preview",
-            contents=[prompt, uploaded_file],
-            config=types.GenerateContentConfig(temperature=0.4),
+            contents=[DOCUMENT_CLEANING_PROMPT, uploaded_file],
         )
         text = response.text.strip()
-
     except Exception as e:
         print(
-            f"Error in Gemini ingestion pipeline for {filename}: {e}. Falling back to local parser."
+            f"Warning: Gemini API document cleaning failed ({e}). Falling back to local parser."
         )
-        # Fallback to the local parser if Gemini/Upload encounters an issue.
         text = parse_and_clean_document(content, filename)
-    finally:
-        # Step 3: Cleanup all temporary files and remote cloud files
-        if uploaded_file:
-            try:
-                client.files.delete(name=uploaded_file.name)
-            except Exception:
-                pass
-        if os.path.exists(temp_path):
-            os.remove(temp_path)
-        if temp_pdf_path and os.path.exists(temp_pdf_path):
-            os.remove(temp_pdf_path)
 
-    # --- ENTERPRISE FIX: Save the cleaned text to data/processed ---
+    # Save to data/processed
     processed_dir = "data/processed"
     os.makedirs(processed_dir, exist_ok=True)
-
-    # Standardize filename to .txt
-    base_name = os.path.splitext(file.filename)[0]
-    processed_filename = f"{base_name}.txt"
-    processed_filepath = os.path.join(processed_dir, processed_filename)
-
-    with open(processed_filepath, "w", encoding="utf-8") as f:
+    processed_filename = os.path.splitext(filename)[0] + ".txt"
+    with open(
+        os.path.join(processed_dir, processed_filename), "w", encoding="utf-8"
+    ) as f:
         f.write(text)
 
-    raw_clauses = segment_clauses(text)
-    clauses = [c for c in raw_clauses if len(c.strip()) > 10]
+    # Indexing with Context
+    clauses_with_ctx = segment_clauses(text)
+    metadata = []
+    texts = []
+    for item in clauses_with_ctx:
+        clause_text = item["text"]
+        if len(clause_text.strip()) < 5:  # Skip fragments
+            continue
 
-    if not clauses:
-        return IngestResponse(
-            message="No valid clauses found to ingest.", num_clauses=0
+        texts.append(clause_text)
+        ents = extract_entities(clause_text)
+        deps = parse_dependency(clause_text)
+        chunks = chunk_np(clause_text)
+        srl = extract_srl(clause_text, ents, deps, chunks)
+
+        # Ensure all metadata fields are present to prevent UI crashes in DB Explorer
+        metadata.append(
+            {
+                "source": str(filename),
+                "context": str(item.get("context", "General")),
+                "intent": str(classify_intent(clause_text)),
+                "np_chunks": str(chunks),
+                "entities": str(
+                    [{"text": e["text"], "label": e["label"]} for e in ents]
+                ),
+                "predicate": str(srl.get("predicate", "N/A")),
+                "srl_roles": str(srl.get("roles", {})),
+                "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
+            }
         )
 
-    # Update file.filename reference to match the saved .txt file for metadata consistency
-    file.filename = processed_filename
-
-    metadata = []
-
-    for clause in clauses:
-        ents = extract_entities(clause)
-        deps = parse_dependency(clause)
-        chunks = chunk_np(clause)
-        srl = extract_srl(clause, ents, deps, chunks)
-        intent = classify_intent(clause)
-
-        meta = {
-            "source": file.filename,
-            "intent": intent,
-            "entities": str([e["text"] for e in ents]),
-            "predicate": str(srl.get("predicate", "")),
-            "srl_roles": str(srl.get("roles", {})),
-            "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
-        }
-        metadata.append(meta)
-
-    retriever.add_clauses(clauses, metadata)
-
-    return IngestResponse(
-        message=f"Successfully ingested {file.filename}", num_clauses=len(clauses)
-    )
+    retriever.add_clauses(texts, metadata)
+    return IngestResponse(message="Success", num_clauses=len(texts))

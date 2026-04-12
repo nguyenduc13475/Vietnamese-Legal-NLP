@@ -1,4 +1,4 @@
-HỢP ĐỒNG KINH TẾ.
+[Thông tin chung] HỢP ĐỒNG KINH TẾ.
 SALES CONTRACT.
 Số: 88/HDDV.
 Căn cứ Bộ luật Dân sự số 91/2015/QH13 ban hành ngày 24/11/2015 bởi Quốc hội khóa XIII, kỳ họp thứ 10.
@@ -26,9 +26,9 @@ MST: 0309876543.
 Chức vụ: Tổng Giám đốc.
 Sau khi thảo luận và thống nhất, hai bên đồng ý ký kết hợp đồng với các điều khoản cụ thể như sau.
 Through negotiation, the Parties hereby agree to trade the following products and conclude the terms and conditions as below.
-Điều 1: SẢN PHẨM HÀNG HÓA.
+[Điều 1] Điều 1: SẢN PHẨM HÀNG HÓA.
 Article 1: COMMODITY.
-1. Số lượng, quy cách, đơn giá sản phẩm và tổng giá trị hợp đồng.
+[Điều 1 - Khoản 1] 1. Số lượng, quy cách, đơn giá sản phẩm và tổng giá trị hợp đồng.
 Quantity, and specification, unit price of commodity and total value of contract.
 Bên B xác nhận đồng ý bán và Bên A đồng ý mua các sản phẩm hàng hóa với số lượng, chất lượng và đơn giá như sau.
 Party B agrees to sell and Party A agrees to buy the following commodity with quantity, quality and unit price as below.
@@ -46,21 +46,21 @@ Delivery weight: Actual Net for net: +/- 10%.
 Packing: Mill’s Standard Packing for Export Gmax 10.000 MT.
 Nhà sản xuất: Công ty Thép Việt - Nhật.
 Manufacture: Viet-Nhat Steel Company.
-Điều 2: THỜI GIAN GIAO HÀNG.
+[Điều 2] Điều 2: THỜI GIAN GIAO HÀNG.
 Article 2: Time of Delivery.
-1. Thời gian giao hàng: Từ ngày 01/06/2024 đến ngày 30/06/2024.
+[Điều 2 - Khoản 1] 1. Thời gian giao hàng: Từ ngày 01/06/2024 đến ngày 30/06/2024.
 Time of Delivery: From 01/06/2024 to 30/06/2024.
-2. Địa chỉ điểm giao hàng: Kho số 5, Cảng Cát Lái, Thành phố Hồ Chí Minh.
+[Điều 2 - Khoản 2] 2. Địa chỉ điểm giao hàng: Kho số 5, Cảng Cát Lái, Thành phố Hồ Chí Minh.
 Place of Delivery: Warehouse No. 5, Cat Lai Port, Ho Chi Minh City.
-Điều 3: PHƯƠNG THỨC THANH TOÁN.
+[Điều 3] Điều 3: PHƯƠNG THỨC THANH TOÁN.
 Article 3: Term of payment.
 Thanh toán bằng tiền mặt hoặc chuyển khoản ngân hàng.
 The payment will be paid to Party B by cash or transfer in Vietnam dong by Party A.
 Trả chậm 30 ngày kể từ ngày giao hàng thành công.
 TTR 30 days after Delivery.
-Điều 4: TRÁCH NHIỆM HAI BÊN.
+[Điều 4] Điều 4: TRÁCH NHIỆM HAI BÊN.
 Article 4: Liabilities of both parties.
-1. Trách nhiệm của Bên B:
+[Điều 4 - Khoản 1] 1. Trách nhiệm của Bên B:
 Liabilities of Party B.
 Cung cấp sản phẩm cho bên A đảm bảo đúng số lượng, chất lượng, mẫu mã, thời gian và địa điểm như đã thỏa thuận.
 Supply products to party A with quantity, specification, time and place of delivery as agreed in sales contract.
@@ -68,13 +68,13 @@ Cung cấp hóa đơn giá trị gia tăng cho bên A ngay sau khi hoàn tất v
 Provide VAT invoice to party A as soon as delivery done.
 Phối hợp cùng bên A xử lý các vấn đề phát sinh trong quá trình thực hiện hợp đồng và giao nhận hàng hóa.
 Cooperate with party A to resolve any matter occur during period of contract and merchandise exchange process.
-2. Trách nhiệm của Bên A:
+[Điều 4 - Khoản 2] 2. Trách nhiệm của Bên A:
 Liabilities of Party A.
 Phối hợp cùng bên B xử lý các vấn đề phát sinh trong quá trình thực hiện hợp đồng và giao nhận hàng hóa.
 Cooperate with party B to resolve any matter occur during period of contract and merchandise exchange process.
 Thanh toán đầy đủ và đúng thời hạn cho bên B số tiền đã thỏa thuận theo kế hoạch thanh toán tại Điều 4.
 Pay in full and on time to party B total amount as agreed in sales contract as well as payment schedule agreed in article 4.
-Điều 5: ĐIỀU KHOẢN CHUNG.
+[Điều 5] Điều 5: ĐIỀU KHOẢN CHUNG.
 Article 5: Other terms.
 Hai bên cam kết thực hiện nghiêm túc các điều khoản đã ghi trong hợp đồng.
 Both parties agree to implement seriously terms and conditions mentioned in sales contract.
@@ -89,7 +89,7 @@ The fee is paid by offending party.
 Hợp đồng này được lập thành 04 bản, mỗi bên giữ 02 bản có giá trị pháp lý ngang nhau và có hiệu lực kể từ ngày ký.
 This contract is made into 04 copies; each party keeps 02 copies which has the same legitimacy.
 This contract comes into effect from the date of signing.
-ĐẠI DIỆN BÊN A.
+[Phần ký tên] ĐẠI DIỆN BÊN A.
 Represented by A.
 ĐẠI DIỆN BÊN B.
 Represented by B.

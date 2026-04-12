@@ -39,41 +39,57 @@ def build_db(input_path: str):
             text = f.read()
 
         # Segment and filter out extremely short/meaningless clauses
-        raw_clauses = segment_clauses(text)
-        clauses = [c for c in raw_clauses if len(c.strip()) > 10]
+        raw_clauses_dicts = segment_clauses(text)
 
-        if not clauses:
+        valid_texts = []
+        metadata = []
+
+        # Filter out invalid clauses and unpack the dictionary
+        for item in raw_clauses_dicts:
+            if len(item["text"].strip()) > 10:
+                valid_texts.append(item["text"])
+                # Initialize metadata with the context from the text cleaner
+                metadata.append({"context": item["context"]})
+
+        if not valid_texts:
             print("  -> Warning: No valid clauses found. Skipping.")
             continue
 
-        metadata = []
-
-        total_c = len(clauses)
-        for c_idx, clause in enumerate(clauses, 1):
-            if c_idx % 10 == 0 or c_idx == total_c:
+        total_c = len(valid_texts)
+        for c_idx, clause_text in enumerate(valid_texts):
+            if (c_idx + 1) % 10 == 0 or (c_idx + 1) == total_c:
                 print(
-                    f"  -> Extracting features: {c_idx}/{total_c} clauses...", end="\r"
+                    f"  -> Extracting features: {c_idx + 1}/{total_c} clauses...",
+                    end="\r",
                 )
 
-            ents = extract_entities(clause)
-            deps = parse_dependency(clause)
-            chunks = chunk_np(clause)
-            srl = extract_srl(clause, ents, deps, chunks)
-            intent = classify_intent(clause)
+            ents = extract_entities(clause_text)
+            deps = parse_dependency(clause_text)
+            chunks = chunk_np(clause_text)
+            srl = extract_srl(clause_text, ents, deps, chunks)
+            intent = classify_intent(clause_text)
 
-            meta = {
-                "source": os.path.basename(file_path),
-                "intent": intent,
-                "entities": str([e["text"] for e in ents]),
-                "predicate": str(srl.get("predicate", "")),
-                "srl_roles": str(srl.get("roles", {})),
-                "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
-            }
-            metadata.append(meta)
+            # Update the pre-initialized metadata dictionary
+            metadata[c_idx].update(
+                {
+                    "source": os.path.basename(file_path),
+                    "intent": intent,
+                    "np_chunks": str(chunks),
+                    # Store both text and label so UI can distinguish PARTY, MONEY, etc.
+                    "entities": str(
+                        [{"text": e["text"], "label": e["label"]} for e in ents]
+                    ),
+                    "predicate": str(srl.get("predicate", "")),
+                    "srl_roles": str(srl.get("roles", {})),
+                    "dependencies": str(
+                        [f"{d['token']}({d['relation']})" for d in deps]
+                    ),
+                }
+            )
 
         print(f"\n  -> Inserting {total_c} clauses into Vector DB...")
-        retriever.add_clauses(clauses, metadata)
-        total_clauses += len(clauses)
+        retriever.add_clauses(valid_texts, metadata)
+        total_clauses += len(valid_texts)
 
     print(f"Success! Indexed total {total_clauses} clauses into Vector DB.")
 

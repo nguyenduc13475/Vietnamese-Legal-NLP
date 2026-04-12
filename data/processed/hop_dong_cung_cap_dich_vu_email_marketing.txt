@@ -1,4 +1,4 @@
-HỢP ĐỒNG CUNG CẤP DỊCH VỤ EMAIL MARKETING ZOZO EMA.
+[Thông tin chung] HỢP ĐỒNG CUNG CẤP DỊCH VỤ EMAIL MARKETING ZOZO EMA.
 Số: 102/EMA/ZOZO-2021.
 Căn cứ vào Luật Thương mại số 36/2005/QH11 được Quốc hội nước Cộng hòa Xã hội Chủ nghĩa Việt Nam thông qua ngày 27/06/2005, có hiệu lực từ ngày 01/01/2006.
 Căn cứ vào Bộ luật Dân sự số 91/2015/QH13 được Quốc hội nước Cộng hòa Xã hội Chủ nghĩa Việt Nam thông qua ngày 24/11/2015, có hiệu lực từ ngày 01/01/2017.
@@ -25,8 +25,8 @@ Tại Ngân hàng: Ngân hàng TMCP Ngoại thương Việt Nam – Vietcombank 
 Mã số thuế: 0107896702.
 Sau khi thảo luận, hai bên đồng ý ký kết hợp đồng với các điều khoản và điều kiện cụ thể sau đây.
 
-ĐIỀU 1: NỘI DUNG VÀ GIÁ TRỊ HỢP ĐỒNG.
-1.1 Bên B thực hiện cung cấp cho Bên A dịch vụ Email Marketing Zozo EMA và hướng dẫn sử dụng gói dịch vụ như sau.
+[Điều 1] ĐIỀU 1: NỘI DUNG VÀ GIÁ TRỊ HỢP ĐỒNG.
+[Điều 1 - Khoản 1] 1.1 Bên B thực hiện cung cấp cho Bên A dịch vụ Email Marketing Zozo EMA và hướng dẫn sử dụng gói dịch vụ như sau.
 STT: 1.
 Tên Gói sản phẩm: Gói email marketing chuyên nghiệp.
 Đơn giá (VNĐ/tháng/gói): 500.000.
@@ -36,57 +36,57 @@ Thành tiền: 5.400.000.
 Tổng cộng (Đã bao gồm VAT): 5.400.000.
 Bằng chữ: Năm triệu bốn trăm nghìn đồng chẵn.
 Thời gian sử dụng: Từ ngày 20/05/2021 đến ngày 20/05/2022.
-1.2 Chi phí nêu trên được thanh toán một lần duy nhất bằng tiền mặt hoặc chuyển khoản ngay sau khi ký kết hợp đồng.
-1.3 Sau khi hợp đồng hết hạn, nếu Bên A có nhu cầu gia hạn, chi phí sẽ được áp dụng theo bảng giá tại thời điểm gia hạn được niêm yết trên website https://ema.zozo.vn.
-1.4 Hình thức thanh toán: Chuyển khoản.
+[Điều 1 - Khoản 2] 1.2 Chi phí nêu trên được thanh toán một lần duy nhất bằng tiền mặt hoặc chuyển khoản ngay sau khi ký kết hợp đồng.
+[Điều 1 - Khoản 3] 1.3 Sau khi hợp đồng hết hạn, nếu Bên A có nhu cầu gia hạn, chi phí sẽ được áp dụng theo bảng giá tại thời điểm gia hạn được niêm yết trên website https://ema.zozo.vn.
+[Điều 1 - Khoản 4] 1.4 Hình thức thanh toán: Chuyển khoản.
 
-ĐIỀU 2: QUYỀN VÀ NGHĨA VỤ CỦA BÊN A.
-2.1 Bên A có trách nhiệm cung cấp đầy đủ thông tin để Bên B khởi tạo dịch vụ và chịu hoàn toàn trách nhiệm pháp lý đối với các thông tin đã cung cấp.
-2.2 Bên A cam kết tuân thủ đạo luật CAN-SPAM theo quy định tại Nghị định 15/2020/NĐ-CP.
-2.3 Bên A chịu trách nhiệm trước pháp luật nếu sử dụng dịch vụ trái với quy định của Nhà nước về phần mềm Internet, quảng cáo và phải tuân thủ các quy định tại Điều 4 cùng chính sách sử dụng của Bên B.
-2.4 Bên A thực hiện thanh toán đầy đủ, đúng thời hạn các khoản phí cho Bên B theo Điều 1 của hợp đồng.
-2.5 Bên A chủ động nộp phí duy trì cho các năm tiếp theo theo quy định tại Điều 1 của hợp đồng.
-2.6 Bên A có quyền yêu cầu Bên B thực hiện đầy đủ và đúng hạn các cam kết dịch vụ Email Marketing Zozo EMA đã thỏa thuận.
+[Điều 2] ĐIỀU 2: QUYỀN VÀ NGHĨA VỤ CỦA BÊN A.
+[Điều 2 - Khoản 1] 2.1 Bên A có trách nhiệm cung cấp đầy đủ thông tin để Bên B khởi tạo dịch vụ và chịu hoàn toàn trách nhiệm pháp lý đối với các thông tin đã cung cấp.
+[Điều 2 - Khoản 2] 2.2 Bên A cam kết tuân thủ đạo luật CAN-SPAM theo quy định tại Nghị định 15/2020/NĐ-CP.
+[Điều 2 - Khoản 3] 2.3 Bên A chịu trách nhiệm trước pháp luật nếu sử dụng dịch vụ trái với quy định của Nhà nước về phần mềm Internet, quảng cáo và phải tuân thủ các quy định tại Điều 4 cùng chính sách sử dụng của Bên B.
+[Điều 2 - Khoản 4] 2.4 Bên A thực hiện thanh toán đầy đủ, đúng thời hạn các khoản phí cho Bên B theo Điều 1 của hợp đồng.
+[Điều 2 - Khoản 5] 2.5 Bên A chủ động nộp phí duy trì cho các năm tiếp theo theo quy định tại Điều 1 của hợp đồng.
+[Điều 2 - Khoản 6] 2.6 Bên A có quyền yêu cầu Bên B thực hiện đầy đủ và đúng hạn các cam kết dịch vụ Email Marketing Zozo EMA đã thỏa thuận.
 
-ĐIỀU 3: QUYỀN VÀ NGHĨA VỤ CỦA BÊN B.
-3.1 Bên B có quyền tạm ngưng tài khoản truy cập hoặc xem xét chấm dứt hợp đồng nếu Bên A vi phạm các điều khoản đã thỏa thuận.
-3.2 Bên B có quyền tạm ngưng và thu hồi dịch vụ nếu Bên A vi phạm quy định về quản lý tài nguyên Internet, hoặc tài khoản email vi phạm tỉ lệ hỏng trên 10%, hoặc tỉ lệ bị đánh dấu spam trên 1%.
-3.3 Trong trường hợp khách hàng thanh lý hợp đồng hoặc hết hạn mà không gia hạn, hệ thống sẽ tự động xóa tài khoản cùng toàn bộ dữ liệu liên quan sau 30 ngày kể từ ngày hết hạn.
-3.4 Bên B đảm bảo dịch vụ hoạt động liên tục, thực hiện bảo hành và sửa chữa nhanh chóng khi cấu hình Zozo EMA gặp sự cố trong thời hạn hợp đồng.
-3.5 Bên B hoàn tất khởi tạo phần mềm trong vòng một ngày làm việc sau khi nhận đủ thông tin và thanh toán từ Bên A.
-3.6 Bên B tư vấn và hỗ trợ Bên A trong quá trình cấu hình và sử dụng sản phẩm.
-3.7 Bên B thông báo cho Bên A trước ít nhất 02 tuần khi hợp đồng sắp hết hạn để Bên A quyết định việc gia hạn dịch vụ.
-3.8 Bên B cung cấp hóa đơn tài chính cho Bên A sau khi Bên A đã hoàn tất 100% nghĩa vụ thanh toán tại Điều 1.
-3.9 Bên B cam kết không cung cấp dữ liệu của Bên A cho bên thứ ba, trừ khi có sự đồng ý của Bên A hoặc yêu cầu từ cơ quan chức năng có thẩm quyền.
-3.10 Bên B có nghĩa vụ đảm bảo dịch vụ hoạt động liên tục, trừ các trường hợp bất khả kháng như thiên tai, lũ lụt, động đất, hỏa hoạn, lỗi hạ tầng mạng diện rộng hoặc lỗi từ nhà cung cấp dịch vụ trung gian.
-3.11 Thông tin hỗ trợ dịch vụ:
+[Điều 3] ĐIỀU 3: QUYỀN VÀ NGHĨA VỤ CỦA BÊN B.
+[Điều 3 - Khoản 1] 3.1 Bên B có quyền tạm ngưng tài khoản truy cập hoặc xem xét chấm dứt hợp đồng nếu Bên A vi phạm các điều khoản đã thỏa thuận.
+[Điều 3 - Khoản 2] 3.2 Bên B có quyền tạm ngưng và thu hồi dịch vụ nếu Bên A vi phạm quy định về quản lý tài nguyên Internet, hoặc tài khoản email vi phạm tỉ lệ hỏng trên 10%, hoặc tỉ lệ bị đánh dấu spam trên 1%.
+[Điều 3 - Khoản 3] 3.3 Trong trường hợp khách hàng thanh lý hợp đồng hoặc hết hạn mà không gia hạn, hệ thống sẽ tự động xóa tài khoản cùng toàn bộ dữ liệu liên quan sau 30 ngày kể từ ngày hết hạn.
+[Điều 3 - Khoản 4] 3.4 Bên B đảm bảo dịch vụ hoạt động liên tục, thực hiện bảo hành và sửa chữa nhanh chóng khi cấu hình Zozo EMA gặp sự cố trong thời hạn hợp đồng.
+[Điều 3 - Khoản 5] 3.5 Bên B hoàn tất khởi tạo phần mềm trong vòng một ngày làm việc sau khi nhận đủ thông tin và thanh toán từ Bên A.
+[Điều 3 - Khoản 6] 3.6 Bên B tư vấn và hỗ trợ Bên A trong quá trình cấu hình và sử dụng sản phẩm.
+[Điều 3 - Khoản 7] 3.7 Bên B thông báo cho Bên A trước ít nhất 02 tuần khi hợp đồng sắp hết hạn để Bên A quyết định việc gia hạn dịch vụ.
+[Điều 3 - Khoản 8] 3.8 Bên B cung cấp hóa đơn tài chính cho Bên A sau khi Bên A đã hoàn tất 100% nghĩa vụ thanh toán tại Điều 1.
+[Điều 3 - Khoản 9] 3.9 Bên B cam kết không cung cấp dữ liệu của Bên A cho bên thứ ba, trừ khi có sự đồng ý của Bên A hoặc yêu cầu từ cơ quan chức năng có thẩm quyền.
+[Điều 3 - Khoản 10] 3.10 Bên B có nghĩa vụ đảm bảo dịch vụ hoạt động liên tục, trừ các trường hợp bất khả kháng như thiên tai, lũ lụt, động đất, hỏa hoạn, lỗi hạ tầng mạng diện rộng hoặc lỗi từ nhà cung cấp dịch vụ trung gian.
+[Điều 3 - Khoản 11] 3.11 Thông tin hỗ trợ dịch vụ:
 Nhân viên kinh doanh: 0936.062.166 (Email: duchoa@zozo.vn).
 Hỗ trợ 24/7: 0904.766.690/0904.886.094 (Email: support@zozo.vn).
 Góp ý/Khiếu nại: 0981.090.660 (Email: contact@zozo.vn).
 
-ĐIỀU 4: QUY ĐỊNH SỬ DỤNG DỊCH VỤ.
-4.1 Sau khi bàn giao thông số quản trị, Bên B không chịu trách nhiệm về tính chính xác của nội dung email do Bên A tạo ra.
-4.2 Bên B không chịu trách nhiệm pháp lý hoặc bồi thường cho Bên A và bên thứ ba về các thiệt hại trực tiếp, gián tiếp, lợi nhuận, doanh thu hoặc uy tín phát sinh từ việc sử dụng dịch vụ.
-4.3 Bên B có quyền ngưng cung cấp dịch vụ mà không hoàn lại phí trong các trường hợp:
-4.3.1 Bên A sử dụng Zozo EMA vào các mục đích vi phạm pháp luật Việt Nam.
-4.3.2 Bên A gửi, tạo liên kết hoặc trung chuyển dữ liệu bất hợp pháp, đe dọa, lừa dối, thù hằn, xuyên tạc, nói xấu, tục tĩu, khiêu dâm hoặc các nội dung bị pháp luật ngăn cấm.
-4.3.3 Bên A lưu trữ, truyền bá dữ liệu vi phạm luật sở hữu trí tuệ, nhãn hiệu, bản quyền của bất kỳ cá nhân hay tổ chức nào.
-4.3.4 Bên A sử dụng các chương trình gây tắc nghẽn, đình trệ hệ thống hoặc làm cạn kiệt tài nguyên máy chủ.
-4.3.5 Bên A không thanh toán phí đăng ký hoặc phí gia hạn đúng hạn.
-4.4 Bên A có trách nhiệm bảo mật thông tin tài khoản, mật khẩu và thông báo ngay cho Bên B khi phát hiện truy cập trái phép hoặc sơ hở bảo mật.
+[Điều 4] ĐIỀU 4: QUY ĐỊNH SỬ DỤNG DỊCH VỤ.
+[Điều 4 - Khoản 1] 4.1 Sau khi bàn giao thông số quản trị, Bên B không chịu trách nhiệm về tính chính xác của nội dung email do Bên A tạo ra.
+[Điều 4 - Khoản 2] 4.2 Bên B không chịu trách nhiệm pháp lý hoặc bồi thường cho Bên A và bên thứ ba về các thiệt hại trực tiếp, gián tiếp, lợi nhuận, doanh thu hoặc uy tín phát sinh từ việc sử dụng dịch vụ.
+[Điều 4 - Khoản 3] 4.3 Bên B có quyền ngưng cung cấp dịch vụ mà không hoàn lại phí trong các trường hợp:
+[Điều 4 - Khoản 3 - Điểm 1] 4.3.1 Bên A sử dụng Zozo EMA vào các mục đích vi phạm pháp luật Việt Nam.
+[Điều 4 - Khoản 3 - Điểm 2] 4.3.2 Bên A gửi, tạo liên kết hoặc trung chuyển dữ liệu bất hợp pháp, đe dọa, lừa dối, thù hằn, xuyên tạc, nói xấu, tục tĩu, khiêu dâm hoặc các nội dung bị pháp luật ngăn cấm.
+[Điều 4 - Khoản 3.3] 4.3.3 Bên A lưu trữ, truyền bá dữ liệu vi phạm luật sở hữu trí tuệ, nhãn hiệu, bản quyền của bất kỳ cá nhân hay tổ chức nào.
+[Điều 4 - Khoản 3.4] 4.3.4 Bên A sử dụng các chương trình gây tắc nghẽn, đình trệ hệ thống hoặc làm cạn kiệt tài nguyên máy chủ.
+[Điều 4 - Khoản 3.5] 4.3.5 Bên A không thanh toán phí đăng ký hoặc phí gia hạn đúng hạn.
+[Điều 4 - Khoản 4] 4.4 Bên A có trách nhiệm bảo mật thông tin tài khoản, mật khẩu và thông báo ngay cho Bên B khi phát hiện truy cập trái phép hoặc sơ hở bảo mật.
 
-ĐIỀU 5: CÁC KHOẢN PHẠT DO VI PHẠM HỢP ĐỒNG.
-5.1 Nếu Bên A đơn phương chấm dứt hợp đồng không do lỗi của Bên B hoặc không do sự kiện bất khả kháng, Bên B không có trách nhiệm hoàn lại số tiền đã thanh toán.
-5.2 Nếu Bên B đơn phương chấm dứt hợp đồng không do lỗi của Bên A hoặc không do sự kiện bất khả kháng, Bên B phải hoàn trả số tiền tương ứng với thời gian chưa sử dụng và tự chịu chi phí triển khai đã thực hiện.
+[Điều 5] ĐIỀU 5: CÁC KHOẢN PHẠT DO VI PHẠM HỢP ĐỒNG.
+[Điều 5 - Khoản 1] 5.1 Nếu Bên A đơn phương chấm dứt hợp đồng không do lỗi của Bên B hoặc không do sự kiện bất khả kháng, Bên B không có trách nhiệm hoàn lại số tiền đã thanh toán.
+[Điều 5 - Khoản 2] 5.2 Nếu Bên B đơn phương chấm dứt hợp đồng không do lỗi của Bên A hoặc không do sự kiện bất khả kháng, Bên B phải hoàn trả số tiền tương ứng với thời gian chưa sử dụng và tự chịu chi phí triển khai đã thực hiện.
 
-ĐIỀU 6: ĐIỀU KHOẢN CHUNG.
-6.1 Hợp đồng có hiệu lực sau khi ký kết và Bên A đã hoàn tất thanh toán cho Bên B.
-6.2 Sau 30 ngày kể từ ngày hết hạn dịch vụ mà Bên A không thanh toán, hợp đồng mặc nhiên được thanh lý và dữ liệu sẽ bị xóa khỏi máy chủ.
-6.3 Hai bên cam kết thực hiện nghiêm túc các điều khoản; mọi vướng mắc phát sinh phải được thông báo bằng văn bản để cùng thương lượng giải quyết.
-6.4 Mọi tranh chấp sẽ được giải quyết thông qua thương lượng; nếu không thành, vụ việc sẽ được đưa ra Tòa án Kinh tế có thẩm quyền xét xử theo quy định pháp luật.
-6.5 Hợp đồng được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản.
+[Điều 6] ĐIỀU 6: ĐIỀU KHOẢN CHUNG.
+[Điều 6 - Khoản 1] 6.1 Hợp đồng có hiệu lực sau khi ký kết và Bên A đã hoàn tất thanh toán cho Bên B.
+[Điều 6 - Khoản 2] 6.2 Sau 30 ngày kể từ ngày hết hạn dịch vụ mà Bên A không thanh toán, hợp đồng mặc nhiên được thanh lý và dữ liệu sẽ bị xóa khỏi máy chủ.
+[Điều 6 - Khoản 3] 6.3 Hai bên cam kết thực hiện nghiêm túc các điều khoản; mọi vướng mắc phát sinh phải được thông báo bằng văn bản để cùng thương lượng giải quyết.
+[Điều 6 - Khoản 4] 6.4 Mọi tranh chấp sẽ được giải quyết thông qua thương lượng; nếu không thành, vụ việc sẽ được đưa ra Tòa án Kinh tế có thẩm quyền xét xử theo quy định pháp luật.
+[Điều 6 - Khoản 5] 6.5 Hợp đồng được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản.
 
-ĐẠI DIỆN BÊN A.
+[Phần ký tên] ĐẠI DIỆN BÊN A.
 (Ký và đóng dấu).
 
 ĐẠI DIỆN BÊN B.

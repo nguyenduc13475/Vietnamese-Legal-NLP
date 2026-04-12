@@ -18,17 +18,21 @@ class LegalRetriever:
         )
 
     def add_clauses(self, clauses: list[str], metadata: list[dict] = None):
+        if not clauses:
+            return
+
         if not metadata:
             metadata = [{"source": "unknown"} for _ in clauses]
 
-        # Ensure all values in metadata are strings to avoid ChromaDB Schema errors
+        # Standardizing metadata for consistency across all pipeline entry points
         clean_metadata = []
         for meta in metadata:
+            # Cast all values to string for ChromaDB compatibility
             clean_metadata.append({k: str(v) for k, v in meta.items()})
 
+        print(f"Indexing {len(clauses)} clauses into {self.persist_directory}...")
         self.vector_store.add_texts(texts=clauses, metadatas=clean_metadata)
-        # self.vector_store.persist() is no longer needed/supported in langchain-chroma.
-        # It persists automatically when persist_directory is provided during initialization.
+        print("Indexing completed successfully.")
 
     def get_available_sources(self) -> list[str]:
         """Fetch unique document sources currently indexed in the Vector DB."""
@@ -80,6 +84,7 @@ class LegalRetriever:
                             "document": data["documents"][i],
                             "source": meta.get("source", "Unknown"),
                             "intent": meta.get("intent", "Unknown"),
+                            "np_chunks": meta.get("np_chunks", "[]"),
                             "entities": meta.get("entities", "[]"),
                             "predicate": meta.get("predicate", ""),
                             "srl_roles": meta.get("srl_roles", "{}"),
@@ -90,3 +95,54 @@ class LegalRetriever:
         except Exception as e:
             print(f"Error fetching records from Vector DB: {e}")
             return []
+
+    def delete_document(self, filename: str):
+        """Delete all vectors associated with a specific filename."""
+        try:
+            self.vector_store.delete(where={"source": filename})
+            return True
+        except Exception as e:
+            print(f"Error deleting from Vector DB: {e}")
+            return False
+
+    def update_source_name(self, old_source: str, new_source: str):
+        """
+        Update the 'source' metadata field for all vectors belonging to a file.
+        This ensures DB consistency when a processed file is renamed.
+        """
+        try:
+            # 1. Try exact match first
+            data = self.vector_store.get(
+                where={"source": old_source}, include=["metadatas"]
+            )
+            ids = data.get("ids", [])
+            metadatas = data.get("metadatas", [])
+
+            # 2. Fallback: if renaming a .txt but DB has .pdf/.docx (due to ingestion mismatch)
+            if not ids:
+                base_name = old_source.rsplit(".", 1)[0]
+                all_data = self.vector_store.get(include=["metadatas"])
+                for i, meta in enumerate(all_data.get("metadatas", [])):
+                    db_source = meta.get("source", "")
+                    if db_source.startswith(base_name):
+                        ids.append(all_data["ids"][i])
+                        metadatas.append(meta)
+
+            if not ids:
+                print(f"Warning: No vectors found matching source '{old_source}'")
+                return True
+
+            # 3. Update metadata locally
+            for meta in metadatas:
+                meta["source"] = new_source
+
+            # 4. Push updates directly to the underlying Chroma collection.
+            # Bypassing Langchain's wrapper which breaks on raw dicts.
+            self.vector_store._collection.update(ids=ids, metadatas=metadatas)
+            print(
+                f"Successfully updated {len(ids)} vectors from '{old_source}' to '{new_source}'"
+            )
+            return True
+        except Exception as e:
+            print(f"Error updating source name in Vector DB: {e}")
+            return False
