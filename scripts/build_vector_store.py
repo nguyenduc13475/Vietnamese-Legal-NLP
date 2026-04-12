@@ -1,11 +1,8 @@
 import argparse
-import concurrent.futures
 import glob
 import os
 import sys
 import warnings
-
-import torch
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -44,6 +41,13 @@ def build_db(input_path: str):
         # Segment and filter out extremely short/meaningless clauses
         raw_clauses_dicts = segment_clauses(text)
 
+        # Extract the human-readable title from the batch
+        doc_title = os.path.basename(file_path)  # Default to filename
+        for item in raw_clauses_dicts:
+            if item.get("is_title"):
+                doc_title = item["text"]
+                break
+
         valid_texts = []
         metadata = []
 
@@ -51,9 +55,10 @@ def build_db(input_path: str):
         for item in raw_clauses_dicts:
             if len(item["text"].strip()) > 10:
                 valid_texts.append(item["text"])
-                # Initialize metadata with context and the is_title flag
+                # Initialize metadata with context, title, and flags
                 metadata.append(
                     {
+                        "contract_title": doc_title,
                         "context": item["context"],
                         "is_title": str(item.get("is_title", False)),
                     }
@@ -65,51 +70,35 @@ def build_db(input_path: str):
 
         total_c = len(valid_texts)
 
-        # Worker function to run independent NLP engines in parallel
-        def process_clause(text, idx):
+        print(
+            "  -> Extracting features sequentially (avoiding Python GIL and CUDA thread locks)..."
+        )
+
+        for c_idx, text in enumerate(valid_texts):
             ents = extract_entities(text)
             deps = parse_dependency(text)
             chunks = chunk_np(text)
             srl = extract_srl(text, ents, deps, chunks)
             intent = classify_intent(text)
-            return idx, ents, deps, chunks, srl, intent
 
-        # 8 threads is the sweet spot for a Colab T4 to max out CUDA
-        # without running out of VRAM (OOM). Use 4 if strictly on CPU.
-        workers = 8 if torch.cuda.is_available() else 4
-        print(f"  -> Extracting features concurrently using {workers} threads...")
+            metadata[c_idx].update(
+                {
+                    "source": os.path.basename(file_path),
+                    "intent": intent,
+                    "np_chunks": str(chunks),
+                    "entities": str(
+                        [{"text": e["text"], "label": e["label"]} for e in ents]
+                    ),
+                    "predicate": str(srl.get("predicate", "")),
+                    "srl_roles": str(srl.get("roles", {})),
+                    "dependencies": str(
+                        [f"{d['token']}({d['relation']})" for d in deps]
+                    ),
+                }
+            )
 
-        completed = 0
-        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as executor:
-            # Submit all clauses to the thread pool
-            futures = [
-                executor.submit(process_clause, text, i)
-                for i, text in enumerate(valid_texts)
-            ]
-
-            # As threads finish, collect results and map them back to the correct metadata index
-            for future in concurrent.futures.as_completed(futures):
-                c_idx, ents, deps, chunks, srl, intent = future.result()
-
-                metadata[c_idx].update(
-                    {
-                        "source": os.path.basename(file_path),
-                        "intent": intent,
-                        "np_chunks": str(chunks),
-                        "entities": str(
-                            [{"text": e["text"], "label": e["label"]} for e in ents]
-                        ),
-                        "predicate": str(srl.get("predicate", "")),
-                        "srl_roles": str(srl.get("roles", {})),
-                        "dependencies": str(
-                            [f"{d['token']}({d['relation']})" for d in deps]
-                        ),
-                    }
-                )
-
-                completed += 1
-                if completed % 10 == 0 or completed == total_c:
-                    print(f"  -> Processed {completed}/{total_c} clauses...", end="\r")
+            if (c_idx + 1) % 10 == 0 or (c_idx + 1) == total_c:
+                print(f"  -> Processed {c_idx + 1}/{total_c} clauses...", end="\r")
 
         print(f"\n  -> Inserting {total_c} clauses into Vector DB...")
         retriever.add_clauses(valid_texts, metadata)

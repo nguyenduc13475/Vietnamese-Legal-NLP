@@ -155,6 +155,14 @@ async def reprocess_raw_document(filename: str):
     retriever.delete_document(filename)
 
     clauses_with_ctx = segment_clauses(text)
+
+    # Extract human-friendly title
+    doc_title = str(filename)
+    for item in clauses_with_ctx:
+        if item.get("is_title"):
+            doc_title = item["text"]
+            break
+
     metadata = []
     texts = []
     for item in clauses_with_ctx:
@@ -172,6 +180,7 @@ async def reprocess_raw_document(filename: str):
         metadata.append(
             {
                 "source": str(filename),
+                "contract_title": doc_title,
                 "context": str(item.get("context", "General")),
                 "is_title": str(item.get("is_title", False)),
                 "intent": str(classify_intent(clause_text)),
@@ -356,6 +365,14 @@ async def ingest_file(file: UploadFile = File(...)):
 
     # Indexing with Context
     clauses_with_ctx = segment_clauses(text)
+
+    # Extract human-friendly title
+    doc_title = str(filename)
+    for item in clauses_with_ctx:
+        if item.get("is_title"):
+            doc_title = item["text"]
+            break
+
     metadata = []
     texts = []
     for item in clauses_with_ctx:
@@ -373,6 +390,7 @@ async def ingest_file(file: UploadFile = File(...)):
         metadata.append(
             {
                 "source": str(filename),
+                "contract_title": doc_title,
                 "context": str(item.get("context", "General")),
                 "is_title": str(item.get("is_title", False)),
                 "intent": str(classify_intent(clause_text)),

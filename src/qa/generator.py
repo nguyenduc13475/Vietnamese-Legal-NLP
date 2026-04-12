@@ -67,9 +67,10 @@ class RAGGenerator:
         context_lines = []
         for doc in docs:
             src = doc.metadata.get("source", "Unknown")
+            title = doc.metadata.get("contract_title", src)
             ctx = doc.metadata.get("context", "General")
             context_lines.append(
-                f"SOURCE: {src} | SECTION: {ctx} | CONTENT: {doc.page_content}"
+                f"CONTRACT: {title} (File: {src}) | SECTION: {ctx} | CONTENT: {doc.page_content}"
             )
 
         context = "\n".join(context_lines)

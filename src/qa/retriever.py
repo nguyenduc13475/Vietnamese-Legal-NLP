@@ -123,6 +123,7 @@ class LegalRetriever:
                             "id": data["ids"][i] if "ids" in data else str(i),
                             "document": data["documents"][i],
                             "source": meta.get("source", "Unknown"),
+                            "contract_title": meta.get("contract_title", "N/A"),
                             "intent": meta.get("intent", "Unknown"),
                             "np_chunks": meta.get("np_chunks", "[]"),
                             "entities": meta.get("entities", "[]"),

@@ -1,4 +1,4 @@
-[Thông tin chung] ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.
+[TITLE] [Thông tin chung] ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.
 Số hiệu hợp đồng là AA/BB/CC/HĐTD.
 [Phần I] I. THÔNG TIN CÁ NHÂN, NHU CẦU TÀI CHÍNH VÀ CÁC ĐIỀU KHOẢN LIÊN QUAN.
 [Phần I - Mục 1] 1. Thông tin định danh của người vay.
