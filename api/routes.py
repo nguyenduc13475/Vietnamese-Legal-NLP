@@ -1,7 +1,6 @@
 import os
 
 from fastapi import APIRouter, File, UploadFile
-from google import genai
 
 from api.schemas import (
     ExtractRequest,
@@ -21,8 +20,10 @@ from src.preprocessing.parser import parse_dependency
 from src.preprocessing.segmenter import segment_clauses
 from src.qa.generator import RAGGenerator
 from src.qa.retriever import LegalRetriever
-from src.utils.document_parser import parse_and_clean_document
-from src.utils.prompts import DOCUMENT_CLEANING_PROMPT
+from src.utils.document_parser import (
+    clean_document_with_gemini,
+    parse_and_clean_document,
+)
 
 router = APIRouter()
 
@@ -126,17 +127,9 @@ async def reprocess_raw_document(filename: str):
             message=f"Error: Raw file {filename} not found.", num_clauses=0
         )
 
-    # 1. Clean/Anonymize using Gemini
+    # 1. Clean/Anonymize using centralized Gemini helper
     try:
-        client = genai.Client(api_key=google_api_key)
-        uploaded_file = client.files.upload(file=raw_path)
-        response = client.models.generate_content(
-            model="gemini-3.1-flash-lite-preview",
-            contents=[DOCUMENT_CLEANING_PROMPT, uploaded_file],
-        )
-        text = response.text.strip()
-        # Cleanup Gemini cloud file
-        client.files.delete(name=uploaded_file.name)
+        text = clean_document_with_gemini(raw_path, google_api_key)
     except Exception as e:
         print(f"Gemini Processing Error for {filename}: {e}")
         return IngestResponse(
@@ -155,17 +148,20 @@ async def reprocess_raw_document(filename: str):
     # 3. Synchronize Vector DB (Delete old if exists, then add new)
     retriever.delete_document(filename)
 
+    # 1. Segment clauses
     clauses_with_ctx = segment_clauses(text)
+    processed_filename = os.path.splitext(filename)[0] + ".txt"
 
-    # Extract human-friendly title
-    doc_title = str(filename)
-    for item in clauses_with_ctx:
-        if item.get("is_title"):
-            doc_title = item["text"]
-            break
+    # 2. Pre-extract the actual Title for consistency across ALL clauses in this doc
+    # Use the extracted [TITLE] if available, otherwise fallback to the processed filename
+    actual_title = next(
+        (c["text"] for c in clauses_with_ctx if c.get("is_title")), processed_filename
+    )
 
     metadata = []
     texts = []
+
+    # 3. Process each clause
     for item in clauses_with_ctx:
         clause_text = item["text"]
         if len(clause_text.strip()) < 5:
@@ -177,18 +173,30 @@ async def reprocess_raw_document(filename: str):
         chunks = chunk_np(clause_text)
         srl = extract_srl(clause_text, ents, deps, chunks)
 
-        # Ensure all metadata fields are present to prevent UI crashes in DB Explorer
+        # IMPORTANT: 'source' must match the processed filename for UI visualization to work
         metadata.append(
             {
-                "source": str(filename),
-                "contract_title": doc_title,
+                "source": processed_filename,
+                "contract_title": actual_title,
                 "context": str(item.get("context", "General")),
                 "is_title": str(item.get("is_title", False)),
                 "intent": str(classify_intent(clause_text)),
-                "entities": str([e["text"] for e in ents]),
+                "entities": str(
+                    [{"text": e["text"], "label": e["label"]} for e in ents]
+                ),
                 "predicate": str(srl.get("predicate", "N/A")),
                 "srl_roles": str(srl.get("roles", {})),
-                "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
+                "dependencies": str(
+                    [
+                        {
+                            "token": d["token"],
+                            "relation": d["relation"],
+                            "head_token": d.get("head_token", ""),
+                        }
+                        for d in deps
+                    ]
+                ),
+                "np_chunks": str(chunks),
             }
         )
 
@@ -224,16 +232,20 @@ def delete_raw_document(filename: str):
 
 @router.delete("/documents/processed/{filename}")
 def delete_processed_document(filename: str):
-    """Delete only the processed .txt file. No impact on raw files or Vector DB."""
+    """Delete processed .txt file and its associated vectors in DB."""
     try:
         processed_path = os.path.join("data/processed", filename)
+        # 1. Remove physical file
         if os.path.exists(processed_path):
             os.remove(processed_path)
-            return {
-                "status": "success",
-                "message": f"Deleted processed file: {filename}",
-            }
-        return {"status": "error", "message": "File not found"}
+
+        # 2. Wipe from Vector DB (Metadata 'source' matches filename)
+        retriever.delete_document(filename)
+
+        return {
+            "status": "success",
+            "message": f"Deleted processed file and wiped vectors for: {filename}",
+        }
     except Exception as e:
         return {"status": "error", "detail": str(e)}
 
@@ -269,15 +281,8 @@ def rename_document(target_dir: str, old_name: str, new_name: str):
         if not os.path.exists(old_path):
             return {"status": "error", "message": "Source file not found"}
 
-        # Perform filesystem rename
         os.rename(old_path, new_path)
-
-        # Synchronize Vector DB metadata if the processed file is renamed
-        # Since processed filenames often map to the 'source' field in DB
         if target_dir == "data/processed":
-            # Check if we need to map .txt back to original raw filename or just sync the string
-            # Convention: source field in DB usually matches the RAW filename.
-            # If your convention is processed filename, use this:
             retriever.update_source_name(old_name, new_name)
 
         return {
@@ -311,11 +316,19 @@ def ingest_document(request: IngestRequest):
         meta = {
             "source": request.filename,
             "intent": intent,
-            # Fix: preserve labels for the vector DB
             "entities": str([{"text": e["text"], "label": e["label"]} for e in ents]),
             "predicate": str(srl.get("predicate", "")),
             "srl_roles": str(srl.get("roles", {})),
-            "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
+            "dependencies": str(
+                [
+                    {
+                        "token": d["token"],
+                        "relation": d["relation"],
+                        "head_token": d.get("head_token", ""),
+                    }
+                    for d in deps
+                ]
+            ),
         }
         metadata.append(meta)
 
@@ -340,15 +353,11 @@ async def ingest_file(file: UploadFile = File(...)):
     with open(raw_path, "wb") as f:
         f.write(content)
 
-    # Use Gemini to clean
+    # Use centralized Gemini helper to clean
     try:
-        client = genai.Client(api_key=google_api_key)
-        uploaded_file = client.files.upload(file=raw_path)
-        response = client.models.generate_content(
-            model="gemini-3.1-flash-lite-preview",
-            contents=[DOCUMENT_CLEANING_PROMPT, uploaded_file],
-        )
-        text = response.text.strip()
+        from src.utils.document_parser import clean_document_with_gemini
+
+        text = clean_document_with_gemini(raw_path, google_api_key)
     except Exception as e:
         print(
             f"Warning: Gemini API document cleaning failed ({e}). Falling back to local parser."
@@ -365,20 +374,23 @@ async def ingest_file(file: UploadFile = File(...)):
         f.write(text)
 
     # Indexing with Context
+    # 1. Segment clauses
     clauses_with_ctx = segment_clauses(text)
+    processed_filename = os.path.splitext(filename)[0] + ".txt"
 
-    # Extract human-friendly title
-    doc_title = str(filename)
-    for item in clauses_with_ctx:
-        if item.get("is_title"):
-            doc_title = item["text"]
-            break
+    # 2. Pre-extract the actual Title for consistency across ALL clauses in this doc
+    # Use the extracted [TITLE] if available, otherwise fallback to the processed filename
+    actual_title = next(
+        (c["text"] for c in clauses_with_ctx if c.get("is_title")), processed_filename
+    )
 
     metadata = []
     texts = []
+
+    # 3. Process each clause
     for item in clauses_with_ctx:
         clause_text = item["text"]
-        if len(clause_text.strip()) < 5:  # Skip fragments
+        if len(clause_text.strip()) < 5:
             continue
 
         texts.append(clause_text)
@@ -387,21 +399,30 @@ async def ingest_file(file: UploadFile = File(...)):
         chunks = chunk_np(clause_text)
         srl = extract_srl(clause_text, ents, deps, chunks)
 
-        # Ensure all metadata fields are present to prevent UI crashes in DB Explorer
+        # IMPORTANT: 'source' must match the processed filename for UI visualization to work
         metadata.append(
             {
-                "source": str(filename),
-                "contract_title": doc_title,
+                "source": processed_filename,
+                "contract_title": actual_title,
                 "context": str(item.get("context", "General")),
                 "is_title": str(item.get("is_title", False)),
                 "intent": str(classify_intent(clause_text)),
-                "np_chunks": str(chunks),
                 "entities": str(
                     [{"text": e["text"], "label": e["label"]} for e in ents]
                 ),
                 "predicate": str(srl.get("predicate", "N/A")),
                 "srl_roles": str(srl.get("roles", {})),
-                "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
+                "dependencies": str(
+                    [
+                        {
+                            "token": d["token"],
+                            "relation": d["relation"],
+                            "head_token": d.get("head_token", ""),
+                        }
+                        for d in deps
+                    ]
+                ),
+                "np_chunks": str(chunks),
             }
         )
 

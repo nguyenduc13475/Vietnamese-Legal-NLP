@@ -14,7 +14,6 @@ from src.preprocessing.parser import parse_dependency
 from src.preprocessing.segmenter import segment_clauses
 from src.qa.retriever import LegalRetriever
 
-# Suppress lingering tokenization FutureWarnings from Langchain's internal initializations
 warnings.filterwarnings(
     "ignore", category=FutureWarning, module="transformers.tokenization_utils_base"
 )
@@ -92,7 +91,14 @@ def build_db(input_path: str):
                     "predicate": str(srl.get("predicate", "")),
                     "srl_roles": str(srl.get("roles", {})),
                     "dependencies": str(
-                        [f"{d['token']}({d['relation']})" for d in deps]
+                        [
+                            {
+                                "token": d["token"],
+                                "relation": d["relation"],
+                                "head_token": d.get("head_token", ""),
+                            }
+                            for d in deps
+                        ]
                     ),
                 }
             )

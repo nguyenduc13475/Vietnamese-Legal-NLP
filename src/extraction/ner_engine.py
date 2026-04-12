@@ -12,7 +12,6 @@ if os.path.exists(NER_MODEL_PATH) and len(os.listdir(NER_MODEL_PATH)) > 0:
     from transformers import AutoTokenizer
 
     try:
-        # aggregation_strategy="simple" helps merge sub-word B/I tags back into full words
         device_id = 0 if torch.cuda.is_available() else -1
         tokenizer = AutoTokenizer.from_pretrained(
             NER_MODEL_PATH, clean_up_tokenization_spaces=True, model_max_length=256
@@ -24,7 +23,6 @@ if os.path.exists(NER_MODEL_PATH) and len(os.listdir(NER_MODEL_PATH)) > 0:
             aggregation_strategy="simple",
             ignore_labels=["O"],
             device=device_id,
-            # Removed truncation and max_length as they are deprecated in direct pipeline args for TokenClassification
         )
     except Exception as e:
         print(f"Warning: Could not load NER model from {NER_MODEL_PATH}. Error: {e}")
@@ -73,7 +71,6 @@ def extract_entities(text: str) -> list[dict]:
                 )
     else:
         # 2. Clean Dictionary-Driven Rule-based Fallback
-        # Maintainable dictionary of compiled patterns instead of inline regex hell
         FALLBACK_PATTERNS = {
             "DATE": r"\b(ngày\s+\d{1,2}(?:(?:/|-|tháng)\s*\d{1,2})?(?:(?:/|-|năm)\s*\d{4})?|\d+\s+(?:tháng|năm|ngày)|hàng\s+(?:tháng|năm|quý))\b",
             "MONEY": r"\b(\d{1,3}(?:[,.]\d{3})*(?:\.\d+)?\s*(?:VNĐ|VND|đồng(?: Việt Nam)?|USD|usd|đ))\b",

@@ -214,13 +214,18 @@ with tab_proc:
                                         r.get("np_chunks", "[]")
                                     ),
                                     "dependencies": [
-                                        {
-                                            "token": d.split("(")[0],
-                                            "relation": d.split("(")[1][:-1],
+                                        d
+                                        if isinstance(d, dict)
+                                        else {
+                                            "token": d.split("(")[0]
+                                            if isinstance(d, str) and "(" in d
+                                            else str(d),
+                                            "relation": d.split("(")[1][:-1]
+                                            if isinstance(d, str) and "(" in d
+                                            else "",
                                             "head_token": "",
                                         }
                                         for d in deps
-                                        if "(" in d
                                     ],
                                     "srl": {
                                         "predicate": r.get("predicate", ""),

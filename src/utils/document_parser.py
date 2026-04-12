@@ -1,9 +1,63 @@
 import io
+import os
 import re
+import tempfile
 import unicodedata
 
+import aspose.words as aw
 import docx
+from google import genai
+from google.genai import types
 from pypdf import PdfReader
+
+from src.utils.prompts import DOCUMENT_CLEANING_PROMPT
+
+
+def clean_document_with_gemini(filepath: str, api_key: str) -> str:
+    """
+    Converts non-PDF documents to PDF, uploads to Gemini for cleaning,
+    and returns the structured text.
+    """
+    client = genai.Client(api_key=api_key)
+    temp_pdf_path = None
+    uploaded_file = None
+    upload_target = filepath
+
+    try:
+        # Convert to PDF if the file is not already a PDF
+        if not filepath.lower().endswith(".pdf"):
+            doc = aw.Document(filepath)
+            fd, temp_pdf_path = tempfile.mkstemp(suffix=".pdf")
+            os.close(fd)
+            doc.save(temp_pdf_path)
+            upload_target = temp_pdf_path
+
+        # Upload to Gemini Cloud
+        uploaded_file = client.files.upload(file=upload_target)
+
+        # Generate cleaned content
+        response = client.models.generate_content(
+            model="gemini-3.1-flash-lite-preview",
+            contents=[DOCUMENT_CLEANING_PROMPT, uploaded_file],
+            config=types.GenerateContentConfig(temperature=0.4),
+        )
+
+        return response.text.strip()
+
+    finally:
+        # Cleanup Gemini Cloud file
+        if uploaded_file:
+            try:
+                client.files.delete(name=uploaded_file.name)
+            except Exception:
+                pass
+
+        # Cleanup local temporary PDF
+        if temp_pdf_path and os.path.exists(temp_pdf_path):
+            try:
+                os.remove(temp_pdf_path)
+            except Exception:
+                pass
 
 
 def extract_text_from_txt(content: bytes) -> str:
@@ -36,18 +90,16 @@ def clean_contract_text(text: str) -> str:
     """
     Advanced text cleaning specifically tuned for Vietnamese Legal Contracts.
     """
-    # 1. Unicode Normalization (NFC) - Crucial for Vietnamese to
-    # prevent tokenization errors in PhoBERT/Underthesea
+    # 1. Unicode Normalization (NFC)
     text = unicodedata.normalize("NFC", text)
 
-    # 2. Remove hidden characters (zero-width spaces, soft hyphens)
-    # generated during the PDF-to-Text conversion process
+    # 2. Remove hidden characters
     text = re.sub(r"[\u200B-\u200D\uFEFF\u00AD]", "", text)
 
-    # 3. Remove Table of Contents (TOC) - Lines with consecutive dots ending in a number
+    # 3. Remove Table of Contents (TOC)
     text = re.sub(r"(?m)^.*\.{4,}\s*\d+\s*$", "", text)
 
-    # 4. Remove page numbering formats and horizontal separators
+    # 4. Remove page numbering
     text = re.sub(
         r"(?i)^\s*(?:page|trang)\s*\d+\s*(?:of|/)?\s*\d*\s*$",
         "",
@@ -56,15 +108,13 @@ def clean_contract_text(text: str) -> str:
     )
     text = re.sub(r"^\s*-\s*\d+\s*-\s*$", "", text, flags=re.MULTILINE)
     text = re.sub(r"^\s*\d+\s*$", "", text, flags=re.MULTILINE)
-    text = re.sub(r"(?m)^\s*[-_=]{3,}\s*$", "", text)  # Remove horizontal separators
+    text = re.sub(r"(?m)^\s*[-_=]{3,}\s*$", "", text)
 
-    # 5. Whitespace Normalization: Collapse multiple spaces/tabs into a single space
+    # 5. Whitespace Normalization
     text = re.sub(r"[ \t]+", " ", text)
 
     lines = text.split("\n")
     cleaned_lines = []
-
-    # Regex to identify legal lists/sections to PREVENT improper merging
     bullet_pattern = re.compile(
         r"^([a-zđ][\)\.]|\d+(?:\.\d+)*[\.\):]?|[IVXLCDM]+[\.\)]|[-+]|Điều\s+\d+|Khoản\s+\d+|Mục\s+\d+|Phần\s+\d+)",
         re.IGNORECASE,
@@ -78,19 +128,13 @@ def clean_contract_text(text: str) -> str:
 
         if cleaned_lines and cleaned_lines[-1] != "":
             prev_line = cleaned_lines[-1]
-
-            # Smart Sentence Wrapping logic
             ends_with_punctuation = re.search(r"[.:;!?]$", prev_line)
             is_all_caps = prev_line.isupper()
             starts_with_bullet = bullet_pattern.match(line)
-
-            # Indicators of broken sentences: Next line begins with a lowercase letter or a comma
             starts_with_lower_or_comma = re.match(
                 r"^[,\s]*[a-zđáàảãạâấầẩẫậăắằẳẵặéèẻẽẹêếềểễệíìỉĩịóòỏõọôốồổỗộơớờởỡợúùủũụưứừửữựýỳỷỹỵ]",
                 line,
             )
-
-            # Indicators of a broken previous line: Ends with a preposition or conjunction
             ends_with_conjunction = re.search(
                 r"(?i)(?:và|hoặc|của|cho|bởi|như|là|thì|mà|để|với|tại|từ|về|thuộc)\s*$",
                 prev_line,
@@ -98,18 +142,13 @@ def clean_contract_text(text: str) -> str:
 
             if not ends_with_punctuation and not is_all_caps and not starts_with_bullet:
                 if starts_with_lower_or_comma or ends_with_conjunction:
-                    # Append current line to the previous line
                     cleaned_lines[-1] = prev_line + " " + line
                     continue
 
         cleaned_lines.append(line)
 
     final_text = "\n".join(cleaned_lines)
-
-    # 6. Consolidate blank lines (Reduce 3+ consecutive blank
-    # lines to a maximum of 2 to preserve paragraph formatting)
     final_text = re.sub(r"\n{3,}", "\n\n", final_text)
-
     return final_text.strip()
 
 
