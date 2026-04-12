@@ -51,8 +51,13 @@ def build_db(input_path: str):
         for item in raw_clauses_dicts:
             if len(item["text"].strip()) > 10:
                 valid_texts.append(item["text"])
-                # Initialize metadata with the context from the text cleaner
-                metadata.append({"context": item["context"]})
+                # Initialize metadata with context and the is_title flag
+                metadata.append(
+                    {
+                        "context": item["context"],
+                        "is_title": str(item.get("is_title", False)),
+                    }
+                )
 
         if not valid_texts:
             print("  -> Warning: No valid clauses found. Skipping.")

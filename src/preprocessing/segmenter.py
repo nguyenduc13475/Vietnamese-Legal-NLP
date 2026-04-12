@@ -20,6 +20,12 @@ def segment_clauses(text: str) -> list[dict]:
         if not line:
             continue
 
+        # Detect and extract the representative Title marker
+        is_title = False
+        if line.startswith("[TITLE]"):
+            is_title = True
+            line = line.replace("[TITLE]", "", 1).strip()
+
         # Extract context if present (e.g., "[Điều 1] Nội dung...")
         ctx_match = re.match(r"^\[(.*?)\]\s*(.*)", line)
         if ctx_match:
@@ -34,6 +40,8 @@ def segment_clauses(text: str) -> list[dict]:
             continue
 
         # Since one line = one clause, we simply append it directly
-        clauses.append({"text": clean_line, "context": current_context})
+        clauses.append(
+            {"text": clean_line, "context": current_context, "is_title": is_title}
+        )
 
     return clauses

@@ -11,6 +11,7 @@ from api.schemas import (
     QARequest,
     QAResponse,
     RawFilesResponse,
+    SourceInfo,
 )
 from src.extraction.intent_classifier import classify_intent
 from src.extraction.ner_engine import extract_entities
@@ -53,8 +54,8 @@ def extract_info(request: ExtractRequest):
                 "clause": clause_text,
                 "np_chunks": chunks,
                 "dependencies": deps,
-                # Explicitly pass entity objects with labels
-                "entities": [{"text": e["text"], "label": e["label"]} for e in ents],
+                # Pass full entity objects (including span) to match schema
+                "entities": ents,
                 "srl": extract_srl(clause_text, ents, deps, chunks),
                 "intent": classify_intent(clause_text),
             }
@@ -73,8 +74,14 @@ def ask_question(request: QARequest):
             question="", answer="Please provide a valid query.", sources=[]
         )
 
+    # ask() returns {'question', 'answer', 'sources', 'debug_prompt'}
     result = qa_system.ask(request.question, source_filter=request.source_filter)
-    return QAResponse(**result)
+    return QAResponse(
+        question=result["question"],
+        answer=result["answer"],
+        sources=[SourceInfo(**s) for s in result["sources"]],
+        debug_prompt=result.get("debug_prompt"),
+    )
 
 
 @router.get("/documents/processed")
@@ -161,10 +168,12 @@ async def reprocess_raw_document(filename: str):
         chunks = chunk_np(clause_text)
         srl = extract_srl(clause_text, ents, deps, chunks)
 
+        # Ensure all metadata fields are present to prevent UI crashes in DB Explorer
         metadata.append(
             {
                 "source": str(filename),
                 "context": str(item.get("context", "General")),
+                "is_title": str(item.get("is_title", False)),
                 "intent": str(classify_intent(clause_text)),
                 "entities": str([e["text"] for e in ents]),
                 "predicate": str(srl.get("predicate", "N/A")),
@@ -365,6 +374,7 @@ async def ingest_file(file: UploadFile = File(...)):
             {
                 "source": str(filename),
                 "context": str(item.get("context", "General")),
+                "is_title": str(item.get("is_title", False)),
                 "intent": str(classify_intent(clause_text)),
                 "np_chunks": str(chunks),
                 "entities": str(

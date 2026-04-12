@@ -47,13 +47,33 @@ class LegalRetriever:
             print(f"Error fetching sources from Vector DB: {e}")
             return []
 
-    def retrieve(self, query: str, top_k: int = 7, source_filter: str = None) -> list:
-        """Retrieve relevant clauses, optionally filtered by a specific source document."""
-        if source_filter and source_filter != "All Contracts":
-            return self.vector_store.similarity_search(
-                query, k=top_k, filter={"source": source_filter}
-            )
-        return self.vector_store.similarity_search(query, k=top_k)
+    def retrieve(
+        self, query: str, top_k: int = 10, source_filters: list[str] = None
+    ) -> list:
+        """
+        Retrieve relevant clauses using Max Marginal Relevance (MMR).
+        Supports filtering by multiple source documents simultaneously from Phase 1.
+        """
+        search_kwargs = {
+            "k": top_k,
+            "fetch_k": 30,
+        }  # Fetch 30 then select 10 most diverse
+
+        if source_filters:
+            # Clean out UI wildcard strings if they accidentally get passed
+            valid_filters = [
+                s
+                for s in source_filters
+                if s not in ["All Contracts", "Tất cả Hợp đồng"]
+            ]
+
+            if len(valid_filters) == 1:
+                search_kwargs["filter"] = {"source": valid_filters[0]}
+            elif len(valid_filters) > 1:
+                # Use ChromaDB's $in operator to search across multiple specific files
+                search_kwargs["filter"] = {"source": {"$in": valid_filters}}
+
+        return self.vector_store.max_marginal_relevance_search(query, **search_kwargs)
 
     def get_total_count(self) -> int:
         """Get total number of documents in the vector store."""
@@ -61,6 +81,26 @@ class LegalRetriever:
             return self.vector_store._collection.count()
         except Exception:
             return 0
+
+    def get_top_sources_by_title(self, query: str, top_k: int = 2) -> list[str]:
+        """
+        Phase 1 Retrieval: Search ONLY against clauses marked as 'is_title'.
+        This returns the filenames of the most relevant contracts to the query.
+        """
+        try:
+            results = self.vector_store.similarity_search(
+                query, k=top_k, filter={"is_title": "True"}
+            )
+            # Extract unique sources from the matching title clauses
+            sources = set(
+                doc.metadata.get("source")
+                for doc in results
+                if "source" in doc.metadata
+            )
+            return list(sources)
+        except Exception as e:
+            print(f"Phase 1 Title Search Error: {e}")
+            return []
 
     def get_all_records(self, limit: int = None, offset: int = 0) -> list[dict]:
         """Fetch raw records from the Vector DB with optional pagination."""

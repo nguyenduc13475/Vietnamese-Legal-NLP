@@ -31,10 +31,16 @@ class QARequest(BaseModel):
     source_filter: str | None = None
 
 
+class SourceInfo(BaseModel):
+    content: str
+    metadata: Dict[str, Any]
+
+
 class QAResponse(BaseModel):
     question: str
     answer: str
-    sources: List[str]
+    sources: List[SourceInfo]
+    debug_prompt: str | None = None
 
 
 class IngestRequest(BaseModel):

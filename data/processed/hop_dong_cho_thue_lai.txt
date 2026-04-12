@@ -1,4 +1,4 @@
-[Thông tin chung] Hợp đồng cho thuê lại.
+[TITLE] [Thông tin chung] Hợp đồng cho thuê lại.
 
 Bên cho thuê là ông Nguyễn Văn A, sinh năm 1980, cư trú tại số 10 đường Lê Lợi, quận 1, thành phố Hồ Chí Minh.
 Bên thuê lại là bà Trần Thị B, địa chỉ hiện tại tại số 25 đường Nguyễn Huệ, quận 1, thành phố Hồ Chí Minh.
