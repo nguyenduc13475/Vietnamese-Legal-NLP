@@ -77,7 +77,8 @@ class LegalRetriever:
         try:
             doc_pred = str(doc_metadata.get("predicate", "")).lower().strip()
             doc_roles = ast.literal_eval(doc_metadata.get("srl_roles", "{}"))
-        except:
+        except Exception as e:
+            print(e)
             return 0.0
 
         bp_pred = str(blueprint_srl.get("predicate", "N/A")).lower().strip()
@@ -219,7 +220,8 @@ class LegalRetriever:
                     doc_labels = [e["label"] for e in doc_ents if isinstance(e, dict)]
                     if any(ef in doc_labels for ef in entity_filters):
                         final_candidates.append((doc, v_score))
-                except:
+                except Exception as e:
+                    print(e)
                     continue
         else:
             final_candidates = normalized_candidates
