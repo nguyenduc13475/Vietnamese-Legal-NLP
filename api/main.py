@@ -1,4 +1,11 @@
+import warnings
+
 from dotenv import load_dotenv
+
+# Silence the HuggingFace clean_up_tokenization_spaces warning
+warnings.filterwarnings(
+    "ignore", category=FutureWarning, module="transformers.tokenization_utils_base"
+)
 
 load_dotenv()
 

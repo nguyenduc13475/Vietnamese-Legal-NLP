@@ -11,9 +11,6 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-# Download Vietnamese stanza model during image build to prevent timeout on first run
-RUN python -c "import stanza; stanza.download('vi')"
-
 COPY . .
 
 EXPOSE 8000

@@ -50,3 +50,43 @@ class LegalRetriever:
                 query, k=top_k, filter={"source": source_filter}
             )
         return self.vector_store.similarity_search(query, k=top_k)
+
+    def get_total_count(self) -> int:
+        """Get total number of documents in the vector store."""
+        try:
+            return self.vector_store._collection.count()
+        except Exception:
+            return 0
+
+    def get_all_records(self, limit: int = None, offset: int = 0) -> list[dict]:
+        """Fetch raw records from the Vector DB with optional pagination."""
+        try:
+            kwargs = {"include": ["metadatas", "documents"]}
+            if limit is not None:
+                kwargs["limit"] = limit
+            if offset > 0:
+                kwargs["offset"] = offset
+
+            # Fetch data directly from the underlying Chroma collection
+            data = self.vector_store.get(**kwargs)
+            records = []
+
+            if data and "documents" in data:
+                for i in range(len(data["documents"])):
+                    meta = data["metadatas"][i] if data["metadatas"] else {}
+                    records.append(
+                        {
+                            "id": data["ids"][i] if "ids" in data else str(i),
+                            "document": data["documents"][i],
+                            "source": meta.get("source", "Unknown"),
+                            "intent": meta.get("intent", "Unknown"),
+                            "entities": meta.get("entities", "[]"),
+                            "predicate": meta.get("predicate", ""),
+                            "srl_roles": meta.get("srl_roles", "{}"),
+                            "dependencies": meta.get("dependencies", "[]"),
+                        }
+                    )
+            return records
+        except Exception as e:
+            print(f"Error fetching records from Vector DB: {e}")
+            return []

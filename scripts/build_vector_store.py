@@ -66,6 +66,8 @@ def build_db(input_path: str):
                 "intent": intent,
                 "entities": str([e["text"] for e in ents]),
                 "predicate": str(srl.get("predicate", "")),
+                "srl_roles": str(srl.get("roles", {})),
+                "dependencies": str([f"{d['token']}({d['relation']})" for d in deps]),
             }
             metadata.append(meta)
 
