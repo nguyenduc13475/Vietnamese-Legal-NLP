@@ -1,3 +1,4 @@
+[ALIASES] [("Công ty TNHH Thương mại Dịch vụ Xây dựng Bình Minh", "Người sử dụng lao động"), ("Trần Thị B", "Người lao động")]
 [TITLE] [Thông tin chung] HỢP ĐỒNG LAO ĐỘNG THỜI VỤ.
 Số: 01/HĐLĐ/2024.
 Chúng tôi, một bên là Ông: Nguyễn Văn A.

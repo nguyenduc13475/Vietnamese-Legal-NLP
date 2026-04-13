@@ -353,12 +353,28 @@ with tab_chat:
                     st.markdown("### 📚 Nguồn trích dẫn (Citations)")
                     for i, src in enumerate(res["sources"]):
                         meta = src["metadata"]
-                        # Cải tiến phần trích dẫn để hiển thị File và Ngữ cảnh (Điều/Khoản)
+
+                        # Extract retrieval scores mapped from backend
+                        score_total = meta.get("score_total", "N/A")
+                        score_vector = meta.get("score_vector", "N/A")
+                        score_srl = meta.get("score_srl", "N/A")
+
+                        # Create HTML badges for scores
+                        score_html = f"""
+                        <div style='margin: 8px 0; font-size: 0.85em; color: #495057;'>
+                            <span style='background: #e9ecef; padding: 3px 8px; border-radius: 12px; margin-right: 5px; border: 1px solid #ced4da;'>🏆 Total: <b>{score_total}</b></span>
+                            <span style='background: #e2e3e5; padding: 3px 8px; border-radius: 12px; margin-right: 5px;'>🤖 Vector: {score_vector}</span>
+                            <span style='background: #e2e3e5; padding: 3px 8px; border-radius: 12px;'>🧠 SRL Heuristic: {score_srl}</span>
+                        </div>
+                        """
+
+                        # Cải tiến phần trích dẫn để hiển thị File, Ngữ cảnh và Detail Scores
                         st.markdown(
                             f"""
-                        <div style='background:#f9f9f9; padding:15px; border-left:5px solid #0d6efd; margin-bottom:10px; border-radius: 4px;'>
+                        <div style='background:#f9f9f9; padding:15px; border-left:5px solid #0d6efd; margin-bottom:10px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);'>
                             <b>[{i + 1}] File:</b> <code>{meta.get("source")}</code> | <b>Vị trí:</b> <span style='color:#d63384'><b>{meta.get("context", "Chung")}</b></span><br>
-                            <i>"{src["content"]}"</i>
+                            {score_html}
+                            <i style='color:#212529; line-height: 1.5;'>"{src["content"]}"</i>
                         </div>
                         """,
                             unsafe_allow_html=True,

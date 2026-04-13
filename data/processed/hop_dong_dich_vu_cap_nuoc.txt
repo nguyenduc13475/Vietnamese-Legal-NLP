@@ -1,3 +1,4 @@
+[ALIASES] [("Bên cung cấp dịch vụ", "Bên A", "Công ty Cổ phần Cấp nước Đà Nẵng", "DAWACO"), ("Khách hàng sử dụng nước", "Bên B", "Trần Thị B")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 [TITLE] HỢP ĐỒNG CUNG CẤP DỊCH VỤ CẤP NƯỚC.

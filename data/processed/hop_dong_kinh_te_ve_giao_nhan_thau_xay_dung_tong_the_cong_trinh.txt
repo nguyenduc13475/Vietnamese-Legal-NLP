@@ -1,3 +1,4 @@
+[ALIASES] [("Công ty Cổ phần Đầu tư Phát triển Hạ tầng A", "Bên chủ đầu tư", "Bên A"), ("Công ty TNHH Xây dựng và Thương mại B", "Bên tổ chức nhận thầu xây dựng", "Bên B")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 [TITLE] HỢP ĐỒNG KINH TẾ VỀ GIAO NHẬN THẦU XÂY DỰNG TỔNG THỂ CÔNG TRÌNH.

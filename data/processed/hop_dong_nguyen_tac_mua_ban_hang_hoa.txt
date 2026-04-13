@@ -1,3 +1,4 @@
+[ALIASES] [("Công ty TNHH Thương mại Dịch vụ ABC", "Bên bán"), ("Công ty Cổ phần Sản xuất và Xuất nhập khẩu XYZ", "Bên mua")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập – Tự do – Hạnh phúc.
 [TITLE] HỢP ĐỒNG NGUYÊN TẮC MUA BÁN HÀNG HÓA.

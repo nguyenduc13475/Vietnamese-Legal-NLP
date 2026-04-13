@@ -1,3 +1,4 @@
+[ALIASES] [("Công ty Cổ phần Công nghệ Alpha", "Bên A"), ("Công ty TNHH Truyền thông Beta", "Bên B")]
 [TITLE] [Thông tin chung] HỢP ĐỒNG CUNG CẤP DỊCH VỤ QUẢNG CÁO.
 [Thông tin chung] Căn cứ Bộ luật Dân sự số 91/2015/QH13 được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam khóa XIII thông qua ngày 24/11/2015.
 [Thông tin chung] Căn cứ Luật Thương mại số 36/2005/QH11 được Quốc hội nước Cộng hòa xã hội chủ nghĩa Việt Nam thông qua ngày 14/6/2005.

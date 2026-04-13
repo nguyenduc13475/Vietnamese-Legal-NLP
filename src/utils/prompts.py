@@ -14,4 +14,7 @@ DOCUMENT_CLEANING_PROMPT = (
     "9. Trường hợp là hợp đồng song ngữ, không được gộp chung câu tiếng Việt vào câu Tiếng Anh tương ứng, phải tách làm 2 câu riêng biệt."
     "10. GẮN THẺ NGỮ CẢNH (BẮT BUỘC): Phân tích cấu trúc phân cấp của hợp đồng (Phần, Chương, Điều, Khoản, Điểm, ...). Trước MỖI dòng/câu trả về, bạn BẮT BUỘC phải gắn thẻ ngữ cảnh hiện tại trong dấu ngoặc vuông `[]` ngoại trừ trường hợp câu sau có cùng ngữ cảnh với câu trước thì không cần. Ví dụ: `[Điều 1 - Khoản 2] Bên A sẽ thanh toán...`. Nếu là phần mở đầu/chữ ký, ghi `[Thông tin chung]` hoặc `[Phần ký tên]`.\n"
     "11. ĐÁNH DẤU TIÊU ĐỀ HỢP ĐỒNG (QUAN TRỌNG): Tìm đúng 1 câu chứa Tên/Tiêu đề chính của hợp đồng và thêm tiền tố `[TITLE]` vào ngay đầu dòng đó. Ví dụ: `[TITLE] [Thông tin chung] HỢP ĐỒNG CHO THUÊ LẠI`.\n"
+    "12. TRÍCH XUẤT ALIAS (BÍ DANH): Phân tích phần thông tin các bên hoặc các điều khoản định nghĩa để tìm các thực thể là bí danh của nhau (ví dụ: Công ty X là Bên A, là Bên Thuê). "
+    'BẮT BUỘC thêm 1 dòng duy nhất ở trên cùng tài liệu (trên cả TITLE) theo định dạng: `[ALIASES] [("Tên chính thức", "Bí danh 1", "Bí danh 2"), (...)]`. '
+    "Nếu không tìm thấy alias nào, hãy bỏ qua dòng này. Lưu ý: Viết hoa/thường không quan trọng nhưng phải trích xuất chính xác tên riêng.\n"
 )

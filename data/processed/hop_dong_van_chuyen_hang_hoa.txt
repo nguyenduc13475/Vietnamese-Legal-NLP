@@ -1,3 +1,4 @@
+[ALIASES] [("Công ty Cổ phần Thương mại Xuất nhập khẩu An Bình", "Bên chủ hàng", "Bên A", "Chủ hàng"), ("Công ty TNHH Vận tải và Logistics Trường Thành", "Bên chủ phương tiện", "Bên B", "Bên vận tải")]
 [TITLE] [Thông tin chung] HỢP ĐỒNG VẬN CHUYỂN HÀNG HÓA.
 Số 123/HĐVCHH.
 Hôm nay, ngày 15 tháng 05 năm 2024, tại thành phố Hà Nội.

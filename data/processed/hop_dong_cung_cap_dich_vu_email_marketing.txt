@@ -1,3 +1,4 @@
+[ALIASES] [("Bên sử dụng dịch vụ", "Bên A", "Công ty TNHH Thương mại Dịch vụ ABC"), ("Bên cung cấp dịch vụ", "Bên B", "Công ty Cổ phần Phần mềm Zozo")]
 [TITLE] [Thông tin chung] HỢP ĐỒNG CUNG CẤP DỊCH VỤ EMAIL MARKETING ZOZO EMA.
 Số: 102/EMA/ZOZO-2021.
 Căn cứ vào Luật Thương mại số 36/2005/QH11 được Quốc hội nước Cộng hòa Xã hội Chủ nghĩa Việt Nam thông qua ngày 27/06/2005, có hiệu lực từ ngày 01/01/2006.

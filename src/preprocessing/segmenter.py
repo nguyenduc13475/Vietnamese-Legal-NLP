@@ -4,11 +4,12 @@ import re
 def segment_clauses(text: str) -> list[dict]:
     """
     Extracts independent clauses line-by-line.
-    Extracts context tags (e.g., [Điều 1]) if present for RAG metadata.
+    Extracts context tags and ALIASES for RAG metadata.
     """
     raw_lines = text.split("\n")
     clauses = []
     current_context = "General"
+    current_aliases = "[]"  # Default empty list string
 
     # Regex to identify basic list items (1., a), I., -)
     bullet_pattern = re.compile(
@@ -18,6 +19,11 @@ def segment_clauses(text: str) -> list[dict]:
     for line in raw_lines:
         line = line.strip()
         if not line:
+            continue
+
+        # Detect ALIASES line - skip adding as clause but store for metadata
+        if line.startswith("[ALIASES]"):
+            current_aliases = line.replace("[ALIASES]", "", 1).strip()
             continue
 
         # Detect and extract the representative Title marker
@@ -41,7 +47,12 @@ def segment_clauses(text: str) -> list[dict]:
 
         # Since one line = one clause, we simply append it directly
         clauses.append(
-            {"text": clean_line, "context": current_context, "is_title": is_title}
+            {
+                "text": clean_line,
+                "context": current_context,
+                "is_title": is_title,
+                "aliases": current_aliases,
+            }
         )
 
     return clauses

@@ -1,3 +1,4 @@
+[ALIASES] [("Công ty TNHH Thương mại Quốc tế XYZ", "Bên A"), ("Công ty TNHH Sản xuất và Gia công Cơ khí Hùng Cường", "Bên B")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập – Tự do – Hạnh phúc.
 Đà Nẵng, ngày 15 tháng 05 năm 2023.

@@ -1,3 +1,4 @@
+[ALIASES] [("Agribank Chi nhánh Hà Nội", "Bên A", "Agribank"), ("Trần Minh Tuấn", "Bên B", "Chủ thẻ", "Chủ thẻ chính")]
 [TITLE] [Thông tin chung] HỢP ĐỒNG PHÁT HÀNH VÀ SỬ DỤNG THẺ TÍN DỤNG.
 Số: 886/HĐ-AGR-2024 ngày 20 tháng 05 năm 2024.
 (Dành cho khách hàng cá nhân).

@@ -1,3 +1,4 @@
+[ALIASES] [("Nguyễn Văn An", "Bên cho thuê phòng trọ", "Bên A", "Chủ nhà"), ("Trần Thị Bình", "Bên thuê phòng trọ", "Bên B")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập – Tự do – Hạnh phúc.
 

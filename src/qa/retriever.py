@@ -67,6 +67,65 @@ class LegalRetriever:
             print(f"Error fetching source mappings: {e}")
             return {}
 
+    def _match_with_aliases(
+        self, query_val: str, doc_val: str, aliases_str: str
+    ) -> float:
+        """
+        Match two strings considering the alias groups provided in aliases_str.
+        Returns a similarity score [0, 1].
+        """
+        q_clean = query_val.lower().strip()
+        d_clean = doc_val.lower().strip()
+
+        if q_clean == d_clean:
+            return 1.0
+
+        # Parse alias groups: list of tuples
+        try:
+            alias_groups = ast.literal_eval(aliases_str)
+        except Exception:
+            alias_groups = []
+
+        # Find if doc_val belongs to any alias group
+        target_group = []
+        for group in alias_groups:
+            if any(str(member).lower().strip() == d_clean for member in group):
+                target_group = [str(m).lower().strip() for m in group]
+                break
+
+        # If no group found, just do standard comparison
+        if not target_group:
+            if q_clean in d_clean or d_clean in q_clean:
+                return 0.6
+
+            # Word overlap fallback for non-aliases
+            q_words = set(q_clean.split())
+            d_words = set(d_clean.split())
+            overlap = len(q_words & d_words)
+            if overlap > 0:
+                return (overlap / max(len(q_words), len(d_words))) * 0.4
+            return 0.0
+
+        # If group found, compare query_val against EVERY member in the group
+        max_score = 0.0
+        for alias in target_group:
+            if q_clean == alias:
+                max_score = 1.0
+                break
+            if q_clean in alias or alias in q_clean:
+                max_score = max(max_score, 0.8)  # Higher score for alias match
+
+            # Simple word overlap for alias members
+            q_words = set(q_clean.split())
+            a_words = set(alias.split())
+            overlap = len(q_words & a_words)
+            if overlap > 0:
+                max_score = max(
+                    max_score, (overlap / max(len(q_words), len(a_words))) * 0.7
+                )
+
+        return max_score
+
     def _calculate_srl_score(self, blueprint_srl: dict, doc_metadata: dict) -> float:
         """
         Heuristic rule-based scoring for SRL. Range [0, 1].
@@ -77,8 +136,10 @@ class LegalRetriever:
         try:
             doc_pred = str(doc_metadata.get("predicate", "")).lower().strip()
             doc_roles = ast.literal_eval(doc_metadata.get("srl_roles", "{}"))
+            # Fetch aliases from metadata
+            aliases_str = str(doc_metadata.get("aliases", "[]"))
         except Exception as e:
-            print(e)
+            print(f"Metadata parsing error: {e}")
             return 0.0
 
         bp_pred = str(blueprint_srl.get("predicate", "N/A")).lower().strip()
@@ -92,12 +153,34 @@ class LegalRetriever:
             elif bp_pred in doc_pred or doc_pred in bp_pred:
                 score += 0.25
             else:
-                # Syllable/Word overlap for Vietnamese
-                bp_words = set(bp_pred.split())
-                doc_words = set(doc_pred.split())
-                overlap = len(bp_words & doc_words)
-                if overlap > 0:
-                    score += (overlap / max(len(bp_words), len(doc_words))) * 0.2
+                # Nâng cấp: Dùng Semantic Embedding để bắt từ đồng nghĩa (VD: "thanh toán" vs "trả tiền")
+                try:
+                    # Lấy vector embedding cho 2 cụm động từ
+                    emb_bp = self.embeddings.embed_query(bp_pred)
+                    emb_doc = self.embeddings.embed_query(doc_pred)
+
+                    # Tính Cosine Similarity bằng thuật toán thuần (không cần import thêm thư viện)
+                    dot_product = sum(a * b for a, b in zip(emb_bp, emb_doc))
+                    norm_bp = sum(a * a for a in emb_bp) ** 0.5
+                    norm_doc = sum(b * b for b in emb_doc) ** 0.5
+
+                    cos_sim = (
+                        dot_product / (norm_bp * norm_doc)
+                        if (norm_bp * norm_doc) > 0
+                        else 0.0
+                    )
+
+                    # Chỉ cộng điểm nếu độ tương đồng ngữ nghĩa đủ cao (ngưỡng > 0.6)
+                    if cos_sim > 0.6:
+                        # Scale điểm cosine từ dải (0.6 -> 1.0) sang điểm SRL (0.0 -> 0.2)
+                        score += ((cos_sim - 0.6) / 0.4) * 0.2
+                except Exception:
+                    # Fallback về thuật toán đếm từ vựng (Jaccard) nếu embedding bị lỗi
+                    bp_words = set(bp_pred.split())
+                    doc_words = set(doc_pred.split())
+                    overlap = len(bp_words & doc_words)
+                    if overlap > 0:
+                        score += (overlap / max(len(bp_words), len(doc_words))) * 0.2
 
         # 2. Roles Similarity (Weight 0.6)
         role_score = 0.0
@@ -115,19 +198,9 @@ class LegalRetriever:
             if not doc_val:
                 continue
 
-            if bp_val == doc_val:
-                role_score += 1.0
-            elif bp_val in doc_val or doc_val in bp_val:
-                role_score += 0.6
-            else:
-                # Word overlap for values (e.g., "Bên B" vs "Bên còn lại")
-                bp_v_words = set(bp_val.split())
-                doc_v_words = set(doc_val.split())
-                overlap = len(bp_v_words & doc_v_words)
-                if overlap > 0:
-                    role_score += (
-                        overlap / max(len(bp_v_words), len(doc_v_words))
-                    ) * 0.4
+            # Delegate role matching to the alias helper
+            match_score = self._match_with_aliases(bp_val, doc_val, aliases_str)
+            role_score += match_score
 
         score += (role_score / len(bp_active_roles)) * 0.6
         return min(score, 1.0)
@@ -234,6 +307,12 @@ class LegalRetriever:
         for doc, v_score in final_candidates:
             srl_score = self._calculate_srl_score(srl_filter, doc.metadata)
             combined_score = v_score + (srl_lambda * srl_score)
+
+            # Inject scores into document metadata so API & UI can access them
+            doc.metadata["score_vector"] = round(v_score, 4)
+            doc.metadata["score_srl"] = round(srl_score, 4)
+            doc.metadata["score_total"] = round(combined_score, 4)
+
             re_ranked.append((doc, combined_score))
 
         re_ranked.sort(key=lambda x: x[1], reverse=True)

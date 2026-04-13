@@ -60,6 +60,7 @@ def build_db(input_path: str):
                         "contract_title": doc_title,
                         "context": item["context"],
                         "is_title": str(item.get("is_title", False)),
+                        "aliases": str(item.get("aliases", "[]")),
                     }
                 )
 

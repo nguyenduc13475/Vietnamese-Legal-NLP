@@ -1,3 +1,4 @@
+[ALIASES] [("Trường Đại học Khoa học Tự nhiên", "Bên thứ nhất", "Người sử dụng lao động", "Đơn vị"), ("Trần Văn B", "Bên thứ hai", "Người lao động")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 Tên đơn vị: Trường Đại học Khoa học Tự nhiên.

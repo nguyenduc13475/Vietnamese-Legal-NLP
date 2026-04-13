@@ -1,3 +1,4 @@
+[ALIASES] [("Bên chuyển nhượng", "Tổng Công ty Đầu tư và kinh doanh vốn Nhà nước", "SCIC"), ("Bên nhận chuyển nhượng", "Công ty Cổ phần Đầu tư Phát triển ABC", "Bên B")]
 [Thông tin chung] MẪU HỢP ĐỒNG CHUYỂN NHƯỢNG CỔ PHẦN.
 CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.

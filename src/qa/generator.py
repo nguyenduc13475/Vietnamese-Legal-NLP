@@ -32,66 +32,94 @@ class RAGGenerator:
         )
 
     def ask(self, question: str, source_filter: str = None) -> dict:
+        # Initialize filters to None to prevent UnboundLocalError
         target_sources = None
         intent_filters = None
         entity_filters = None
+        srl_filter = None
         routing_debug_info = (
             "Phase 1 skipped: Manual source filter applied or no routing required."
         )
         debug_prompt = "Phase 2 Prompt was not generated due to missing context."
 
         # Phase 1: LLM-Based Query Routing & Search Blueprint Generation
-        if source_filter and source_filter not in ["All Contracts", "Tất cả Hợp đồng"]:
-            target_sources = [source_filter]
-        else:
-            source_mapping = self.retriever.get_sources_with_titles()
-            available_sources = list(source_mapping.keys())
+        source_mapping = self.retriever.get_sources_with_titles()
+        available_sources = list(source_mapping.keys())
 
-            if available_sources and self.client:
-                catalog = "\n".join(
-                    [
-                        f"- {src} (Title: {title})"
-                        for src, title in source_mapping.items()
-                    ]
-                )
-                routing_prompt = (
-                    "You are a high-precision Legal Search Architect.\n"
-                    f"User Question: '{question}'\n\n"
-                    f"Available Documents:\n{catalog}\n\n"
-                    "Your task is to generate a 'Search Blueprint' in JSON format to filter relevant clauses from the database.\n"
-                    "JSON Fields:\n"
-                    "- sources: List of filenames (e.g., ['a.txt']) or [] if all documents apply.\n"
-                    "- intents: List of intents likely containing the answer. Choose from: ['Obligation', 'Prohibition', 'Right', 'Termination Condition', 'Other'].\n"
-                    "- entity_types: List of entity types mentioned. Choose from: ['PARTY', 'MONEY', 'DATE', 'RATE', 'PENALTY', 'LAW'].\n"
-                    "- srl: An object describing the expected semantic roles: {'predicate': 'verb', 'roles': {'Agent': 'who', 'Recipient': 'to whom', 'Theme': 'what', 'Time': 'when', 'Penalty_Rate': 'how much'}}. Use 'N/A' if unknown.\n"
-                    "- search_query: A condensed version of the question for vector search. Include entities or specific legal predicates.\n\n"
-                    "Return ONLY the JSON object. No explanation."
-                )
+        # Determine if we are restricted to one source by user or if LLM should decide
+        is_fixed_source = source_filter and source_filter not in [
+            "All Contracts",
+            "Tất cả Hợp đồng",
+        ]
 
-                try:
-                    import json
-
-                    route_response = self.client.models.generate_content(
-                        model="gemini-3.1-flash-lite-preview",
-                        contents=routing_prompt,
-                        config=types.GenerateContentConfig(
-                            temperature=0.0, response_mime_type="application/json"
-                        ),
+        if self.client and available_sources:
+            # Build catalog for LLM to understand document context
+            catalog_info = ""
+            if is_fixed_source:
+                # Tell LLM we are focused on this specific document title
+                fixed_title = source_mapping.get(source_filter, source_filter)
+                catalog_info = f"Search Scope: SPECIFIC DOCUMENT ONLY -> '{fixed_title}' ({source_filter})"
+            else:
+                # Provide full catalog for multi-doc picking
+                catalog_info = (
+                    "Search Scope: MULTIPLE DOCUMENTS. Available:\n"
+                    + "\n".join(
+                        [
+                            f"- {src} (Title: {title})"
+                            for src, title in source_mapping.items()
+                        ]
                     )
-                    blueprint = json.loads(route_response.text)
-                    routing_debug_info = f"--- ROUTING PROMPT ---\n{routing_prompt}\n\n--- SEARCH BLUEPRINT ---\n{json.dumps(blueprint, indent=2, ensure_ascii=False)}"
+                )
 
+            routing_prompt = (
+                "You are a high-precision Legal Search Architect.\n"
+                f"User Question: '{question}'\n\n"
+                f"{catalog_info}\n\n"
+                "Task: Generate a 'Search Blueprint' in JSON to extract relevant data using metadata filters.\n"
+                "JSON Fields:\n"
+                "- sources: (List) Only populate if searching multiple documents. If scope is specific, return [].\n"
+                "- intents: (List) Expected clause types: ['Obligation', 'Prohibition', 'Right', 'Termination Condition', 'Other'].\n"
+                "- entity_types: (List) Key entities mentioned: ['PARTY', 'MONEY', 'DATE', 'RATE', 'PENALTY', 'LAW'].\n"
+                "- srl: (Object) Semantic roles: {'predicate': 'verb', 'roles': {'Agent': 'who', 'Recipient': 'to whom', 'Theme': 'what', 'Time': 'when', 'Penalty_Rate': 'how much'}}. Use 'N/A' for unknown.\n"
+                "- search_query: (String) Optimized Vietnamese keyword string for vector search.\n\n"
+                "Return ONLY the JSON object. No explanation."
+            )
+
+            try:
+                import json
+
+                route_response = self.client.models.generate_content(
+                    model="gemini-3.1-flash-lite-preview",
+                    contents=routing_prompt,
+                    config=types.GenerateContentConfig(
+                        temperature=0.0, response_mime_type="application/json"
+                    ),
+                )
+                blueprint = json.loads(route_response.text)
+                routing_debug_info = f"--- ROUTING PROMPT ---\n{routing_prompt}\n\n--- SEARCH BLUEPRINT ---\n{json.dumps(blueprint, indent=2, ensure_ascii=False)}"
+
+                # Apply logic: User selection overrides LLM source selection
+                if is_fixed_source:
+                    target_sources = [source_filter]
+                else:
                     target_sources = (
                         blueprint.get("sources") if blueprint.get("sources") else None
                     )
-                    intent_filters = blueprint.get("intents")
-                    entity_filters = blueprint.get("entity_types")
-                    srl_filter = blueprint.get("srl")
-                    question = blueprint.get("search_query", question)
-                except Exception as e:
-                    routing_debug_info = f"Routing Error: {str(e)}"
-            else:
-                routing_debug_info = "Phase 1 skipped: No available sources in database or API client missing."
+
+                # Semantic filters are ALWAYS applied from LLM blueprint
+                intent_filters = blueprint.get("intents")
+                entity_filters = blueprint.get("entity_types")
+                srl_filter = blueprint.get("srl")
+                question = blueprint.get("search_query", question)
+
+            except Exception as e:
+                routing_debug_info = f"Routing Error: {str(e)}"
+                if is_fixed_source:
+                    target_sources = [source_filter]
+        else:
+            routing_debug_info = "Phase 1 skipped: Missing API client or empty DB."
+            if is_fixed_source:
+                target_sources = [source_filter]
 
         # Phase 2: Targeted Retrieval
         docs = self.retriever.retrieve(

@@ -1,3 +1,4 @@
+[ALIASES] [("Nguyễn Văn A", "Bên cho thuê", "Người thuê"), ("Trần Thị B", "Bên thuê lại", "Người thuê lại"), ("Phạm Văn D", "Chủ sở hữu")]
 [TITLE] [Thông tin chung] Hợp đồng cho thuê lại.
 
 Bên cho thuê là ông Nguyễn Văn A, sinh năm 1980, cư trú tại số 10 đường Lê Lợi, quận 1, thành phố Hồ Chí Minh.

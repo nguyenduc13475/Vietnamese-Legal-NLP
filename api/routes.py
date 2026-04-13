@@ -180,6 +180,7 @@ async def reprocess_raw_document(filename: str):
                 "contract_title": actual_title,
                 "context": str(item.get("context", "General")),
                 "is_title": str(item.get("is_title", False)),
+                "aliases": str(item.get("aliases", "[]")),
                 "intent": str(classify_intent(clause_text)),
                 "entities": str(
                     [{"text": e["text"], "label": e["label"]} for e in ents]
@@ -406,6 +407,7 @@ async def ingest_file(file: UploadFile = File(...)):
                 "contract_title": actual_title,
                 "context": str(item.get("context", "General")),
                 "is_title": str(item.get("is_title", False)),
+                "aliases": str(item.get("aliases", "[]")),
                 "intent": str(classify_intent(clause_text)),
                 "entities": str(
                     [{"text": e["text"], "label": e["label"]} for e in ents]

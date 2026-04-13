@@ -1,3 +1,4 @@
+[ALIASES] [("Bên mua", "Bên A", "Party A", "The Buyer"), ("Bên bán", "Bên B", "Party B", "The Seller")]
 [TITLE] [Thông tin chung] HỢP ĐỒNG KINH TẾ.
 SALES CONTRACT.
 Số: 88/HDDV.

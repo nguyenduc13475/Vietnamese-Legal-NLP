@@ -1,3 +1,4 @@
+[ALIASES] [("Công ty TNHH Phát triển Công nghệ Alpha", "Bên sử dụng lao động", "Công ty", "Người sử dụng lao động"), ("Trần Thị B", "Người lao động", "NLĐ")]
 [Thông tin chung] CÔNG TY TNHH PHÁT TRIỂN CÔNG NGHỆ ALPHA.
 CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.

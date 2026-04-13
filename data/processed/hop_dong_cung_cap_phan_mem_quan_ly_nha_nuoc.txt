@@ -1,3 +1,4 @@
+[ALIASES] [("Bên sử dụng dịch vụ", "Bên A", "Công ty TNHH Dược phẩm An Khang"), ("Bên cung cấp dịch vụ", "Bên B", "Tập đoàn Bưu chính Viễn thông Việt Nam - VNPT")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 [TITLE] HỢP ĐỒNG CUNG CẤP DỊCH VỤ PHẦN MỀM QUẢN LÝ NHÀ THUỐC.

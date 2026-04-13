@@ -62,9 +62,20 @@ def extract_entities(text: str) -> list[dict]:
                     end_idx = start_idx + len(clean_text) if start_idx != -1 else 0
                     start_idx = max(0, start_idx)
 
+                # Strict cleaning: Remove trailing/leading punctuation often misidentified by models
+                # Keep internal punctuation (e.g., 10.000.000) but remove trailing dots
+                stripped_text = clean_text.strip(".,:;() ")
+                if not stripped_text:
+                    continue
+
+                # Update span if text was stripped
+                if stripped_text != clean_text:
+                    start_idx = text.find(stripped_text, start_idx)
+                    end_idx = start_idx + len(stripped_text)
+
                 entities.append(
                     {
-                        "text": clean_text,
+                        "text": stripped_text,
                         "label": label,
                         "span": (start_idx, end_idx),
                     }

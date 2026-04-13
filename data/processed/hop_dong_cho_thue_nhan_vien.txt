@@ -1,3 +1,4 @@
+[ALIASES] [("Nhà hàng Ẩm thực Việt", "Bên thuê lao động", "Bên A"), ("Trần Văn Bình", "Bên người lao động", "Bên B", "Nhân viên")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập – Tự do – Hạnh phúc.
 Hà Nội, ngày 15 tháng 05 năm 2024.

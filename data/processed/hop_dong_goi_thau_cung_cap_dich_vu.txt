@@ -1,3 +1,4 @@
+[ALIASES] [("Trường Đại học Cần Thơ", "Chủ đầu tư", "Bên A"), ("Công ty TNHH Công nghệ số ABC", "Nhà thầu", "Bên B")]
 [Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
 Độc lập - Tự do - Hạnh phúc.
 [TITLE] HỢP ĐỒNG DỊCH VỤ.

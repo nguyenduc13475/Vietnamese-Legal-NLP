@@ -62,21 +62,36 @@ def extract_srl(
                             predicate = f"{predicate} {part}"
                         break
 
-    # Extract role candidates from syntax
-    syntax_agents = (
-        [d["token"] for d in dependencies if "nsubj" in d.get("relation", "")]
-        if dependencies
-        else []
-    )
-    syntax_themes = (
-        [
-            d["token"]
-            for d in dependencies
-            if d.get("relation") in ["obj", "iobj", "nsubj:pass"]
-        ]
-        if dependencies
-        else []
-    )
+    def get_full_phrase(token_id, dependencies):
+        """Reconstruct the entire phrase belonging to a specific dependency node."""
+        if not dependencies:
+            return ""
+
+        def collect_ids(tid, deps, visited):
+            if tid in visited:
+                return set()
+            visited.add(tid)
+            res = {tid}
+            for d in deps:
+                if d.get("head_index") == tid:
+                    res.update(collect_ids(d.get("id"), deps, visited))
+            return res
+
+        subtree_ids = collect_ids(token_id, dependencies, set())
+        phrase_nodes = [d for d in dependencies if d.get("id") in subtree_ids]
+        phrase_nodes.sort(key=lambda x: x.get("id", 0))
+        return " ".join([n["token"] for n in phrase_nodes])
+
+    # Extract role candidates using full subtrees instead of just single tokens
+    syntax_agents = []
+    syntax_themes = []
+    if dependencies:
+        for d in dependencies:
+            rel = d.get("relation", "")
+            if "nsubj" in rel and "pass" not in rel:
+                syntax_agents.append(get_full_phrase(d["id"], dependencies))
+            elif rel in ["obj", "iobj", "nsubj:pass", "obl"]:
+                syntax_themes.append(get_full_phrase(d["id"], dependencies))
 
     # Combine Entities (NER) for semantic labeling
     for ent in entities:
