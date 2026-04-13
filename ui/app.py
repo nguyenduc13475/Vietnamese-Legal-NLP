@@ -175,9 +175,12 @@ with tab_raw:
 # --- TAB: PROCESSED DOCUMENTS ---
 with tab_proc:
     st.subheader("⚙️ Processed Text (data/processed)")
-    proc_files = requests.get(f"{API_URL}/documents/processed").json().get("files", [])
-    for pf in proc_files:
+    proc_data = requests.get(f"{API_URL}/documents/processed").json().get("files", [])
+    for pf_obj in proc_data:
+        pf = pf_obj["filename"]  # Assign to pf so the rest of your button logic works!
+        aliases = pf_obj["aliases"]
         with st.expander(f"📄 {pf}"):
+            st.caption(f"**Aliases:** {aliases}")
             c1, c2, c3 = st.columns([2, 1, 1])
             if c1.button("🔍 Visualize", key=f"viz_{pf}"):
                 # Fetch pre-computed state from the database endpoint
@@ -368,16 +371,30 @@ with tab_chat:
                         </div>
                         """
 
-                        # Cải tiến phần trích dẫn để hiển thị File, Ngữ cảnh và Detail Scores
+                        # Clean markdown-based citation to avoid tag leakage
                         st.markdown(
-                            f"""
-                        <div style='background:#f9f9f9; padding:15px; border-left:5px solid #0d6efd; margin-bottom:10px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);'>
-                            <b>[{i + 1}] File:</b> <code>{meta.get("source")}</code> | <b>Vị trí:</b> <span style='color:#d63384'><b>{meta.get("context", "Chung")}</b></span><br>
-                            {score_html}
-                            <i style='color:#212529; line-height: 1.5;'>"{src["content"]}"</i>
-                        </div>
-                        """,
-                            unsafe_allow_html=True,
+                            f"**[{i + 1}] File:** `{meta.get('source')}` | **Vị trí:** `{meta.get('context', 'Chung')}`"
                         )
+
+                        # Display breakdown if exists
+                        try:
+                            breakdown = ast.literal_eval(
+                                meta.get("score_srl_breakdown", "{}")
+                            )
+                            if breakdown:
+                                with st.expander("📊 SRL Match Details"):
+                                    st.write(
+                                        f"Predicate Match: {breakdown.get('predicate_match')}"
+                                    )
+                                    st.write(
+                                        "Role Points:", breakdown.get("role_matches")
+                                    )
+                        except Exception:
+                            pass
+
+                        st.write(
+                            f"> {src['content']}"
+                        )  # Use standard markdown blockquote
+                        st.markdown(score_html, unsafe_allow_html=True)
                 except Exception as e:
                     st.error(f"Lỗi kết nối API: {e}")

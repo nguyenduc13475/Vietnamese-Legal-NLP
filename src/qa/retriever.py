@@ -202,8 +202,20 @@ class LegalRetriever:
             match_score = self._match_with_aliases(bp_val, doc_val, aliases_str)
             role_score += match_score
 
-        score += (role_score / len(bp_active_roles)) * 0.6
-        return min(score, 1.0)
+        role_final = (
+            (role_score / len(bp_active_roles)) * 0.6 if bp_active_roles else 0.0
+        )
+        total_score = min(score + role_final, 1.0)
+
+        # Return breakdown for UI transparency
+        breakdown = {
+            "predicate_match": round(score, 3),
+            "role_matches": {
+                k: round(v, 3) for k, v in bp_active_roles.items() if k in bp_roles
+            },
+            "role_final_score": round(role_final, 3),
+        }
+        return total_score, breakdown
 
     def retrieve(
         self,
@@ -299,18 +311,18 @@ class LegalRetriever:
         else:
             final_candidates = normalized_candidates
 
-        # Phase 2: Soft SRL Re-ranking
-        # Final Score = VectorScore + (SRL_Lambda * SRLScore)
-        # Lambda=0.7 balances the specific semantic matching with semantic similarity
         srl_lambda = 0.7
         re_ranked = []
         for doc, v_score in final_candidates:
-            srl_score = self._calculate_srl_score(srl_filter, doc.metadata)
+            # New return type (score, breakdown)
+            srl_score, srl_breakdown = self._calculate_srl_score(
+                srl_filter, doc.metadata
+            )
             combined_score = v_score + (srl_lambda * srl_score)
 
-            # Inject scores into document metadata so API & UI can access them
             doc.metadata["score_vector"] = round(v_score, 4)
             doc.metadata["score_srl"] = round(srl_score, 4)
+            doc.metadata["score_srl_breakdown"] = str(srl_breakdown)  # Store for UI
             doc.metadata["score_total"] = round(combined_score, 4)
 
             re_ranked.append((doc, combined_score))

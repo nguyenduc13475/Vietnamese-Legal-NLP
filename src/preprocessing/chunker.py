@@ -11,36 +11,49 @@ def chunk_np(text: str) -> list[tuple[str, str]]:
     except Exception:
         return []
 
-    chunked = []
-    temp_chunks = []
+    # Define parts of speech that are typically part of a legal Noun Phrase
+    LEGAL_NP_POS = [
+        "N",
+        "A",
+        "M",
+        "L",
+        "P",
+        "Np",
+        "Nu",
+        "V",
+    ]  # Include V for verbal nouns like 'CUNG CẤP'
+
+    refined_chunks = []
     for word, pos, chunk_tag in chunks:
         clean_word = word.replace("_", " ")
-        temp_chunks.append({"word": clean_word, "pos": pos, "tag": chunk_tag})
+        # Rule 1: Strictly filter out non-NP tags unless they are potential legal NP components
+        # If underthesea labels it B-VP but it's part of a Title/Entity, we might want it.
+        # But for Assignment 1.2, we must prioritize NP tags.
+        final_tag = chunk_tag if "NP" in chunk_tag else "O"
 
-    # Join adjacent NPs if they form a logical unit (Noun + Adj/Noun)
-    # e.g., "năng lực" (B-NP) + "thực tế" (B-NP) -> one single NP unit
-    refined_chunks = []
-    for i in range(len(temp_chunks)):
-        curr = temp_chunks[i]
-        if i > 0 and curr["tag"] == "B-NP":
-            prev = temp_chunks[i - 1]
-            # If the current B-NP is a Noun or Adj following another NP, convert to I-NP
-            if prev["tag"] in ["B-NP", "I-NP"] and curr["pos"] in ["N", "A", "M", "L"]:
-                curr["tag"] = "I-NP"
-        refined_chunks.append(curr)
+        # Rule 2: Force merge common legal verbs/adjectives into the current NP
+        if refined_chunks:
+            prev = refined_chunks[-1]
+            if prev["tag"] in ["B-NP", "I-NP"]:
+                # If current word is a legal component, treat as continuation (I-NP)
+                if pos in LEGAL_NP_POS:
+                    final_tag = "I-NP"
 
-    chunked = []
+        refined_chunks.append({"word": clean_word, "pos": pos, "tag": final_tag})
+
+    # Convert word-based chunks to syllable-based BIO tags
+    syllable_chunks = []
     for item in refined_chunks:
         sub_words = item["word"].split()
         if not sub_words:
             continue
 
-        # Maintain BIO continuity within the word itself
         tag = item["tag"]
-        chunked.append((sub_words[0], tag))
-        # Subsequent syllables of the same word are always Inside (I-NP) if the word started a chunk
+        syllable_chunks.append((sub_words[0], tag))
+
+        # Internal syllables of the same word/phrase inherit the continuation tag
         suffix_tag = "I-NP" if tag != "O" else "O"
         for sub_word in sub_words[1:]:
-            chunked.append((sub_word, suffix_tag))
+            syllable_chunks.append((sub_word, suffix_tag))
 
-    return chunked
+    return syllable_chunks

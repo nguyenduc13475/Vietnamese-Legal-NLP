@@ -34,36 +34,46 @@ def extract_srl(
                 aux_str = " ".join([t for idx, t in aux_sorted])
                 predicate = f"{aux_str} {predicate}"
 
-            # Capture the verb "chịu" alongside "có"
-            if root_token.get("token").lower() in ["có", "chịu"]:
-                comp_parts_tokens = [
-                    d.get("token").lower()
-                    for d in dependencies
-                    if d.get("head_index") == root_idx
+            # Enhanced legal predicate merging (e.g., "có trách nhiệm thực hiện")
+            text_lower = text.lower()
+            if root_token.get("token").lower() in ["có", "chịu", "đảm", "cam"]:
+                legal_nouns = [
+                    "trách nhiệm",
+                    "nghĩa vụ",
+                    "quyền",
+                    "quyền lợi",
+                    "cam kết",
+                    "bảo đảm",
                 ]
-                text_lower = text.lower()
+                found_noun = next((n for n in legal_nouns if n in text_lower), None)
 
-                for part in ["nghĩa vụ", "trách nhiệm", "quyền lợi", "quyền"]:
-                    if f"{root_token.get('token').lower()} {part}" in text_lower or any(
-                        p in part for p in comp_parts_tokens
-                    ):
-                        main_verb = next(
-                            (
-                                d.get("token")
-                                for d in dependencies
-                                if d.get("relation")
-                                in ["xcomp", "ccomp", "acl", "vmod"]
-                            ),
-                            "",
-                        )
-                        if main_verb:
-                            predicate = f"{predicate} {part} {main_verb}"
-                        else:
-                            predicate = f"{predicate} {part}"
-                        break
+                if found_noun:
+                    # Find the action verb associated with this responsibility
+                    action_verb = next(
+                        (
+                            d
+                            for d in dependencies
+                            if d.get("relation") in ["xcomp", "acl", "vmod", "ccomp"]
+                        ),
+                        None,
+                    )
+                    if action_verb:
+                        predicate = f"{predicate} {found_noun} {action_verb['token']}"
+                    else:
+                        predicate = f"{predicate} {found_noun}"
+
+    # Rule 0: Skip non-sentential fragments (Phone, Fax, IDs)
+    if any(
+        kw in text.lower()
+        for kw in ["fax:", "điện thoại:", "đt:", "số định danh:", "id:"]
+    ):
+        return {
+            "predicate": "Contact/ID Info",
+            "roles": {"Value": text.split(":")[-1].strip()},
+        }
 
     def get_full_phrase(token_id, dependencies):
-        """Reconstruct the entire phrase belonging to a specific dependency node."""
+        """Reconstruct the entire phrase belonging to a specific dependency node with better token preservation."""
         if not dependencies:
             return ""
 
@@ -73,14 +83,23 @@ def extract_srl(
             visited.add(tid)
             res = {tid}
             for d in deps:
+                # head_index is 1-based index in Stanza
                 if d.get("head_index") == tid:
                     res.update(collect_ids(d.get("id"), deps, visited))
             return res
 
         subtree_ids = collect_ids(token_id, dependencies, set())
-        phrase_nodes = [d for d in dependencies if d.get("id") in subtree_ids]
-        phrase_nodes.sort(key=lambda x: x.get("id", 0))
-        return " ".join([n["token"] for n in phrase_nodes])
+        # Sort based on the numerical ID to preserve word order
+        phrase_nodes = sorted(
+            [d for d in dependencies if d.get("id") in subtree_ids],
+            key=lambda x: x["id"],
+        )
+
+        # Filter out punctuation-only nodes at boundaries to avoid "các bê" artifacts
+        clean_tokens = [
+            n["token"] for n in phrase_nodes if any(c.isalnum() for c in n["token"])
+        ]
+        return " ".join(clean_tokens)
 
     # Extract role candidates using full subtrees instead of just single tokens
     syntax_agents = []

@@ -88,11 +88,31 @@ def ask_question(request: QARequest):
 
 @router.get("/documents/processed")
 def list_processed_documents():
-    """List all cleaned text files in data/processed independently."""
+    """List all cleaned text files with their metadata (aliases)."""
     processed_dir = "data/processed"
     os.makedirs(processed_dir, exist_ok=True)
     files = [f for f in os.listdir(processed_dir) if f.endswith(".txt")]
-    return {"files": files}
+
+    # Enrich with aliases from Vector DB
+    file_metadata = []
+    source_map = retriever.get_sources_with_titles()  # Reuse existing logic
+
+    # Get aliases specifically
+    db_data = retriever.vector_store.get(include=["metadatas"])
+    alias_map = {}
+    for meta in db_data.get("metadatas", []):
+        if meta.get("source") not in alias_map:
+            alias_map[meta["source"]] = meta.get("aliases", "[]")
+
+    for f in files:
+        file_metadata.append(
+            {
+                "filename": f,
+                "title": source_map.get(f, f),
+                "aliases": alias_map.get(f, "[]"),
+            }
+        )
+    return {"files": file_metadata}
 
 
 @router.get("/database/sources")
