@@ -17,7 +17,7 @@ from transformers import (
 def load_custom_data(file_path):
     """
     Loading NER training data from JSON.
-    NER tag format: 0: O, 1: B-PARTY, 2: I-PARTY, 3: B-MONEY, 4: I-MONEY...
+    NER tag format: ["O", "B-PARTY", "I-PARTY", "B-OBJECT", ...]
     """
     if not os.path.exists(file_path):
         raise FileNotFoundError(
@@ -33,6 +33,7 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     # Define the label map to be saved directly into the model config
+    # Added OBJECT and PREDICATE for ULTRA-NER
     id2label = {
         0: "O",
         1: "B-PARTY",
@@ -47,10 +48,14 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
         10: "I-PENALTY",
         11: "B-LAW",
         12: "I-LAW",
+        13: "B-OBJECT",
+        14: "I-OBJECT",
+        15: "B-PREDICATE",
+        16: "I-PREDICATE",
     }
     label2id = {v: k for k, v in id2label.items()}
+    num_labels = len(id2label)
 
-    num_labels = 13
     model = AutoModelForTokenClassification.from_pretrained(
         model_name, num_labels=num_labels, id2label=id2label, label2id=label2id
     )
@@ -67,27 +72,27 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
             input_ids = [tokenizer.cls_token_id]
             label_ids = [-100]
 
-            for word, label in zip(words, ner_tags):
+            for word, label_str in zip(words, ner_tags):
                 word_tokens = tokenizer.encode(word, add_special_tokens=False)
                 if not word_tokens:
                     continue
 
                 input_ids.extend(word_tokens)
 
+                # Assign label to the first subword and propagate I-labels to subsequent subwords
                 for j in range(len(word_tokens)):
                     if j == 0:
-                        label_ids.append(label)
+                        label_ids.append(label2id.get(label_str, 0))
                     else:
-                        if label == 0:
-                            label_ids.append(0)
-                        elif label % 2 != 0:
-                            label_ids.append(label + 1)
+                        if label_str.startswith("B-"):
+                            label_ids.append(label2id.get("I-" + label_str[2:], 0))
                         else:
-                            label_ids.append(label)
+                            label_ids.append(label2id.get(label_str, 0))
 
             input_ids.append(tokenizer.sep_token_id)
             label_ids.append(-100)
 
+            # Truncate to max_length 256
             if len(input_ids) > 256:
                 input_ids = input_ids[:255] + [tokenizer.sep_token_id]
                 label_ids = label_ids[:255] + [-100]
@@ -112,7 +117,7 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     )
 
     training_args = TrainingArguments(
-        output_dir="./models/fine_tuned_ner",
+        output_dir="./models/ultra_ner",
         eval_strategy="epoch",
         learning_rate=learning_rate,
         per_device_train_batch_size=batch_size,
@@ -154,10 +159,10 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
         data_collator=data_collator,
     )
 
-    print(f"Starting NER model training using {model_name}...")
+    print(f"Starting ULTRA-NER model training using {model_name}...")
     trainer.train()
 
-    output_dir = "./models/fine_tuned_ner"
+    output_dir = "./models/ultra_ner"
     os.makedirs(output_dir, exist_ok=True)
     trainer.save_model(output_dir)
     tokenizer.save_pretrained(output_dir)
@@ -165,12 +170,14 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Train NER Model for Legal Contracts")
+    parser = argparse.ArgumentParser(
+        description="Train ULTRA-NER Model for Legal Contracts"
+    )
     parser.add_argument(
         "--model",
         type=str,
-        default="vinai/phobert-base",
-        help="Pretrained model (e.g., vinai/phobert-large)",
+        default="Fsoft-AIC/videberta-xsmall",
+        help="Pretrained model (e.g., Fsoft-AIC/videberta-xsmall)",
     )
     parser.add_argument(
         "--epochs", type=int, default=10, help="Number of training epochs"

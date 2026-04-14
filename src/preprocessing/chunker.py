@@ -1,59 +1,51 @@
-from underthesea import chunk
+import re
+
+from src.extraction.ner_engine import extract_ultra_entities
 
 
 def chunk_np(text: str) -> list[tuple[str, str]]:
     """
-    Extracts Noun Phrases (NP) and labels them using IOB format via underthesea's native chunker.
-    Splits compound Vietnamese words into individual syllables for strict IOB representation.
+    Converts ULTRA-NER labels to IOB format for NP Chunking task.
+    Any extracted entity that is not 'PREDICATE' is treated as part of a Noun Phrase (NP).
     """
-    try:
-        chunks = chunk(text)
-    except Exception:
+    if not text or not text.strip():
         return []
 
-    # Define parts of speech that are typically part of a legal Noun Phrase
-    LEGAL_NP_POS = [
-        "N",
-        "A",
-        "M",
-        "L",
-        "P",
-        "Np",
-        "Nu",
-        "V",
-    ]  # Include V for verbal nouns like 'CUNG CẤP'
+    # 1. Get all entities from the unified ULTRA-NER model
+    entities = extract_ultra_entities(text)
 
-    refined_chunks = []
-    for word, pos, chunk_tag in chunks:
-        clean_word = word.replace("_", " ")
-        # Rule 1: Strictly filter out non-NP tags unless they are potential legal NP components
-        # If underthesea labels it B-VP but it's part of a Title/Entity, we might want it.
-        # But for Assignment 1.2, we must prioritize NP tags.
-        final_tag = chunk_tag if "NP" in chunk_tag else "O"
+    # 2. Filter valid NP entities (everything except PREDICATE)
+    # Note: 'O' labels are implicitly excluded since extract_ultra_entities ignores them
+    valid_entities = [e for e in entities if e.get("label") != "PREDICATE"]
 
-        # Rule 2: Force merge common legal verbs/adjectives into the current NP
-        if refined_chunks:
-            prev = refined_chunks[-1]
-            if prev["tag"] in ["B-NP", "I-NP"]:
-                # If current word is a legal component, treat as continuation (I-NP)
-                if pos in LEGAL_NP_POS:
-                    final_tag = "I-NP"
+    # 3. Tokenize text into words/syllables, tracking character spans.
+    # We use regex \S+ to emulate text.split() while retaining exact start/end indices.
+    tokens = []
+    for match in re.finditer(r"\S+", text):
+        tokens.append(
+            {
+                "word": match.group(),
+                "start": match.start(),
+                "end": match.end(),
+                "tag": "O",  # Default to Outside
+            }
+        )
 
-        refined_chunks.append({"word": clean_word, "pos": pos, "tag": final_tag})
+    # 4. Align tokens with valid entity spans using character offset overlap
+    for ent in valid_entities:
+        ent_start, ent_end = ent["span"]
+        is_first_token_in_span = True
 
-    # Convert word-based chunks to syllable-based BIO tags
-    syllable_chunks = []
-    for item in refined_chunks:
-        sub_words = item["word"].split()
-        if not sub_words:
-            continue
+        for token in tokens:
+            # Check if the token's character span overlaps with the entity's character span
+            if token["start"] < ent_end and token["end"] > ent_start:
+                if is_first_token_in_span:
+                    token["tag"] = "B-NP"
+                    is_first_token_in_span = False
+                else:
+                    token["tag"] = "I-NP"
 
-        tag = item["tag"]
-        syllable_chunks.append((sub_words[0], tag))
+    # 5. Format output to match the required interface: list of tuples (word, tag)
+    iob_results = [(t["word"], t["tag"]) for t in tokens]
 
-        # Internal syllables of the same word/phrase inherit the continuation tag
-        suffix_tag = "I-NP" if tag != "O" else "O"
-        for sub_word in sub_words[1:]:
-            syllable_chunks.append((sub_word, suffix_tag))
-
-    return syllable_chunks
+    return iob_results

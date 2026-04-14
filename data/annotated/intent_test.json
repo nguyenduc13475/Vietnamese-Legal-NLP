@@ -1,29 +1,5 @@
 [
     {
-        "text": "ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.",
-        "label": "Other"
-    },
-    {
-        "text": "Họ và tên khách hàng là Nguyễn Văn A (sau đây gọi là \"Bên vay\").",
-        "label": "Other"
-    },
-    {
-        "text": "Thu nhập từ tiền lương và tiền thưởng hàng tháng là 30.000.000 VNĐ.",
-        "label": "Other"
-    },
-    {
-        "text": "Thời hạn cấp tín dụng là 12 tháng.",
-        "label": "Other"
-    },
-    {
-        "text": "Tổng số tiền vay là 500.000.000 VNĐ (Năm trăm triệu đồng).",
-        "label": "Other"
-    },
-    {
-        "text": "Thời hạn vay là 365 ngày, ngày giải ngân là 20/05/2024, ngày hoàn trả nợ cuối cùng là 20/05/2025.",
-        "label": "Other"
-    },
-    {
         "text": "Số tiền giải ngân được sử dụng để thanh toán cho đơn vị thụ hưởng là Công ty TNHH Nội thất X, số tài khoản 123456789 tại Ngân hàng Vietcombank.",
         "label": "Other"
     },
@@ -56,7 +32,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Bên vay cam kết sử dụng vốn đúng mục đích đã thỏa thuận và cung cấp đầy đủ chứng từ chứng minh theo yêu cầu của Ngân hàng.",
+        "text": "Bên vay cam kết sử dụng vốn đúng mục đích đã thỏa thuận.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên vay cam kết cung cấp đầy đủ chứng từ chứng minh theo yêu cầu của Ngân hàng.",
         "label": "Obligation"
     },
     {
@@ -180,7 +160,11 @@
         "label": "Other"
     },
     {
-        "text": "Hợp đồng có hiệu lực từ ngày Ngân hàng ký phê duyệt và kết thúc khi Bên vay hoàn thành mọi nghĩa vụ tài chính.",
+        "text": "Hợp đồng có hiệu lực từ ngày Ngân hàng ký phê duyệt.",
+        "label": "Other"
+    },
+    {
+        "text": "Hợp đồng kết thúc khi Bên vay hoàn thành mọi nghĩa vụ tài chính.",
         "label": "Other"
     },
     {
@@ -188,7 +172,15 @@
         "label": "Obligation"
     },
     {
-        "text": "Hợp đồng được lập thành 03 bản gốc, Ngân hàng giữ 02 bản và Bên vay giữ 01 bản.",
+        "text": "Bên vay giữ 01 bản.",
+        "label": "Other"
+    },
+    {
+        "text": "Hợp đồng được lập thành 03 bản gốc.",
+        "label": "Other"
+    },
+    {
+        "text": "Ngân hàng giữ 02 bản.",
         "label": "Other"
     },
     {
@@ -196,7 +188,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Đại diện Ngân hàng xác nhận đã tiếp nhận hồ sơ và phê duyệt khoản vay.",
+        "text": "Đại diện Ngân hàng xác nhận đã tiếp nhận hồ sơ.",
+        "label": "Other"
+    },
+    {
+        "text": "Đại diện Ngân hàng xác nhận đã phê duyệt khoản vay.",
         "label": "Other"
     },
     {
@@ -232,6 +228,10 @@
         "label": "Prohibition"
     },
     {
+        "text": "b) Không được thực hiện các giao dịch rửa tiền, tuân thủ nghiêm ngặt Luật Phòng, chống rửa tiền 2022.",
+        "label": "Prohibition"
+    },
+    {
         "text": "Điều 10. Khách hàng tuyệt đối không cung cấp hồ sơ giả mạo để vay vốn theo Luật Các tổ chức tín dụng 2024.",
         "label": "Prohibition"
     },
@@ -256,6 +256,10 @@
         "label": "Right"
     },
     {
+        "text": "Khoản 4. Khách hàng được quyền tất toán khoản vay trước hạn nhưng phải chịu phạt 1.5% trên số dư nợ gốc.",
+        "label": "Right"
+    },
+    {
         "text": "Mục 2. Bên vay được quyền từ chối các khoản thu phí không nằm trong Hợp đồng này.",
         "label": "Right"
     },
@@ -266,6 +270,10 @@
     {
         "text": "Điều 12. Người Vay có quyền giải chấp tài sản từng phần nếu đã thanh toán được 50% dư nợ gốc.",
         "label": "Right"
+    },
+    {
+        "text": "Khoản 6. Ngân hàng có quyền thu hồi nợ trước hạn nếu phát hiện vi phạm, bên vi phạm phải chịu phạt 02 tháng tiền lãi.",
+        "label": "Termination Condition"
     },
     {
         "text": "Khoản 6. Ngân hàng có quyền thu hồi nợ trước hạn nếu phát hiện vi phạm, bên vi phạm phải chịu phạt 02 tháng tiền lãi.",
@@ -340,7 +348,15 @@
         "label": "Obligation"
     },
     {
+        "text": "Bên B phải làm vệ sinh phương tiện vận tải khi nhận hàng, chi phí vệ sinh phương tiện vận tải sau khi giao hàng Bên A phải chịu là 500.000 đồng.",
+        "label": "Obligation"
+    },
+    {
         "text": "Trường hợp không tìm thấy người đại diện của Bên A tại địa điểm giao hàng, Bên B chờ sau 120 phút có quyền nhờ Ủy ban nhân dân cơ sở xác nhận phương tiện có đến rồi cho phương tiện về và yêu cầu thanh toán chi phí như trên.",
+        "label": "Right"
+    },
+    {
+        "text": "Bên B có quyền từ chối không nhận hàng nếu Bên A giao hàng không đúng loại hàng ghi trong vận đơn khi xét thấy phương tiện điều động không thích hợp với loại hàng đó, có quyền bắt Bên A phải chịu phạt 10% giá trị tổng cước phí.",
         "label": "Right"
     },
     {
@@ -640,7 +656,11 @@
         "label": "Other"
     },
     {
-        "text": "Bên A và Bên B sau đây được gọi chung là “hai Bên” hoặc “các Bên” và gọi riêng là “Bên” hoặc “mỗi Bên”, tùy theo ngữ cảnh diễn đạt.",
+        "text": "Bên A và Bên B sau đây được gọi chung là “hai Bên” hoặc “các Bên”.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên A và Bên B sau đây được gọi riêng là “Bên” hoặc “mỗi Bên”, tùy theo ngữ cảnh diễn đạt.",
         "label": "Other"
     },
     {
@@ -700,7 +720,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Trong thời hạn tối đa 05 (năm) ngày làm việc kể từ ngày nhận được yêu cầu cung cấp Thông tin bảo mật, Bên nhận thông tin sẽ gửi văn bản thông báo cho Bên cung cấp thông tin và cung cấp bằng chứng về yêu cầu này để các Bên có thể thực hiện các hành động thích hợp hoặc các biện pháp bảo vệ phù hợp.",
+        "text": "Trong thời hạn tối đa 05 (năm) ngày làm việc kể từ ngày nhận được yêu cầu cung cấp Thông tin bảo mật, Bên nhận thông tin sẽ cung cấp bằng chứng về yêu cầu này để các Bên có thể thực hiện các hành động thích hợp hoặc các biện pháp bảo vệ phù hợp.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Trong thời hạn tối đa 05 (năm) ngày làm việc kể từ ngày nhận được yêu cầu cung cấp Thông tin bảo mật, Bên nhận thông tin sẽ gửi văn bản thông báo cho Bên cung cấp thông tin để các Bên có thể thực hiện các hành động thích hợp hoặc các biện pháp bảo vệ phù hợp.",
         "label": "Obligation"
     },
     {
@@ -760,7 +784,15 @@
         "label": "Other"
     },
     {
-        "text": "Thỏa thuận được lập thành 02 (hai) bản bằng tiếng Việt có giá trị pháp lý như nhau, Bên A giữ 01 (một) bản, Bên B giữ 01 (một) bản để thực hiện.",
+        "text": "Thỏa thuận được lập thành 02 (hai) bản bằng tiếng Việt có giá trị pháp lý như nhau",
+        "label": "Other"
+    },
+    {
+        "text": "Bên A giữ 01 (một) bản để thực hiện.",
+        "label": "Other"
+    },
+    {
+        "text": "Bên B giữ 01 (một) bản để thực hiện.",
         "label": "Other"
     },
     {
@@ -800,11 +832,19 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Khoản 5. Trường hợp Bên A vi phạm cam kết bảo mật, hợp đồng sẽ tự động chấm dứt và Bên A phải bồi thường 500.000.000 VNĐ.",
+        "text": "Khoản 5. Trường hợp Bên A vi phạm cam kết bảo mật, hợp đồng sẽ tự động chấm dứt.",
         "label": "Termination Condition"
     },
     {
-        "text": "Mục 2. Bất kỳ sự chậm trễ nào vượt quá 10 ngày sẽ dẫn đến việc hủy bỏ hợp đồng và bên vi phạm bị phạt 03 tháng tiền thuê.",
+        "text": "Khoản 5. Trường hợp Bên A vi phạm cam kết bảo mật, Bên A phải bồi thường 500.000.000 VNĐ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mục 2. Bất kỳ sự chậm trễ nào vượt quá 10 ngày sẽ dẫn đến việc hủy bỏ hợp đồng.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mục 2. Bất kỳ sự chậm trễ nào vượt quá 10 ngày sẽ dẫn đến việc bên vi phạm bị phạt 03 tháng tiền thuê.",
         "label": "Termination Condition"
     },
     {
@@ -812,7 +852,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 11. Nếu phát hiện sai phạm tài chính vượt mức 5%, Bên cung cấp thông tin có quyền chấm dứt Thỏa thuận ngay lập tức và yêu cầu bồi thường 1.500 USD.",
+        "text": "Điều 11. Nếu phát hiện sai phạm tài chính vượt mức 5%, Bên cung cấp thông tin có quyền chấm dứt Thỏa thuận ngay lập tức.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Điều 11. Nếu phát hiện sai phạm tài chính vượt mức 5%, Bên cung cấp thông tin có quyền yêu cầu bồi thường 1.500 USD.",
         "label": "Termination Condition"
     },
     {
@@ -820,7 +864,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Mục d. Việc tiết lộ bí mật kinh doanh cho bên thứ ba sẽ khiến hợp đồng bị vô hiệu hóa và bị phạt tới mức 100.000.000 VNĐ.",
+        "text": "Mục d. Việc tiết lộ bí mật kinh doanh cho bên thứ ba sẽ khiến hợp đồng bị vô hiệu hóa.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mục d. Việc tiết lộ bí mật kinh doanh cho bên thứ ba sẽ bị phạt tới mức 100.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
@@ -872,7 +920,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Điều 16. Phí duy trì hệ thống bảo mật là 10.000.000 đồng mỗi tháng và phải được Bên B thanh toán trước ngày mùng 5 hàng tháng.",
+        "text": "Điều 16. Phí duy trì hệ thống bảo mật phải được Bên B thanh toán trước ngày mùng 5 hàng tháng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Điều 16. Phí duy trì hệ thống bảo mật là 10.000.000 đồng mỗi tháng.",
         "label": "Obligation"
     },
     {

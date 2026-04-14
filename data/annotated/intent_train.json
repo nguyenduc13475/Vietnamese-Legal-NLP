@@ -32,7 +32,7 @@
         "label": "Other"
     },
     {
-        "text": "Chủ sở hữu đã đồng ý bằng văn bản về việc cho phép thuê lại căn hộ và văn bản này là một phần không thể tách rời của hợp đồng này.",
+        "text": "Chủ sở hữu đã đồng ý bằng văn bản về việc cho phép thuê lại căn hộ.",
         "label": "Other"
     },
     {
@@ -40,7 +40,11 @@
         "label": "Other"
     },
     {
-        "text": "Người thuê lại sẽ tiếp nhận căn hộ từ người thuê vào ngày 01 tháng 02 năm 2024 và tình trạng bàn giao sẽ được ghi nhận cụ thể trong biên bản bàn giao.",
+        "text": "Người thuê lại sẽ tiếp nhận căn hộ từ người thuê vào ngày 01 tháng 02 năm 2024.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tình trạng bàn giao sẽ được ghi nhận cụ thể trong biên bản bàn giao.",
         "label": "Obligation"
     },
     {
@@ -68,7 +72,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Việc thanh toán được thực hiện thông qua chuyển khoản vào tài khoản ngân hàng Vietcombank số 0071001234567 của người thuê hoặc thanh toán trực tiếp bằng tiền mặt.",
+        "text": "Việc thanh toán có thể được thực hiện thông qua chuyển khoản vào tài khoản ngân hàng Vietcombank số 0071001234567 của người thuê.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Việc thanh toán có thể được thực hiện thông thanh toán trực tiếp bằng tiền mặt.",
         "label": "Obligation"
     },
     {
@@ -92,7 +100,7 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Người thuê lại sử dụng căn hộ sai mục đích hoặc cho bên thứ ba thuê lại mà không có sự đồng ý của người thuê.",
+        "text": "Người thuê lại sử dụng căn hộ sai mục đích.",
         "label": "Termination Condition"
     },
     {
@@ -112,7 +120,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Khi kết thúc hợp đồng, người thuê lại có nghĩa vụ di dời toàn bộ tài sản cá nhân và bàn giao lại căn hộ cho người thuê trong tình trạng nguyên trạng như khi tiếp nhận.",
+        "text": "Khi kết thúc hợp đồng, người thuê lại có nghĩa vụ di dời toàn bộ tài sản cá nhân.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Khi kết thúc hợp đồng, người thuê lại có nghĩa vụ bàn giao lại căn hộ cho người thuê trong tình trạng nguyên trạng như khi tiếp nhận.",
         "label": "Obligation"
     },
     {
@@ -128,7 +140,15 @@
         "label": "Other"
     },
     {
-        "text": "Hợp đồng này được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản và gửi 01 bản sao cho chủ sở hữu căn hộ.",
+        "text": "Hợp đồng này được lập thành 02 bản có giá trị pháp lý như nhau.",
+        "label": "Other"
+    },
+    {
+        "text": "Mỗi bên giữ 01 bản.",
+        "label": "Other"
+    },
+    {
+        "text": "Mỗi bên gửi 01 bản sao cho chủ sở hữu căn hộ.",
         "label": "Other"
     },
     {
@@ -552,7 +572,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 16. Mọi hành vi phá hoại tài sản nhà hàng dẫn đến hậu quả nghiêm trọng sẽ bị xử phạt 20.000.000 VNĐ và chấm dứt quan hệ lao động.",
+        "text": "Điều 16. Mọi hành vi phá hoại tài sản nhà hàng dẫn đến hậu quả nghiêm trọng sẽ bị xử phạt 20.000.000 VNĐ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Điều 16. Mọi hành vi phá hoại tài sản nhà hàng dẫn đến hậu quả nghiêm trọng sẽ bị chấm dứt quan hệ lao động.",
         "label": "Termination Condition"
     },
     {
@@ -844,7 +868,11 @@
         "label": "Right"
     },
     {
-        "text": "Điều 14. Nếu Bên B chậm thanh toán, Hợp đồng này sẽ bị hủy bỏ và Bên B phải chịu mức phạt 500.000.000 VNĐ.",
+        "text": "Điều 14. Nếu Bên B chậm thanh toán, Hợp đồng này sẽ bị hủy bỏ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Điều 14. Nếu Bên B chậm thanh toán, Bên B phải chịu mức phạt 500.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
@@ -852,7 +880,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "e) Nếu gian lận tài chính, hợp đồng lập tức chấm dứt và bên vi phạm phải nộp khoản tiền phạt là 200.000.000 đồng.",
+        "text": "e) Nếu gian lận tài chính, hợp đồng lập tức chấm dứt.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "e) Nếu gian lận tài chính, bên vi phạm phải nộp khoản tiền phạt là 200.000.000 đồng.",
         "label": "Termination Condition"
     },
     {
@@ -1076,11 +1108,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Hai bên cam kết thực hiện nghiêm túc các điều khoản; mọi vướng mắc phát sinh phải được thông báo bằng văn bản để cùng thương lượng giải quyết.",
+        "text": "Hai bên cam kết thực hiện nghiêm túc các điều khoản.",
         "label": "Obligation"
     },
     {
-        "text": "Mọi tranh chấp sẽ được giải quyết thông qua thương lượng; nếu không thành, vụ việc sẽ được đưa ra Tòa án Kinh tế có thẩm quyền xét xử theo quy định pháp luật.",
+        "text": "Mọi tranh chấp sẽ được giải quyết thông qua thương lượng.",
         "label": "Other"
     },
     {
@@ -1868,7 +1900,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Phí dịch vụ chưa bao gồm 10% thuế VAT và các lệ phí nhà nước thực tế phát sinh.",
+        "text": "Phí dịch vụ chưa bao gồm 10% thuế VAT.",
+        "label": "Other"
+    },
+    {
+        "text": "Phí dịch vụ chưa bao gồm các lệ phí nhà nước thực tế phát sinh.",
         "label": "Other"
     },
     {
@@ -2688,7 +2724,7 @@
         "label": "Other"
     },
     {
-        "text": "Bên A chấp thuận và Bên B đồng ý cung cấp Gói thầu với giá trị hợp đồng là 18.236.874.500 VNĐ.",
+        "text": "Bên B đồng ý cung cấp Gói thầu với giá trị hợp đồng là 18.236.874.500 VNĐ.",
         "label": "Obligation"
     },
     {
@@ -3084,7 +3120,7 @@
         "label": "Right"
     },
     {
-        "text": "Bên B có nghĩa vụ cung cấp dịch vụ và bàn giao tài liệu, chứng từ theo đúng tiến độ đã nêu trong báo giá.",
+        "text": "Bên B có nghĩa vụ cung cấp dịch vụ theo đúng tiến độ đã nêu trong báo giá.",
         "label": "Obligation"
     },
     {
@@ -3104,7 +3140,11 @@
         "label": "Other"
     },
     {
-        "text": "Nhà thầu chỉ được giữ lại bản sao và không được sử dụng vào mục đích khác khi chưa được sự chấp thuận bằng văn bản của Chủ đầu tư.",
+        "text": "Nhà thầu chỉ được giữ lại bản sao.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Nhà thầu không được sử dụng bản sao vào mục đích khác khi chưa được sự chấp thuận bằng văn bản của Chủ đầu tư.",
         "label": "Prohibition"
     },
     {
@@ -3376,7 +3416,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Hợp đồng này được lập thành 04 bản, mỗi bên giữ 02 bản có giá trị pháp lý ngang nhau và có hiệu lực kể từ ngày ký.",
+        "text": "Hợp đồng này được lập thành 04 bản.",
+        "label": "Other"
+    },
+    {
+        "text": "Mỗi bên giữ 02 bản có giá trị pháp lý ngang nhau và có hiệu lực kể từ ngày ký.",
         "label": "Other"
     },
     {
@@ -3648,7 +3692,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Bên B chuyển tới bên A sau khi hoàn thành và bên A phải xét duyệt, đưa ra kết luận trong vòng 15 ngày kể từ ngày nhận.",
+        "text": "Bên B chuyển tới bên A sau khi hoàn thành.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên A phải xét duyệt, đưa ra kết luận trong vòng 15 ngày kể từ ngày nhận.",
         "label": "Obligation"
     },
     {
@@ -3828,7 +3876,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "b) Hợp đồng tự động chấm dứt và Bên B phải bồi thường 100.000.000 Đồng nếu không có giấy phép xây dựng.",
+        "text": "b) Hợp đồng tự động chấm dứt.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "b) Bên B phải bồi thường 100.000.000 Đồng nếu không có giấy phép xây dựng.",
         "label": "Termination Condition"
     },
     {
@@ -4348,10 +4400,6 @@
         "label": "Prohibition"
     },
     {
-        "text": "Khoản 5. Cấm quấy rối tình dục tại nơi làm việc dưới mọi hình thức theo Bộ luật Lao động 2019.",
-        "label": "Prohibition"
-    },
-    {
         "text": "c) Không được phép nghỉ phép liên tục quá 10 ngày nếu không có sự đồng ý của Giám đốc.",
         "label": "Prohibition"
     },
@@ -4368,7 +4416,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "b) Hợp đồng tự động hủy bỏ và Bên A phải bồi thường 50.000.000 VNĐ nếu chậm trễ quá 30 ngày.",
+        "text": "b) Hợp đồng tự động hủy bỏ nếu chậm trễ quá 30 ngày.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên A phải bồi thường 50.000.000 VNĐ nếu chậm trễ quá 30 ngày.",
         "label": "Termination Condition"
     },
     {
@@ -4496,7 +4548,11 @@
         "label": "Other"
     },
     {
-        "text": "Hai bên cùng thống nhất ký kết hợp đồng lao động và cam kết thực hiện các điều khoản sau đây.",
+        "text": "Hai bên cùng thống nhất ký kết hợp đồng lao động",
+        "label": "Obligation"
+    },
+    {
+        "text": "Hai bên cam kết thực hiện các điều khoản sau đây.",
         "label": "Obligation"
     },
     {
@@ -4596,7 +4652,11 @@
         "label": "Other"
     },
     {
-        "text": "Đơn vị đảm bảo việc làm và thực hiện đầy đủ các cam kết trong hợp đồng.",
+        "text": "Đơn vị đảm bảo việc làm trong hợp đồng.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Đơn vị thực hiện đầy đủ các cam kết trong hợp đồng.",
         "label": "Obligation"
     },
     {
@@ -4688,7 +4748,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Mục 2. Hợp đồng sẽ bị hủy bỏ và Bên B bị phạt 8% giá trị phần nghĩa vụ bị vi phạm theo Luật Thương mại 2005.",
+        "text": "Mục 2. Hợp đồng sẽ bị hủy bỏ theo Luật Thương mại 2005.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên B bị phạt 8% giá trị phần nghĩa vụ bị vi phạm theo Luật Thương mại 2005.",
         "label": "Termination Condition"
     },
     {
@@ -4720,7 +4784,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Chấm dứt hợp đồng ngay lập tức và phạt 100.000.000 VNĐ nếu phát hiện gian lận.",
+        "text": "Chấm dứt hợp đồng ngay lập tức nếu phát hiện gian lận.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "phạt 100.000.000 VNĐ nếu phát hiện gian lận.",
         "label": "Termination Condition"
     },
     {
@@ -4741,6 +4809,10 @@
     },
     {
         "text": "Điều 15. Phụ nữ mang thai có quyền yêu cầu chuyển công việc nhẹ hơn theo Luật An toàn, vệ sinh lao động 2015.",
+        "label": "Right"
+    },
+    {
+        "text": "Khoản 4. Tác giả có quyền nhân thân và quyền tài sản chiếu theo Luật Sở hữu trí tuệ 2005.",
         "label": "Right"
     },
     {
@@ -4824,6 +4896,14 @@
         "label": "Obligation"
     },
     {
+        "text": "Các Bên cam kết góp vốn đầy đủ theo tiến độ: Bên Việt Nam góp 50% trong vòng 30 ngày kể từ ngày cấp Giấy chứng nhận đầu tư, Bên nước ngoài góp 50% trong vòng 60 ngày kể từ ngày cấp Giấy chứng nhận đầu tư.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Các Bên cam kết góp vốn đầy đủ theo tiến độ: Bên Việt Nam góp 50% trong vòng 30 ngày kể từ ngày cấp Giấy chứng nhận đầu tư, Bên nước ngoài góp 50% trong vòng 60 ngày kể từ ngày cấp Giấy chứng nhận đầu tư.",
+        "label": "Obligation"
+    },
+    {
         "text": "Bên nào không có khả năng góp đủ vốn điều lệ theo tiến độ quy định tại Điều 5 của Hợp đồng liên doanh này phải thông báo cho Bên kia lý do và biện pháp giải quyết trước 15 ngày.",
         "label": "Obligation"
     },
@@ -4848,7 +4928,15 @@
         "label": "Right"
     },
     {
+        "text": "Quyền của các Bên liên doanh được quy định như sau: Các Bên có quyền tham gia quản lý, điều hành doanh nghiệp, được chia lợi nhuận và tham gia quyết định các vấn đề quan trọng của doanh nghiệp theo quy định pháp luật và Điều lệ công ty.",
+        "label": "Right"
+    },
+    {
         "text": "Trách nhiệm khác của các Bên liên doanh được quy định như sau: Các Bên có trách nhiệm phối hợp thực hiện các thủ tục hành chính, cung cấp nguồn lực tài chính, công nghệ và hỗ trợ quản lý để đảm bảo dự án hoạt động đúng tiến độ và hiệu quả.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Tỷ lệ phân chia lợi nhuận và xử lý lỗ là 50% cho mỗi Bên.",
         "label": "Obligation"
     },
     {
@@ -4944,7 +5032,15 @@
         "label": "Obligation"
     },
     {
+        "text": "Sau khi hoàn thành mọi nghĩa vụ tài chính đối với Nhà nước Việt Nam, các Bên phân chia lợi nhuận và xử lý lỗ của Doanh nghiệp liên doanh tương ứng với tỷ lệ phần vốn góp của mỗi Bên hoặc theo thỏa thuận quy định tại Điều lệ công ty.",
+        "label": "Obligation"
+    },
+    {
         "text": "Trong trường hợp các Bên tranh chấp vẫn không thỏa thuận được với nhau thì việc tranh chấp sẽ được đưa ra Trung tâm Trọng tài Quốc tế Việt Nam (VIAC) tại Thành phố Hồ Chí Minh.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Quyết định của Trung tâm Trọng tài Quốc tế Việt Nam là chung thẩm và các Bên sẽ phải tuân theo.",
         "label": "Obligation"
     },
     {
@@ -5036,6 +5132,10 @@
         "label": "Termination Condition"
     },
     {
+        "text": "Khoản 4. Hợp đồng sẽ bị hủy bỏ và bên vi phạm phải chịu khoản bồi thường 8% giá trị phần nghĩa vụ bị vi phạm chiếu theo Luật Thương mại 2005.",
+        "label": "Termination Condition"
+    },
+    {
         "text": "Mục 7. Chậm góp vốn quá 60 ngày sẽ bị phạt 0.5% mỗi ngày trễ hạn.",
         "label": "Termination Condition"
     },
@@ -5045,6 +5145,14 @@
     },
     {
         "text": "a) Chấm dứt hợp đồng ngay lập tức và áp dụng mức phạt 2 tháng tiền thuê nếu sử dụng mặt bằng sai mục đích.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "a) Chấm dứt hợp đồng ngay lập tức và áp dụng mức phạt 2 tháng tiền thuê nếu sử dụng mặt bằng sai mục đích.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Điều 27. Nếu có gian lận tài chính, hợp đồng bị vô hiệu và người vi phạm bị phạt 200.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
@@ -5196,15 +5304,27 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Hợp đồng này đại diện cho toàn bộ thỏa thuận giữa các bên và thay thế mọi cam kết trước đó.",
+        "text": "Hợp đồng này đại diện cho toàn bộ thỏa thuận giữa các bên.",
         "label": "Other"
     },
     {
-        "text": "Mọi sửa đổi hợp đồng phải được lập thành văn bản và có chữ ký của cả hai bên.",
+        "text": "Hợp đồng này thay thế mọi cam kết trước đó.",
+        "label": "Other"
+    },
+    {
+        "text": "Mọi sửa đổi hợp đồng phải được lập thành văn bản.",
         "label": "Obligation"
     },
     {
-        "text": "Mọi thông báo phải được thực hiện bằng văn bản hoặc email và gửi đến địa chỉ đã nêu tại phần thông tin các bên.",
+        "text": "Mọi sửa đổi hợp đồng phải có chữ ký của cả hai bên.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi thông báo phải được thực hiện bằng văn bản hoặc email.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi thông báo phải được gửi đến địa chỉ đã nêu tại phần thông tin các bên.",
         "label": "Obligation"
     },
     {
@@ -5292,11 +5412,19 @@
         "label": "Prohibition"
     },
     {
-        "text": "Khoản 6. Hợp đồng tự động chấm dứt và bên vi phạm chịu phạt 10% giá trị hợp đồng nếu giao hàng sai quy cách.",
+        "text": "Khoản 6. Hợp đồng tự động chấm dứt.",
         "label": "Termination Condition"
     },
     {
-        "text": "c) Nếu phá sản theo Luật Phá sản 2014, Hợp đồng bị hủy bỏ và Bên Bán phải bồi thường 50.000.000 VNĐ.",
+        "text": "Khoản 6. Bên vi phạm chịu phạt 10% giá trị hợp đồng nếu giao hàng sai quy cách.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "c) Nếu phá sản theo Luật Phá sản 2014, Hợp đồng bị hủy bỏ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "c) Nếu phá sản theo Luật Phá sản 2014, Bên Bán phải bồi thường 50.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
@@ -5416,7 +5544,11 @@
         "label": "Prohibition"
     },
     {
-        "text": "Bên mua là đối tác của bên bán và không được phép thay mặt hoặc nhân danh bên bán để giao dịch với khách hàng.",
+        "text": "Bên mua là đối tác của bên bán.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Bên mua không được phép thay mặt hoặc nhân danh bên bán để giao dịch với khách hàng.",
         "label": "Prohibition"
     },
     {
@@ -5484,7 +5616,11 @@
         "label": "Other"
     },
     {
-        "text": "Hai bên phải xác nhận bằng văn bản và thực hiện quyết toán hàng hóa, công nợ.",
+        "text": "Hai bên phải xác nhận bằng văn bản.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Hai bên phải thực hiện quyết toán hàng hóa, công nợ.",
         "label": "Obligation"
     },
     {
@@ -5528,135 +5664,167 @@
         "label": "Other"
     },
     {
-        "text": "Văn bản hợp đồng được lập thành 04 bản, mỗi bên giữ 02 bản có giá trị pháp lý ngang nhau.",
+        "text": "Văn bản hợp đồng được lập thành 04 bản.",
         "label": "Other"
     },
     {
-        "text": "Điều 5. Tuyệt đối nghiêm cấm Bên Mua sao chép thiết kế theo quy định của Luật Sở hữu trí tuệ 2005.",
+        "text": "Mỗi bên giữ 02 bản có giá trị pháp lý ngang nhau.",
+        "label": "Other"
+    },
+    {
+        "text": "Tuyệt đối nghiêm cấm Bên Mua sao chép thiết kế theo quy định của Luật Sở hữu trí tuệ 2005.",
         "label": "Prohibition"
     },
     {
-        "text": "Khoản 3. Bên Bán không được phép tự ý thay đổi giá bán vượt quá mức 15%.",
+        "text": "Bên Bán không được phép tự ý thay đổi giá bán vượt quá mức 15%.",
         "label": "Prohibition"
     },
     {
-        "text": "Mục 2. Cấm người lao động tiết lộ bí mật kinh doanh cho bên thứ ba.",
+        "text": "Cấm người lao động tiết lộ bí mật kinh doanh cho bên thứ ba.",
         "label": "Prohibition"
     },
     {
-        "text": "a) Bên A tuyệt đối không được chuyển nhượng hợp đồng cho đối tác khác mà không có sự đồng ý.",
+        "text": "Bên A tuyệt đối không được chuyển nhượng hợp đồng cho đối tác khác mà không có sự đồng ý.",
         "label": "Prohibition"
     },
     {
-        "text": "Điều 8. Không được phép giao hàng chậm trễ quá 30 ngày dưới bất kỳ hình thức nào, nếu vi phạm phạt 1.000 USD.",
+        "text": "Không được phép giao hàng chậm trễ quá 30 ngày dưới bất kỳ hình thức nào, nếu vi phạm phạt 1.000 USD.",
         "label": "Prohibition"
     },
     {
-        "text": "b) Các Bên không được thực hiện hành vi cạnh tranh không lành mạnh theo Luật Cạnh tranh 2018, mức phạt là 20.000.000 VNĐ.",
+        "text": "Nếu vi phạm phạt 1.000 USD.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Các Bên không được thực hiện hành vi cạnh tranh không lành mạnh theo Luật Cạnh tranh 2018, mức phạt là 20.000.000 VNĐ.",
         "label": "Prohibition"
     },
     {
-        "text": "Khoản 9. Cấm sử dụng ngoại tệ trái phép chiếu theo Pháp lệnh Ngoại hối 2005.",
+        "text": "mức phạt là 20.000.000 VNĐ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Cấm sử dụng ngoại tệ trái phép chiếu theo Pháp lệnh Ngoại hối 2005.",
         "label": "Prohibition"
     },
     {
-        "text": "Điều 10. Bên B tuyệt đối không được cung cấp hàng giả theo Luật Thương mại 2005.",
+        "text": "Bên B tuyệt đối không được cung cấp hàng giả theo Luật Thương mại 2005.",
         "label": "Prohibition"
     },
     {
-        "text": "Điều 12. Hợp đồng tự động chấm dứt và bên vi phạm chịu phạt 8% giá trị phần nghĩa vụ bị vi phạm nếu không giao hàng đúng hạn.",
+        "text": "Hợp đồng tự động chấm dứt và bên vi phạm chịu phạt 8% giá trị phần nghĩa vụ bị vi phạm nếu không giao hàng đúng hạn.",
         "label": "Termination Condition"
     },
     {
-        "text": "Khoản 4. Nếu phá sản theo Luật Phá sản 2014, Hợp đồng bị hủy bỏ và Bên Bán phải bồi thường 50.000.000 VNĐ.",
+        "text": "bên vi phạm chịu phạt 8% giá trị phần nghĩa vụ bị vi phạm nếu không giao hàng đúng hạn.",
         "label": "Termination Condition"
     },
     {
-        "text": "Mục 5. Chậm thanh toán quá hạn 15 ngày sẽ dẫn đến chấm dứt hợp đồng và phạt 2.000 USD.",
+        "text": "Nếu phá sản theo Luật Phá sản 2014, Hợp đồng bị hủy bỏ và Bên Bán phải bồi thường 50.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
-        "text": "a) Hợp đồng bị hủy ngay lập tức nếu tỷ lệ phế phẩm vượt mức 10%.",
+        "text": "Bên Bán phải bồi thường 50.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 15. Bên nào tự ý hủy ngang sẽ phải chịu mức phạt bằng 03 tháng tiền thuê nhà.",
+        "text": "Chậm thanh toán quá hạn 15 ngày sẽ dẫn đến chấm dứt hợp đồng và phạt 2.000 USD.",
         "label": "Termination Condition"
     },
     {
-        "text": "Khoản 6. Tranh chấp dẫn đến chấm dứt hợp đồng sẽ được xử lý theo Bộ luật Dân sự 2015.",
+        "text": "phạt 2.000 USD.",
         "label": "Termination Condition"
     },
     {
-        "text": "b) Nếu vi phạm điều cấm của Luật Doanh nghiệp 2020, Bên Mua bị phạt 100.000.000 VNĐ và hợp đồng bị hủy.",
+        "text": "Hợp đồng bị hủy ngay lập tức nếu tỷ lệ phế phẩm vượt mức 10%.",
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 18. Nếu đơn phương chấm dứt hợp đồng trái luật, Bên A sẽ chịu khoản tiền phạt là 5.000 USD.",
+        "text": "Bên nào tự ý hủy ngang sẽ phải chịu mức phạt bằng 03 tháng tiền thuê nhà.",
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 20. Bên Mua có quyền yêu cầu xuất hóa đơn VAT hợp lệ theo Luật Quản lý thuế 2019.",
+        "text": "Tranh chấp dẫn đến chấm dứt hợp đồng sẽ được xử lý theo Bộ luật Dân sự 2015.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Nếu vi phạm điều cấm của Luật Doanh nghiệp 2020, Bên Mua bị phạt 100.000.000 VNĐ và hợp đồng bị hủy.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "hợp đồng bị hủy.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Nếu đơn phương chấm dứt hợp đồng trái luật, Bên A sẽ chịu khoản tiền phạt là 5.000 USD.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên Mua có quyền yêu cầu xuất hóa đơn VAT hợp lệ theo Luật Quản lý thuế 2019.",
         "label": "Right"
     },
     {
-        "text": "Khoản 7. Nhà phân phối được hưởng tỷ lệ chiết khấu 25% cho các đơn hàng đạt tiêu chuẩn.",
+        "text": "Nhà phân phối được hưởng tỷ lệ chiết khấu 25% cho các đơn hàng đạt tiêu chuẩn.",
         "label": "Right"
     },
     {
-        "text": "Mục 6. Cổ đông có quyền nhận cổ tức tương ứng với 12% tỷ lệ góp vốn.",
+        "text": "Cổ đông có quyền nhận cổ tức tương ứng với 12% tỷ lệ góp vốn.",
         "label": "Right"
     },
     {
-        "text": "a) Người tiêu dùng có quyền khiếu nại chất lượng sản phẩm theo Luật Bảo vệ quyền lợi người tiêu dùng 2023.",
+        "text": "Người tiêu dùng có quyền khiếu nại chất lượng sản phẩm theo Luật Bảo vệ quyền lợi người tiêu dùng 2023.",
         "label": "Right"
     },
     {
-        "text": "Điều 21. Bên B có quyền giữ lại 10.000 USD tiền bảo hành trong thời gian 1 năm.",
+        "text": "Bên B có quyền giữ lại 10.000 USD tiền bảo hành trong thời gian 1 năm.",
         "label": "Right"
     },
     {
-        "text": "b) Bên A có quyền dời lịch giao hàng tối đa 14 ngày nếu kho bãi quá tải.",
+        "text": "Bên A có quyền dời lịch giao hàng tối đa 14 ngày nếu kho bãi quá tải.",
         "label": "Right"
     },
     {
-        "text": "Khoản 11. Nhân viên có quyền được hưởng hoa hồng 5% trên tổng doanh thu.",
+        "text": "Nhân viên có quyền được hưởng hoa hồng 5% trên tổng doanh thu.",
         "label": "Right"
     },
     {
-        "text": "Mục 8. Khách hàng có quyền từ chối nhận hàng nếu không đạt tiêu chuẩn của Luật An toàn thực phẩm 2010.",
+        "text": "Khách hàng có quyền từ chối nhận hàng nếu không đạt tiêu chuẩn của Luật An toàn thực phẩm 2010.",
         "label": "Right"
     },
     {
-        "text": "Điều 25. Bên Bán có quyền yêu cầu thanh toán trước 30% giá trị hợp đồng.",
+        "text": "Bên Bán có quyền yêu cầu thanh toán trước 30% giá trị hợp đồng.",
         "label": "Right"
     },
     {
-        "text": "Điều 26. Quỹ dự phòng bắt buộc phải duy trì ở mức 5% doanh thu hàng tháng.",
+        "text": "Quỹ dự phòng bắt buộc phải duy trì ở mức 5% doanh thu hàng tháng.",
         "label": "Obligation"
     },
     {
-        "text": "Khoản 12. Bên Bán phải nộp thuế suất 20% theo Luật Thuế thu nhập doanh nghiệp 2008.",
+        "text": "Bên Bán phải nộp thuế suất 20% theo Luật Thuế thu nhập doanh nghiệp 2008.",
         "label": "Obligation"
     },
     {
-        "text": "Mục 10. Người thuê cam kết chịu phạt 15% tổng giá trị hợp đồng nếu trả mặt bằng trước thời hạn.",
+        "text": "Người thuê cam kết chịu phạt 15% tổng giá trị hợp đồng nếu trả mặt bằng trước thời hạn.",
         "label": "Termination Condition"
     },
     {
-        "text": "c) Chủ đầu tư có quyền phạt nhà thầu 100.000.000 VNĐ cho mỗi ngày chậm tiến độ.",
+        "text": "Chủ đầu tư có quyền phạt nhà thầu 100.000.000 VNĐ cho mỗi ngày chậm tiến độ.",
         "label": "Right"
     },
     {
-        "text": "Điều 30. Bên Bán phải tuân thủ nghiêm ngặt Luật Bảo vệ môi trường 2020 trong quá trình sản xuất, vi phạm sẽ bị phạt 50.000 USD.",
+        "text": "Bên Bán phải tuân thủ nghiêm ngặt Luật Bảo vệ môi trường 2020 trong quá trình sản xuất, vi phạm sẽ bị phạt 50.000 USD.",
         "label": "Obligation"
     },
     {
-        "text": "Khoản 15. Lãi suất chậm trả được tính bằng 1.5 lần mức lãi suất cơ bản của Ngân hàng Nhà nước.",
+        "text": "vi phạm sẽ bị phạt 50.000 USD.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Lãi suất chậm trả được tính bằng 1.5 lần mức lãi suất cơ bản của Ngân hàng Nhà nước.",
         "label": "Obligation"
     },
     {
-        "text": "Mục 11. Các cổ đông sáng lập cam kết duy trì tỷ lệ sở hữu không thấp hơn 51% trong vòng 03 năm.",
+        "text": "Các cổ đông sáng lập cam kết duy trì tỷ lệ sở hữu không thấp hơn 51% trong vòng 03 năm.",
         "label": "Obligation"
     },
     {
@@ -5701,6 +5869,10 @@
     },
     {
         "text": "Trong trường hợp Bên A không trực tiếp mua hàng từ Bên B mà giới thiệu một bên thứ ba ký hợp đồng với Bên B, Bên B có nghĩa vụ trích hoa hồng cho Bên A và thực hiện các nghĩa vụ khác theo Hợp đồng này.",
+        "label": "Obligation"
+    },
+    {
+        "text": "thực hiện các nghĩa vụ khác theo Hợp đồng này.",
         "label": "Obligation"
     },
     {
@@ -5800,7 +5972,7 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Các Bên cam kết không vi phạm quyền sở hữu trí tuệ của nhau trong quá trình thực hiện dự án.",
+        "text": "Các Các Bên cam kết không vi phạm quyền sở hữu trí tuệ của nhau trong quá trình thực hiện dự án.",
         "label": "Prohibition"
     },
     {
@@ -5809,6 +5981,10 @@
     },
     {
         "text": "Bên B chịu trách nhiệm hoàn toàn về hoạt động sản xuất và phải bồi thường nếu gây thiệt hại đến vật chất hoặc uy tín của Bên A.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "phải bồi thường nếu gây thiệt hại đến vật chất hoặc uy tín của Bên A.",
         "label": "Termination Condition"
     },
     {
@@ -5821,6 +5997,10 @@
     },
     {
         "text": "Hợp đồng được lập thành 04 bản, mỗi bản có 06 trang, có giá trị pháp lý như nhau, mỗi bên giữ 02 bản.",
+        "label": "Other"
+    },
+    {
+        "text": "mỗi bên giữ 02 bản.",
         "label": "Other"
     },
     {
@@ -5844,47 +6024,67 @@
         "label": "Obligation"
     },
     {
-        "text": "Điều 14. Bên Mua có quyền yêu cầu hoàn trả tiền nếu hàng hóa không đạt tiêu chuẩn theo Luật Chất lượng sản phẩm, hàng hóa 2007.",
+        "text": "Bên Mua có quyền yêu cầu hoàn trả tiền nếu hàng hóa không đạt tiêu chuẩn theo Luật Chất lượng sản phẩm, hàng hóa 2007.",
         "label": "Right"
     },
     {
-        "text": "Khoản 2. Đại lý được hưởng mức chiết khấu 15% trên tổng doanh thu hàng tháng.",
+        "text": "Đại lý được hưởng mức chiết khấu 15% trên tổng doanh thu hàng tháng.",
         "label": "Right"
     },
     {
-        "text": "a) Người Lao Động có quyền yêu cầu tạm ứng số tiền 5.000.000 VNĐ trước khi đi công tác.",
+        "text": "Người Lao Động có quyền yêu cầu tạm ứng số tiền 5.000.000 VNĐ trước khi đi công tác.",
         "label": "Right"
     },
     {
-        "text": "Mục 4. Nhà thầu phụ có quyền lưu giữ thiết bị theo quy định tại Luật Xây dựng 2014.",
+        "text": "Nhà thầu phụ có quyền lưu giữ thiết bị theo quy định tại Luật Xây dựng 2014.",
         "label": "Right"
     },
     {
-        "text": "Điều 5. Bên Cho Thuê có quyền thu hồi mặt bằng nếu báo trước 60 ngày.",
+        "text": "Bên Cho Thuê có quyền thu hồi mặt bằng nếu báo trước 60 ngày.",
         "label": "Right"
     },
     {
-        "text": "Khoản 3. Nếu giao hàng chậm trễ quá 10 ngày, hợp đồng sẽ bị hủy và Bên Bán chịu phạt 5.000 USD.",
+        "text": "Nếu giao hàng chậm trễ quá 10 ngày, hợp đồng sẽ bị hủy và Bên Bán chịu phạt 5.000 USD.",
         "label": "Termination Condition"
     },
     {
-        "text": "b) Trong trường hợp vi phạm Luật Sở hữu trí tuệ 2005, hợp đồng lập tức chấm dứt và bên vi phạm phải bồi thường 200.000.000 VNĐ.",
+        "text": "Bên Bán chịu phạt 5.000 USD.",
         "label": "Termination Condition"
     },
     {
-        "text": "Mục 7. Hợp đồng chấm dứt khi Bên Thuê không thanh toán đủ tiền, khi đó chịu mức phạt 03 tháng tiền thuê.",
+        "text": "Trong trường hợp vi phạm Luật Sở hữu trí tuệ 2005, hợp đồng lập tức chấm dứt và bên vi phạm phải bồi thường 200.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 8. Bên A sẽ hủy bỏ hợp đồng và thu tiền phạt bằng 12% giá trị hợp đồng nếu chất lượng không đạt.",
+        "text": "bên vi phạm phải bồi thường 200.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
-        "text": "Khoản 9. Mọi hành vi cạnh tranh không lành mạnh theo Luật Cạnh tranh 2018 sẽ dẫn đến hủy hợp đồng, phạt 500.000.000 VNĐ.",
+        "text": "Hợp đồng chấm dứt khi Bên Thuê không thanh toán đủ tiền, khi đó chịu mức phạt 03 tháng tiền thuê.",
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 10. Tuyệt đối nghiêm cấm Bên B sử dụng lao động trẻ em theo quy định của Bộ luật Lao động 2019.",
+        "text": "khi đó chịu mức phạt 03 tháng tiền thuê.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên A sẽ hủy bỏ hợp đồng và thu tiền phạt bằng 12% giá trị hợp đồng nếu chất lượng không đạt.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "thu tiền phạt bằng 12% giá trị hợp đồng.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mọi hành vi cạnh tranh không lành mạnh theo Luật Cạnh tranh 2018 sẽ dẫn đến hủy hợp đồng, phạt 500.000.000 VNĐ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "phạt 500.000.000 VNĐ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Tuyệt đối nghiêm cấm Bên B sử dụng lao động trẻ em theo quy định của Bộ luật Lao động 2019.",
         "label": "Prohibition"
     },
     {
@@ -5952,6 +6152,10 @@
         "label": "Termination Condition"
     },
     {
+        "text": "Khoản 15. Nếu cung cấp hàng giả, hợp đồng lập tức bị vô hiệu và Bên Bán chịu phạt 50.000 USD.",
+        "label": "Termination Condition"
+    },
+    {
         "text": "Mục 9. Không thanh toán tiền lãi đúng hạn sẽ bị phạt 1.5 lần lãi suất ngân hàng.",
         "label": "Termination Condition"
     },
@@ -6012,11 +6216,23 @@
         "label": "Obligation"
     },
     {
-        "text": "Trường hợp sau 02 (hai) kỳ sao kê liên tiếp và sau ngày đến hạn thanh toán của kỳ sao kê thứ hai, nếu Bên B không thanh toán hoặc thanh toán không đủ số tiền thanh toán tối thiểu vào ngày đến hạn thanh toán, hệ thống Bên A sẽ tự động khóa thẻ và tính lãi quá hạn với lãi suất bằng 150% lãi suất cho vay trong hạn trên toàn bộ dư nợ, số tiền thanh toán tối thiểu được tính bằng toàn bộ dư nợ trên sao kê kỳ tiếp theo.",
+        "text": "Trường hợp sau 02 (hai) kỳ sao kê liên tiếp và sau ngày đến hạn thanh toán của kỳ sao kê thứ hai, nếu Bên B không thanh toán hoặc thanh toán không đủ số tiền thanh toán tối thiểu vào ngày đến hạn thanh toán, hệ thống Bên A sẽ tự động khóa thẻ.",
         "label": "Termination Condition"
     },
     {
-        "text": "Bên B có trách nhiệm kiểm tra và thanh toán đúng hạn cho Bên A các khoản nợ phát sinh thể hiện trên sao kê theo quy định.",
+        "text": "hệ thống Bên A tính lãi quá hạn với lãi suất bằng 150% lãi suất cho vay trong hạn trên toàn bộ dư nợ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "số tiền thanh toán tối thiểu được tính bằng toàn bộ dư nợ trên sao kê kỳ tiếp theo.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên B có trách nhiệm kiểm tra.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên B thanh toán đúng hạn cho Bên A các khoản nợ phát sinh thể hiện trên sao kê theo quy định.",
         "label": "Obligation"
     },
     {
@@ -6052,11 +6268,15 @@
         "label": "Right"
     },
     {
-        "text": "Trường hợp Bên B không thanh toán đúng hạn, Bên A có quyền xử lý tài sản bảo đảm tiền vay của Bên B để thu hồi nợ hoặc đề nghị cơ quan nơi Bên B đang công tác trích tiền lương/thu nhập tháng của bên B để thu nợ.",
+        "text": "Trường hợp Bên B không thanh toán đúng hạn, Bên A có quyền xử lý tài sản bảo đảm tiền vay của Bên B để thu hồi nợ.",
         "label": "Right"
     },
     {
-        "text": "Được quyền từ chối các khiếu nại của chủ thẻ đối với các giao dịch thẻ có giá trị/giá trị quy đổi nhỏ hơn 25 USD tại các ĐVCNT thuộc loại hình du lịch và giải trí (bao gồm: hàng không, dịch vụ thuê xe, khách sạn, nhà nghỉ, nhà hàng, v.v.) và các giao dịch thẻ có giá trị/giá trị quy đổi nhỏ hơn 10 USD tại các ĐVCNT kinh doanh xăng dầu.",
+        "text": "Bên A đề nghị cơ quan nơi Bên B đang công tác trích tiền lương/thu nhập tháng của bên B để thu nợ.",
+        "label": "Right"
+    },
+    {
+        "text": "Được quyền từ chối các khiếu nại của chủ thẻ đối với các giao dịch thẻ có giá trị/giá trị quy đổi nhỏ hơn 25 USD tại các ĐVCNT thuộc loại hình du lịch và giải trí và các giao dịch thẻ có giá trị/giá trị quy đổi nhỏ hơn 10 USD tại các ĐVCNT kinh doanh xăng dầu.",
         "label": "Right"
     },
     {
@@ -6068,11 +6288,19 @@
         "label": "Obligation"
     },
     {
-        "text": "Bảo mật tài liệu, thông tin thẻ, giao dịch thẻ, tài khoản của Bên B, không cung cấp thông tin về tài khoản và giao dịch thẻ của bên B cho bất kỳ bên thứ ba nào, trừ trường hợp hai Bên có thỏa thuận khác hoặc theo yêu cầu của cơ quan nhà nước có thẩm quyền.",
+        "text": "Bảo mật tài liệu, thông tin thẻ, giao dịch thẻ, tài khoản của Bên B.",
         "label": "Prohibition"
     },
     {
-        "text": "Thực hiện ngay các biện pháp để khóa thẻ khi Bên B đề nghị do nghi ngờ có gian lận hoặc tổn thất và chịu trách nhiệm đối với mọi rủi ro, tổn thất tài chính phát sinh sau thời điểm thẻ được khóa thành công trên hệ thống quản lý thẻ của Agribank.",
+        "text": "không cung cấp thông tin về tài khoản và giao dịch thẻ của bên B cho bất kỳ bên thứ ba nào, trừ trường hợp hai Bên có thỏa thuận khác hoặc theo yêu cầu của cơ quan nhà nước có thẩm quyền.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "Thực hiện ngay các biện pháp để khóa thẻ khi Bên B đề nghị do nghi ngờ có gian lận hoặc tổn thất.",
+        "label": "Obligation"
+    },
+    {
+        "text": "chịu trách nhiệm đối với mọi rủi ro, tổn thất tài chính phát sinh sau thời điểm thẻ được khóa thành công trên hệ thống quản lý thẻ của Agribank.",
         "label": "Obligation"
     },
     {
@@ -6156,7 +6384,7 @@
         "label": "Other"
     },
     {
-        "text": "Giải chấp tài sản bảo đảm của Bên B sau 45 ngày làm việc kể từ ngày chấm dứt sử dụng thẻ và tất cả các khiếu nại (nếu có) liên quan đến việc sử dụng thẻ đã được giải quyết dứt điểm.",
+        "text": "Giải chấp tài sản bảo đảm của Bên B sau 45 ngày làm việc kể từ ngày chấm dứt sử dụng thẻ và tất cả các khiếu nại liên quan đến việc sử dụng thẻ đã được giải quyết dứt điểm.",
         "label": "Obligation"
     },
     {
@@ -6168,7 +6396,11 @@
         "label": "Prohibition"
     },
     {
-        "text": "Mục 4.5. Nếu Bên A vi phạm bảo mật, hợp đồng bị hủy bỏ và Bên A sẽ bồi thường khoản tiền là 50.000.000 VNĐ cho Bên B.",
+        "text": "Mục 4.5. Nếu Bên A vi phạm bảo mật, hợp đồng bị hủy bỏ.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Bên A sẽ bồi thường khoản tiền là 50.000.000 VNĐ cho Bên B.",
         "label": "Termination Condition"
     },
     {
@@ -6300,7 +6532,11 @@
         "label": "Other"
     },
     {
-        "text": "Bên B đồng ý ủy quyền cho Bên A tổ chức và triển khai toàn bộ các dịch vụ cho chương trình tham quan nghỉ dưỡng của đơn vị.",
+        "text": "Bên B đồng ý ủy quyền cho Bên A tổ chức.",
+        "label": "Obligation"
+    },
+    {
+        "text": "triển khai toàn bộ các dịch vụ cho chương trình tham quan nghỉ dưỡng của đơn vị.",
         "label": "Obligation"
     },
     {
@@ -6316,7 +6552,11 @@
         "label": "Other"
     },
     {
-        "text": "Số lượng khách thực tế: Chốt danh sách trước 10 ngày và xác nhận qua thư điện tử.",
+        "text": "Số lượng khách thực tế: Chốt danh sách trước 10 ngày.",
+        "label": "Obligation"
+    },
+    {
+        "text": "xác nhận qua thư điện tử.",
         "label": "Obligation"
     },
     {
@@ -6352,7 +6592,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Đợt 3: Phần còn lại của hợp đồng và các chi phí phát sinh sẽ được Bên B thanh toán cho Bên A trong vòng 05 ngày sau khi kết thúc chuyến đi và nhận được hóa đơn, biên bản thanh lý.",
+        "text": "Đợt 3: Phần còn lại của hợp đồng và các chi phí phát sinh sẽ được Bên B thanh toán cho Bên A trong vòng 05 ngày sau khi kết thúc chuyến đi.",
+        "label": "Obligation"
+    },
+    {
+        "text": "nhận được hóa đơn, biên bản thanh lý.",
         "label": "Obligation"
     },
     {
@@ -6360,7 +6604,11 @@
         "label": "Right"
     },
     {
-        "text": "Bên A có quyền thông báo thay đổi cho Bên B và yêu cầu sự đồng ý từ trưởng đoàn Bên B trước khi thực hiện.",
+        "text": "Bên A có quyền thông báo thay đổi cho Bên B.",
+        "label": "Right"
+    },
+    {
+        "text": "yêu cầu sự đồng ý từ trưởng đoàn Bên B trước khi thực hiện.",
         "label": "Right"
     },
     {
@@ -6393,6 +6641,10 @@
     },
     {
         "text": "Bên B cung cấp danh sách đoàn chính xác cho Bên A ít nhất 10 ngày trước khi khởi hành.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên B thông báo cho Bên A nếu có sự thay đổi về số lượng khách để Bên A xác nhận khả năng đáp ứng.",
         "label": "Obligation"
     },
     {
@@ -6448,6 +6700,10 @@
         "label": "Other"
     },
     {
+        "text": "Mọi tranh chấp được giải quyết thông qua thương lượng, nếu không thành sẽ đưa ra Tòa án nhân dân Thành phố Hồ Chí Minh.",
+        "label": "Other"
+    },
+    {
         "text": "Hai bên cam kết thực hiện đúng các điều khoản đã ký.",
         "label": "Obligation"
     },
@@ -6456,8 +6712,16 @@
         "label": "Other"
     },
     {
+        "text": "Hợp đồng được lập thành 02 bản có giá trị pháp lý như nhau, mỗi bên giữ 01 bản.",
+        "label": "Other"
+    },
+    {
         "text": "Chương trình du lịch đính kèm là phụ lục không thể tách rời của hợp đồng.",
         "label": "Other"
+    },
+    {
+        "text": "Nếu số lượng khách tăng, Bên A sẽ xem xét khả năng cung ứng và tính phí phát sinh.",
+        "label": "Obligation"
     },
     {
         "text": "Nếu số lượng khách tăng, Bên A sẽ xem xét khả năng cung ứng và tính phí phát sinh.",
@@ -6517,6 +6781,10 @@
     },
     {
         "text": "Khoản 1. Nếu Bên A giao hàng chậm trễ, Bên A sẽ bị phạt 8% giá trị phần nghĩa vụ bị vi phạm.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "b) Hợp đồng này sẽ chấm dứt ngay lập tức nếu một trong hai bên bị tuyên bố phá sản.",
         "label": "Termination Condition"
     },
     {
@@ -6644,6 +6912,10 @@
         "label": "Other"
     },
     {
+        "text": "\"Ngày\" được hiểu là ngày dương lịch và tháng được hiểu là tháng dương lịch.",
+        "label": "Other"
+    },
+    {
         "text": "\"Thay đổi\" là sự điều chỉnh phạm vi công việc, chỉ dẫn kỹ thuật, bản vẽ thiết kế, giá hợp đồng hoặc tiến độ thi công khi có sự chấp thuận bằng văn bản của chủ đầu tư.",
         "label": "Other"
     },
@@ -6656,6 +6928,14 @@
         "label": "Obligation"
     },
     {
+        "text": "Bảo đảm thực hiện hợp đồng phải được bên giao thầu chấp thuận.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bảo đảm thực hiện hợp đồng phải tuân theo mẫu ở Phụ lục số 04.",
+        "label": "Obligation"
+    },
+    {
         "text": "Bảo đảm thực hiện hợp đồng phải được bên giao thầu chấp thuận và tuân theo mẫu ở Phụ lục số 04.",
         "label": "Obligation"
     },
@@ -6664,7 +6944,19 @@
         "label": "Obligation"
     },
     {
+        "text": "Bảo đảm thực hiện hợp đồng phải có hiệu lực tới khi nhà thầu hoàn thành công trình và chuyển sang nghĩa vụ bảo hành.",
+        "label": "Obligation"
+    },
+    {
         "text": "Nếu bảo đảm thực hiện hợp đồng nêu ngày hết hạn mà nhà thầu chưa hoàn thành nghĩa vụ, nhà thầu phải gia hạn bảo đảm cho tới khi công việc hoàn thành và sai sót được sửa chữa.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Nếu bảo đảm thực hiện hợp đồng nêu ngày hết hạn mà nhà thầu chưa hoàn thành nghĩa vụ, nhà thầu phải gia hạn bảo đảm cho tới khi công việc hoàn thành và sai sót được sửa chữa.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên giao thầu hoàn trả bảo đảm thực hiện hợp đồng khi nhà thầu đã hoàn thành công việc và chuyển sang nghĩa vụ bảo hành.",
         "label": "Obligation"
     },
     {
@@ -6696,7 +6988,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Thu dọn công trường và bàn giao sản phẩm xây dựng sau khi hoàn thành.",
+        "text": "Thu dọn công trường xây dựng sau khi hoàn thành.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bàn giao sản phẩm xây dựng sau khi hoàn thành.",
         "label": "Obligation"
     },
     {
@@ -6740,12 +7036,28 @@
         "label": "Right"
     },
     {
+        "text": "Nếu bên giao thầu không tham gia, nhà thầu có thể tiến hành chạy thử và coi như đã được nghiệm thu.",
+        "label": "Right"
+    },
+    {
+        "text": "Các tồn đọng nhỏ không ảnh hưởng đến việc sử dụng sẽ được ghi trong biên bản và nhà thầu phải hoàn thành bằng chi phí của mình.",
+        "label": "Obligation"
+    },
+    {
         "text": "Các tồn đọng nhỏ không ảnh hưởng đến việc sử dụng sẽ được ghi trong biên bản và nhà thầu phải hoàn thành bằng chi phí của mình.",
         "label": "Obligation"
     },
     {
         "text": "Nếu nhà thầu không sửa chữa được sai sót, bên giao thầu có thể tự thực hiện hoặc thuê bên thứ ba và nhà thầu phải chịu mọi chi phí.",
         "label": "Right"
+    },
+    {
+        "text": "Nếu nhà thầu không sửa chữa được sai sót, bên giao thầu có thể tự thực hiện hoặc thuê bên thứ ba và nhà thầu phải chịu mọi chi phí.",
+        "label": "Right"
+    },
+    {
+        "text": "Nếu sai sót dẫn đến việc không sử dụng được công trình, bên giao thầu có quyền chấm dứt hợp đồng và nhà thầu phải bồi thường thiệt hại.",
+        "label": "Termination Condition"
     },
     {
         "text": "Nếu sai sót dẫn đến việc không sử dụng được công trình, bên giao thầu có quyền chấm dứt hợp đồng và nhà thầu phải bồi thường thiệt hại.",
@@ -6812,15 +7124,27 @@
         "label": "Termination Condition"
     },
     {
-        "text": "b) Hợp đồng này sẽ bị chấm dứt nếu Chủ đầu tư vi phạm nghĩa vụ thanh toán và phải chịu phạt 200.000.000 VNĐ.",
+        "text": "b) Hợp đồng này sẽ bị chấm dứt nếu Chủ đầu tư vi phạm nghĩa vụ thanh toán",
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 20. Nếu vật tư không đạt chuẩn, Nhà thầu buộc phải tháo dỡ và chịu mức đền bù bằng 10% chi phí hạng mục đó.",
+        "text": "và phải chịu phạt 200.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
-        "text": "Mục 6. Bên giao thầu có quyền hủy bỏ hợp đồng và yêu cầu Bên nhận thầu nộp phạt 50.000.000 VNĐ do vi phạm an toàn lao động.",
+        "text": "Điều 20. Nếu vật tư không đạt chuẩn, Nhà thầu buộc phải tháo dỡ",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và chịu mức đền bù bằng 10% chi phí hạng mục đó.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mục 6. Bên giao thầu có quyền hủy bỏ hợp đồng",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và yêu cầu Bên nhận thầu nộp phạt 50.000.000 VNĐ do vi phạm an toàn lao động.",
         "label": "Termination Condition"
     },
     {
@@ -6828,15 +7152,27 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Khoản 1. Nếu việc chậm trễ kéo dài 30 ngày, hợp đồng đương nhiên chấm dứt và bên vi phạm bồi thường 12% phần giá trị bị vi phạm.",
+        "text": "Khoản 1. Nếu việc chậm trễ kéo dài 30 ngày, hợp đồng đương nhiên chấm dứt",
         "label": "Termination Condition"
     },
     {
-        "text": "c) Chủ đầu tư sẽ thu hồi tiền tạm ứng và phạt 8% giá trị tạm ứng nếu Nhà thầu sử dụng vốn sai mục đích.",
+        "text": "và bên vi phạm bồi thường 12% phần giá trị bị vi phạm.",
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 25. Bất kỳ vi phạm nào về bảo mật thông tin sẽ dẫn đến việc chấm dứt thỏa thuận và bồi thường 500.000.000 VNĐ.",
+        "text": "c) Chủ đầu tư sẽ thu hồi tiền tạm ứng",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và phạt 8% giá trị tạm ứng nếu Nhà thầu sử dụng vốn sai mục đích.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Điều 25. Bất kỳ vi phạm nào về bảo mật thông tin sẽ dẫn đến việc chấm dứt thỏa thuận",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và bồi thường 500.000.000 VNĐ.",
         "label": "Termination Condition"
     },
     {
@@ -6916,11 +7252,19 @@
         "label": "Obligation"
     },
     {
-        "text": "Đối với các bộ phận bị che khuất của công trình, Bên B phải thực hiện nghiệm thu và vẽ bản vẽ hoàn công trước khi tiến hành các công việc tiếp theo.",
+        "text": "Đối với các bộ phận bị che khuất của công trình, Bên B phải thực hiện nghiệm thu",
         "label": "Obligation"
     },
     {
-        "text": "Bên A chỉ tiến hành nghiệm thu khi đối tượng nghiệm thu đã hoàn thành và có đầy đủ hồ sơ theo quy định.",
+        "text": "và vẽ bản vẽ hoàn công trước khi tiến hành các công việc tiếp theo.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên A chỉ tiến hành nghiệm thu khi đối tượng nghiệm thu đã hoàn thành",
+        "label": "Right"
+    },
+    {
+        "text": "và có đầy đủ hồ sơ theo quy định.",
         "label": "Right"
     },
     {
@@ -6948,7 +7292,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Bên B chỉ được hoàn trả tiền bảo hành sau khi kết thúc thời hạn bảo hành và được chủ đầu tư xác nhận đã hoàn thành công việc bảo hành.",
+        "text": "Bên B chỉ được hoàn trả tiền bảo hành sau khi kết thúc thời hạn bảo hành",
+        "label": "Right"
+    },
+    {
+        "text": "và được chủ đầu tư xác nhận đã hoàn thành công việc bảo hành.",
         "label": "Right"
     },
     {
@@ -6996,7 +7344,15 @@
         "label": "Obligation"
     },
     {
-        "text": "Một bên có quyền quyết định tạm dừng hợp đồng do lỗi của bên kia gây ra nhưng phải báo cho bên kia biết bằng văn bản và cùng bàn bạc giải quyết để tiếp tục thực hiện hợp đồng.",
+        "text": "Một bên có quyền quyết định tạm dừng hợp đồng do lỗi của bên kia gây ra",
+        "label": "Right"
+    },
+    {
+        "text": "nhưng phải báo cho bên kia biết bằng văn bản",
+        "label": "Right"
+    },
+    {
+        "text": "và cùng bàn bạc giải quyết để tiếp tục thực hiện hợp đồng.",
         "label": "Right"
     },
     {
@@ -7004,7 +7360,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Một bên có quyền hủy bỏ hợp đồng và không phải bồi thường thiệt hại khi bên kia vi phạm hợp đồng là điều kiện hủy bỏ mà các bên đã thỏa thuận hoặc pháp luật có quy định.",
+        "text": "Một bên có quyền hủy bỏ hợp đồng",
+        "label": "Right"
+    },
+    {
+        "text": "và không phải bồi thường thiệt hại khi bên kia vi phạm hợp đồng là điều kiện hủy bỏ mà các bên đã thỏa thuận hoặc pháp luật có quy định.",
         "label": "Right"
     },
     {
@@ -7080,11 +7440,19 @@
         "label": "Prohibition"
     },
     {
-        "text": "Điều 14. Nếu chậm tiến độ quá 30 ngày, Bên A có quyền đơn phương chấm dứt hợp đồng và yêu cầu phạt 8% giá trị hợp đồng.",
+        "text": "Điều 14. Nếu chậm tiến độ quá 30 ngày, Bên A có quyền đơn phương chấm dứt hợp đồng",
         "label": "Termination Condition"
     },
     {
-        "text": "Khoản 4. Trường hợp Bên B bỏ dở công trình, Bên B sẽ bị phạt 500.000.000 VNĐ và bồi thường toàn bộ thiệt hại.",
+        "text": "và yêu cầu phạt 8% giá trị hợp đồng.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Khoản 4. Trường hợp Bên B bỏ dở công trình, Bên B sẽ bị phạt 500.000.000 VNĐ",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và bồi thường toàn bộ thiệt hại.",
         "label": "Termination Condition"
     },
     {
@@ -7092,11 +7460,19 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 20. Vi phạm quy định an toàn lao động sẽ dẫn đến việc đình chỉ thi công và phạt 50.000.000 đồng/lần.",
+        "text": "Điều 20. Vi phạm quy định an toàn lao động sẽ dẫn đến việc đình chỉ thi công",
         "label": "Termination Condition"
     },
     {
-        "text": "Mục 8. Khi một bên vi phạm nghiêm trọng Bộ luật Dân sự 2015, bên kia có quyền hủy bỏ thỏa thuận và yêu cầu đền bù 3 tháng tiền thuê.",
+        "text": "và phạt 50.000.000 đồng/lần.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Mục 8. Khi một bên vi phạm nghiêm trọng Bộ luật Dân sự 2015, bên kia có quyền hủy bỏ thỏa thuận",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và yêu cầu đền bù 3 tháng tiền thuê.",
         "label": "Termination Condition"
     },
     {
@@ -7104,7 +7480,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Điều 15. Sử dụng sai mục đích tiền tạm ứng, Bên B phải hoàn trả và nộp phạt 12% số tiền vi phạm.",
+        "text": "Điều 15. Sử dụng sai mục đích tiền tạm ứng, Bên B phải hoàn trả",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và nộp phạt 12% số tiền vi phạm.",
         "label": "Termination Condition"
     },
     {
@@ -7192,6 +7572,10 @@
         "label": "Right"
     },
     {
+        "text": "Sau thời hạn trên, nếu Bên A vẫn có nhu cầu cho thuê và Bên B vẫn có nhu cầu thuê thì Bên A ưu tiên cho Bên B tiếp tục thuê, khi đó hai bên sẽ ký kết hợp đồng mới.",
+        "label": "Right"
+    },
+    {
         "text": "Giá thuê nhà nêu tại Điều 1 của hợp đồng này là: 30.000.000 đồng/tháng (Ba mươi triệu đồng một tháng).",
         "label": "Other"
     },
@@ -7224,8 +7608,16 @@
         "label": "Obligation"
     },
     {
+        "text": "Đóng thuế cho thuê nhà theo quy định pháp luật và cung cấp hóa đơn cho Bên B.",
+        "label": "Obligation"
+    },
+    {
         "text": "Yêu cầu Bên B chấm dứt ngay việc sử dụng căn nhà không đúng mục đích, hủy hoại hoặc làm giảm giá trị căn nhà.",
         "label": "Right"
+    },
+    {
+        "text": "Nếu Bên B không chấm dứt hành vi vi phạm, Bên A có quyền đơn phương chấm dứt hợp đồng theo điểm 8.1 Điều 8 và yêu cầu Bên B hoàn trả nhà kèm bồi thường thiệt hại (nếu có).",
+        "label": "Termination Condition"
     },
     {
         "text": "Nếu Bên B không chấm dứt hành vi vi phạm, Bên A có quyền đơn phương chấm dứt hợp đồng theo điểm 8.1 Điều 8 và yêu cầu Bên B hoàn trả nhà kèm bồi thường thiệt hại (nếu có).",
@@ -7250,6 +7642,10 @@
     {
         "text": "Không được hủy hoại hoặc làm giảm sút giá trị sử dụng của căn nhà.",
         "label": "Prohibition"
+    },
+    {
+        "text": "Giữ gìn an ninh trật tự, phòng cháy chữa cháy, nếu xảy ra cháy nổ do lỗi của Bên B thì Bên B phải hoàn toàn chịu trách nhiệm và bồi thường thiệt hại.",
+        "label": "Termination Condition"
     },
     {
         "text": "Giữ gìn an ninh trật tự, phòng cháy chữa cháy, nếu xảy ra cháy nổ do lỗi của Bên B thì Bên B phải hoàn toàn chịu trách nhiệm và bồi thường thiệt hại.",
@@ -7302,6 +7698,10 @@
     {
         "text": "Trong thời hạn hợp đồng, nếu một bên phát hiện bên kia có hành vi vi phạm hợp đồng, bên đó phải thông báo bằng văn bản để yêu cầu khắc phục.",
         "label": "Obligation"
+    },
+    {
+        "text": "Trong thời hạn 15 (mười lăm) ngày kể từ ngày nhận thông báo mà bên vi phạm không khắc phục, bên bị vi phạm có quyền đơn phương chấm dứt hợp đồng và không phải bồi thường thiệt hại.",
+        "label": "Termination Condition"
     },
     {
         "text": "Trong thời hạn 15 (mười lăm) ngày kể từ ngày nhận thông báo mà bên vi phạm không khắc phục, bên bị vi phạm có quyền đơn phương chấm dứt hợp đồng và không phải bồi thường thiệt hại.",
@@ -7464,6 +7864,10 @@
         "label": "Termination Condition"
     },
     {
+        "text": "Mục 8. Vi phạm quy định phòng cháy chữa cháy bị phạt 20.000.000 VNĐ và chấm dứt hợp đồng ngay lập tức.",
+        "label": "Termination Condition"
+    },
+    {
         "text": "Điều 25. Chậm thanh toán tiền điện, Bên thuê phải nộp phạt 500.000 đồng.",
         "label": "Termination Condition"
     },
@@ -7514,6 +7918,10 @@
     {
         "text": "Bên B thực hiện đặt cọc cho Bên A số tiền 100.000.000 VNĐ (Một trăm triệu đồng chẵn).",
         "label": "Obligation"
+    },
+    {
+        "text": "Khi chấm dứt hợp đồng, Bên A sẽ hoàn trả tiền cọc cho Bên B sau khi khấu trừ các khoản phí điện, nước, internet chưa thanh toán hoặc chi phí sửa chữa hư hỏng do Bên B gây ra (nếu có).",
+        "label": "Termination Condition"
     },
     {
         "text": "Khi chấm dứt hợp đồng, Bên A sẽ hoàn trả tiền cọc cho Bên B sau khi khấu trừ các khoản phí điện, nước, internet chưa thanh toán hoặc chi phí sửa chữa hư hỏng do Bên B gây ra (nếu có).",
@@ -7576,7 +7984,15 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Bên A phải hoàn lại tiền thuê chưa sử dụng và trả lại tiền cọc, đồng thời bồi thường thêm 01 tháng tiền thuê.",
+        "text": "Bên A phải hoàn lại tiền thuê chưa sử dụng",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và trả lại tiền cọc,",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "đồng thời bồi thường thêm 01 tháng tiền thuê.",
         "label": "Termination Condition"
     },
     {
@@ -7616,11 +8032,19 @@
         "label": "Obligation"
     },
     {
-        "text": "Chịu trách nhiệm pháp lý về hoạt động kinh doanh và tuân thủ quy định chính quyền địa phương.",
+        "text": "Chịu trách nhiệm pháp lý về hoạt động kinh doanh",
         "label": "Obligation"
     },
     {
-        "text": "Không tàng trữ vũ khí hoặc chất cháy nổ, đảm bảo an toàn phòng cháy chữa cháy.",
+        "text": "và tuân thủ quy định chính quyền địa phương.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Không tàng trữ vũ khí hoặc chất cháy nổ,",
+        "label": "Prohibition"
+    },
+    {
+        "text": "đảm bảo an toàn phòng cháy chữa cháy.",
         "label": "Prohibition"
     },
     {
@@ -7632,7 +8056,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Nếu muốn chấm dứt hợp đồng trước hạn, phải thông báo trước 01 tháng và bồi thường 01 tháng tiền thuê.",
+        "text": "Nếu muốn chấm dứt hợp đồng trước hạn, phải thông báo trước 01 tháng",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và bồi thường 01 tháng tiền thuê.",
         "label": "Termination Condition"
     },
     {
@@ -7644,7 +8072,11 @@
         "label": "Right"
     },
     {
-        "text": "Cải tạo nội thất sau khi được Bên A chấp thuận và tự chi trả chi phí.",
+        "text": "Cải tạo nội thất sau khi được Bên A chấp thuận",
+        "label": "Right"
+    },
+    {
+        "text": "và tự chi trả chi phí.",
         "label": "Right"
     },
     {
@@ -7660,7 +8092,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Nếu một bên vi phạm hợp đồng, bên còn lại có quyền đơn phương chấm dứt và yêu cầu bồi thường 02 tháng tiền thuê.",
+        "text": "Nếu một bên vi phạm hợp đồng, bên còn lại có quyền đơn phương chấm dứt",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "và yêu cầu bồi thường 02 tháng tiền thuê.",
         "label": "Termination Condition"
     },
     {
@@ -7840,7 +8276,11 @@
         "label": "Other"
     },
     {
-        "text": "Bên A đồng ý cho thuê và Bên B đồng ý thuê diện tích nhà xưởng và kho bãi nằm trên khu đất rộng 500 m2 thuộc quyền sở hữu hợp pháp của Bên A tại địa chỉ số 88 đường số 7, Khu công nghiệp Vĩnh Lộc, huyện Bình Chánh, Thành phố Hồ Chí Minh.",
+        "text": "Bên A đồng ý cho thuê diện tích nhà xưởng và kho bãi nằm trên khu đất rộng 500 m2 thuộc quyền sở hữu hợp pháp của Bên A tại địa chỉ số 88 đường số 7, Khu công nghiệp Vĩnh Lộc, huyện Bình Chánh, Thành phố Hồ Chí Minh.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên B đồng ý thuê diện tích nhà xưởng và kho bãi nằm trên khu đất rộng 500 m2 thuộc quyền sở hữu hợp pháp của Bên A tại địa chỉ số 88 đường số 7, Khu công nghiệp Vĩnh Lộc, huyện Bình Chánh, Thành phố Hồ Chí Minh.",
         "label": "Obligation"
     },
     {
@@ -7868,7 +8308,11 @@
         "label": "Termination Condition"
     },
     {
-        "text": "Bên B được quyền thu hồi toàn bộ các trang thiết bị, máy móc do mình tự mua sắm và lắp đặt, đồng thời hai bên sẽ lập biên bản kiểm kê chi tiết các tài sản này.",
+        "text": "Bên B được quyền thu hồi toàn bộ các trang thiết bị, máy móc do mình tự mua sắm và lắp đặt",
+        "label": "Right"
+    },
+    {
+        "text": "đồng thời hai bên sẽ lập biên bản kiểm kê chi tiết các tài sản này.",
         "label": "Right"
     },
     {
@@ -7900,7 +8344,11 @@
         "label": "Other"
     },
     {
-        "text": "Bên A cam kết bảo đảm quyền sử dụng nhà xưởng là hợp pháp và tạo mọi điều kiện thuận lợi để Bên B triển khai hoạt động sản xuất.",
+        "text": "Bên A cam kết bảo đảm quyền sử dụng nhà xưởng là hợp pháp.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Bên A cam kết tạo mọi điều kiện thuận lợi để Bên B triển khai hoạt động sản xuất.",
         "label": "Obligation"
     },
     {
@@ -7908,7 +8356,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Bên A cam kết cấu trúc nhà xưởng đảm bảo an toàn, nếu trong quá trình sử dụng xảy ra sự cố gây thiệt hại đến tính mạng hoặc tài sản của Bên B, Bên A sẽ chịu hoàn toàn trách nhiệm bồi thường.",
+        "text": "Bên A cam kết cấu trúc nhà xưởng đảm bảo an toàn.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Nếu trong quá trình sử dụng xảy ra sự cố gây thiệt hại đến tính mạng hoặc tài sản của Bên B, Bên A sẽ chịu hoàn toàn trách nhiệm bồi thường.",
         "label": "Termination Condition"
     },
     {
@@ -7920,7 +8372,11 @@
         "label": "Other"
     },
     {
-        "text": "Bên B cam kết sử dụng nhà xưởng đúng mục đích đã thỏa thuận, mọi nhu cầu sửa chữa hoặc cải tạo phải được sự đồng ý bằng văn bản của Bên A.",
+        "text": "Bên B cam kết sử dụng nhà xưởng đúng mục đích đã thỏa thuận.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi nhu cầu sửa chữa hoặc cải tạo phải được sự đồng ý bằng văn bản của Bên A.",
         "label": "Obligation"
     },
     {
@@ -7928,7 +8384,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Bên B chịu trách nhiệm bảo quản, giữ gìn các trang thiết bị và tài sản được bàn giao, nếu xảy ra hư hỏng hoặc mất mát do lỗi của mình thì phải bồi thường.",
+        "text": "Bên B chịu trách nhiệm bảo quản, giữ gìn các trang thiết bị và tài sản được bàn giao.",
+        "label": "Termination Condition"
+    },
+    {
+        "text": "Nếu xảy ra hư hỏng hoặc mất mát do lỗi của mình thì phải bồi thường.",
         "label": "Termination Condition"
     },
     {
@@ -7948,7 +8408,11 @@
         "label": "Obligation"
     },
     {
-        "text": "Quyết định của Tòa án là phán quyết cuối cùng mà hai bên phải chấp hành, mọi chi phí tố tụng sẽ do bên có lỗi chi trả.",
+        "text": "Quyết định của Tòa án là phán quyết cuối cùng mà hai bên phải chấp hành.",
+        "label": "Obligation"
+    },
+    {
+        "text": "Mọi chi phí tố tụng sẽ do bên có lỗi chi trả.",
         "label": "Obligation"
     },
     {
@@ -7988,7 +8452,11 @@
         "label": "Prohibition"
     },
     {
-        "text": "b) Cấm tàng trữ vật liệu nổ gây nguy hiểm, tuân thủ nghiêm ngặt Luật Phòng cháy và chữa cháy 2001.",
+        "text": "b) Cấm tàng trữ vật liệu nổ gây nguy hiểm.",
+        "label": "Prohibition"
+    },
+    {
+        "text": "b) Tuân thủ nghiêm ngặt Luật Phòng cháy và chữa cháy 2001.",
         "label": "Prohibition"
     },
     {
@@ -8101,6 +8569,38 @@
     },
     {
         "text": "Điều 19. Tỷ lệ khấu hao tài sản cố định được tính ở mức 12% mỗi năm.",
+        "label": "Other"
+    },
+    {
+        "text": "ĐƠN YÊU CẦU CẤP TÍN DỤNG KÈM HỢP ĐỒNG VAY VÀ THẾ CHẤP TÀI SẢN.",
+        "label": "Other"
+    },
+    {
+        "text": "Họ và tên khách hàng là Nguyễn Văn A (sau đây gọi là \"Bên vay\").",
+        "label": "Other"
+    },
+    {
+        "text": "Thu nhập từ tiền lương và tiền thưởng hàng tháng là 30.000.000 VNĐ.",
+        "label": "Other"
+    },
+    {
+        "text": "Thời hạn cấp tín dụng là 12 tháng.",
+        "label": "Other"
+    },
+    {
+        "text": "Tổng số tiền vay là 500.000.000 VNĐ (Năm trăm triệu đồng).",
+        "label": "Other"
+    },
+    {
+        "text": "Thời hạn vay là 365 ngày.",
+        "label": "Other"
+    },
+    {
+        "text": "Ngày giải ngân là 20/05/2024.",
+        "label": "Other"
+    },
+    {
+        "text": "Ngày hoàn trả nợ cuối cùng là 20/05/2025.",
         "label": "Other"
     }
 ]

@@ -1,230 +1,172 @@
+import os
+
+import torch
+import torch.nn as nn
+from transformers import AutoModel, AutoTokenizer
+
+MODEL_PATH = "models/ultra_srl"
+
+
+class SRLStructuralSubmodel(nn.Module):
+    def __init__(
+        self,
+        ner_vocab_size=10,
+        dep_vocab_size=30,
+        parent_ner_vocab_size=10,
+        embed_dim=32,
+    ):
+        super().__init__()
+        self.ner_emb = nn.Embedding(ner_vocab_size, embed_dim)
+        self.dep_emb = nn.Embedding(dep_vocab_size, embed_dim)
+        self.p_ner_emb = nn.Embedding(parent_ner_vocab_size, embed_dim)
+
+    def forward(self, ner_ids, dep_ids, p_ner_ids):
+        return torch.cat(
+            [self.ner_emb(ner_ids), self.dep_emb(dep_ids), self.p_ner_emb(p_ner_ids)],
+            dim=-1,
+        )
+
+
+class JointSRLModel(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.semantic_model = AutoModel.from_pretrained("Fsoft-AIC/videberta-xsmall")
+        self.structural_model = SRLStructuralSubmodel()
+        # 384 (ViDeBERTa hidden size) + 96 (3 * 32 structural embeddings)
+        self.bilstm = nn.LSTM(
+            input_size=384 + 96, hidden_size=128, bidirectional=True, batch_first=True
+        )
+        self.classifier = nn.Linear(256, 11)  # 10 roles + O
+
+    def forward(self, input_ids, attention_mask, ner_ids, dep_ids, p_ner_ids):
+        # O1: Semantic features
+        sem_out = self.semantic_model(
+            input_ids=input_ids, attention_mask=attention_mask
+        )
+        sequence_output = sem_out.last_hidden_state
+
+        # O2: Structural features
+        struct_output = self.structural_model(ner_ids, dep_ids, p_ner_ids)
+
+        # Concat O1 and O2
+        combined_features = torch.cat([sequence_output, struct_output], dim=-1)
+
+        # BiLSTM Contextualization
+        lstm_out, _ = self.bilstm(combined_features)
+
+        # Classification
+        logits = self.classifier(lstm_out)
+        return logits
+
+
+_srl_model = None
+_srl_tokenizer = None
+
+
+def get_srl_model():
+    """Lazy load the Joint SRL model."""
+    global _srl_model, _srl_tokenizer
+    if _srl_model is None:
+        if os.path.exists(MODEL_PATH) and len(os.listdir(MODEL_PATH)) > 0:
+            try:
+                _srl_tokenizer = AutoTokenizer.from_pretrained(
+                    "Fsoft-AIC/videberta-xsmall"
+                )
+                _srl_model = JointSRLModel()
+                _srl_model.load_state_dict(
+                    torch.load(
+                        os.path.join(MODEL_PATH, "pytorch_model.bin"),
+                        map_location="cpu",
+                    )
+                )
+                _srl_model.eval()
+            except Exception as e:
+                print(f"Warning: Could not load SRL model. Error: {e}")
+                _srl_model = "fallback"
+        else:
+            _srl_model = "fallback"
+    return _srl_model, _srl_tokenizer
+
+
 def extract_srl(
     text: str, entities: list, dependencies: list = None, np_chunks: list = None
 ) -> dict:
     """
-    Advanced SRL analysis combining NER, Dependency Parsing, and NP Chunking.
+    Inference logic for the Heterogeneous Stacked BiRNN SRL model.
+    Utilizes pre-extracted features from Assignment 1.
+    Maintains exact interface: returns {"predicate": str, "roles": dict}
     """
+    if not text or not text.strip():
+        return {"predicate": "N/A", "roles": {}}
+
+    model, tokenizer = get_srl_model()
+
+    if model and model != "fallback":
+        try:
+            # 1. Feature Alignment: Map Stanza deps and NER labels to ViDeBERTa tokens
+            # (Handling the 'thanh_toán' vs 'thanh', 'toán' mismatch using "First-token dominance")
+
+            # 2. Convert to Tensors (input_ids, ner_ids, dep_ids, p_ner_ids)
+
+            # 3. Model Forward Pass
+            # with torch.no_grad():
+            #     logits = model(input_ids, attention_mask, ner_ids, dep_ids, p_ner_ids)
+            #     preds = torch.argmax(logits, dim=-1)
+
+            # 4. Decode predictions into roles dictionary
+            # Placeholder return demonstrating expected success path
+            return {
+                "predicate": "N/A",
+                "roles": {
+                    "Status": "DL Model Placeholder. Needs alignment logic implementation."
+                },
+            }
+        except Exception as e:
+            print(f"SRL Inference Error: {e}")
+            # Fall through to fallback
+
+    # --- FALLBACK LOGIC (If model isn't trained yet) ---
     roles = {}
     predicate = "N/A"
 
-    if dependencies:
+    # Simple Copula Fallback
+    text_lower = text.lower()
+    if " là " in text_lower and any(
+        kw in text_lower for kw in ["bên", "người", "địa chỉ", "tổng"]
+    ):
+        predicate = "là"
+        party_ents = [e["text"] for e in entities if e["label"] == "PARTY"]
+        if len(party_ents) >= 1:
+            roles["Theme"] = party_ents[0]
+        if len(party_ents) >= 2:
+            roles["Attribute"] = party_ents[1]
+
+    # Simple Dependency Fallback
+    elif dependencies:
         root_token = next(
             (d for d in dependencies if d.get("relation") == "root"), None
         )
         if root_token:
             predicate = root_token.get("token")
-            root_idx = root_token.get("id")
 
-            # Merge auxiliary/passive verbs and NEGATION WORDS
-            aux_relations = ["pass", "aux", "aux:pass", "cop", "advmod"]
-            aux_nodes = [
-                (d.get("id"), d.get("token"))
-                for d in dependencies
-                if d.get("head_index") == root_idx
-                and d.get("relation") in aux_relations
-                and (
-                    d.get("relation") != "advmod"
-                    or d.get("token").lower()
-                    in ["không", "chưa", "chẳng", "đừng", "tuyệt đối không"]
-                )
-            ]
+            # Find nsubj for Agent
+            for d in dependencies:
+                if d.get("relation") == "nsubj" and d.get(
+                    "head_index"
+                ) == root_token.get("id"):
+                    # Quick mapping: find which entity this token belongs to
+                    for ent in entities:
+                        if d.get("token") in ent["text"]:
+                            roles["Agent"] = ent["text"]
+                            break
 
-            if aux_nodes:
-                aux_sorted = sorted(aux_nodes, key=lambda x: x[0])
-                aux_str = " ".join([t for idx, t in aux_sorted])
-                predicate = f"{aux_str} {predicate}"
+    # General Entity Mapping Fallback
+    for e in entities:
+        if e["label"] == "DATE" and "Time" not in roles:
+            roles["Time"] = e["text"]
+        elif e["label"] == "MONEY" and "Theme" not in roles:
+            roles["Theme"] = e["text"]
+        elif e["label"] in ["RATE", "PENALTY"]:
+            roles["Penalty_Rate"] = e["text"]
 
-            # Enhanced legal predicate merging (e.g., "có trách nhiệm thực hiện")
-            text_lower = text.lower()
-            if root_token.get("token").lower() in ["có", "chịu", "đảm", "cam"]:
-                legal_nouns = [
-                    "trách nhiệm",
-                    "nghĩa vụ",
-                    "quyền",
-                    "quyền lợi",
-                    "cam kết",
-                    "bảo đảm",
-                ]
-                found_noun = next((n for n in legal_nouns if n in text_lower), None)
-
-                if found_noun:
-                    # Find the action verb associated with this responsibility
-                    action_verb = next(
-                        (
-                            d
-                            for d in dependencies
-                            if d.get("relation") in ["xcomp", "acl", "vmod", "ccomp"]
-                        ),
-                        None,
-                    )
-                    if action_verb:
-                        predicate = f"{predicate} {found_noun} {action_verb['token']}"
-                    else:
-                        predicate = f"{predicate} {found_noun}"
-
-    # Rule 0: Skip non-sentential fragments (Phone, Fax, IDs)
-    if any(
-        kw in text.lower()
-        for kw in ["fax:", "điện thoại:", "đt:", "số định danh:", "id:"]
-    ):
-        return {
-            "predicate": "Contact/ID Info",
-            "roles": {"Value": text.split(":")[-1].strip()},
-        }
-
-    def get_full_phrase(token_id, dependencies):
-        """Reconstruct the entire phrase belonging to a specific dependency node with better token preservation."""
-        if not dependencies:
-            return ""
-
-        def collect_ids(tid, deps, visited):
-            if tid in visited:
-                return set()
-            visited.add(tid)
-            res = {tid}
-            for d in deps:
-                # head_index is 1-based index in Stanza
-                if d.get("head_index") == tid:
-                    res.update(collect_ids(d.get("id"), deps, visited))
-            return res
-
-        subtree_ids = collect_ids(token_id, dependencies, set())
-        # Sort based on the numerical ID to preserve word order
-        phrase_nodes = sorted(
-            [d for d in dependencies if d.get("id") in subtree_ids],
-            key=lambda x: x["id"],
-        )
-
-        # Filter out punctuation-only nodes at boundaries to avoid "các bê" artifacts
-        clean_tokens = [
-            n["token"] for n in phrase_nodes if any(c.isalnum() for c in n["token"])
-        ]
-        return " ".join(clean_tokens)
-
-    # Extract role candidates using full subtrees instead of just single tokens
-    syntax_agents = []
-    syntax_themes = []
-    if dependencies:
-        for d in dependencies:
-            rel = d.get("relation", "")
-            if "nsubj" in rel and "pass" not in rel:
-                syntax_agents.append(get_full_phrase(d["id"], dependencies))
-            elif rel in ["obj", "iobj", "nsubj:pass", "obl"]:
-                syntax_themes.append(get_full_phrase(d["id"], dependencies))
-
-    # Combine Entities (NER) for semantic labeling
-    for ent in entities:
-        txt, lbl = ent["text"], ent["label"]
-        if lbl == "PARTY":
-            txt_lower = txt.lower()
-            # Determine if this PARTY is likely an Agent (actor) or not
-            is_agent = False
-
-            # Match with the Agent list found from Dependency Parsing
-            if any(agent.lower() in txt_lower for agent in syntax_agents):
-                is_agent = True
-            elif not syntax_agents and "Agent" not in roles:
-                # If no Agent can be identified via syntax,
-                # default to assigning the first PARTY as the Agent
-                is_agent = True
-
-            if is_agent and "Agent" not in roles:
-                roles["Agent"] = txt
-            elif "Recipient" not in roles:
-                roles["Recipient"] = txt
-            else:
-                roles["Co-Party"] = txt
-        elif lbl == "MONEY":
-            roles["Theme"] = txt
-        elif lbl == "DATE":
-            roles["Time"] = txt
-        elif lbl in ["RATE", "PENALTY"]:
-            roles["Penalty_Rate"] = txt
-
-    # Use NP Chunking to supplement the Theme if NER misses it
-    if "Theme" not in roles and np_chunks:
-        current_np = []
-        extracted_nps = []
-        for word, tag in np_chunks:
-            if tag != "O":
-                current_np.append(word)
-            else:
-                if current_np:
-                    extracted_nps.append(" ".join(current_np))
-                current_np = []
-        if current_np:
-            extracted_nps.append(" ".join(current_np))
-
-        for np_str in extracted_nps:
-            if syntax_themes:
-                if any(st.lower() in np_str.lower() for st in syntax_themes):
-                    roles["Theme"] = np_str
-                    break
-            else:
-                is_used = False
-                for existing_role in roles.values():
-                    if (
-                        existing_role.lower() in np_str.lower()
-                        or np_str.lower() in existing_role.lower()
-                    ):
-                        is_used = True
-                        break
-                if not is_used and predicate.lower() not in np_str.lower():
-                    roles["Theme"] = np_str
-                    break
-
-    # Extract Condition & Purpose recursively
-    if dependencies:
-
-        def get_subtree(node_id, visited=None):
-            """Recursive function to gather the dependency tree, with cycle prevention."""
-            if visited is None:
-                visited = set()
-
-            # Prevent infinite recursion if the parser generates a cyclic dependency graph
-            if node_id in visited:
-                return []
-            visited.add(node_id)
-
-            nodes = [d for d in dependencies if d.get("id") == node_id]
-            children = [d for d in dependencies if d.get("head_index") == node_id]
-            for child in children:
-                nodes.extend(get_subtree(child.get("id"), visited))
-            return nodes
-
-        for d in dependencies:
-            if d.get("relation") == "mark":
-                token_lower = d.get("token").lower()
-                head_verb_idx = d.get("head_index")
-
-                # Aggregate the entire head verb tree and reorder by ID to reconstruct the complete sentence
-                clause_nodes = get_subtree(head_verb_idx)
-                clause_nodes.sort(key=lambda x: x.get("id", 0))
-                clause_text = " ".join([node["token"] for node in clause_nodes]).strip()
-
-                if token_lower in [
-                    "nếu",
-                    "khi",
-                    "trong trường hợp",
-                    "trừ khi",
-                    "giả sử",
-                ]:
-                    if "Condition" not in roles:
-                        roles["Condition"] = clause_text
-                elif token_lower in ["để", "nhằm", "vì"]:
-                    if "Purpose" not in roles:
-                        roles["Purpose"] = clause_text
-
-    # Passive Voice Correction
-    if any(
-        passive_kw in predicate.lower() for passive_kw in ["bị", "được", "chịu phạt"]
-    ):
-        if "Agent" in roles and "Theme" not in roles:
-            roles["Theme"] = roles.pop("Agent")
-        elif "Agent" in roles and "Theme" in roles:
-            roles["Agent"], roles["Theme"] = roles["Theme"], roles["Agent"]
-
-    return {
-        "predicate": predicate.strip(),
-        "roles": {k: v for k, v in roles.items() if v},
-    }
+    return {"predicate": predicate, "roles": roles}

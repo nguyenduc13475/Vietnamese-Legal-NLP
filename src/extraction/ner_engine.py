@@ -1,74 +1,83 @@
 import os
 import re
 
-from transformers import pipeline
+import torch
+from transformers import AutoTokenizer, pipeline
 
-# Load fine-tuned PhoBERT NER model if available
-NER_MODEL_PATH = "./models/fine_tuned_ner"
-ner_pipeline = None
-
-if os.path.exists(NER_MODEL_PATH) and len(os.listdir(NER_MODEL_PATH)) > 0:
-    import torch
-    from transformers import AutoTokenizer
-
-    try:
-        device_id = 0 if torch.cuda.is_available() else -1
-        tokenizer = AutoTokenizer.from_pretrained(
-            NER_MODEL_PATH, clean_up_tokenization_spaces=True, model_max_length=256
-        )
-        ner_pipeline = pipeline(
-            "token-classification",
-            model=NER_MODEL_PATH,
-            tokenizer=tokenizer,
-            aggregation_strategy="simple",
-            ignore_labels=["O"],
-            device=device_id,
-        )
-    except Exception as e:
-        print(f"Warning: Could not load NER model from {NER_MODEL_PATH}. Error: {e}")
+MODEL_PATH = "models/ultra_ner"  # Fine-tuned ViDeBERTa-xsmall
+_ner_pipeline = None
 
 
-def extract_entities(text: str) -> list[dict]:
+def get_ner_pipeline():
+    """Lazy load the pipeline to avoid reloading on every function call."""
+    global _ner_pipeline
+    if _ner_pipeline is None:
+        if os.path.exists(MODEL_PATH) and len(os.listdir(MODEL_PATH)) > 0:
+            try:
+                device_id = 0 if torch.cuda.is_available() else -1
+                tokenizer = AutoTokenizer.from_pretrained(
+                    "Fsoft-AIC/videberta-xsmall",
+                    clean_up_tokenization_spaces=True,
+                    model_max_length=256,
+                )
+                _ner_pipeline = pipeline(
+                    "token-classification",
+                    model=MODEL_PATH,
+                    tokenizer=tokenizer,
+                    aggregation_strategy="simple",
+                    ignore_labels=["O"],
+                    device=device_id,
+                )
+            except Exception as e:
+                print(
+                    f"Warning: Could not load NER model from {MODEL_PATH}. Error: {e}"
+                )
+                _ner_pipeline = "fallback"
+        else:
+            _ner_pipeline = "fallback"
+    return _ner_pipeline
+
+
+def extract_ultra_entities(text: str) -> list[dict]:
     """
-    Custom NER for Contracts.
-    Prioritize using the fine-tuned PhoBERT model.
-    If the model is not trained, fallback to Rule-based extraction.
+    ULTRA-NER: Unified model for NER + NP-Chunking + Predicate detection.
+    Labels: PARTY, MONEY, DATE, RATE, PENALTY, LAW, OBJECT, PREDICATE
+    Returns the standard interface: {"text": str, "label": str, "span": tuple}
     """
     if not text or not isinstance(text, str) or not text.strip():
         return []
 
     entities = []
+    ner_pipe = get_ner_pipeline()
 
-    if ner_pipeline:
+    if ner_pipe and ner_pipe != "fallback":
         # 1. Machine Learning Inference
-        ml_entities = ner_pipeline(text)
+        ml_entities = ner_pipe(text)
 
         for ent in ml_entities:
-            # simple aggregation strategy returns 'entity_group'
             label = ent.get("entity_group", "")
             if label:
-                clean_text = ent["word"].replace("_", " ").replace("@@", "").strip()
-                # Ensure we don't save empty/junk strings as entities
+                # Clean up ViDeBERTa special token markers (U+2581)
+                clean_text = (
+                    ent["word"].replace("\u2581", " ").replace("Ġ", " ").strip()
+                )
                 if len(clean_text) < 1:
                     continue
 
-                # PhoBERT lacks a Fast Tokenizer, so start/end offsets are often None.
-                # We fallback to manual string matching to find the span.
                 start_idx = ent.get("start")
                 end_idx = ent.get("end")
 
+                # Fallback to manual string matching if tokenizer strips offsets
                 if start_idx is None or end_idx is None:
                     start_idx = text.find(clean_text)
                     end_idx = start_idx + len(clean_text) if start_idx != -1 else 0
                     start_idx = max(0, start_idx)
 
-                # Strict cleaning: Remove trailing/leading punctuation often misidentified by models
-                # Keep internal punctuation (e.g., 10.000.000) but remove trailing dots
+                # Strict cleaning: Remove trailing/leading punctuation
                 stripped_text = clean_text.strip(".,:;() ")
                 if not stripped_text:
                     continue
 
-                # Update span if text was stripped
                 if stripped_text != clean_text:
                     start_idx = text.find(stripped_text, start_idx)
                     end_idx = start_idx + len(stripped_text)
@@ -102,3 +111,10 @@ def extract_entities(text: str) -> list[dict]:
                 )
 
     return entities
+
+
+def extract_entities(text: str) -> list[dict]:
+    """Assignment NER requirement: Filter out OBJECT and PREDICATE."""
+    raw = extract_ultra_entities(text)
+    # Use ['label'] instead of ['entity_group'] to match the standardized output
+    return [e for e in raw if e["label"] not in ["OBJECT", "PREDICATE"]]
