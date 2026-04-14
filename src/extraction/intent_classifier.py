@@ -3,6 +3,7 @@ import pickle
 
 import torch
 from transformers import AutoTokenizer, pipeline
+from underthesea import word_tokenize
 
 TFIDF_MODEL_PATH = "models/fine_tuned/intent_model.pkl"
 VECTORIZER_PATH = "models/fine_tuned/intent_vectorizer.pkl"
@@ -19,11 +20,7 @@ if (
 ):
     try:
         device_id = 0 if torch.cuda.is_available() else -1
-        tokenizer = AutoTokenizer.from_pretrained(
-            TRANSFORMER_MODEL_PATH,
-            clean_up_tokenization_spaces=True,
-            model_max_length=256,
-        )
+        tokenizer = AutoTokenizer.from_pretrained(TRANSFORMER_MODEL_PATH)
         transformer_pipeline = pipeline(
             "text-classification",
             model=TRANSFORMER_MODEL_PATH,
@@ -52,7 +49,9 @@ def classify_intent(text: str) -> str:
     Prior Transformer -> ML Model (TF-IDF + LR) -> Rule-based.
     """
     if transformer_pipeline:
-        result = transformer_pipeline(text)
+        # Segment syllables into words before passing to PhoBERT
+        segmented_text = word_tokenize(text, format="text")
+        result = transformer_pipeline(segmented_text)
         return result[0]["label"]
 
     if ml_model and vectorizer:

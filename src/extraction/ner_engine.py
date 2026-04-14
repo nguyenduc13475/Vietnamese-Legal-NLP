@@ -2,6 +2,7 @@ import os
 
 import torch
 from transformers import AutoTokenizer, pipeline
+from underthesea import word_tokenize
 
 MODEL_PATH = "models/ultra_ner"
 _ner_pipeline = None
@@ -11,9 +12,9 @@ def get_ner_pipeline():
     global _ner_pipeline
     if _ner_pipeline is None:
         if os.path.exists(MODEL_PATH) and len(os.listdir(MODEL_PATH)) > 0:
-            tokenizer = AutoTokenizer.from_pretrained(
-                "Fsoft-AIC/videberta-xsmall", use_fast=True
-            )
+            # PhoBERT requires the slow tokenizer for proper BPE handling in some versions,
+            # but we'll try to load the saved config first.
+            tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
             _ner_pipeline = pipeline(
                 "token-classification",
                 model=MODEL_PATH,
@@ -25,7 +26,7 @@ def get_ner_pipeline():
 
 
 def extract_ultra_entities(text: str) -> list[dict]:
-    """Unified model for NER, NP Chunking (OBJECT), and SRL features (PREDICATE)."""
+    """Unified model for NER. Pre-segments text for PhoBERT."""
     if not text or not text.strip():
         return []
 
@@ -33,16 +34,35 @@ def extract_ultra_entities(text: str) -> list[dict]:
     if not pipe:
         return []
 
-    results = pipe(text)
+    # 1. Segment text
+    segmented_text = word_tokenize(text, format="text")
+    results = pipe(segmented_text)
+
+    # 2. To fix the span shift, we map offsets back to the raw text
     entities = []
+    raw_text_lower = text.lower()
+    search_idx = 0
+
     for res in results:
-        entities.append(
-            {
-                "text": res["word"].replace(" ", " ").strip(),
-                "label": res["entity_group"],
-                "span": (res["start"], res["end"]),
-            }
-        )
+        # PhoBERT artifact cleaning
+        clean_word = res["word"].replace("_", " ").strip()
+        if not clean_word:
+            continue
+
+        # Find where this predicted word actually exists in the original text
+        actual_start = raw_text_lower.find(clean_word.lower(), search_idx)
+
+        if actual_start != -1:
+            actual_end = actual_start + len(clean_word)
+            search_idx = actual_end  # Move pointer forward
+
+            entities.append(
+                {
+                    "text": text[actual_start:actual_end],  # Use original casing
+                    "label": res["entity_group"],
+                    "span": (actual_start, actual_end),
+                }
+            )
     return entities
 
 

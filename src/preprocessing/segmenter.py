@@ -13,9 +13,8 @@ def get_segment_pipeline():
     if _segment_pipeline is None:
         try:
             # Using fast tokenizer for better performance
-            tokenizer = AutoTokenizer.from_pretrained(
-                "Fsoft-AIC/videberta-xsmall", use_fast=True
-            )
+            # PhoBERT tokenizer
+            tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
             _segment_pipeline = pipeline(
                 "token-classification",
                 model=MODEL_PATH,

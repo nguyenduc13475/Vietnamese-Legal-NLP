@@ -66,12 +66,14 @@ class SRLStructuralSubmodel(nn.Module):
 class JointSRLModel(nn.Module):
     def __init__(self):
         super().__init__()
-        self.semantic_model = AutoModel.from_pretrained("Fsoft-AIC/videberta-xsmall")
+        # Use PhoBERT as the semantic backbone
+        self.semantic_model = AutoModel.from_pretrained("vinai/phobert-base")
         self.structural_model = SRLStructuralSubmodel()
-        # 384 (ViDeBERTa hidden size) + 96 (3 * 32 structural embeddings)
+        # 768 (PhoBERT hidden size) + 96 (Structural features)
         self.bilstm = nn.LSTM(
-            input_size=384 + 96, hidden_size=128, bidirectional=True, batch_first=True
+            input_size=768 + 96, hidden_size=256, bidirectional=True, batch_first=True
         )
+        self.classifier = nn.Linear(512, 11)  # Bidirectional 256*2
         self.classifier = nn.Linear(256, 11)  # 10 roles + O
 
     def forward(self, input_ids, attention_mask, ner_ids, dep_ids, p_ner_ids):

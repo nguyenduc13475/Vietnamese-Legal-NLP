@@ -30,8 +30,8 @@ def load_custom_data(file_path):
 
 
 def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
-    # use_fast=True is mandatory for word_ids() alignment
-    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+    # PhoBERT does not have a Fast version. Standard AutoTokenizer is required.
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     # Define the label map to be saved directly into the model config
     id2label = {
@@ -69,10 +69,11 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
         for i, ids in enumerate(examples["input_ids"]):
             tag_list = examples["ner_tags"][i]
 
-            # Data is already IDs! Just add special tokens.
-            input_ids = [tokenizer.cls_token_id] + ids + [tokenizer.sep_token_id]
+            # PhoBERT IDs: <s> = 0, </s> = 2
+            input_ids = [tokenizer.bos_token_id] + ids + [tokenizer.eos_token_id]
 
-            # Map tags to IDs. -100 tells PyTorch to ignore CLS/SEP in loss calculation.
+            # Map tags. Ensure length matches exactly.
+            # Using label2id.get(t, 0) handles the string labels in your JSON.
             label_ids = [-100] + [label2id.get(t, 0) for t in tag_list] + [-100]
 
             # Standard truncation
@@ -165,7 +166,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--model",
         type=str,
-        default="Fsoft-AIC/videberta-xsmall",
+        default="vinai/phobert-base",
         help="Pretrained model (e.g., Fsoft-AIC/videberta-xsmall)",
     )
     parser.add_argument(

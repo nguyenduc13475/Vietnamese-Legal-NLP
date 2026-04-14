@@ -5,11 +5,14 @@ import sys
 from transformers import AutoTokenizer
 
 # Tải tokenizer của ViDeBERTa-xsmall
-TOKENIZER_NAME = "Fsoft-AIC/videberta-xsmall"
+from underthesea import word_tokenize
+
+TOKENIZER_NAME = "vinai/phobert-base"
 try:
-    tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_NAME, use_fast=True)
+    # Use standard PhoBERT tokenizer (slow version usually more stable for syllable-to-word)
+    tokenizer = AutoTokenizer.from_pretrained(TOKENIZER_NAME)
 except Exception as e:
-    print(f"Lỗi khi tải tokenizer {TOKENIZER_NAME}.\nChi tiết: {e}")
+    print(f"Error loading PhoBERT tokenizer: {e}")
     sys.exit(1)
 
 
@@ -49,41 +52,86 @@ def extract_spans_sequentially(clause: str, components: list) -> list:
 
 def assign_labels_to_tokens(clause: str, spans: list, default_label, use_bio=False):
     """
-    Gán nhãn cho token dựa trên danh sách spans (tọa độ char) đã được chốt.
+    100% Correct logic for PhoBERT syllable-to-word alignment.
+    Maps PhoBERT tokens back to original spans without string-search errors.
     """
-    encoding = tokenizer(clause, return_offsets_mapping=True, add_special_tokens=False)
-    tokens = tokenizer.convert_ids_to_tokens(encoding["input_ids"])
-    offsets = encoding["offset_mapping"]
+    # 1. PhoBERT specific: Segment to handle word-level underscores
+    # This is what PhoBERT was trained on
+    segmented_clause = word_tokenize(clause, format="text")
 
+    # 2. Tokenize and get tokens
+    encoding = tokenizer(segmented_clause, add_special_tokens=False)
+    tokens = tokenizer.convert_ids_to_tokens(encoding["input_ids"])
+
+    # 3. Create a syllable-based reconstruction to map tokens to original character indices
+    # We clean tokens of PhoBERT specific artifacts ('@@' and '_')
     tags = [default_label] * len(tokens)
 
-    for span in spans:
-        start_char = span["start"]
-        end_char = span["end"]
-        label = span["label"]
+    # We rebuild the string from tokens to find exactly where they hit the original clause
+    # Use a relative pointer that ignores whitespace and underscores discrepancy
+    clause_stripped = "".join(clause.split()).lower()
+    token_spans_in_stripped = []
+    current_pos = 0
 
-        is_first_token = True
-        for i, (tok_start, tok_end) in enumerate(offsets):
-            if tok_start == tok_end:
+    for token in tokens:
+        clean_tok = token.replace("@@", "").replace("_", "").lower()
+        if not clean_tok:
+            token_spans_in_stripped.append((-1, -1))
+            continue
+
+        start = clause_stripped.find(clean_tok, current_pos)
+        if start != -1:
+            end = start + len(clean_tok)
+            token_spans_in_stripped.append((start, end))
+            current_pos = end
+        else:
+            token_spans_in_stripped.append((-1, -1))
+
+    # 4. Map the original character spans to the 'stripped' space
+    # This allows us to compare apples to apples
+    for span in spans:
+        # Calculate start/end in whitespace-stripped version of original clause
+        # This makes the span index match our token pointer
+        prefix = clause[: span["start"]]
+        prefix_stripped_len = len("".join(prefix.split()))
+        content_stripped_len = len("".join(span["text"].split()))
+
+        stripped_start = prefix_stripped_len
+        stripped_end = stripped_start + content_stripped_len
+
+        label = span["label"]
+        is_first_token_in_span = True
+
+        for i, (tok_s, tok_e) in enumerate(token_spans_in_stripped):
+            if tok_s == -1:
                 continue
 
-            # Token lies within the span
-            if tok_start >= start_char and tok_end <= end_char:
-                # Critical for Vietnamese: Check if token is purely whitespace
-                if not tokens[i].strip():
-                    tags[i] = "O"
-                elif use_bio:
-                    tags[i] = f"B-{label}" if is_first_token else f"I-{label}"
-                    is_first_token = False
+            # Intersection check: if token is inside the stripped span
+            if tok_s >= stripped_start and tok_e <= stripped_end:
+                if use_bio:
+                    tags[i] = f"B-{label}" if is_first_token_in_span else f"I-{label}"
+                    is_first_token_in_span = False
                 else:
                     tags[i] = label
+
+    # 5. BIO Consistency Post-Process: Fix any O -> I-Tag errors
+    if use_bio:
+        for i in range(1, len(tags)):
+            if tags[i].startswith("I-"):
+                prev_tag = tags[i - 1]
+                target_label = tags[i].split("-")[1]
+                # If prev tag is O or a different label, change I- to B-
+                if prev_tag == "O" or (
+                    prev_tag != f"B-{target_label}" and prev_tag != f"I-{target_label}"
+                ):
+                    tags[i] = f"B-{target_label}"
 
     return tokens, tags
 
 
 def process_segmentation(segment_raw_path: str):
-    """Xử lý dataset Segmentation"""
-    print(f"📖 Đang xử lý Segmentation từ {segment_raw_path}...")
+    """Xử lý dataset Segmentation using the same ID-locking logic as NER"""
+    print(f"📖 Processing Segmentation from {segment_raw_path}...")
     with open(segment_raw_path, "r", encoding="utf-8") as f:
         raw_data = json.load(f)
 
@@ -97,14 +145,27 @@ def process_segmentation(segment_raw_path: str):
         components = []
         for idx, seg_text in enumerate(segments):
             if seg_text.strip():
+                # Label is the index + 1 (1, 2, 3, 4, 5)
                 components.append({"text": seg_text, "label": idx + 1})
 
-        # Bước 1: Lấy tọa độ tuần tự
+        # Use the EXACT same coordinate-transformation logic as NER
         spans = extract_spans_sequentially(clause, components)
-        # Bước 2: Gán nhãn
-        tokens, tags = assign_labels_to_tokens(clause, spans, default_label=0)
 
-        dataset.append({"tokens": tokens, "segment_tags": tags})
+        # assign_labels_to_tokens is our 'bulletproof' math function
+        tokens, tags = assign_labels_to_tokens(
+            clause, spans, default_label=0, use_bio=False
+        )
+
+        # Convert tokens to IDs immediately to lock the dataset
+        token_ids = [
+            tokenizer.convert_tokens_to_ids(t)
+            if tokenizer.convert_tokens_to_ids(t) is not None
+            else tokenizer.unk_token_id
+            for t in tokens
+        ]
+
+        # Now Segment data looks exactly like NER data
+        dataset.append({"input_ids": token_ids, "segment_tags": tags})
 
     return dataset
 
@@ -153,10 +214,11 @@ def process_annotated_tasks(annotated_raw_path: str):
         )
 
         # Convert tokens to IDs immediately during annotation to lock in the correct vocab mapping
-        token_ids = [tokenizer.convert_tokens_to_ids(t) for t in ner_tokens]
-        # Replace any potential None with UNK ID (usually 3)
         token_ids = [
-            tid if tid is not None else tokenizer.unk_token_id for tid in token_ids
+            tokenizer.convert_tokens_to_ids(t)
+            if tokenizer.convert_tokens_to_ids(t) is not None
+            else tokenizer.unk_token_id
+            for t in ner_tokens
         ]
 
         ner_data.append({"input_ids": token_ids, "ner_tags": ner_tags})

@@ -11,7 +11,7 @@ from transformers import (
 
 
 def train_segmenter():
-    model_name = "Fsoft-AIC/videberta-xsmall"
+    model_name = "vinai/phobert-base"
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     # Load auto-annotated data (Labels 0-5)
