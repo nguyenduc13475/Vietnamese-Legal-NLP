@@ -11,16 +11,15 @@ _ner_pipeline = None
 def get_ner_pipeline():
     global _ner_pipeline
     if _ner_pipeline is None:
-        if os.path.exists(MODEL_PATH) and len(os.listdir(MODEL_PATH)) > 0:
-            # PhoBERT requires the slow tokenizer for proper BPE handling in some versions,
-            # but we'll try to load the saved config first.
-            tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+        if os.path.exists(MODEL_PATH):
+            tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, use_fast=False)
             _ner_pipeline = pipeline(
                 "token-classification",
                 model=MODEL_PATH,
                 tokenizer=tokenizer,
                 aggregation_strategy="simple",
                 device=0 if torch.cuda.is_available() else -1,
+                torch_dtype=torch.float32,  # Stability for inference
             )
     return _ner_pipeline
 
