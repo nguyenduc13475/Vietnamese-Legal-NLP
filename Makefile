@@ -50,15 +50,18 @@ train-all: train-ner train-srl train-seg train-intent
 eval-ner:
 	export PYTHONPATH="${PYTHONPATH}:$(pwd)" && python scripts/evaluate_ner.py
 
+eval-seg:
+	export PYTHONPATH="${PYTHONPATH}:$(pwd)" && python scripts/evaluate_segmenter.py
+
 train-intent:
 	python scripts/train_intent.py --epochs 30
 
 eval-intent:
 	python scripts/evaluate_intent.py
 
-eval-all: eval-ner eval-intent
+eval-all: eval-ner eval-intent eval-seg
 	@echo "========================================================="
-	@echo "All evaluation reports have been updated in report/"
+	@echo "All evaluation reports (NER, Intent, Segmenter) have been updated in report/"
 	@echo "========================================================="
 
 clean:
