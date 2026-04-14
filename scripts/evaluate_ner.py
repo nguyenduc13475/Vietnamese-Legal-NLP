@@ -63,9 +63,22 @@ def evaluate_ner():
     # 2. Wrap into Robust architecture
     model = RobustNERModel(raw_model)
 
-    # 3. Load weights with prefix handling (RobustNERModel wraps under 'base_model')
-    weights_path = os.path.join(MODEL_PATH, "pytorch_model.bin")
-    state_dict = torch.load(weights_path, map_location="cpu")
+    # 3. Load weights handling both .bin and .safetensors (Transformers default)
+    import safetensors.torch
+
+    weights_bin = os.path.join(MODEL_PATH, "pytorch_model.bin")
+    weights_safe = os.path.join(MODEL_PATH, "model.safetensors")
+
+    if os.path.exists(weights_safe):
+        print("Loading weights from model.safetensors...")
+        state_dict = safetensors.torch.load_file(weights_safe)
+    elif os.path.exists(weights_bin):
+        print("Loading weights from pytorch_model.bin...")
+        state_dict = torch.load(weights_bin, map_location="cpu")
+    else:
+        raise FileNotFoundError(
+            f"Could not find model weights (.safetensors or .bin) in {MODEL_PATH}"
+        )
 
     # Compatibility fix: if keys don't start with base_model, they might be from a raw trainer save
     first_key = list(state_dict.keys())[0]
