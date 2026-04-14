@@ -30,7 +30,8 @@ def load_custom_data(file_path):
 
 
 def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
+    # use_fast=True is mandatory for word_ids() alignment
+    tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
 
     # Define the label map to be saved directly into the model config
     id2label = {
@@ -114,9 +115,13 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
         per_device_train_batch_size=batch_size,
         num_train_epochs=epochs,
         weight_decay=0.01,
+        max_grad_norm=1.0,  # Clips exploding gradients
+        lr_scheduler_type="cosine",  # Smoother convergence
+        warmup_ratio=0.1,
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1",
+        logging_steps=10,
     )
 
     def compute_metrics(p):
@@ -176,7 +181,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--batch_size", type=int, default=8, help="Batch size per device"
     )
-    parser.add_argument("--lr", type=float, default=2e-5, help="Learning rate")
+    parser.add_argument("--lr", type=float, default=1e-5, help="Learning rate")
     args = parser.parse_args()
 
     train(
