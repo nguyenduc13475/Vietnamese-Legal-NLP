@@ -20,28 +20,65 @@ from transformers import (
 
 # Focal Loss: Penalizes missing hard-to-find legal entities like PENALTY or RATE
 class LegalFocalLoss(nn.Module):
-    def __init__(self, weight=None, gamma=2.0):
+    def __init__(self, weight=None, gamma=1.5, smoothing=0.1):
         super().__init__()
         self.gamma = gamma
         self.weight = weight
+        self.smoothing = smoothing  # Add smoothing to handle inconsistent labels
 
     def forward(self, inputs, targets):
-        ce_loss = F.cross_entropy(
-            inputs, targets, reduction="none", weight=self.weight, ignore_index=-100
-        )
+        # Apply label smoothing manually for better noise handling
+        num_classes = inputs.size(-1)
+        log_probs = F.log_softmax(inputs, dim=-1)
+
+        with torch.no_grad():
+            true_dist = torch.zeros_like(inputs)
+            true_dist.fill_(self.smoothing / (num_classes - 1))
+            ignore_mask = targets == -100
+            # Fill valid targets
+            targets_safe = targets.clone()
+            targets_safe[ignore_mask] = 0
+            true_dist.scatter_(1, targets_safe.unsqueeze(1), 1.0 - self.smoothing)
+
+        ce_loss = -(true_dist * log_probs).sum(dim=-1)
+        # Apply Focal weighting
         pt = torch.exp(-ce_loss)
-        focal_loss = ((1 - pt) ** self.gamma * ce_loss).mean()
-        return focal_loss
+        focal_loss = (1 - pt) ** self.gamma * ce_loss
+
+        return focal_loss[~ignore_mask].mean()
+
+
+class RobustNERModel(nn.Module):
+    """Wrapper to add Multi-Sample Dropout for noise resistance."""
+
+    def __init__(self, base_model):
+        super().__init__()
+        self.base_model = base_model
+        self.config = base_model.config
+        # Standard PhoBERT hidden size is 768
+        self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
+
+    def forward(self, input_ids=None, attention_mask=None, labels=None, **kwargs):
+        outputs = self.base_model.roberta(input_ids, attention_mask=attention_mask)
+        sequence_output = outputs[0]
+
+        # Multi-sample dropout: average the logits from 5 different masks
+        logits = 0
+        for dropout in self.dropouts:
+            logits += self.base_model.classifier(dropout(sequence_output))
+        logits /= len(self.dropouts)
+
+        return {"logits": logits}
 
 
 class StableTrainer(Trainer):
     def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.get("labels")
+        # Handle the wrapper or raw model
         outputs = model(**inputs)
         logits = outputs.get("logits")
 
-        # Use Focal Loss instead of standard CrossEntropy for better F1
-        loss_fct = LegalFocalLoss()
+        loss_fct = LegalFocalLoss(smoothing=0.1)
         loss = loss_fct(logits.view(-1, self.model.config.num_labels), labels.view(-1))
         return (loss, outputs) if return_outputs else loss
 
@@ -107,25 +144,6 @@ def train(model_name, epochs, batch_size, learning_rate):
         align_labels, batched=True, remove_columns=test_ds.column_names
     )
 
-    model = AutoModelForTokenClassification.from_pretrained(
-        model_name, num_labels=len(id2label), id2label=id2label, label2id=label2id
-    )
-
-    training_args = TrainingArguments(
-        output_dir="./models/ultra_ner_checkpoints",
-        eval_strategy="epoch",
-        learning_rate=learning_rate,
-        per_device_train_batch_size=batch_size,
-        num_train_epochs=epochs,
-        weight_decay=0.01,
-        save_strategy="epoch",
-        load_best_model_at_end=True,
-        metric_for_best_model="f1",
-        fp16=torch.cuda.is_available(),
-        logging_steps=50,
-        report_to="none",
-    )
-
     def compute_metrics(p):
         predictions, labels = p
         predictions = np.argmax(predictions, axis=2)
@@ -144,14 +162,36 @@ def train(model_name, epochs, batch_size, learning_rate):
             "accuracy": accuracy_score(true_labels, true_predictions),
         }
 
+    raw_model = AutoModelForTokenClassification.from_pretrained(
+        model_name, num_labels=len(id2label), id2label=id2label, label2id=label2id
+    )
+    # Apply the Robust Wrapper
+    model = RobustNERModel(raw_model)
+
+    training_args = TrainingArguments(
+        output_dir="./models/robust_ner_checkpoints",
+        eval_strategy="epoch",
+        learning_rate=2e-5,  # Lower LR for deeper fine-tuning
+        per_device_train_batch_size=batch_size,
+        num_train_epochs=epochs,
+        weight_decay=0.05,  # AGGRESSIVE decay to ignore inconsistent noise
+        warmup_steps=300,
+        save_strategy="epoch",
+        load_best_model_at_end=True,
+        metric_for_best_model="f1",
+        fp16=torch.cuda.is_available(),
+        logging_steps=50,
+        report_to="none",
+    )
+
     trainer = StableTrainer(
-        model=model,
+        model=model,  # Trainer will use our wrapped model
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
         data_collator=DataCollatorForTokenClassification(tokenizer),
         compute_metrics=compute_metrics,
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=4)],
     )
 
     trainer.train()
