@@ -56,21 +56,29 @@ class LegalPhoBERTNER(RobertaPreTrainedModel):
 
     def forward(self, input_ids=None, attention_mask=None, labels=None, **kwargs):
         outputs = self.roberta(input_ids, attention_mask=attention_mask)
-        sequence_output = outputs[0]  # (batch, seq_len, hidden_size)
+        sequence_output = outputs[0]
         sequence_output = self.dropout(sequence_output)
 
+        # BiLSTM processing
         lstm_output, _ = self.bilstm(sequence_output)
         logits = self.classifier(lstm_output)
 
         loss = None
         if labels is not None:
-            # Flatten the tokens for CrossEntropy
+            # Use the class weights calculated earlier to handle imbalance
             loss_fct = nn.CrossEntropyLoss(weight=self.loss_weights)
-            loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))
+            # Only compute loss for non-ignored tokens (labels != -100)
+            active_loss = attention_mask.view(-1) == 1
+            active_logits = logits.view(-1, self.num_labels)
+            active_labels = torch.where(
+                active_loss,
+                labels.view(-1),
+                torch.tensor(loss_fct.ignore_index).type_as(labels),
+            )
+            loss = loss_fct(active_logits, active_labels)
 
-        return (
-            {"loss": loss, "logits": logits} if loss is not None else {"logits": logits}
-        )
+        # Trainer expects a dict or a specific Output class
+        return {"loss": loss, "logits": logits}
 
 
 def calculate_label_weights(dataset, num_labels):
@@ -187,19 +195,20 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
 
     training_args = TrainingArguments(
         output_dir="./models/ultra_ner",
-        evaluation_strategy="epoch",
-        learning_rate=3e-5,  # Slightly higher for BiLSTM head
+        eval_strategy="epoch",  # Fixed: evaluation_strategy -> eval_strategy
+        learning_rate=5e-5,  # Increased slightly to help the BiLSTM converge
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
         num_train_epochs=epochs,
-        weight_decay=0.02,
-        lr_scheduler_type="cosine",
-        warmup_ratio=0.1,
+        weight_decay=0.01,
+        lr_scheduler_type="linear",  # Linear decay often more stable for hybrid heads
+        warmup_steps=200,
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1",
-        logging_steps=10,
+        logging_steps=20,
         fp16=torch.cuda.is_available(),
+        report_to="none",  # Prevent crashing if wandb/tensorboard isn't configured
     )
 
     def compute_metrics(p):
