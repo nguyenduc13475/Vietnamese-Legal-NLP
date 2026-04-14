@@ -48,7 +48,7 @@ train-all: train-ner train-srl train-seg train-intent
 	@echo "All deep learning models updated."
 
 eval-ner:
-	python scripts/evaluate_ner.py
+	export PYTHONPATH="${PYTHONPATH}:$(pwd)" && python scripts/evaluate_ner.py
 
 train-intent:
 	python scripts/train_intent.py --epochs 30

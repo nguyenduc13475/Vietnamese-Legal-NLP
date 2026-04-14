@@ -164,6 +164,10 @@ def train(model_name, epochs, batch_size, learning_rate):
     raw_model = AutoModelForTokenClassification.from_pretrained(
         model_name, num_labels=len(id2label), id2label=id2label, label2id=label2id
     )
+    # Ensure config is synchronized with labels for persistence
+    raw_model.config.id2label = id2label
+    raw_model.config.label2id = label2id
+
     # Apply the Robust Wrapper
     model = RobustNERModel(raw_model)
 
