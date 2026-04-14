@@ -126,15 +126,17 @@ def process_annotated_tasks(annotated_raw_path: str):
         ultra_ner = item.get("ultra_ner", [])
         srl_roles = item.get("srl_roles", [])
 
-        # Tìm tuần tự để chốt chính xác tọa độ theo đúng văn cảnh
         srl_spans = extract_spans_sequentially(clause, srl_roles)
         ner_spans = extract_spans_sequentially(clause, ultra_ner)
 
-        # --- 3. EMBED PREDICATE VÀO NER ---
-        # Rút PREDICATE (với tọa độ chuẩn xác) từ SRL ra
+        # --- 3. EMBED PREDICATE VÀO NER & XOÁ KHỎI SRL ---
+        # Lấy PREDICATE ra để dùng cho NER
         predicate_spans = [span for span in srl_spans if span["label"] == "PREDICATE"]
 
-        # Nhét vào NER và sort lại theo tọa độ để đảm bảo chuẩn thứ tự trái -> phải
+        # CHÍNH SỬA TẠI ĐÂY: Loại bỏ PREDICATE khỏi danh sách SRL trước khi gán nhãn
+        srl_spans = [span for span in srl_spans if span["label"] != "PREDICATE"]
+
+        # Nhét vào NER và sort lại
         combined_ner_spans = ner_spans + predicate_spans
         combined_ner_spans.sort(key=lambda x: x["start"])
 
@@ -142,6 +144,7 @@ def process_annotated_tasks(annotated_raw_path: str):
         ner_tokens, ner_tags = assign_labels_to_tokens(
             clause, combined_ner_spans, default_label="O", use_bio=True
         )
+        # Lúc này srl_tags sẽ không còn nhãn PREDICATE nữa
         srl_tokens, srl_tags = assign_labels_to_tokens(
             clause, srl_spans, default_label="OTHER", use_bio=False
         )
