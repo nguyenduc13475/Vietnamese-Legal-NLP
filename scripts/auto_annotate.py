@@ -152,8 +152,15 @@ def process_annotated_tasks(annotated_raw_path: str):
             clause, srl_spans, default_label="OTHER", use_bio=False
         )
 
-        ner_data.append({"tokens": ner_tokens, "ner_tags": ner_tags})
-        srl_data.append({"tokens": srl_tokens, "srl_tags": srl_tags})
+        # Convert tokens to IDs immediately during annotation to lock in the correct vocab mapping
+        token_ids = [tokenizer.convert_tokens_to_ids(t) for t in ner_tokens]
+        # Replace any potential None with UNK ID (usually 3)
+        token_ids = [
+            tid if tid is not None else tokenizer.unk_token_id for tid in token_ids
+        ]
+
+        ner_data.append({"input_ids": token_ids, "ner_tags": ner_tags})
+        srl_data.append({"input_ids": token_ids, "srl_tags": srl_tags})
 
     return intent_data, ner_data, srl_data
 
