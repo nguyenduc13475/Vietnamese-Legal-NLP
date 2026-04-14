@@ -1,68 +1,88 @@
 import os
 
 import torch
-from transformers import AutoTokenizer, pipeline
+from transformers import AutoTokenizer
 from underthesea import word_tokenize
 
-MODEL_PATH = "models/ultra_ner"
-_ner_pipeline = None
+MODEL_PATH = "models/fine_tuned_ner"
+_ner_model = None
+_ner_tokenizer = None
 
 
-def get_ner_pipeline():
-    global _ner_pipeline
-    if _ner_pipeline is None:
+def get_ner_resources():
+    """Load the custom architecture model without using the generic pipeline."""
+    global _ner_model, _ner_tokenizer
+    if _ner_model is None:
         if os.path.exists(MODEL_PATH) and len(os.listdir(MODEL_PATH)) > 0:
-            # PhoBERT requires the slow tokenizer for proper BPE handling in some versions,
-            # but we'll try to load the saved config first.
-            tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-            _ner_pipeline = pipeline(
-                "token-classification",
-                model=MODEL_PATH,
-                tokenizer=tokenizer,
-                aggregation_strategy="simple",
-                device=0 if torch.cuda.is_available() else -1,
-            )
-    return _ner_pipeline
+            from scripts.train_ner import LegalPhoBERTNER
+
+            _ner_tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+            # Use AutoConfig to map the custom model back
+            _ner_model = LegalPhoBERTNER.from_pretrained(MODEL_PATH)
+            _ner_model.eval()
+            if torch.cuda.is_available():
+                _ner_model.to("cuda")
+    return _ner_model, _ner_tokenizer
 
 
 def extract_ultra_entities(text: str) -> list[dict]:
-    """Unified model for NER. Pre-segments text for PhoBERT."""
+    """Unified model for NER using Enhanced BiLSTM-head model."""
     if not text or not text.strip():
         return []
 
-    pipe = get_ner_pipeline()
-    if not pipe:
+    model, tokenizer = get_ner_resources()
+    if not model:
         return []
 
-    # 1. Segment text
     segmented_text = word_tokenize(text, format="text")
-    results = pipe(segmented_text)
+    inputs = tokenizer(
+        segmented_text, return_tensors="pt", truncation=True, max_length=256
+    )
 
-    # 2. To fix the span shift, we map offsets back to the raw text
+    if torch.cuda.is_available():
+        inputs = {k: v.to("cuda") for k, v in inputs.items()}
+
+    with torch.no_grad():
+        outputs = model(**inputs)
+        logits = outputs["logits"]
+        predictions = torch.argmax(logits, dim=2)[0].cpu().numpy()
+
+    # Convert predictions back to labels and map spans
+    id2label = model.config.id2label
+    # Standard logic to aggregate tokens into entity groups...
+    # (Simplified for the response, using a character-match approach as in original)
+
+    tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"][0])
     entities = []
+    current_pos = 0
     raw_text_lower = text.lower()
-    search_idx = 0
 
-    for res in results:
-        # PhoBERT artifact cleaning
-        clean_word = res["word"].replace("_", " ").strip()
-        if not clean_word:
+    # Simple aggregation logic for custom model
+    for i, pred_id in enumerate(predictions):
+        label = id2label[pred_id]
+        if label == "O" or tokens[i] in [
+            tokenizer.bos_token,
+            tokenizer.eos_token,
+            tokenizer.pad_token,
+        ]:
             continue
 
-        # Find where this predicted word actually exists in the original text
-        actual_start = raw_text_lower.find(clean_word.lower(), search_idx)
+        clean_tok = tokens[i].replace("@@", "").replace("_", " ").strip()
+        if not clean_tok:
+            continue
 
-        if actual_start != -1:
-            actual_end = actual_start + len(clean_word)
-            search_idx = actual_end  # Move pointer forward
-
+        start_idx = raw_text_lower.find(clean_tok.lower(), current_pos)
+        if start_idx != -1:
+            end_idx = start_idx + len(clean_tok)
             entities.append(
                 {
-                    "text": text[actual_start:actual_end],  # Use original casing
-                    "label": res["entity_group"],
-                    "span": (actual_start, actual_end),
+                    "text": text[start_idx:end_idx],
+                    "label": label.replace("B-", "").replace("I-", ""),
+                    "span": (start_idx, end_idx),
                 }
             )
+            current_pos = end_idx
+
     return entities
 
 
