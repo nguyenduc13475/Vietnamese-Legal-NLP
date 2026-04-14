@@ -22,31 +22,29 @@ from transformers import (
 
 # Fixed Inheritance: Use RobertaPreTrainedModel which PhoBERT is based on
 class LegalPhoBERTNER(RobertaPreTrainedModel):
-    # This prevents the 'all_tied_weights_keys' error
     _keys_to_ignore_on_load_unexpected = [r"pooler"]
 
     def __init__(self, config, weights=None):
         super().__init__(config)
         self.num_labels = config.num_labels
-
-        # Use RobertaModel as the backbone
         self.roberta = RobertaModel(config, add_pooling_layer=False)
-        self.dropout = nn.Dropout(0.3)
 
-        # BiLSTM for sequence modeling
+        # BiLSTM for high-level sequence modeling
         self.bilstm = nn.LSTM(
             config.hidden_size,
             config.hidden_size // 2,
             num_layers=2,
             bidirectional=True,
             batch_first=True,
-            dropout=0.3,
+            dropout=0.2,
         )
 
-        # Deep Classifier Head
+        # Enhanced Head: LayerNorm + GELU (more stable than ReLU for transformers)
+        self.norm = nn.LayerNorm(config.hidden_size)
+        self.dropout = nn.Dropout(0.3)
         self.classifier = nn.Sequential(
             nn.Linear(config.hidden_size, config.hidden_size),
-            nn.ReLU(),
+            nn.GELU(),
             nn.Dropout(0.2),
             nn.Linear(config.hidden_size, config.num_labels),
         )
@@ -57,17 +55,19 @@ class LegalPhoBERTNER(RobertaPreTrainedModel):
     def forward(self, input_ids=None, attention_mask=None, labels=None, **kwargs):
         outputs = self.roberta(input_ids, attention_mask=attention_mask)
         sequence_output = outputs[0]
-        sequence_output = self.dropout(sequence_output)
 
-        # BiLSTM processing
+        # Apply BiLSTM
         lstm_output, _ = self.bilstm(sequence_output)
+
+        # Normalize and classify
+        lstm_output = self.norm(lstm_output)
+        lstm_output = self.dropout(lstm_output)
         logits = self.classifier(lstm_output)
 
         loss = None
         if labels is not None:
-            # Use the class weights calculated earlier to handle imbalance
+            # Flatten context for standard NER loss calculation
             loss_fct = nn.CrossEntropyLoss(weight=self.loss_weights)
-            # Only compute loss for non-ignored tokens (labels != -100)
             active_loss = attention_mask.view(-1) == 1
             active_logits = logits.view(-1, self.num_labels)
             active_labels = torch.where(
@@ -77,7 +77,6 @@ class LegalPhoBERTNER(RobertaPreTrainedModel):
             )
             loss = loss_fct(active_logits, active_labels)
 
-        # Trainer expects a dict or a specific Output class
         return {"loss": loss, "logits": logits}
 
 
@@ -195,20 +194,21 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
 
     training_args = TrainingArguments(
         output_dir="./models/ultra_ner",
-        eval_strategy="epoch",  # Fixed: evaluation_strategy -> eval_strategy
-        learning_rate=5e-5,  # Increased slightly to help the BiLSTM converge
+        eval_strategy="epoch",
+        learning_rate=3e-5,  # Lower LR for stability with custom heads
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
         num_train_epochs=epochs,
         weight_decay=0.01,
-        lr_scheduler_type="linear",  # Linear decay often more stable for hybrid heads
-        warmup_steps=200,
+        lr_scheduler_type="cosine",  # Cosine annealing helps reach higher F1 peaks
+        warmup_ratio=0.1,
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1",
-        logging_steps=20,
-        fp16=torch.cuda.is_available(),
-        report_to="none",  # Prevent crashing if wandb/tensorboard isn't configured
+        logging_steps=10,
+        fp16=False,  # CRITICAL: Disable FP16 to fix NaN Grad Norm
+        max_grad_norm=1.0,  # CRITICAL: Clip gradients to prevent explosion
+        report_to="none",
     )
 
     def compute_metrics(p):
