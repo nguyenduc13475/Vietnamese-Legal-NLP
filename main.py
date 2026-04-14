@@ -3,7 +3,7 @@ import json
 import os
 
 from src.extraction.intent_classifier import classify_intent
-from src.extraction.ner_engine import extract_entities
+from src.extraction.ner_engine import extract_entities, extract_ultra_entities
 from src.extraction.srl_engine import extract_srl
 from src.preprocessing.chunker import chunk_np
 from src.preprocessing.parser import parse_dependency
@@ -36,7 +36,10 @@ def main():
         text = f.read()
 
     print("1.1 Clause Splitting...")
-    clauses = segment_clauses(text)
+    # Handle both dict-return and string-list return from segmenter
+    raw_clauses = segment_clauses(text)
+    clauses = [c["text"] if isinstance(c, dict) else c for c in raw_clauses]
+
     with open(os.path.join(args.output_dir, "clauses.txt"), "w", encoding="utf-8") as f:
         for clause in clauses:
             f.write(clause + "\n")
@@ -62,17 +65,16 @@ def main():
 
     print("2.1 Named Entity Recognition (NER)...")
     ner_results = []
+    ultra_features = []  # For SRL
     for clause in clauses:
-        ner_results.append({"clause": clause, "entities": extract_entities(clause)})
-    with open(
-        os.path.join(args.output_dir, "ner_results.json"), "w", encoding="utf-8"
-    ) as f:
-        json.dump(ner_results, f, ensure_ascii=False, indent=4)
+        ents = extract_entities(clause)  # Task 2.1 Output
+        ner_results.append({"clause": clause, "entities": ents})
+        ultra_features.append(extract_ultra_entities(clause))  # Features for 2.2
 
     print("2.2 Semantic Role Labeling (SRL)...")
     srl_results = []
     for i, clause in enumerate(clauses):
-        entities = ner_results[i]["entities"]
+        entities = ultra_features[i]  # Use full features (Predicate/Object included)
         deps = dep_results[i]["dependencies"]
         chunks = chunks_results[i]
         srl_results.append(

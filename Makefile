@@ -38,6 +38,15 @@ build-db:
 train-ner:
 	python scripts/train_ner.py --epochs 30
 
+train-srl:
+	python scripts/train_srl.py
+
+train-seg:
+	python scripts/train_segmenter.py
+
+train-all: train-ner train-srl train-seg train-intent
+	@echo "All deep learning models updated."
+
 eval-ner:
 	python scripts/evaluate_ner.py
 

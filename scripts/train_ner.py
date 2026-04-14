@@ -33,7 +33,6 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
     # Define the label map to be saved directly into the model config
-    # Added OBJECT and PREDICATE for ULTRA-NER
     id2label = {
         0: "O",
         1: "B-PARTY",

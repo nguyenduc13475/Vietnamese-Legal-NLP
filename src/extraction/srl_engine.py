@@ -5,6 +5,42 @@ import torch.nn as nn
 from transformers import AutoModel, AutoTokenizer
 
 MODEL_PATH = "models/ultra_srl"
+# Mappings for structural feature indexing (must match training)
+NER_MAP = {
+    "O": 0,
+    "PARTY": 1,
+    "MONEY": 2,
+    "DATE": 3,
+    "RATE": 4,
+    "PENALTY": 5,
+    "LAW": 6,
+    "OBJECT": 7,
+    "PREDICATE": 8,
+}
+DEP_MAP = {
+    "root": 1,
+    "nsubj": 2,
+    "obj": 3,
+    "iobj": 4,
+    "obl": 5,
+    "advcl": 6,
+    "amod": 7,
+    "nmod": 8,
+    "compound": 9,
+}
+ID2SRL = {
+    0: "OTHER",
+    1: "AGENT",
+    2: "RECIPIENT",
+    3: "THEME",
+    4: "NAME",
+    5: "TIME",
+    6: "CONDITION",
+    7: "TRAIT",
+    8: "LOCATION",
+    9: "METHOD",
+    10: "ABOUT",
+}
 
 
 class SRLStructuralSubmodel(nn.Module):
@@ -92,81 +128,96 @@ def extract_srl(
     text: str, entities: list, dependencies: list = None, np_chunks: list = None
 ) -> dict:
     """
-    Inference logic for the Heterogeneous Stacked BiRNN SRL model.
-    Utilizes pre-extracted features from Assignment 1.
-    Maintains exact interface: returns {"predicate": str, "roles": dict}
+    [Task 2.2] Heterogeneous stacked BiRNN SRL.
+    Merges ViDeBERTa embeddings (O1) with Structural embeddings (O2).
     """
-    if not text or not text.strip():
+    model, tokenizer = get_srl_model()
+    if model == "fallback":
         return {"predicate": "N/A", "roles": {}}
 
-    model, tokenizer = get_srl_model()
+    inputs = tokenizer(
+        text,
+        return_tensors="pt",
+        truncation=True,
+        max_length=256,
+        return_offsets_mapping=True,
+    )
+    offsets = inputs["offset_mapping"][0]
+    seq_len = inputs["input_ids"].shape[1]
 
-    if model and model != "fallback":
-        try:
-            # 1. Feature Alignment: Map Stanza deps and NER labels to ViDeBERTa tokens
-            # (Handling the 'thanh_toán' vs 'thanh', 'toán' mismatch using "First-token dominance")
+    # Build O2 feature tensors
+    ner_ids = torch.zeros(seq_len, dtype=torch.long)
+    dep_ids = torch.zeros(seq_len, dtype=torch.long)
+    p_ner_ids = torch.zeros(seq_len, dtype=torch.long)
 
-            # 2. Convert to Tensors (input_ids, ner_ids, dep_ids, p_ner_ids)
+    for i, (start, end) in enumerate(offsets):
+        if start == end:
+            continue
 
-            # 3. Model Forward Pass
-            # with torch.no_grad():
-            #     logits = model(input_ids, attention_mask, ner_ids, dep_ids, p_ner_ids)
-            #     preds = torch.argmax(logits, dim=-1)
+        # 1. Map NER Type
+        for ent in entities:
+            if start >= ent["span"][0] and end <= ent["span"][1]:
+                ner_ids[i] = NER_MAP.get(ent["label"], 0)
+                break
 
-            # 4. Decode predictions into roles dictionary
-            # Placeholder return demonstrating expected success path
-            return {
-                "predicate": "N/A",
-                "roles": {
-                    "Status": "DL Model Placeholder. Needs alignment logic implementation."
-                },
-            }
-        except Exception as e:
-            print(f"SRL Inference Error: {e}")
-            # Fall through to fallback
+        # 2. Map Dependency and Parent NER (Token Alignment)
+        if dependencies:
+            for d in dependencies:
+                # Use a sliding window match or character span check
+                # to align Stanza's word tokens with DeBERTa's subword offsets
+                d_token_clean = d["token"].replace("_", " ")
+                d_start = text.find(d_token_clean, max(0, start - 5))
+                d_end = d_start + len(d_token_clean)
 
-    # --- FALLBACK LOGIC (If model isn't trained yet) ---
+                if start >= d_start and end <= d_end:
+                    dep_ids[i] = DEP_MAP.get(d["relation"], 0)
+
+                    # Contextual Enrichment: Find the NER type of the HEAD token
+                    head_idx = d["head_index"]
+                    parent = next(
+                        (x for x in dependencies if x["id"] == head_idx), None
+                    )
+                    if parent:
+                        p_token_clean = parent["token"].replace("_", " ")
+                        # Find parent's NER label from our entities list
+                        p_ent = next(
+                            (e for e in entities if p_token_clean in e["text"]), None
+                        )
+                        if p_ent:
+                            # Map complex labels like 'B-PARTY' to base 'PARTY' index
+                            base_label = (
+                                p_ent["label"].replace("B-", "").replace("I-", "")
+                            )
+                            p_ner_ids[i] = NER_MAP.get(base_label, 0)
+                    break
+
+    with torch.no_grad():
+        logits = model(
+            inputs["input_ids"],
+            inputs["attention_mask"],
+            ner_ids.unsqueeze(0),
+            dep_ids.unsqueeze(0),
+            p_ner_ids.unsqueeze(0),
+        )
+        preds = torch.argmax(logits, dim=-1)[0].tolist()
+
+    # Aggregate tokens into roles
     roles = {}
     predicate = "N/A"
+    for i, p_id in enumerate(preds):
+        label = ID2SRL.get(p_id, "OTHER")
+        if label == "OTHER":
+            continue
 
-    # Simple Copula Fallback
-    text_lower = text.lower()
-    if " là " in text_lower and any(
-        kw in text_lower for kw in ["bên", "người", "địa chỉ", "tổng"]
-    ):
-        predicate = "là"
-        party_ents = [e["text"] for e in entities if e["label"] == "PARTY"]
-        if len(party_ents) >= 1:
-            roles["Theme"] = party_ents[0]
-        if len(party_ents) >= 2:
-            roles["Attribute"] = party_ents[1]
+        token_text = tokenizer.decode([inputs["input_ids"][0][i]]).replace(" ", "")
+        if label == "PREDICATE":
+            predicate = (
+                token_text if predicate == "N/A" else predicate + " " + token_text
+            )
+        else:
+            roles[label] = roles.get(label, "") + " " + token_text
 
-    # Simple Dependency Fallback
-    elif dependencies:
-        root_token = next(
-            (d for d in dependencies if d.get("relation") == "root"), None
-        )
-        if root_token:
-            predicate = root_token.get("token")
-
-            # Find nsubj for Agent
-            for d in dependencies:
-                if d.get("relation") == "nsubj" and d.get(
-                    "head_index"
-                ) == root_token.get("id"):
-                    # Quick mapping: find which entity this token belongs to
-                    for ent in entities:
-                        if d.get("token") in ent["text"]:
-                            roles["Agent"] = ent["text"]
-                            break
-
-    # General Entity Mapping Fallback
-    for e in entities:
-        if e["label"] == "DATE" and "Time" not in roles:
-            roles["Time"] = e["text"]
-        elif e["label"] == "MONEY" and "Theme" not in roles:
-            roles["Theme"] = e["text"]
-        elif e["label"] in ["RATE", "PENALTY"]:
-            roles["Penalty_Rate"] = e["text"]
-
-    return {"predicate": predicate, "roles": roles}
+    return {
+        "predicate": predicate.strip(),
+        "roles": {k: v.strip() for k, v in roles.items()},
+    }

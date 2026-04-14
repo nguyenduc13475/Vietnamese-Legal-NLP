@@ -67,9 +67,12 @@ def assign_labels_to_tokens(clause: str, spans: list, default_label, use_bio=Fal
             if tok_start == tok_end:
                 continue
 
-            # Token nằm trong khoảng (span) của từ/cụm từ
+            # Token lies within the span
             if tok_start >= start_char and tok_end <= end_char:
-                if use_bio:
+                # Critical for Vietnamese: Check if token is purely whitespace
+                if not tokens[i].strip():
+                    tags[i] = "O"
+                elif use_bio:
                     tags[i] = f"B-{label}" if is_first_token else f"I-{label}"
                     is_first_token = False
                 else:
