@@ -25,8 +25,35 @@ def evaluate_ner():
         return
 
     print("--- Initializing Robust Architecture ---")
-    tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-    config = AutoConfig.from_pretrained(MODEL_PATH)
+    try:
+        tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+    except:
+        tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
+
+    id2label = {
+        0: "O",
+        1: "B-PARTY",
+        2: "I-PARTY",
+        3: "B-MONEY",
+        4: "I-MONEY",
+        5: "B-DATE",
+        6: "I-DATE",
+        7: "B-RATE",
+        8: "I-RATE",
+        9: "B-PENALTY",
+        10: "I-PENALTY",
+        11: "B-LAW",
+        12: "I-LAW",
+        13: "B-OBJECT",
+        14: "I-OBJECT",
+        15: "B-PREDICATE",
+        16: "I-PREDICATE",
+    }
+    label2id = {v: k for k, v in id2label.items()}
+
+    config = AutoConfig.from_pretrained(
+        BASE_MODEL_NAME, num_labels=len(id2label), id2label=id2label, label2id=label2id
+    )
 
     # 1. Initialize base model with fine-tuned config
     raw_model = AutoModelForTokenClassification.from_pretrained(

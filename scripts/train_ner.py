@@ -201,6 +201,7 @@ def train(model_name, epochs, batch_size, learning_rate):
     out_dir = "./models/ultra_ner"
     trainer.save_model(out_dir)
     tokenizer.save_pretrained(out_dir)
+    model.config.save_pretrained(out_dir)  # Force saving the HuggingFace config.json
     print(f"Success! Optimized model saved to {out_dir}")
 
 
