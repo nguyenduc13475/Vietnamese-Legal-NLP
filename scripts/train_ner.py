@@ -10,54 +10,62 @@ from datasets import Dataset
 from seqeval.metrics import accuracy_score, f1_score, precision_score, recall_score
 from transformers import (
     AutoConfig,
-    AutoModel,
     AutoTokenizer,
     DataCollatorForTokenClassification,
     EarlyStoppingCallback,
-    PreTrainedModel,
+    RobertaModel,
+    RobertaPreTrainedModel,
     Trainer,
     TrainingArguments,
 )
 
 
-# Custom Model Architecture: PhoBERT + BiLSTM + Deep Head
-class LegalPhoBERTNER(PreTrainedModel):
+# Fixed Inheritance: Use RobertaPreTrainedModel which PhoBERT is based on
+class LegalPhoBERTNER(RobertaPreTrainedModel):
+    # This prevents the 'all_tied_weights_keys' error
+    _keys_to_ignore_on_load_unexpected = [r"pooler"]
+
     def __init__(self, config, weights=None):
         super().__init__(config)
         self.num_labels = config.num_labels
-        self.bert = AutoModel.from_config(config)
-        self.dropout = nn.Dropout(0.2)
+
+        # Use RobertaModel as the backbone
+        self.roberta = RobertaModel(config, add_pooling_layer=False)
+        self.dropout = nn.Dropout(0.3)
+
+        # BiLSTM for sequence modeling
         self.bilstm = nn.LSTM(
             config.hidden_size,
             config.hidden_size // 2,
             num_layers=2,
             bidirectional=True,
             batch_first=True,
-            dropout=0.2,
+            dropout=0.3,
         )
-        self.layer_norm = nn.LayerNorm(config.hidden_size)
+
+        # Deep Classifier Head
         self.classifier = nn.Sequential(
             nn.Linear(config.hidden_size, config.hidden_size),
-            nn.GELU(),
-            nn.Dropout(0.1),
+            nn.ReLU(),
+            nn.Dropout(0.2),
             nn.Linear(config.hidden_size, config.num_labels),
         )
-        self.weights = weights
-        self.init_weights()
+
+        self.loss_weights = weights
+        self.post_init()
 
     def forward(self, input_ids=None, attention_mask=None, labels=None, **kwargs):
-        outputs = self.bert(input_ids, attention_mask=attention_mask)
-        sequence_output = outputs[0]
+        outputs = self.roberta(input_ids, attention_mask=attention_mask)
+        sequence_output = outputs[0]  # (batch, seq_len, hidden_size)
         sequence_output = self.dropout(sequence_output)
 
         lstm_output, _ = self.bilstm(sequence_output)
-        lstm_output = self.layer_norm(lstm_output)
-
         logits = self.classifier(lstm_output)
 
         loss = None
         if labels is not None:
-            loss_fct = nn.CrossEntropyLoss(weight=self.weights)
+            # Flatten the tokens for CrossEntropy
+            loss_fct = nn.CrossEntropyLoss(weight=self.loss_weights)
             loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))
 
         return (
@@ -135,7 +143,17 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     config = AutoConfig.from_pretrained(
         model_name, num_labels=len(id2label), id2label=id2label, label2id=label2id
     )
-    model = LegalPhoBERTNER(config, weights=label_weights)
+    # Initialize from pretrained PhoBERT weights rather than random config
+    model = LegalPhoBERTNER.from_pretrained(
+        model_name, config=config, weights=label_weights
+    )
+
+    # Freeze the first 6 layers of BERT to focus training on the LSTM head and higher semantic features
+    # This often helps significantly with small, domain-specific datasets
+    for name, param in model.roberta.named_parameters():
+        if any(f"layer.{i}." in name for i in range(6)):
+            param.requires_grad = False
+    print("Frozen first 6 layers of PhoBERT to stabilize training.")
 
     def tokenize_and_align_labels(examples):
         tokenized_inputs = {"input_ids": [], "attention_mask": [], "labels": []}
