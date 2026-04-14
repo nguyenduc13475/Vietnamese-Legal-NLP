@@ -1,13 +1,15 @@
 import json
 import os
+import sys
 
 import torch
 from seqeval.metrics import classification_report
 from transformers import AutoModelForTokenClassification, AutoTokenizer
 
-from scripts.train_ner import (
-    RobustNERModel,  # Ensure this import matches your project structure
-)
+# Fix path to allow importing from scripts even when running inside the folder
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from scripts.train_ner import RobustNERModel
 
 
 def evaluate_ner():

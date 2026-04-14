@@ -12,7 +12,6 @@ from transformers import (
     AutoModelForTokenClassification,
     AutoTokenizer,
     DataCollatorForTokenClassification,
-    EarlyStoppingCallback,
     Trainer,
     TrainingArguments,
 )
@@ -191,7 +190,6 @@ def train(model_name, epochs, batch_size, learning_rate):
         eval_dataset=eval_dataset,
         data_collator=DataCollatorForTokenClassification(tokenizer),
         compute_metrics=compute_metrics,
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=4)],
     )
 
     trainer.train()
