@@ -6,30 +6,28 @@ from collections import Counter
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from datasets import Dataset
 from seqeval.metrics import accuracy_score, f1_score, precision_score, recall_score
 from transformers import (
     AutoConfig,
+    AutoModel,
     AutoTokenizer,
     DataCollatorForTokenClassification,
     EarlyStoppingCallback,
-    RobertaModel,
-    RobertaPreTrainedModel,
+    PreTrainedModel,
     Trainer,
     TrainingArguments,
 )
 
 
-# Fixed Inheritance: Use RobertaPreTrainedModel which PhoBERT is based on
-class LegalPhoBERTNER(RobertaPreTrainedModel):
-    _keys_to_ignore_on_load_unexpected = [r"pooler"]
-
+# Custom Model Architecture: PhoBERT + BiLSTM + Deep Head
+class LegalPhoBERTNER(PreTrainedModel):
     def __init__(self, config, weights=None):
         super().__init__(config)
         self.num_labels = config.num_labels
-        self.roberta = RobertaModel(config, add_pooling_layer=False)
-
-        # BiLSTM for high-level sequence modeling
+        self.bert = AutoModel.from_config(config)
+        self.dropout = nn.Dropout(0.2)
         self.bilstm = nn.LSTM(
             config.hidden_size,
             config.hidden_size // 2,
@@ -38,46 +36,34 @@ class LegalPhoBERTNER(RobertaPreTrainedModel):
             batch_first=True,
             dropout=0.2,
         )
-
-        # Enhanced Head: LayerNorm + GELU (more stable than ReLU for transformers)
-        self.norm = nn.LayerNorm(config.hidden_size)
-        self.dropout = nn.Dropout(0.3)
+        self.layer_norm = nn.LayerNorm(config.hidden_size)
         self.classifier = nn.Sequential(
             nn.Linear(config.hidden_size, config.hidden_size),
             nn.GELU(),
-            nn.Dropout(0.2),
+            nn.Dropout(0.1),
             nn.Linear(config.hidden_size, config.num_labels),
         )
-
-        self.loss_weights = weights
-        self.post_init()
+        self.weights = weights
+        self.init_weights()
 
     def forward(self, input_ids=None, attention_mask=None, labels=None, **kwargs):
-        outputs = self.roberta(input_ids, attention_mask=attention_mask)
+        outputs = self.bert(input_ids, attention_mask=attention_mask)
         sequence_output = outputs[0]
+        sequence_output = self.dropout(sequence_output)
 
-        # Apply BiLSTM
         lstm_output, _ = self.bilstm(sequence_output)
+        lstm_output = self.layer_norm(lstm_output)
 
-        # Normalize and classify
-        lstm_output = self.norm(lstm_output)
-        lstm_output = self.dropout(lstm_output)
         logits = self.classifier(lstm_output)
 
         loss = None
         if labels is not None:
-            # Flatten context for standard NER loss calculation
-            loss_fct = nn.CrossEntropyLoss(weight=self.loss_weights)
-            active_loss = attention_mask.view(-1) == 1
-            active_logits = logits.view(-1, self.num_labels)
-            active_labels = torch.where(
-                active_loss,
-                labels.view(-1),
-                torch.tensor(loss_fct.ignore_index).type_as(labels),
-            )
-            loss = loss_fct(active_logits, active_labels)
+            loss_fct = nn.CrossEntropyLoss(weight=self.weights)
+            loss = loss_fct(logits.view(-1, self.num_labels), labels.view(-1))
 
-        return {"loss": loss, "logits": logits}
+        return (
+            {"loss": loss, "logits": logits} if loss is not None else {"logits": logits}
+        )
 
 
 def calculate_label_weights(dataset, num_labels):
@@ -97,6 +83,38 @@ def calculate_label_weights(dataset, num_labels):
     # Normalize weights to avoid exploding gradients
     weights = weights / weights.mean()
     return weights
+
+
+# Focal Loss to force model to focus on rare legal entities, not the "O" tag
+class FocalLoss(nn.Module):
+    def __init__(self, weight=None, gamma=2.0):
+        super().__init__()
+        self.gamma = gamma
+        self.weight = weight
+
+    def forward(self, inputs, targets):
+        ce_loss = F.cross_entropy(
+            inputs, targets, reduction="none", weight=self.weight, ignore_index=-100
+        )
+        pt = torch.exp(-ce_loss)
+        focal_loss = ((1 - pt) ** self.gamma * ce_loss).mean()
+        return focal_loss
+
+
+class LegalStableTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
+        labels = inputs.get("labels")
+        outputs = model(**inputs)
+        logits = outputs.get("logits")
+
+        # Calculate class weights for imbalance on the fly if not provided
+        if not hasattr(self, "custom_loss_fct"):
+            self.custom_loss_fct = FocalLoss()
+
+        loss = self.custom_loss_fct(
+            logits.view(-1, self.model.config.num_labels), labels.view(-1)
+        )
+        return (loss, outputs) if return_outputs else loss
 
 
 def load_custom_data(file_path):
@@ -150,17 +168,7 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     config = AutoConfig.from_pretrained(
         model_name, num_labels=len(id2label), id2label=id2label, label2id=label2id
     )
-    # Initialize from pretrained PhoBERT weights rather than random config
-    model = LegalPhoBERTNER.from_pretrained(
-        model_name, config=config, weights=label_weights
-    )
-
-    # Freeze the first 6 layers of BERT to focus training on the LSTM head and higher semantic features
-    # This often helps significantly with small, domain-specific datasets
-    for name, param in model.roberta.named_parameters():
-        if any(f"layer.{i}." in name for i in range(6)):
-            param.requires_grad = False
-    print("Frozen first 6 layers of PhoBERT to stabilize training.")
+    model = LegalPhoBERTNER(config, weights=label_weights)
 
     def tokenize_and_align_labels(examples):
         tokenized_inputs = {"input_ids": [], "attention_mask": [], "labels": []}
@@ -193,21 +201,21 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     )
 
     training_args = TrainingArguments(
-        output_dir="./models/ultra_ner",
+        output_dir="./models/ner_checkpoints",
         eval_strategy="epoch",
-        learning_rate=3e-5,  # Lower LR for stability with custom heads
+        learning_rate=3e-5,  # Moderate LR for PhoBERT stability
         per_device_train_batch_size=batch_size,
         per_device_eval_batch_size=batch_size,
         num_train_epochs=epochs,
-        weight_decay=0.01,
-        lr_scheduler_type="cosine",  # Cosine annealing helps reach higher F1 peaks
-        warmup_ratio=0.1,
+        weight_decay=0.02,  # Higher weight decay for better generalization
+        max_grad_norm=1.0,
+        warmup_ratio=0.1,  # Warmup 10% of steps
+        lr_scheduler_type="linear",  # Linear is more predictable for pure NER
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1",
-        logging_steps=10,
-        fp16=False,  # CRITICAL: Disable FP16 to fix NaN Grad Norm
-        max_grad_norm=1.0,  # CRITICAL: Clip gradients to prevent explosion
+        logging_steps=20,
+        fp16=torch.cuda.is_available(),  # Use mixed precision for speed if possible
         report_to="none",
     )
 
@@ -229,14 +237,14 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
             "accuracy": accuracy_score(true_labels, true_predictions),
         }
 
-    trainer = Trainer(
+    trainer = LegalStableTrainer(
         model=model,
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
         compute_metrics=compute_metrics,
         data_collator=DataCollatorForTokenClassification(tokenizer),
-        callbacks=[EarlyStoppingCallback(early_stopping_patience=5)],
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=3)],
     )
 
     print("Starting Optimized Deep NER Training...")
