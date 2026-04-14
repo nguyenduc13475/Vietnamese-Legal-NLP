@@ -65,33 +65,25 @@ def train(model_name: str, epochs: int, batch_size: int, learning_rate: float):
     def tokenize_and_align_labels(examples):
         tokenized_inputs = {"input_ids": [], "attention_mask": [], "labels": []}
 
-        for i, words in enumerate(examples["tokens"]):
+        for i, tokens in enumerate(examples["tokens"]):
             ner_tags = examples["ner_tags"][i]
 
-            input_ids = [tokenizer.cls_token_id]
+            # Since the data is ALREADY subword tokens (with ▁),
+            # we just convert them directly to IDs! No re-tokenization needed.
+            subword_ids = tokenizer.convert_tokens_to_ids(tokens)
+
+            # Add CLS and SEP tokens
+            input_ids = (
+                [tokenizer.cls_token_id] + subword_ids + [tokenizer.sep_token_id]
+            )
+
+            # Map string labels directly to their integer IDs (1:1 mapping)
             label_ids = [-100]
-
-            for word, label_str in zip(words, ner_tags):
-                word_tokens = tokenizer.encode(word, add_special_tokens=False)
-                if not word_tokens:
-                    continue
-
-                input_ids.extend(word_tokens)
-
-                # Assign label to the first subword and propagate I-labels to subsequent subwords
-                for j in range(len(word_tokens)):
-                    if j == 0:
-                        label_ids.append(label2id.get(label_str, 0))
-                    else:
-                        if label_str.startswith("B-"):
-                            label_ids.append(label2id.get("I-" + label_str[2:], 0))
-                        else:
-                            label_ids.append(label2id.get(label_str, 0))
-
-            input_ids.append(tokenizer.sep_token_id)
+            for label_str in ner_tags:
+                label_ids.append(label2id.get(label_str, 0))
             label_ids.append(-100)
 
-            # Truncate to max_length 256
+            # Truncate to max_length 256 to fit memory constraints
             if len(input_ids) > 256:
                 input_ids = input_ids[:255] + [tokenizer.sep_token_id]
                 label_ids = label_ids[:255] + [-100]
