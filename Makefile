@@ -51,7 +51,7 @@ eval-ner:
 	export PYTHONPATH="${PYTHONPATH}:$(pwd)" && python scripts/evaluate_ner.py
 
 eval-seg:
-	export PYTHONPATH="${PYTHONPATH}:$(pwd)" && python scripts/evaluate_segmenter.py
+	export PYTHONPATH="/env/python:" && export TRANSFORMERS_OFFLINE=1 && export HF_HUB_OFFLINE=1 && python scripts/evaluate_segmenter.py
 
 train-intent:
 	python scripts/train_intent.py --epochs 30

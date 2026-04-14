@@ -7,6 +7,10 @@ from sklearn.metrics import classification_report
 from tqdm import tqdm
 from transformers import AutoConfig, AutoModelForTokenClassification, AutoTokenizer
 
+# Force offline mode to avoid timeout and unauthenticated request errors
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+os.environ["HF_HUB_OFFLINE"] = "1"
+
 
 # Import Robust architecture (must match train_segmenter.py)
 class RobustSegmenterModel(nn.Module):
@@ -42,14 +46,12 @@ def evaluate_segmenter():
     id2label = {i: f"Component_{i}" for i in range(6)}
     label2id = {v: k for k, v in id2label.items()}
 
+    # 1. Load config and initialize RAW model with the correct config
     config = AutoConfig.from_pretrained(
         BASE_MODEL_NAME, num_labels=6, id2label=id2label, label2id=label2id
     )
-
-    # 1. Initialize raw base model
-    raw_model = AutoModelForTokenClassification.from_pretrained(
-        BASE_MODEL_NAME, config=config, ignore_mismatched_sizes=True
-    )
+    # Using from_config instead of from_pretrained to avoid downloading/loading standard heads
+    raw_model = AutoModelForTokenClassification.from_config(config)
 
     # 2. Wrap into Robust architecture
     model = RobustSegmenterModel(raw_model)
@@ -67,12 +69,17 @@ def evaluate_segmenter():
     else:
         raise FileNotFoundError(f"No weights found in {MODEL_PATH}")
 
-    # Map keys if they were saved from raw trainer without the 'base_model.' prefix
-    first_key = list(state_dict.keys())[0]
-    if not first_key.startswith("base_model."):
-        state_dict = {f"base_model.{k}": v for k, v in state_dict.items()}
+    # FIX: Ensure all keys start with 'base_model.' to match RobustSegmenterModel structure
+    new_state_dict = {}
+    for k, v in state_dict.items():
+        if not k.startswith("base_model."):
+            new_state_dict[f"base_model.{k}"] = v
+        else:
+            new_state_dict[k] = v
 
-    model.load_state_dict(state_dict, strict=False)
+    # 4. Load with STRICT=TRUE to ensure NO keys are missing
+    model.load_state_dict(new_state_dict, strict=True)
+    print("✓ Model weights loaded successfully (Strict Mode).")
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -86,7 +93,6 @@ def evaluate_segmenter():
 
     print(f"Evaluating {len(test_data)} samples on {device}...")
     for item in tqdm(test_data, desc="Inference"):
-        # Match training preprocessing: [BOS] + ids + [EOS]
         original_ids = item["input_ids"]
         input_ids_batched = (
             [tokenizer.bos_token_id] + original_ids + [tokenizer.eos_token_id]
