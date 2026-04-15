@@ -144,15 +144,23 @@ def train_srl(epochs, batch_size, lr):
         metric_for_best_model="f1",
         fp16=torch.cuda.is_available(),
         remove_unused_columns=False,
+        label_names=["labels"],
     )
 
     def compute_metrics(p):
-        preds = np.argmax(p.predictions, axis=2).flatten()
+        # Safely extract logits if Trainer wraps predictions in a tuple
+        predictions = (
+            p.predictions[0] if isinstance(p.predictions, tuple) else p.predictions
+        )
+        preds = np.argmax(predictions, axis=2).flatten()
         labs = p.label_ids.flatten()
+
         mask = labs != -100
         return {
-            "accuracy": accuracy_score(labs[mask], preds[mask]),
-            "f1": f1_score(labs[mask], preds[mask], average="weighted"),
+            "accuracy": float(accuracy_score(labs[mask], preds[mask])),
+            "f1": float(
+                f1_score(labs[mask], preds[mask], average="weighted", zero_division=0)
+            ),
         }
 
     trainer = SRLTrainer(

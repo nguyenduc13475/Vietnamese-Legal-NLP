@@ -11,7 +11,7 @@ class MultiSampleDropoutWrapper(nn.Module):
         self.config = base_model.config
         self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
 
-    def forward(self, input_ids=None, attention_mask=None, **kwargs):
+    def forward(self, input_ids=None, attention_mask=None, labels=None, **kwargs):
         outputs = self.base_model.roberta(
             input_ids, attention_mask=attention_mask, return_dict=True
         )
@@ -59,6 +59,7 @@ class JointSRLModel(nn.Module):
         self,
         input_ids,
         attention_mask,
+        labels=None,
         ner_ids=None,
         dep_ids=None,
         p_ner_ids=None,
@@ -99,6 +100,7 @@ class RobustSRLModel(nn.Module):
         self,
         input_ids=None,
         attention_mask=None,
+        labels=None,
         ner_ids=None,
         dep_ids=None,
         p_ner_ids=None,
