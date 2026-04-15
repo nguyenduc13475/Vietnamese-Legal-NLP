@@ -4,7 +4,7 @@ import torch
 from transformers import AutoTokenizer, pipeline
 from underthesea import word_tokenize
 
-MODEL_PATH = "models/ultra_ner"
+MODEL_PATH = "models/ner"
 _ner_pipeline = None
 
 

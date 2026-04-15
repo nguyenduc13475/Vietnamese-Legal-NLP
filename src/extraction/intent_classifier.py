@@ -6,9 +6,9 @@ import torch.nn as nn
 from transformers import AutoConfig, AutoModelForSequenceClassification, AutoTokenizer
 from underthesea import word_tokenize
 
-TFIDF_MODEL_PATH = "models/fine_tuned/intent_model.pkl"
-VECTORIZER_PATH = "models/fine_tuned/intent_vectorizer.pkl"
-TRANSFORMER_MODEL_PATH = "models/fine_tuned_intent_transformer"
+TFIDF_MODEL_PATH = "models/intent_regression/intent_model.pkl"
+VECTORIZER_PATH = "models/intent_regression/intent_vectorizer.pkl"
+TRANSFORMER_MODEL_PATH = "models/intent_transformer"
 
 _intent_model = None
 _intent_tokenizer = None

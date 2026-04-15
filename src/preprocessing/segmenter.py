@@ -3,7 +3,7 @@ import re
 import torch
 from transformers import AutoTokenizer, pipeline
 
-MODEL_PATH = "models/fine_tuned_segmenter"
+MODEL_PATH = "models/segmenter"
 _segment_pipeline = None
 
 
