@@ -7,7 +7,6 @@ from sklearn.metrics import classification_report
 from tqdm import tqdm
 from transformers import AutoTokenizer
 
-# Ensure project root is in path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.extraction.srl_engine import (
     BASE_MODEL_NAME,

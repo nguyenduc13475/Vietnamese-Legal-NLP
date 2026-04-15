@@ -29,8 +29,7 @@ class RobustIntentModel(nn.Module):
 
 
 def evaluate():
-    MODEL_PATH = "models/fine_tuned_intent_transformer"
-    BASE_MODEL = "vinai/phobert-base"
+    MODEL_PATH = "models/intent_transformer"
     TEST_DATA = "data/annotated/intent_test.json"
 
     if not os.path.exists(MODEL_PATH):

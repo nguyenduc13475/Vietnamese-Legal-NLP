@@ -169,7 +169,7 @@ def train_segmenter(model_name, epochs, batch_size, learning_rate):
 
     trainer.train()
 
-    out_dir = "models/fine_tuned_segmenter"
+    out_dir = "models/segmenter"
     trainer.save_model(out_dir)
     tokenizer.save_pretrained(out_dir)
     print(f"Success! Optimized segmenter saved to {out_dir}")

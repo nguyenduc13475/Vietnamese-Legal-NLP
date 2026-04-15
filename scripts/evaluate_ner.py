@@ -14,7 +14,7 @@ from scripts.train_ner import RobustNERModel
 
 
 def evaluate_ner():
-    MODEL_PATH = "./models/ultra_ner"
+    MODEL_PATH = "./models/ner"
     BASE_MODEL_NAME = "vinai/phobert-base"
     TEST_DATA_PATH = "data/annotated/ner_test.json"
 
@@ -27,7 +27,7 @@ def evaluate_ner():
     print("--- Initializing Robust Architecture ---")
     try:
         tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
-    except:
+    except Exception:
         tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
 
     id2label = {

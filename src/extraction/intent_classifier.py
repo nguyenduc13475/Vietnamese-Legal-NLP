@@ -10,6 +10,12 @@ TFIDF_MODEL_PATH = "models/fine_tuned/intent_model.pkl"
 VECTORIZER_PATH = "models/fine_tuned/intent_vectorizer.pkl"
 TRANSFORMER_MODEL_PATH = "models/fine_tuned_intent_transformer"
 
+_intent_model = None
+_intent_tokenizer = None
+_intent_config = None
+_ml_model = None
+_vectorizer = None
+
 
 # --- Model Definitions (Local for load stability) ---
 class RobustIntentModel(nn.Module):
@@ -29,13 +35,6 @@ class RobustIntentModel(nn.Module):
             logits += self.base_model.classifier(dropout(sequence_output))
         logits /= len(self.dropouts)
         return {"logits": logits}
-
-
-_intent_model = None
-_intent_tokenizer = None
-_intent_config = None
-_ml_model = None
-_vectorizer = None
 
 
 def get_transformer_model():
@@ -103,7 +102,7 @@ def classify_intent(text: str) -> str:
                 outputs = model(**inputs)
                 idx = torch.argmax(outputs["logits"], dim=1).item()
                 return config.id2label[idx]
-        except:
+        except Exception:
             pass
 
     # 2. Try ML Model
@@ -113,7 +112,7 @@ def classify_intent(text: str) -> str:
             segmented_text = word_tokenize(text, format="text")
             X = vectorizer.transform([segmented_text])
             return ml_model.predict(X)[0]
-        except:
+        except Exception:
             pass
 
     # 3. Rule-based fallback

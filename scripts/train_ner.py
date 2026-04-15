@@ -147,12 +147,12 @@ def train(model_name, epochs, batch_size, learning_rate):
         predictions, labels = p
         predictions = np.argmax(predictions, axis=2)
         true_predictions = [
-            [id2label[p] for (p, la) in zip(pr, l) if la != -100]
-            for pr, l in zip(predictions, labels)
+            [id2label[p] for (p, la) in zip(pr, lab) if la != -100]
+            for pr, lab in zip(predictions, labels)
         ]
         true_labels = [
-            [id2label[la] for (p, la) in zip(pr, l) if la != -100]
-            for pr, l in zip(predictions, labels)
+            [id2label[la] for (p, la) in zip(pr, lab) if la != -100]
+            for pr, lab in zip(predictions, labels)
         ]
         return {
             "precision": precision_score(true_labels, true_predictions),
@@ -198,7 +198,7 @@ def train(model_name, epochs, batch_size, learning_rate):
 
     trainer.train()
 
-    out_dir = "./models/ultra_ner"
+    out_dir = "./models/ner"
     trainer.save_model(out_dir)
     tokenizer.save_pretrained(out_dir)
     model.config.save_pretrained(out_dir)  # Force saving the HuggingFace config.json

@@ -20,8 +20,6 @@ from transformers import (
 )
 from underthesea import word_tokenize
 
-# --- CONSISTENCY LAYER: Focal Loss & Robust Architecture ---
-
 
 class LegalFocalLoss(nn.Module):
     def __init__(self, gamma=1.5, smoothing=0.1):
@@ -122,13 +120,13 @@ def train_tfidf():
             f.write(report)
         print("Report saved at: report/intent_evaluation.txt")
 
-    os.makedirs("models/fine_tuned", exist_ok=True)
-    with open("models/fine_tuned/intent_model.pkl", "wb") as f:
+    os.makedirs("models/intent_regression", exist_ok=True)
+    with open("models/intent_regression/intent_model.pkl", "wb") as f:
         pickle.dump(model, f)
-    with open("models/fine_tuned/intent_vectorizer.pkl", "wb") as f:
+    with open("models/intent_regression/intent_vectorizer.pkl", "wb") as f:
         pickle.dump(vectorizer, f)
 
-    print("Saved TF-IDF model to models/fine_tuned/")
+    print("Saved TF-IDF model to models/intent_regression/")
 
 
 def train_transformer(
@@ -209,7 +207,7 @@ def train_transformer(
 
     trainer.train()
 
-    out_dir = "models/fine_tuned_intent_transformer"
+    out_dir = "models/intent_transformer"
     os.makedirs(out_dir, exist_ok=True)
 
     # Save the base model's state for easier loading in inference

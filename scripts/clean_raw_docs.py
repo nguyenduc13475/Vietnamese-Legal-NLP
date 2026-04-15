@@ -41,7 +41,6 @@ def batch_clean(input_dir: str, output_dir: str):
 
         # CHECK: SKIP IF FILE ALREADY EXISTS
         if os.path.exists(out_filepath):
-            print(f"⏭️ Bỏ qua {filename}: Đã có file đã xử lý tại {out_filepath}")
             continue
 
         filepath = os.path.join(input_dir, filename)
@@ -87,7 +86,7 @@ def batch_clean(input_dir: str, output_dir: str):
 
                 except Exception as api_err:
                     if attempt < max_retries - 1:
-                        wait_time = 6  # Thay đổi: Chờ cố định 60 giây (1 phút)
+                        wait_time = 6
                         print(
                             f"API Overload/Error. Waiting {wait_time}s before retrying (Attempt {attempt + 1}/{max_retries})..."
                         )

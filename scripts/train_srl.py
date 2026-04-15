@@ -180,7 +180,7 @@ def train_srl(epochs, batch_size, lr):
 
     trainer.train()
 
-    out_dir = "models/ultra_srl"
+    out_dir = "models/srl"
     os.makedirs(out_dir, exist_ok=True)
     # Save the base model's state dict for engine compatibility
     torch.save(

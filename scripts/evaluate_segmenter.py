@@ -12,7 +12,6 @@ os.environ["TRANSFORMERS_OFFLINE"] = "1"
 os.environ["HF_HUB_OFFLINE"] = "1"
 
 
-# Import Robust architecture (must match train_segmenter.py)
 class RobustSegmenterModel(nn.Module):
     def __init__(self, base_model):
         super().__init__()
@@ -31,7 +30,7 @@ class RobustSegmenterModel(nn.Module):
 
 
 def evaluate_segmenter():
-    MODEL_PATH = "models/fine_tuned_segmenter"
+    MODEL_PATH = "models/segmenter"
     BASE_MODEL_NAME = "vinai/phobert-base"
     TEST_DATA_PATH = "data/annotated/segment_test.json"
 

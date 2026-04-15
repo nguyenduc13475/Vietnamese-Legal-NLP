@@ -4,8 +4,11 @@ import torch
 import torch.nn as nn
 from transformers import AutoModel, AutoTokenizer
 
-MODEL_PATH = "models/ultra_srl"
+MODEL_PATH = "models/srl"
 BASE_MODEL_NAME = "vinai/phobert-base"
+
+_srl_model = None
+_srl_tokenizer = None
 
 # Mappings for structural feature indexing (must match training)
 NER_MAP = {
@@ -158,10 +161,6 @@ class RobustSRLModel(nn.Module):
             logits += self.base_model.classifier(dropout(lstm_out))
         logits /= len(self.dropouts)
         return {"logits": logits}
-
-
-_srl_model = None
-_srl_tokenizer = None
 
 
 def get_srl_model():
