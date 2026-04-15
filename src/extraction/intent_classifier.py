@@ -2,105 +2,130 @@ import os
 import pickle
 
 import torch
-from transformers import AutoTokenizer, pipeline
+import torch.nn as nn
+from transformers import AutoConfig, AutoModelForSequenceClassification, AutoTokenizer
 from underthesea import word_tokenize
 
 TFIDF_MODEL_PATH = "models/fine_tuned/intent_model.pkl"
 VECTORIZER_PATH = "models/fine_tuned/intent_vectorizer.pkl"
 TRANSFORMER_MODEL_PATH = "models/fine_tuned_intent_transformer"
 
-ml_model = None
-vectorizer = None
-transformer_pipeline = None
 
-# Attempt to load Transformer first; if unavailable, fallback to TF-IDF.
-if (
-    os.path.exists(TRANSFORMER_MODEL_PATH)
-    and len(os.listdir(TRANSFORMER_MODEL_PATH)) > 0
-):
-    try:
-        device_id = 0 if torch.cuda.is_available() else -1
-        tokenizer = AutoTokenizer.from_pretrained(TRANSFORMER_MODEL_PATH)
-        transformer_pipeline = pipeline(
-            "text-classification",
-            model=TRANSFORMER_MODEL_PATH,
-            tokenizer=tokenizer,
-            truncation=True,
-            max_length=256,
-            device=device_id,
-        )
-    except Exception as e:
-        print(f"Warning: Could not load Transformer Intent model. Error: {e}")
+# --- Model Definitions (Local for load stability) ---
+class RobustIntentModel(nn.Module):
+    def __init__(self, base_model):
+        super().__init__()
+        self.base_model = base_model
+        self.config = base_model.config
+        self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
 
-if (
-    transformer_pipeline is None
-    and os.path.exists(TFIDF_MODEL_PATH)
-    and os.path.exists(VECTORIZER_PATH)
-):
-    with open(TFIDF_MODEL_PATH, "rb") as f:
-        ml_model = pickle.load(f)
-    with open(VECTORIZER_PATH, "rb") as f:
-        vectorizer = pickle.load(f)
+    def forward(self, input_ids=None, attention_mask=None, **kwargs):
+        outputs = self.base_model.roberta(input_ids, attention_mask=attention_mask)
+        pooled_output = outputs[1]
+        logits = 0
+        for dropout in self.dropouts:
+            logits += self.base_model.classifier(dropout(pooled_output))
+        logits /= len(self.dropouts)
+        return {"logits": logits}
+
+
+_intent_model = None
+_intent_tokenizer = None
+_intent_config = None
+_ml_model = None
+_vectorizer = None
+
+
+def get_transformer_model():
+    global _intent_model, _intent_tokenizer, _intent_config
+    if _intent_model is None:
+        if os.path.exists(TRANSFORMER_MODEL_PATH) and "pytorch_model.bin" in os.listdir(
+            TRANSFORMER_MODEL_PATH
+        ):
+            try:
+                _intent_tokenizer = AutoTokenizer.from_pretrained(
+                    TRANSFORMER_MODEL_PATH
+                )
+                _intent_config = AutoConfig.from_pretrained(TRANSFORMER_MODEL_PATH)
+                raw_model = AutoModelForSequenceClassification.from_config(
+                    _intent_config
+                )
+                _intent_model = RobustIntentModel(raw_model)
+
+                weights = torch.load(
+                    os.path.join(TRANSFORMER_MODEL_PATH, "pytorch_model.bin"),
+                    map_location="cpu",
+                )
+                _intent_model.base_model.load_state_dict(weights)
+
+                device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+                _intent_model.to(device)
+                _intent_model.eval()
+            except Exception as e:
+                print(f"Warning: Intent Transformer load failed: {e}")
+                _intent_model = "fallback"
+        else:
+            _intent_model = "fallback"
+    return _intent_model, _intent_tokenizer, _intent_config
+
+
+def get_ml_model():
+    global _ml_model, _vectorizer
+    if _ml_model is None:
+        if os.path.exists(TFIDF_MODEL_PATH) and os.path.exists(VECTORIZER_PATH):
+            with open(TFIDF_MODEL_PATH, "rb") as f:
+                _ml_model = pickle.load(f)
+            with open(VECTORIZER_PATH, "rb") as f:
+                _vectorizer = pickle.load(f)
+    return _ml_model, _vectorizer
 
 
 def classify_intent(text: str) -> str:
     """
     Classifies the legal intent of a clause.
-    Prior Transformer -> ML Model (TF-IDF + LR) -> Rule-based.
+    Logic: Transformer -> ML Model (TF-IDF) -> Keywords.
     """
-    if transformer_pipeline:
-        # Segment syllables into words before passing to PhoBERT
-        segmented_text = word_tokenize(text, format="text")
-        result = transformer_pipeline(segmented_text)
-        return result[0]["label"]
+    if not text or not text.strip():
+        return "Other"
 
+    # 1. Try Deep Learning (PhoBERT)
+    model, tokenizer, config = get_transformer_model()
+    if model != "fallback" and model is not None:
+        try:
+            device = next(model.parameters()).device
+            segmented_text = word_tokenize(text, format="text")
+            inputs = tokenizer(
+                segmented_text, return_tensors="pt", truncation=True, max_length=256
+            ).to(device)
+            with torch.no_grad():
+                outputs = model(**inputs)
+                idx = torch.argmax(outputs["logits"], dim=1).item()
+                return config.id2label[idx]
+        except:
+            pass
+
+    # 2. Try ML Model
+    ml_model, vectorizer = get_ml_model()
     if ml_model and vectorizer:
-        X = vectorizer.transform([text])
-        return ml_model.predict(X)[0]
+        try:
+            segmented_text = word_tokenize(text, format="text")
+            X = vectorizer.transform([segmented_text])
+            return ml_model.predict(X)[0]
+        except:
+            pass
 
-    # Dictionary-based Fallback Heuristics
+    # 3. Rule-based fallback
     INTENT_KEYWORDS = {
-        "Prohibition": [
-            "không được",
-            "cấm",
-            "nghiêm cấm",
-            "không có quyền",
-            "tuyệt đối không",
-            "từ chối",
-            "hạn chế",
-        ],
-        "Right": [
-            "có quyền",
-            "được phép",
-            "toàn quyền",
-            "có thể",
-            "quyền lợi",
-            "được hưởng",
-        ],
+        "Prohibition": ["không được", "cấm", "nghiêm cấm", "không có quyền"],
+        "Right": ["có quyền", "được phép", "toàn quyền", "có thể hưởng"],
         "Termination Condition": [
             "chấm dứt",
             "hủy bỏ",
-            "đơn phương hủy",
             "hết hiệu lực",
-            "vô hiệu",
-            "đáo hạn",
-            "thanh lý",
+            "vi phạm hợp đồng",
         ],
-        "Obligation": [
-            "phải",
-            "có trách nhiệm",
-            "cam kết",
-            "nghĩa vụ",
-            "đồng ý",
-            "chịu trách nhiệm",
-            "bắt buộc",
-            "bị phạt",
-            "bồi thường",
-            "đảm bảo",
-            "thanh toán",
-        ],
+        "Obligation": ["phải", "có trách nhiệm", "cam kết", "nghĩa vụ", "thanh toán"],
     }
-
     text_lower = text.lower()
     for intent, keywords in INTENT_KEYWORDS.items():
         if any(kw in text_lower for kw in keywords):
