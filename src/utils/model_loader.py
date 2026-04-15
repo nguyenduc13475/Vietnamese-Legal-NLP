@@ -4,11 +4,16 @@ import safetensors.torch
 import torch
 from transformers import (
     AutoConfig,
+    AutoModel,
     AutoModelForSequenceClassification,
     AutoModelForTokenClassification,
 )
 
-from src.models.robust_base import MultiSampleDropoutWrapper
+from src.models.robust_base import (
+    JointSRLModel,
+    MultiSampleDropoutWrapper,
+    RobustSRLModel,
+)
 
 
 def load_robust_classification_model(model_path, num_labels, is_token_level=True):
@@ -30,12 +35,17 @@ def load_robust_classification_model(model_path, num_labels, is_token_level=True
             "vinai/phobert-base", num_labels=num_labels, local_files_only=True
         )
 
-    if is_token_level:
+    if "srl" in model_path.lower():
+        # SRL uses a custom Joint architecture with BiLSTM
+        semantic_base = AutoModel.from_config(config)
+        base = JointSRLModel(semantic_base)
+        model = RobustSRLModel(base)
+    elif is_token_level:
         base = AutoModelForTokenClassification.from_config(config)
+        model = MultiSampleDropoutWrapper(base)
     else:
         base = AutoModelForSequenceClassification.from_config(config)
-
-    model = MultiSampleDropoutWrapper(base)
+        model = MultiSampleDropoutWrapper(base)
 
     # 1. Locate the weight file
     bin_path = os.path.join(model_path, "pytorch_model.bin")
@@ -43,10 +53,8 @@ def load_robust_classification_model(model_path, num_labels, is_token_level=True
 
     state_dict = None
     if os.path.exists(safe_path):
-        # Load Safetensors
         state_dict = safetensors.torch.load_file(safe_path, device="cpu")
     elif os.path.exists(bin_path):
-        # Load Pytorch Bin
         state_dict = torch.load(bin_path, map_location="cpu")
     else:
         print(f"Error: No weight files found in {model_path}")
@@ -56,12 +64,11 @@ def load_robust_classification_model(model_path, num_labels, is_token_level=True
     new_state_dict = {}
     for k, v in state_dict.items():
         if not k.startswith("base_model."):
-            # Handle standard Transformer keys saved by Trainer
             new_state_dict[f"base_model.{k}"] = v
         else:
             new_state_dict[k] = v
 
-    # 3. Load into model
+    # 3. Load into model (Strict=False for SRL because of structural embeddings)
     model.load_state_dict(new_state_dict, strict=False)
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

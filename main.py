@@ -75,11 +75,7 @@ def main():
     srl_results = []
     for i, clause in enumerate(clauses):
         entities = ultra_features[i]  # Use full features (Predicate/Object included)
-        deps = dep_results[i]["dependencies"]
-        chunks = chunks_results[i]
-        srl_results.append(
-            {"clause": clause, "srl": extract_srl(clause, entities, deps, chunks)}
-        )
+        srl_results.append({"clause": clause, "srl": extract_srl(clause, entities)})
     with open(
         os.path.join(args.output_dir, "srl_results.json"), "w", encoding="utf-8"
     ) as f:

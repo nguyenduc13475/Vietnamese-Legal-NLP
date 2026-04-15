@@ -13,7 +13,7 @@ from api.schemas import (
     SourceInfo,
 )
 from src.extraction.intent_classifier import classify_intent
-from src.extraction.ner_engine import extract_entities
+from src.extraction.ner_engine import extract_entities, extract_ultra_entities
 from src.extraction.srl_engine import extract_srl
 from src.preprocessing.chunker import chunk_np
 from src.preprocessing.parser import parse_dependency
@@ -60,7 +60,7 @@ def extract_info(request: ExtractRequest):
                 "np_chunks": chunks,
                 "dependencies": deps,
                 "entities": ents_task_2_1,
-                "srl": extract_srl(clause_text, ultra_ents, deps, chunks),
+                "srl": extract_srl(clause_text, ultra_ents),
                 "intent": classify_intent(clause_text),
             }
         )
@@ -192,9 +192,11 @@ async def reprocess_raw_document(filename: str):
 
         texts.append(clause_text)
         ents = extract_entities(clause_text)
+        ultra_ents = extract_ultra_entities(clause_text)
+
         deps = parse_dependency(clause_text)
         chunks = chunk_np(clause_text)
-        srl = extract_srl(clause_text, ents, deps, chunks)
+        srl = extract_srl(clause_text, ultra_ents)
 
         # IMPORTANT: 'source' must match the processed filename for UI visualization to work
         metadata.append(
@@ -421,7 +423,8 @@ async def ingest_file(file: UploadFile = File(...)):
         ents = extract_entities(clause_text)
         deps = parse_dependency(clause_text)
         chunks = chunk_np(clause_text)
-        srl = extract_srl(clause_text, ents, deps, chunks)
+        ultra_ents = extract_ultra_entities(clause_text)
+        srl = extract_srl(clause_text, ultra_ents)
 
         # IMPORTANT: 'source' must match the processed filename for UI visualization to work
         metadata.append(

@@ -1,5 +1,6 @@
 import argparse
 import glob
+import json
 import os
 import sys
 import warnings
@@ -84,7 +85,7 @@ def build_db(input_path: str):
             chunks = chunk_np(text)
 
             # IMPORTANT: SRL needs ultra_ents to function correctly
-            srl = extract_srl(text, ultra_ents, deps, chunks)
+            srl = extract_srl(text, ultra_ents)
             intent = classify_intent(text)
 
             metadata[c_idx].update(
@@ -92,15 +93,16 @@ def build_db(input_path: str):
                     "source": os.path.basename(file_path),
                     "intent": intent,
                     "np_chunks": str(chunks),
-                    "entities": str(
+                    "entities": json.dumps(
                         [
                             {"text": e["text"], "label": e["label"]}
                             for e in ents_task_2_1
-                        ]
+                        ],
+                        ensure_ascii=False,
                     ),
                     "predicate": str(srl.get("predicate", "")),
-                    "srl_roles": str(srl.get("roles", {})),
-                    "dependencies": str(
+                    "srl_roles": json.dumps(srl.get("roles", {}), ensure_ascii=False),
+                    "dependencies": json.dumps(
                         [
                             {
                                 "id": d["id"],
@@ -110,7 +112,8 @@ def build_db(input_path: str):
                                 "head_token": d.get("head_token", ""),
                             }
                             for d in deps
-                        ]
+                        ],
+                        ensure_ascii=False,
                     ),
                 }
             )

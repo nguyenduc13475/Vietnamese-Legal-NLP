@@ -4,9 +4,14 @@ import torch
 from transformers import AutoConfig, AutoModel, AutoTokenizer
 from underthesea import word_tokenize
 
-from src.extraction.ner_engine import extract_ultra_entities
 from src.models.robust_base import JointSRLModel, RobustSRLModel
 from src.preprocessing.parser import get_pipeline
+from src.utils.constants import (
+    DEP_RELATION_MAP,
+    NER_CATEGORY_MAP,
+    NER_LABEL_MAP,
+    SRL_ROLE_MAP,
+)
 
 MODEL_PATH = "models/srl"
 BASE_MODEL_NAME = "vinai/phobert-base"
@@ -14,53 +19,8 @@ BASE_MODEL_NAME = "vinai/phobert-base"
 _srl_model = None
 _srl_tokenizer = None
 
-# Mappings must perfectly match auto_annotate.py
-NER_MAP = {
-    "O": 0,
-    "PARTY": 1,
-    "MONEY": 2,
-    "DATE": 3,
-    "RATE": 4,
-    "PENALTY": 5,
-    "LAW": 6,
-    "OBJECT": 7,
-    "PREDICATE": 8,
-}
-DEP_MAP = {
-    "root": 1,
-    "nsubj": 2,
-    "obj": 3,
-    "iobj": 4,
-    "obl": 5,
-    "advcl": 6,
-    "amod": 7,
-    "nmod": 8,
-    "compound": 9,
-    "mark": 10,
-    "advmod": 11,
-    "xcomp": 12,
-    "cc": 13,
-    "conj": 14,
-    "det": 15,
-    "case": 16,
-    "fixed": 17,
-    "flat": 18,
-    "punct": 19,
-}
-ID2SRL = {
-    0: "OTHER",
-    1: "AGENT",
-    2: "RECIPIENT",
-    3: "THEME",
-    4: "NAME",
-    5: "TIME",
-    6: "CONDITION",
-    7: "TRAIT",
-    8: "LOCATION",
-    9: "METHOD",
-    10: "ABOUT",
-}
-SRL2ID = {v: k for k, v in ID2SRL.items()}
+ID2SRL = {v: k for k, v in SRL_ROLE_MAP.items()}
+ID2NER = {v: k for k, v in NER_LABEL_MAP.items()}
 
 
 def get_srl_model():
@@ -89,114 +49,94 @@ def get_srl_model():
     return _srl_model, _srl_tokenizer
 
 
-def extract_srl(
-    text: str, entities: list = None, dependencies: list = None, np_chunks: list = None
-) -> dict:
+def extract_srl(text: str, entities: list = None) -> dict:
     model, tokenizer = get_srl_model()
     if model == "fallback" or model is None:
         return {"predicate": "N/A", "roles": {}}
 
     device = next(model.parameters()).device
-    # 1. Get real-time features if not provided (Important for direct API calls)
-    if entities is None:
-        entities = extract_ultra_entities(text)
+    text_segmented = word_tokenize(text, format="text")
 
-    # 2. Stanza Dependency Analysis
+    # 1. Stanza Analysis (Structural Source)
     nlp = get_pipeline()
     stanza_doc = nlp(text)
     stanza_words = stanza_doc.sentences[0].words if stanza_doc.sentences else []
 
-    # 3. PhoBERT Tokenization and Manual Alignment
-    # Standardize text for position tracking
-    text_segmented = word_tokenize(text, format="text")
+    # 2. PhoBERT Tokenization (Semantic Target)
     encoding = tokenizer(
         text_segmented, return_tensors="pt", truncation=True, max_length=256
     ).to(device)
     tokens = tokenizer.convert_ids_to_tokens(encoding["input_ids"][0])
 
-    seq_len = encoding["input_ids"].shape[1]
+    # 3. Precise Character Alignment (Matching auto_annotate.py logic)
+    text_stripped = "".join(text.split()).lower()
+
+    def get_stripped_spans(word_list, is_stanza=False):
+        spans = []
+        curr = 0
+        for w in word_list:
+            # Stanza uses .text, Tokenizer uses token string
+            raw = w.text if is_stanza else w
+            clean = raw.replace("@@", "").replace("_", "").replace(" ", "").lower()
+            if not clean:
+                spans.append((-1, -1))
+                continue
+            start = text_stripped.find(clean, curr)
+            if start != -1:
+                end = start + len(clean)
+                spans.append((start, end))
+                curr = end
+            else:
+                spans.append((-1, -1))
+        return spans
+
+    token_spans = get_stripped_spans(tokens, is_stanza=False)
+    stanza_spans = get_stripped_spans(stanza_words, is_stanza=True)
+
+    # 4. Feature Extraction
+    seq_len = len(tokens)
     ner_ids = torch.zeros(seq_len, dtype=torch.long, device=device)
     dep_ids = torch.zeros(seq_len, dtype=torch.long, device=device)
     p_ner_ids = torch.zeros(seq_len, dtype=torch.long, device=device)
 
-    # Replicate auto_annotate.py character-level overlap logic
-    text_stripped = "".join(text.split()).lower()
+    # Pre-map Stanza words to NER categories
+    stanza_ner_cats = [0] * len(stanza_words)
+    if entities:
+        for i, sw in enumerate(stanza_words):
+            sw_clean = sw.text.replace("_", " ").lower()
+            for ent in entities:
+                if sw_clean in ent["text"].lower():
+                    stanza_ner_cats[i] = NER_CATEGORY_MAP.get(ent["label"], 0)
+                    break
 
-    # Track character spans for PhoBERT tokens
-    token_spans = []
-    cursor = 0
-    for tok in tokens:
-        clean_tok = tok.replace("@@", "").replace("_", "").lower()
-        if (
-            tok in [tokenizer.bos_token, tokenizer.eos_token, tokenizer.pad_token]
-            or not clean_tok
-        ):
-            token_spans.append((-1, -1))
-            continue
-        start = text_stripped.find(clean_tok, cursor)
-        if start != -1:
-            end = start + len(clean_tok)
-            token_spans.append((start, end))
-            cursor = end
-        else:
-            token_spans.append((-1, -1))
-
-    # Track character spans for Stanza words
-    stanza_spans = []
-    cursor = 0
-    for sw in stanza_words:
-        clean_w = sw.text.replace("_", "").lower()
-        start = text_stripped.find(clean_w, cursor)
-        if start != -1:
-            end = start + len(clean_w)
-            stanza_spans.append((start, end))
-            cursor = end
-        else:
-            stanza_spans.append((-1, -1))
-
-    # Map Entities to Stanza words for parent context
-    stanza_ner_labels = ["O"] * len(stanza_words)
-    for i, sw in enumerate(stanza_words):
-        for ent in entities:
-            # Simple substring match for entity mapping
-            if sw.text.replace("_", " ") in ent["text"]:
-                stanza_ner_labels[i] = ent["label"]
-                break
-
-    # 4. Feature Filling
     for i, (tok_s, tok_e) in enumerate(token_spans):
         if tok_s == -1:
             continue
 
-        # NER ID for current token
+        # Match current token to an Entity
         for ent in entities:
-            ent_stripped = "".join(ent["text"].split()).lower()
-            e_start = text_stripped.find(ent_stripped)
-            if (
-                e_start != -1
-                and tok_s >= e_start
-                and tok_e <= e_start + len(ent_stripped)
-            ):
-                ner_ids[i] = NER_MAP.get(ent["label"], 0)
+            e_strip = "".join(ent["text"].split()).lower()
+            e_start = text_stripped.find(e_strip)
+            if e_start != -1 and tok_s >= e_start and tok_e <= e_start + len(e_strip):
+                ner_ids[i] = NER_CATEGORY_MAP.get(ent["label"], 0)
                 break
 
-        # Dependency and Parent NER via Overlap
-        best_w_idx = -1
+        # Match current token to Stanza word for Dependency/Parent
+        best_w = -1
         max_ov = 0
         for w_idx, (w_s, w_e) in enumerate(stanza_spans):
             if w_s == -1:
                 continue
-            ov = min(tok_e, w_e) - max(tok_s, w_s)
-            if ov > max_ov:
-                max_ov = ov
-                best_w_idx = w_idx
+            overlap = min(tok_e, w_e) - max(tok_s, w_s)
+            if overlap > max_ov:
+                max_ov, best_w = overlap, w_idx
 
-        if best_w_idx != -1:
-            sw = stanza_words[best_w_idx]
-            dep_ids[i] = DEP_MAP.get(sw.deprel, 0)
+        if best_w != -1:
+            sw = stanza_words[best_w]
+            dep_ids[i] = DEP_RELATION_MAP.get(sw.deprel, 0)
             p_idx = sw.head - 1
-            if 0 <= p_idx < len(stanza_ner_labels):
-                p_ner_ids[i] = NER_MAP.get(stanza_ner_labels[p_idx], 0)
+            if 0 <= p_idx < len(stanza_ner_cats):
+                p_ner_ids[i] = stanza_ner_cats[p_idx]
 
     # 5. Model Inference
     with torch.no_grad():
@@ -210,23 +150,83 @@ def extract_srl(
         preds = torch.argmax(outputs["logits"], dim=-1)[0].cpu().tolist()
 
     # 6. Result Aggregation
-    roles = {}
-    predicate = "N/A"
+    # Create a mask for the entire original text length
+    # We store the label name at each character index
+    char_label_mask = [None] * len(text)
+
+    # Force Predicate from NER entities into mask
+    if entities:
+        for ent in entities:
+            if ent["label"] == "PREDICATE":
+                for m_idx in range(ent["span"][0], ent["span"][1]):
+                    char_label_mask[m_idx] = "PREDICATE"
+
     for i, p_id in enumerate(preds):
         if tokens[i] in [tokenizer.bos_token, tokenizer.eos_token]:
             continue
+
         label = ID2SRL.get(p_id, "OTHER")
         if label == "OTHER":
             continue
 
-        word = tokens[i].replace("@@", "").replace("_", " ").strip()
-        if label == "PREDICATE":
-            predicate = word if predicate == "N/A" else predicate + word
-        else:
-            roles[label] = (
-                roles.get(label, "")
-                + ("" if tokens[i].startswith("@@") else " ")
-                + word
-            ).strip()
+        # Use token_spans from Step 3 which maps to text_stripped
+        # We need to map it back to the REAL text (with spaces)
+        ts, te = token_spans[i]
+        if ts == -1:
+            continue
 
-    return {"predicate": predicate.strip(), "roles": roles}
+        # Map stripped indices back to original text indices
+        # This is the most robust way
+        chars_found = 0
+        real_start = -1
+        real_end = -1
+
+        for idx, char in enumerate(text):
+            if not char.isspace():
+                if chars_found == ts:
+                    real_start = idx
+                chars_found += 1
+                if chars_found == te:
+                    real_end = idx + 1
+                    break
+
+        if real_start != -1 and real_end != -1:
+            for m_idx in range(real_start, real_end):
+                char_label_mask[m_idx] = label
+
+    # Now extract strings based on the mask
+    extracted_roles = {}
+    predicate = ""
+
+    # Temporary storage to build strings
+    current_label = None
+    start_pos = -1
+
+    for idx, label in enumerate(
+        char_label_mask + [None]
+    ):  # Extra None to flush last label
+        if label != current_label:
+            if current_label is not None:
+                # Extract the exact substring from original text
+                substring = text[start_pos:idx].strip()
+                if substring:
+                    if current_label == "PREDICATE":
+                        predicate = (
+                            substring
+                            if predicate == "N/A"
+                            else predicate + " " + substring
+                        )
+                    else:
+                        if current_label not in extracted_roles:
+                            extracted_roles[current_label] = substring
+                        else:
+                            extracted_roles[current_label] += " " + substring
+
+            current_label = label
+            start_pos = idx
+
+    # Final cleanup of internal double spaces
+    predicate = " ".join(predicate.split()) if predicate else "N/A"
+    final_roles = {k: " ".join(v.split()) for k, v in extracted_roles.items()}
+
+    return {"predicate": predicate, "roles": final_roles}

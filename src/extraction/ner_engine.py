@@ -4,6 +4,7 @@ import torch
 from transformers import AutoTokenizer
 from underthesea import word_tokenize
 
+from src.utils.constants import NER_LABEL_MAP
 from src.utils.model_loader import load_robust_classification_model
 
 MODEL_PATH = "models/ner"
@@ -43,60 +44,84 @@ def extract_ultra_entities(text: str) -> list[dict]:
         logits = model(**inputs)["logits"]
         preds = torch.argmax(logits, dim=2)[0].cpu().numpy()
 
-    # Manual Offset Calculation for Python Tokenizer
+    # Manual Sequential Offset Calculation for PhoBERT (No Fast Tokenizer support)
     tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"][0])
     offsets = []
     cursor = 0
+    # Create a space-agnostic version for easier index matching
+    text_clean = text.lower()
+
     for token in tokens:
         if token in [tokenizer.bos_token, tokenizer.eos_token, tokenizer.pad_token]:
             offsets.append((0, 0))
             continue
 
-        # Clean token for alignment: remove subword markers (@@) and space markers (_)
-        clean_tok = token.replace("@@", "").replace("_", " ").strip()
+        # PhoBERT uses '_' for spaces and '@@' for subwords
+        clean_tok = token.replace("@@", "").replace("_", " ").strip().lower()
+
         if not clean_tok:
             offsets.append((cursor, cursor))
             continue
 
-        start_idx = text.find(clean_tok, cursor)
-        if start_idx == -1:  # Case-insensitive fallback
-            start_idx = text.lower().find(clean_tok.lower(), cursor)
+        # Find the next occurrence starting from current cursor
+        start_idx = text_clean.find(clean_tok, cursor)
 
         if start_idx != -1:
             end_idx = start_idx + len(clean_tok)
             offsets.append((start_idx, end_idx))
             cursor = end_idx
         else:
+            # Fallback for complex word segmentation mismatches
             offsets.append((cursor, cursor))
 
-    # ID to Label Mapping
-    id2label = {
-        0: "O",
-        1: "PARTY",
-        3: "MONEY",
-        5: "DATE",
-        7: "RATE",
-        9: "PENALTY",
-        11: "LAW",
-        13: "OBJECT",
-        15: "PREDICATE",
-    }
-
+    # Invert the map for prediction decoding
+    ID2LABEL = {v: k for k, v in NER_LABEL_MAP.items()}
     entities = []
+    current_entity = None
+
     for i, p_id in enumerate(preds):
-        label = id2label.get(
-            p_id if p_id % 2 != 0 else p_id - 1 if p_id > 0 else 0, "O"
-        )
-        if label == "O":
+        raw_label = ID2LABEL.get(p_id, "O")
+
+        if raw_label == "O":
+            if current_entity:
+                entities.append(current_entity)
+                current_entity = None
             continue
 
         start, end = offsets[i]
         if start == end:
             continue
 
-        entities.append(
-            {"text": text[start:end], "label": label, "span": (int(start), int(end))}
-        )
+        # Clean the label for the final output
+        label = raw_label.replace("B-", "").replace("I-", "")
+
+        if raw_label.startswith("B-"):
+            if current_entity:
+                entities.append(current_entity)
+            current_entity = {
+                "text": text[start:end],
+                "label": label,
+                "span": (int(start), int(end)),
+            }
+        elif raw_label.startswith("I-"):
+            if current_entity and current_entity["label"] == label:
+                # Merge with previous token
+                curr_start = current_entity["span"][0]
+                current_entity["span"] = (curr_start, int(end))
+                current_entity["text"] = text[curr_start : int(end)]
+            else:
+                # Treat as B- if we see an I- without a matching preceding B-
+                if current_entity:
+                    entities.append(current_entity)
+                current_entity = {
+                    "text": text[start:end],
+                    "label": label,
+                    "span": (int(start), int(end)),
+                }
+
+    if current_entity:
+        entities.append(current_entity)
+
     return entities
 
 
