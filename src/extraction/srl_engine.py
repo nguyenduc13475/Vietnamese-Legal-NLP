@@ -60,6 +60,7 @@ ID2SRL = {
     9: "METHOD",
     10: "ABOUT",
 }
+SRL2ID = {v: k for k, v in ID2SRL.items()}
 
 
 def get_srl_model():
