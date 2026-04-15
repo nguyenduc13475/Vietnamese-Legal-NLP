@@ -17,8 +17,10 @@ class RobustIntentModel(nn.Module):
         self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
 
     def forward(self, input_ids=None, attention_mask=None, **kwargs):
-        outputs = self.base_model.roberta(input_ids, attention_mask=attention_mask)
-        pooled_output = outputs[1]
+        outputs = self.base_model.roberta(
+            input_ids, attention_mask=attention_mask, return_dict=True
+        )
+        pooled_output = outputs.last_hidden_state[:, 0, :]
         logits = 0
         for dropout in self.dropouts:
             logits += self.base_model.classifier(dropout(pooled_output))
