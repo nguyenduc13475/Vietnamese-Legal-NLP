@@ -9,6 +9,7 @@ import torch.nn as nn
 from datasets import Dataset
 from sklearn.metrics import accuracy_score, f1_score
 from transformers import (
+    AutoModel,
     AutoTokenizer,
     DataCollatorForTokenClassification,
     Trainer,
@@ -52,55 +53,45 @@ class SRLTrainer(Trainer):
         labels = inputs.get("labels")
         outputs = model(**inputs)
         logits = outputs.get("logits")
+        # 11 classes in SRL_MAP
         loss_fct = LegalFocalLoss()
         loss = loss_fct(logits.view(-1, 11), labels.view(-1))
         return (loss, outputs) if return_outputs else loss
 
 
 class CustomSRLDataCollator(DataCollatorForTokenClassification):
-    """
-    Custom collator to handle padding for our additional structural features
-    (ner_ids, dep_ids, p_ner_ids) alongside the standard input_ids.
-    """
-
     def __call__(self, features):
-        # 1. Temporarily remove the custom features
-        ner_ids = [feature.pop("ner_ids") for feature in features]
-        dep_ids = [feature.pop("dep_ids") for feature in features]
-        p_ner_ids = [feature.pop("p_ner_ids") for feature in features]
+        ner_ids = [f.pop("ner_ids") for f in features]
+        dep_ids = [f.pop("dep_ids") for f in features]
+        p_ner_ids = [f.pop("p_ner_ids") for f in features]
 
-        # 2. Let the standard collator pad input_ids, attention_mask, and labels
         batch = super().__call__(features)
+        max_len = batch["input_ids"].shape[1]
 
-        # 3. Determine the dynamic max length of the padded batch
-        batch_max_len = batch["input_ids"].shape[1]
-
-        # 4. Pad our custom features with 0 to match the batch max length
-        padded_ner = [n + [0] * (batch_max_len - len(n)) for n in ner_ids]
-        padded_dep = [d + [0] * (batch_max_len - len(d)) for d in dep_ids]
-        padded_p_ner = [p + [0] * (batch_max_len - len(p)) for p in p_ner_ids]
-
-        # 5. Add them back to the batch as tensors
-        batch["ner_ids"] = torch.tensor(padded_ner, dtype=torch.long)
-        batch["dep_ids"] = torch.tensor(padded_dep, dtype=torch.long)
-        batch["p_ner_ids"] = torch.tensor(padded_p_ner, dtype=torch.long)
-
+        batch["ner_ids"] = torch.tensor(
+            [n + [0] * (max_len - len(n)) for n in ner_ids], dtype=torch.long
+        )
+        batch["dep_ids"] = torch.tensor(
+            [d + [0] * (max_len - len(d)) for d in dep_ids], dtype=torch.long
+        )
+        batch["p_ner_ids"] = torch.tensor(
+            [p + [0] * (max_len - len(p)) for p in p_ner_ids], dtype=torch.long
+        )
         return batch
 
 
 def train_srl(epochs, batch_size, lr):
-    print("--- Starting SRL Training (Robust Architecture) ---")
+    print("--- Training SRL using pre-annotated structural features ---")
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
 
-    train_path = "data/annotated/srl_train.json"
-    test_path = "data/annotated/srl_test.json"
-
-    with open(train_path, "r", encoding="utf-8") as f:
+    with open("data/annotated/srl_train.json", "r", encoding="utf-8") as f:
         train_raw = json.load(f)
-    with open(test_path, "r", encoding="utf-8") as f:
+    with open("data/annotated/srl_test.json", "r", encoding="utf-8") as f:
         test_raw = json.load(f)
 
     def prepare_data(examples):
+        # We wrap input_ids with BOS/EOS to match auto_annotate.py logic
+        # Input features are already aligned in JSON, just need to add BOS/EOS markers (ID 0)
         tokenized = {
             "input_ids": [],
             "attention_mask": [],
@@ -110,23 +101,21 @@ def train_srl(epochs, batch_size, lr):
             "p_ner_ids": [],
         }
         for i, ids in enumerate(examples["input_ids"]):
-            tags = [SRL2ID.get(t, 0) for t in examples["srl_tags"][i]]
-            # Add BOS/EOS to match auto_annotate logic
             input_ids = [tokenizer.bos_token_id] + ids + [tokenizer.eos_token_id]
-            label_ids = [-100] + tags + [-100]
+            label_ids = (
+                [-100] + [SRL2ID.get(t, 0) for t in examples["srl_tags"][i]] + [-100]
+            )
 
             if len(input_ids) > 256:
                 input_ids, label_ids = input_ids[:256], label_ids[:256]
 
-            seq_len = len(input_ids)
             tokenized["input_ids"].append(input_ids)
-            tokenized["attention_mask"].append([1] * seq_len)
+            tokenized["attention_mask"].append([1] * len(input_ids))
             tokenized["labels"].append(label_ids)
-            # Use pre-calculated IDs from auto_annotate.py
-            # Add padding 0 for BOS/EOS tokens
-            tokenized["ner_ids"].append([0] + examples["ner_ids"][i][:254] + [0])
-            tokenized["dep_ids"].append([0] + examples["dep_ids"][i][:254] + [0])
-            tokenized["p_ner_ids"].append([0] + examples["p_ner_ids"][i][:254] + [0])
+            # Pad structural features with 0 for BOS/EOS
+            tokenized["ner_ids"].append(([0] + examples["ner_ids"][i] + [0])[:256])
+            tokenized["dep_ids"].append(([0] + examples["dep_ids"][i] + [0])[:256])
+            tokenized["p_ner_ids"].append(([0] + examples["p_ner_ids"][i] + [0])[:256])
         return tokenized
 
     train_ds = Dataset.from_list(train_raw).map(
@@ -140,18 +129,8 @@ def train_srl(epochs, batch_size, lr):
         remove_columns=Dataset.from_list(test_raw).column_names,
     )
 
-    def compute_metrics(p):
-        predictions, labels = p
-        predictions = np.argmax(predictions, axis=2)
-        y_true = labels.flatten()
-        y_pred = predictions.flatten()
-        mask = y_true != -100
-        return {
-            "accuracy": accuracy_score(y_true[mask], y_pred[mask]),
-            "f1": f1_score(y_true[mask], y_pred[mask], average="weighted"),
-        }
-
-    joint_model = JointSRLModel()
+    sem_base = AutoModel.from_pretrained(BASE_MODEL_NAME)
+    joint_model = JointSRLModel(sem_base)
     model = RobustSRLModel(joint_model)
 
     training_args = TrainingArguments(
@@ -160,15 +139,21 @@ def train_srl(epochs, batch_size, lr):
         learning_rate=lr,
         per_device_train_batch_size=batch_size,
         num_train_epochs=epochs,
-        weight_decay=0.01,
         save_strategy="epoch",
         load_best_model_at_end=True,
         metric_for_best_model="f1",
         fp16=torch.cuda.is_available(),
-        logging_steps=10,
-        report_to="none",
         remove_unused_columns=False,
     )
+
+    def compute_metrics(p):
+        preds = np.argmax(p.predictions, axis=2).flatten()
+        labs = p.label_ids.flatten()
+        mask = labs != -100
+        return {
+            "accuracy": accuracy_score(labs[mask], preds[mask]),
+            "f1": f1_score(labs[mask], preds[mask], average="weighted"),
+        }
 
     trainer = SRLTrainer(
         model=model,
@@ -183,7 +168,6 @@ def train_srl(epochs, batch_size, lr):
 
     out_dir = "models/srl"
     os.makedirs(out_dir, exist_ok=True)
-    # Save the base model's state dict for engine compatibility
     torch.save(
         model.base_model.state_dict(), os.path.join(out_dir, "pytorch_model.bin")
     )
