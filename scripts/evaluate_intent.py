@@ -20,10 +20,10 @@ class RobustIntentModel(nn.Module):
         outputs = self.base_model.roberta(
             input_ids, attention_mask=attention_mask, return_dict=True
         )
-        pooled_output = outputs.last_hidden_state[:, 0, :]
+        sequence_output = outputs.last_hidden_state
         logits = 0
         for dropout in self.dropouts:
-            logits += self.base_model.classifier(dropout(pooled_output))
+            logits += self.base_model.classifier(dropout(sequence_output))
         logits /= len(self.dropouts)
         return {"logits": logits}
 

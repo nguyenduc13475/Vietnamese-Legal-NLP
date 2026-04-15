@@ -55,12 +55,12 @@ class RobustIntentModel(nn.Module):
         outputs = self.base_model.roberta(
             input_ids, attention_mask=attention_mask, return_dict=True
         )
-        # Use the first token [CLS] as the pooled representation for classification
-        pooled_output = outputs.last_hidden_state[:, 0, :]
+        # RobertaClassificationHead expects the full 3D sequence output, not the pooled 2D token
+        sequence_output = outputs.last_hidden_state
 
         logits = 0
         for dropout in self.dropouts:
-            logits += self.base_model.classifier(dropout(pooled_output))
+            logits += self.base_model.classifier(dropout(sequence_output))
         logits /= len(self.dropouts)
 
         return {"logits": logits}
