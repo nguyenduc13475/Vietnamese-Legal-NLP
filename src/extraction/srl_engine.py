@@ -124,18 +124,30 @@ class RobustSRLModel(nn.Module):
         self.config = joint_model.config
         self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
 
-    def forward(self, **kwargs):
+    def forward(
+        self,
+        input_ids=None,
+        attention_mask=None,
+        ner_ids=None,
+        dep_ids=None,
+        p_ner_ids=None,
+        labels=None,
+        **kwargs,
+    ):
         # We wrap the LSTM output or the input to the final classifier
         # For simplicity and effectiveness, we apply multi-dropout to the LSTM output
         sem_out = self.base_model.semantic_model(
-            input_ids=kwargs["input_ids"], attention_mask=kwargs["attention_mask"]
+            input_ids=input_ids, attention_mask=attention_mask
         )
         sequence_output = sem_out.last_hidden_state
 
         # Handle optional O2 features
-        ner_ids = kwargs.get("ner_ids", torch.zeros_like(kwargs["input_ids"]))
-        dep_ids = kwargs.get("dep_ids", torch.zeros_like(kwargs["input_ids"]))
-        p_ner_ids = kwargs.get("p_ner_ids", torch.zeros_like(kwargs["input_ids"]))
+        if ner_ids is None:
+            ner_ids = torch.zeros_like(input_ids)
+        if dep_ids is None:
+            dep_ids = torch.zeros_like(input_ids)
+        if p_ner_ids is None:
+            p_ner_ids = torch.zeros_like(input_ids)
 
         struct_output = self.base_model.structural_model(ner_ids, dep_ids, p_ner_ids)
         combined = torch.cat([sequence_output, struct_output], dim=-1)

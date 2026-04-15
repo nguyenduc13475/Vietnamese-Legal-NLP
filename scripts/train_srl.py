@@ -135,6 +135,7 @@ def train_srl(epochs, batch_size, lr):
         fp16=torch.cuda.is_available(),
         logging_steps=10,
         report_to="none",
+        remove_unused_columns=False,
     )
 
     trainer = SRLTrainer(
