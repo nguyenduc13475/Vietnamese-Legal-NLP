@@ -1,67 +1,102 @@
 import os
 
 import torch
-from transformers import AutoTokenizer, pipeline
+from transformers import AutoTokenizer
 from underthesea import word_tokenize
 
+from src.utils.model_loader import load_robust_classification_model
+
 MODEL_PATH = "models/ner"
-_ner_pipeline = None
+_ner_model = None
+_ner_tokenizer = None
 
 
-def get_ner_pipeline():
-    global _ner_pipeline
-    if _ner_pipeline is None:
+def get_ner_resources():
+    global _ner_model, _ner_tokenizer
+    if _ner_model is None:
         if os.path.exists(MODEL_PATH):
-            tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, use_fast=False)
-            _ner_pipeline = pipeline(
-                "token-classification",
-                model=MODEL_PATH,
-                tokenizer=tokenizer,
-                aggregation_strategy="simple",
-                device=0 if torch.cuda.is_available() else -1,
-                torch_dtype=torch.float32,  # Stability for inference
+            # Load tokenizer from MODEL_PATH to use local vocab.txt
+            _ner_tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+            _ner_model = load_robust_classification_model(
+                MODEL_PATH, num_labels=17, is_token_level=True
             )
-    return _ner_pipeline
+    return _ner_model, _ner_tokenizer
 
 
 def extract_ultra_entities(text: str) -> list[dict]:
-    """Unified model for NER. Pre-segments text for PhoBERT."""
     if not text or not text.strip():
         return []
-
-    pipe = get_ner_pipeline()
-    if not pipe:
+    model, tokenizer = get_ner_resources()
+    if not model:
         return []
 
-    # 1. Segment text
+    device = next(model.parameters()).device
     segmented_text = word_tokenize(text, format="text")
-    results = pipe(segmented_text)
+    inputs = tokenizer(
+        segmented_text,
+        return_tensors="pt",
+        truncation=True,
+        max_length=256,
+    ).to(device)
 
-    # 2. To fix the span shift, we map offsets back to the raw text
-    entities = []
-    raw_text_lower = text.lower()
-    search_idx = 0
+    with torch.no_grad():
+        logits = model(**inputs)["logits"]
+        preds = torch.argmax(logits, dim=2)[0].cpu().numpy()
 
-    for res in results:
-        # PhoBERT artifact cleaning
-        clean_word = res["word"].replace("_", " ").strip()
-        if not clean_word:
+    # Manual Offset Calculation for Python Tokenizer
+    tokens = tokenizer.convert_ids_to_tokens(inputs["input_ids"][0])
+    offsets = []
+    cursor = 0
+    for token in tokens:
+        if token in [tokenizer.bos_token, tokenizer.eos_token, tokenizer.pad_token]:
+            offsets.append((0, 0))
             continue
 
-        # Find where this predicted word actually exists in the original text
-        actual_start = raw_text_lower.find(clean_word.lower(), search_idx)
+        # Clean token for alignment: remove subword markers (@@) and space markers (_)
+        clean_tok = token.replace("@@", "").replace("_", " ").strip()
+        if not clean_tok:
+            offsets.append((cursor, cursor))
+            continue
 
-        if actual_start != -1:
-            actual_end = actual_start + len(clean_word)
-            search_idx = actual_end  # Move pointer forward
+        start_idx = text.find(clean_tok, cursor)
+        if start_idx == -1:  # Case-insensitive fallback
+            start_idx = text.lower().find(clean_tok.lower(), cursor)
 
-            entities.append(
-                {
-                    "text": text[actual_start:actual_end],  # Use original casing
-                    "label": res["entity_group"],
-                    "span": (actual_start, actual_end),
-                }
-            )
+        if start_idx != -1:
+            end_idx = start_idx + len(clean_tok)
+            offsets.append((start_idx, end_idx))
+            cursor = end_idx
+        else:
+            offsets.append((cursor, cursor))
+
+    # ID to Label Mapping
+    id2label = {
+        0: "O",
+        1: "PARTY",
+        3: "MONEY",
+        5: "DATE",
+        7: "RATE",
+        9: "PENALTY",
+        11: "LAW",
+        13: "OBJECT",
+        15: "PREDICATE",
+    }
+
+    entities = []
+    for i, p_id in enumerate(preds):
+        label = id2label.get(
+            p_id if p_id % 2 != 0 else p_id - 1 if p_id > 0 else 0, "O"
+        )
+        if label == "O":
+            continue
+
+        start, end = offsets[i]
+        if start == end:
+            continue
+
+        entities.append(
+            {"text": text[start:end], "label": label, "span": (int(start), int(end))}
+        )
     return entities
 
 

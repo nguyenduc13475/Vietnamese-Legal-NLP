@@ -1,31 +1,37 @@
+import os
 import re
 
 import torch
-from transformers import AutoTokenizer, pipeline
+from transformers import AutoTokenizer
+from underthesea import word_tokenize
+
+from src.utils.model_loader import load_robust_classification_model
 
 MODEL_PATH = "models/segmenter"
-_segment_pipeline = None
+_segment_model = None
+_segment_tokenizer = None
 
 
-def get_segment_pipeline():
-    """Lazy load the DL Segmenter to handle Type 1 & 2 splitting."""
-    global _segment_pipeline
-    if _segment_pipeline is None:
-        try:
-            # Using fast tokenizer for better performance
-            # PhoBERT tokenizer
-            tokenizer = AutoTokenizer.from_pretrained("vinai/phobert-base")
-            _segment_pipeline = pipeline(
-                "token-classification",
-                model=MODEL_PATH,
-                tokenizer=tokenizer,
-                aggregation_strategy=None,  # We need raw tokens to handle non-continuous blocks
-                device=0 if torch.cuda.is_available() else -1,
+def get_segment_resources():
+    """Lazy load the DL Segmenter model and tokenizer from local path."""
+    global _segment_model, _segment_tokenizer
+    if _segment_model is None:
+        if os.path.exists(MODEL_PATH):
+            try:
+                _segment_tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+                _segment_model = load_robust_classification_model(
+                    MODEL_PATH, num_labels=6, is_token_level=True
+                )
+            except Exception as e:
+                print(f"Error loading segmenter resources: {e}")
+
+        if _segment_model is None:
+            print(
+                "Segmenter model not found or failed to load. Falling back to line-based."
             )
-        except Exception as e:
-            print(f"DL Segmenter load failed: {e}. Falling back to line-based.")
-            _segment_pipeline = "fallback"
-    return _segment_pipeline
+            _segment_model = "fallback"
+
+    return _segment_model, _segment_tokenizer
 
 
 def segment_clauses(text: str) -> list[dict]:
@@ -38,7 +44,8 @@ def segment_clauses(text: str) -> list[dict]:
     current_context = "General"
     current_aliases = "[]"
 
-    seg_pipe = get_segment_pipeline()
+    model, tokenizer = get_segment_resources()
+
     bullet_pattern = re.compile(
         r"^([a-zđ][\)\.]|\d+(?:\.\d+)*[\.\):]?|[IVXLCDM]+[\.\)]|[-+])\s+", re.IGNORECASE
     )
@@ -65,50 +72,102 @@ def segment_clauses(text: str) -> list[dict]:
         if len(clean_line) <= 5:
             continue
 
-        if seg_pipe and seg_pipe != "fallback":
+        if model != "fallback":
             try:
-                preds = seg_pipe(clean_line)
-                # Logic: collect tokens for each label (1-5), even if non-continuous
-                blocks = {i: [] for i in range(1, 6)}
-                for p in preds:
-                    lbl_str = p["entity"].split("_")[-1]
-                    if lbl_str.isdigit():
-                        lbl = int(lbl_str)
-                        if lbl in blocks:
-                            word = p["word"].replace(" ", " ").strip()
-                            blocks[lbl].append(word)
+                device = next(model.parameters()).device
 
-                b = {k: " ".join(v).strip() for k, v in blocks.items()}
+                # 1. Temporarily strip trailing dots to match training data distribution
+                line_to_process = clean_line.rstrip(". ")
 
-                # Type detection and reconstruction
-                if b[1] and b[2] and b[3]:
-                    if b[5]:  # Type 2: A B C D E -> ABC + ADCE
-                        c_list = [
-                            f"{b[1]} {b[2]} {b[3]}",
-                            f"{b[1]} {b[4]} {b[3]} {b[5]}",
-                        ]
-                    elif b[4]:  # Type 1: A B C D -> ABD + ACD
-                        c_list = [f"{b[1]} {b[2]} {b[4]}", f"{b[1]} {b[3]} {b[4]}"]
-                    else:
-                        c_list = [clean_line]
+                # 2. Pre-segment text for PhoBERT consistency
+                segmented_input = word_tokenize(line_to_process, format="text")
 
-                    for idx, c_text in enumerate(c_list):
+                inputs = tokenizer(
+                    segmented_input,
+                    return_tensors="pt",
+                    truncation=True,
+                    max_length=256,
+                ).to(device)
+
+                with torch.no_grad():
+                    logits = model(**inputs)["logits"]
+                    preds = torch.argmax(logits, dim=2)[0].cpu().numpy()
+
+                input_ids = inputs["input_ids"][0].cpu().tolist()
+
+                # 3. Prepare alignment mapping to force strict substring recovery
+                # We map indices from a 'no-space' version back to the original line
+                collapsed_orig = ""
+                idx_map = []
+                for idx, char in enumerate(line_to_process):
+                    if not char.isspace():
+                        collapsed_orig += char
+                        idx_map.append(idx)
+
+                def get_original_substring(reconstructed_text):
+                    # Remove all spaces/underscores from model output to find anchor
+                    target = reconstructed_text.replace(" ", "").replace("_", "")
+                    if not target:
+                        return ""
+
+                    start_in_collapsed = collapsed_orig.find(target)
+                    if start_in_collapsed == -1:
+                        # Fallback: if not found, return cleaned reconstruction
+                        return reconstructed_text.replace("_", " ").strip()
+
+                    end_in_collapsed = start_in_collapsed + len(target) - 1
+                    actual_start = idx_map[start_in_collapsed]
+                    actual_end = idx_map[end_in_collapsed] + 1
+                    return line_to_process[actual_start:actual_end].strip()
+
+                # 4. Collect and Align blocks
+                blocks_ids = {i: [] for i in range(1, 6)}
+                for i, p_id in enumerate(preds):
+                    if 1 <= p_id <= 5:
+                        tid = input_ids[i]
+                        if tid not in tokenizer.all_special_ids:
+                            blocks_ids[p_id].append(tid)
+
+                # Use native decode, then project back to original substring
+                b = {}
+                for k, v in blocks_ids.items():
+                    decoded = tokenizer.decode(v)
+                    b[k] = get_original_substring(decoded)
+
+                # Type detection logic: construction occur only if at least C or D non empty
+                if not b[3] and not b[4]:
+                    c_list = [clean_line]
+                elif b[5] or (preds == 5).any():
+                    c_list = [f"{b[1]} {b[2]} {b[3]}", f"{b[1]} {b[4]} {b[3]} {b[5]}"]
+                else:
+                    c_list = [f"{b[1]} {b[2]} {b[4]}", f"{b[1]} {b[3]} {b[4]}"]
+
+                for idx, c_text in enumerate(c_list):
+                    # Clean double spaces and ensure trailing dot
+                    final_text = " ".join(c_text.split()).strip()
+                    if final_text:
+                        final_text = final_text[0].upper() + final_text[1:]
+                    if len(final_text) > 2:
+                        # Ensure we don't double dot if original substring already had one
+                        out_text = (
+                            final_text if final_text.endswith(".") else final_text + "."
+                        )
                         clauses.append(
                             {
-                                "text": c_text.strip(),
+                                "text": out_text,
                                 "context": current_context,
                                 "is_title": is_title if idx == 0 else False,
                                 "aliases": current_aliases,
                             }
                         )
-                    continue
+                continue
             except Exception as e:
-                print(f"Segmentation logic error: {e}")
+                print(f"DL Segmentation inference error: {e}")
 
-        # Fallback
+        # Fallback if model fails
         clauses.append(
             {
-                "text": clean_line,
+                "text": clean_line if clean_line.endswith(".") else clean_line + ".",
                 "context": current_context,
                 "is_title": is_title,
                 "aliases": current_aliases,

@@ -44,9 +44,13 @@ def extract_info(request: ExtractRequest):
 
     for item in clauses_data:
         clause_text = item["text"]
+        from src.extraction.ner_engine import extract_ultra_entities
 
-        # Ensure we pass the string 'text' to NLP engines, not the dictionary
-        ents = extract_entities(clause_text)
+        # 1. Standard Task 2.1 NER (Filtered)
+        ents_task_2_1 = extract_entities(clause_text)
+        # 2. Technical features for SRL
+        ultra_ents = extract_ultra_entities(clause_text)
+
         deps = parse_dependency(clause_text)
         chunks = chunk_np(clause_text)
 
@@ -55,9 +59,8 @@ def extract_info(request: ExtractRequest):
                 "clause": clause_text,
                 "np_chunks": chunks,
                 "dependencies": deps,
-                # Pass full entity objects (including span) to match schema
-                "entities": ents,
-                "srl": extract_srl(clause_text, ents, deps, chunks),
+                "entities": ents_task_2_1,
+                "srl": extract_srl(clause_text, ultra_ents, deps, chunks),
                 "intent": classify_intent(clause_text),
             }
         )

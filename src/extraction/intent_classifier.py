@@ -2,9 +2,10 @@ import os
 import pickle
 
 import torch
-import torch.nn as nn
-from transformers import AutoConfig, AutoModelForSequenceClassification, AutoTokenizer
+from transformers import AutoTokenizer
 from underthesea import word_tokenize
+
+from src.utils.model_loader import load_robust_classification_model
 
 TFIDF_MODEL_PATH = "models/intent_regression/intent_model.pkl"
 VECTORIZER_PATH = "models/intent_regression/intent_vectorizer.pkl"
@@ -12,65 +13,45 @@ TRANSFORMER_MODEL_PATH = "models/intent_transformer"
 
 _intent_model = None
 _intent_tokenizer = None
-_intent_config = None
 _ml_model = None
 _vectorizer = None
 
-
-# --- Model Definitions (Local for load stability) ---
-class RobustIntentModel(nn.Module):
-    def __init__(self, base_model):
-        super().__init__()
-        self.base_model = base_model
-        self.config = base_model.config
-        self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
-
-    def forward(self, input_ids=None, attention_mask=None, **kwargs):
-        outputs = self.base_model.roberta(
-            input_ids, attention_mask=attention_mask, return_dict=True
-        )
-        sequence_output = outputs.last_hidden_state
-        logits = 0
-        for dropout in self.dropouts:
-            logits += self.base_model.classifier(dropout(sequence_output))
-        logits /= len(self.dropouts)
-        return {"logits": logits}
+# Classes sorted alphabetically as done dynamically during training
+INTENT_LABELS = [
+    "Obligation",
+    "Other",
+    "Prohibition",
+    "Right",
+    "Termination Condition",
+]
+ID2INTENT = {i: label for i, label in enumerate(INTENT_LABELS)}
 
 
 def get_transformer_model():
-    global _intent_model, _intent_tokenizer, _intent_config
+    """Lazy load the Intent Transformer model from local path."""
+    global _intent_model, _intent_tokenizer
     if _intent_model is None:
-        if os.path.exists(TRANSFORMER_MODEL_PATH) and "pytorch_model.bin" in os.listdir(
-            TRANSFORMER_MODEL_PATH
-        ):
+        if os.path.exists(TRANSFORMER_MODEL_PATH):
             try:
                 _intent_tokenizer = AutoTokenizer.from_pretrained(
                     TRANSFORMER_MODEL_PATH
                 )
-                _intent_config = AutoConfig.from_pretrained(TRANSFORMER_MODEL_PATH)
-                raw_model = AutoModelForSequenceClassification.from_config(
-                    _intent_config
+                _intent_model = load_robust_classification_model(
+                    TRANSFORMER_MODEL_PATH,
+                    num_labels=len(INTENT_LABELS),
+                    is_token_level=False,
                 )
-                _intent_model = RobustIntentModel(raw_model)
-
-                weights = torch.load(
-                    os.path.join(TRANSFORMER_MODEL_PATH, "pytorch_model.bin"),
-                    map_location="cpu",
-                )
-                _intent_model.base_model.load_state_dict(weights)
-
-                device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-                _intent_model.to(device)
-                _intent_model.eval()
             except Exception as e:
                 print(f"Warning: Intent Transformer load failed: {e}")
-                _intent_model = "fallback"
-        else:
+
+        if _intent_model is None:
             _intent_model = "fallback"
-    return _intent_model, _intent_tokenizer, _intent_config
+
+    return _intent_model, _intent_tokenizer
 
 
 def get_ml_model():
+    """Lazy load the ML fallback model (TF-IDF + Logistic Regression)."""
     global _ml_model, _vectorizer
     if _ml_model is None:
         if os.path.exists(TFIDF_MODEL_PATH) and os.path.exists(VECTORIZER_PATH):
@@ -90,22 +71,24 @@ def classify_intent(text: str) -> str:
         return "Other"
 
     # 1. Try Deep Learning (PhoBERT)
-    model, tokenizer, config = get_transformer_model()
+    model, tokenizer = get_transformer_model()
     if model != "fallback" and model is not None:
         try:
             device = next(model.parameters()).device
             segmented_text = word_tokenize(text, format="text")
+
             inputs = tokenizer(
                 segmented_text, return_tensors="pt", truncation=True, max_length=256
             ).to(device)
-            with torch.no_grad():
-                outputs = model(**inputs)
-                idx = torch.argmax(outputs["logits"], dim=1).item()
-                return config.id2label[idx]
-        except Exception:
-            pass
 
-    # 2. Try ML Model
+            with torch.no_grad():
+                logits = model(**inputs)["logits"]
+                idx = torch.argmax(logits, dim=1).item()
+                return ID2INTENT[idx]
+        except Exception as e:
+            print(f"Transformer inference error: {e}")
+
+    # 2. Try ML Model (TF-IDF Baseline)
     ml_model, vectorizer = get_ml_model()
     if ml_model and vectorizer:
         try:

@@ -1,8 +1,10 @@
 import os
 
 import torch
-import torch.nn as nn
-from transformers import AutoModel, AutoTokenizer
+from transformers import AutoConfig, AutoModel, AutoTokenizer
+from underthesea import word_tokenize
+
+from src.models.robust_base import JointSRLModel, MultiSampleDropoutWrapper
 
 MODEL_PATH = "models/srl"
 BASE_MODEL_NAME = "vinai/phobert-base"
@@ -10,7 +12,7 @@ BASE_MODEL_NAME = "vinai/phobert-base"
 _srl_model = None
 _srl_tokenizer = None
 
-# Mappings for structural feature indexing (must match training)
+# Mappings for structural feature indexing (must match training exactly)
 NER_MAP = {
     "O": 0,
     "PARTY": 1,
@@ -21,7 +23,24 @@ NER_MAP = {
     "LAW": 6,
     "OBJECT": 7,
     "PREDICATE": 8,
+    "B-PARTY": 1,
+    "I-PARTY": 1,
+    "B-MONEY": 2,
+    "I-MONEY": 2,
+    "B-DATE": 3,
+    "I-DATE": 3,
+    "B-RATE": 4,
+    "I-RATE": 4,
+    "B-PENALTY": 5,
+    "I-PENALTY": 5,
+    "B-LAW": 6,
+    "I-LAW": 6,
+    "B-OBJECT": 7,
+    "I-OBJECT": 7,
+    "B-PREDICATE": 8,
+    "I-PREDICATE": 8,
 }
+
 DEP_MAP = {
     "root": 1,
     "nsubj": 2,
@@ -32,7 +51,18 @@ DEP_MAP = {
     "amod": 7,
     "nmod": 8,
     "compound": 9,
+    "mark": 10,
+    "advmod": 11,
+    "xcomp": 12,
+    "cc": 13,
+    "conj": 14,
+    "det": 15,
+    "case": 16,
+    "fixed": 17,
+    "flat": 18,
+    "punct": 19,
 }
+
 ID2SRL = {
     0: "OTHER",
     1: "AGENT",
@@ -49,138 +79,35 @@ ID2SRL = {
 SRL2ID = {v: k for k, v in ID2SRL.items()}
 
 
-class SRLStructuralSubmodel(nn.Module):
-    def __init__(
-        self,
-        ner_vocab_size=10,
-        dep_vocab_size=30,
-        parent_ner_vocab_size=10,
-        embed_dim=32,
-    ):
-        super().__init__()
-        self.ner_emb = nn.Embedding(ner_vocab_size, embed_dim)
-        self.dep_emb = nn.Embedding(dep_vocab_size, embed_dim)
-        self.p_ner_emb = nn.Embedding(parent_ner_vocab_size, embed_dim)
-
-    def forward(self, ner_ids, dep_ids, p_ner_ids):
-        return torch.cat(
-            [self.ner_emb(ner_ids), self.dep_emb(dep_ids), self.p_ner_emb(p_ner_ids)],
-            dim=-1,
-        )
-
-
-class JointSRLModel(nn.Module):
-    def __init__(self, base_model=None):
-        super().__init__()
-        # Use PhoBERT as the semantic backbone
-        self.semantic_model = (
-            base_model if base_model else AutoModel.from_pretrained(BASE_MODEL_NAME)
-        )
-        self.config = self.semantic_model.config
-        self.structural_model = SRLStructuralSubmodel()
-
-        # 768 (PhoBERT) + 96 (Structural: 32*3)
-        self.bilstm = nn.LSTM(
-            input_size=768 + 96, hidden_size=256, bidirectional=True, batch_first=True
-        )
-        self.classifier = nn.Linear(512, 11)  # 10 roles + OTHER
-
-    def forward(
-        self,
-        input_ids,
-        attention_mask,
-        ner_ids=None,
-        dep_ids=None,
-        p_ner_ids=None,
-        **kwargs,
-    ):
-        sem_out = self.semantic_model(
-            input_ids=input_ids, attention_mask=attention_mask
-        )
-        sequence_output = sem_out.last_hidden_state
-
-        # Safety: If structural features are missing (common during generic training steps), use zeros
-        if ner_ids is None:
-            ner_ids = torch.zeros(
-                (input_ids.shape[0], input_ids.shape[1]),
-                dtype=torch.long,
-                device=input_ids.device,
-            )
-        if dep_ids is None:
-            dep_ids = torch.zeros_like(ner_ids)
-        if p_ner_ids is None:
-            p_ner_ids = torch.zeros_like(ner_ids)
-
-        struct_output = self.structural_model(ner_ids, dep_ids, p_ner_ids)
-        combined_features = torch.cat([sequence_output, struct_output], dim=-1)
-        lstm_out, _ = self.bilstm(combined_features)
-        logits = self.classifier(lstm_out)
-        return {"logits": logits}
-
-
-class RobustSRLModel(nn.Module):
-    """Multi-sample dropout for SRL stability."""
-
-    def __init__(self, joint_model):
-        super().__init__()
-        self.base_model = joint_model
-        self.config = joint_model.config
-        self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
-
-    def forward(
-        self,
-        input_ids=None,
-        attention_mask=None,
-        ner_ids=None,
-        dep_ids=None,
-        p_ner_ids=None,
-        labels=None,
-        **kwargs,
-    ):
-        # We wrap the LSTM output or the input to the final classifier
-        # For simplicity and effectiveness, we apply multi-dropout to the LSTM output
-        sem_out = self.base_model.semantic_model(
-            input_ids=input_ids, attention_mask=attention_mask
-        )
-        sequence_output = sem_out.last_hidden_state
-
-        # Handle optional O2 features
-        if ner_ids is None:
-            ner_ids = torch.zeros_like(input_ids)
-        if dep_ids is None:
-            dep_ids = torch.zeros_like(input_ids)
-        if p_ner_ids is None:
-            p_ner_ids = torch.zeros_like(input_ids)
-
-        struct_output = self.base_model.structural_model(ner_ids, dep_ids, p_ner_ids)
-        combined = torch.cat([sequence_output, struct_output], dim=-1)
-        lstm_out, _ = self.base_model.bilstm(combined)
-
-        logits = 0
-        for dropout in self.dropouts:
-            logits += self.base_model.classifier(dropout(lstm_out))
-        logits /= len(self.dropouts)
-        return {"logits": logits}
-
-
 def get_srl_model():
-    """Lazy load the Joint SRL model."""
+    """Lazy load the Joint SRL model prioritizing local artifacts."""
     global _srl_model, _srl_tokenizer
     if _srl_model is None:
-        if os.path.exists(MODEL_PATH) and len(os.listdir(MODEL_PATH)) > 0:
+        if os.path.exists(MODEL_PATH) and os.path.exists(
+            os.path.join(MODEL_PATH, "pytorch_model.bin")
+        ):
             try:
-                _srl_tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
-                base_joint = JointSRLModel()
-                _srl_model = RobustSRLModel(base_joint)
-                _srl_model.load_state_dict(
-                    torch.load(
-                        os.path.join(MODEL_PATH, "pytorch_model.bin"),
-                        map_location="cpu",
-                    )
+                _srl_tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
+                config_src = (
+                    MODEL_PATH
+                    if os.path.exists(os.path.join(MODEL_PATH, "config.json"))
+                    else BASE_MODEL_NAME
                 )
-                _srl_model.eval()
+                backbone_config = AutoConfig.from_pretrained(config_src)
+                sem_base = AutoModel.from_config(backbone_config)
+
+                joint = JointSRLModel(sem_base)
+                _srl_model = MultiSampleDropoutWrapper(joint)
+
+                weights_path = os.path.join(MODEL_PATH, "pytorch_model.bin")
+                _srl_model.base_model.load_state_dict(
+                    torch.load(weights_path, map_location="cpu"), strict=False
+                )
+
+                device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+                _srl_model.to(device).eval()
             except Exception as e:
-                print(f"Warning: Could not load SRL model. Error: {e}")
+                print(f"Warning: SRL model load failed: {e}")
                 _srl_model = "fallback"
         else:
             _srl_model = "fallback"
@@ -191,96 +118,112 @@ def extract_srl(
     text: str, entities: list, dependencies: list = None, np_chunks: list = None
 ) -> dict:
     """
-    [Task 2.2] Heterogeneous stacked BiRNN SRL.
-    Merges ViDeBERTa embeddings (O1) with Structural embeddings (O2).
+    [Task 2.2] Semantic Role Labeling using aligned Pre-tokenization.
     """
     model, tokenizer = get_srl_model()
-    if model == "fallback":
+    if model == "fallback" or model is None:
         return {"predicate": "N/A", "roles": {}}
 
-    inputs = tokenizer(
-        text,
+    device = next(model.parameters()).device
+
+    # Synchronized Tokenization
+    raw_tokens = word_tokenize(text)
+
+    # 1. Dependency Parsing via Stanza (Pre-tokenized mode)
+    from src.preprocessing.parser import get_pipeline
+
+    nlp = get_pipeline()
+    doc = nlp([raw_tokens])
+    stanza_words = doc.sentences[0].words
+
+    # 2. PhoBERT Encoding with word-to-subword alignment
+    encoding = tokenizer(
+        raw_tokens,
+        is_split_into_words=True,
         return_tensors="pt",
         truncation=True,
         max_length=256,
-        return_offsets_mapping=True,
-    )
-    offsets = inputs["offset_mapping"][0]
-    seq_len = inputs["input_ids"].shape[1]
+    ).to(device)
+    word_ids = encoding.word_ids(batch_index=0)
 
-    # Build O2 feature tensors
-    ner_ids = torch.zeros(seq_len, dtype=torch.long)
-    dep_ids = torch.zeros(seq_len, dtype=torch.long)
-    p_ner_ids = torch.zeros(seq_len, dtype=torch.long)
+    seq_len = encoding["input_ids"].shape[1]
+    ner_ids = torch.zeros(seq_len, dtype=torch.long, device=device)
+    dep_ids = torch.zeros(seq_len, dtype=torch.long, device=device)
+    p_ner_ids = torch.zeros(seq_len, dtype=torch.long, device=device)
 
-    for i, (start, end) in enumerate(offsets):
-        if start == end:
-            continue
+    # 3. Features alignment using word_ids mapping
+    for i, w_idx in enumerate(word_ids):
+        if w_idx is None:
+            continue  # Skip BOS/EOS/PAD
 
-        # 1. Map NER Type
+        # Current token text
+        token_text = raw_tokens[w_idx]
+
+        # NER Feature (from trained NER engine output)
         for ent in entities:
-            if start >= ent["span"][0] and end <= ent["span"][1]:
+            if token_text in ent["text"]:
                 ner_ids[i] = NER_MAP.get(ent["label"], 0)
                 break
 
-        # 2. Map Dependency and Parent NER (Token Alignment)
-        if dependencies:
-            for d in dependencies:
-                # Use a sliding window match or character span check
-                # to align Stanza's word tokens with DeBERTa's subword offsets
-                d_token_clean = d["token"].replace("_", " ")
-                d_start = text.find(d_token_clean, max(0, start - 5))
-                d_end = d_start + len(d_token_clean)
+        # Dependency Feature
+        sw = stanza_words[w_idx]
+        dep_ids[i] = DEP_MAP.get(sw.deprel, 0)
 
-                if start >= d_start and end <= d_end:
-                    dep_ids[i] = DEP_MAP.get(d["relation"], 0)
-
-                    # Contextual Enrichment: Find the NER type of the HEAD token
-                    head_idx = d["head_index"]
-                    parent = next(
-                        (x for x in dependencies if x["id"] == head_idx), None
-                    )
-                    if parent:
-                        p_token_clean = parent["token"].replace("_", " ")
-                        # Find parent's NER label from our entities list
-                        p_ent = next(
-                            (e for e in entities if p_token_clean in e["text"]), None
-                        )
-                        if p_ent:
-                            # Map complex labels like 'B-PARTY' to base 'PARTY' index
-                            base_label = (
-                                p_ent["label"].replace("B-", "").replace("I-", "")
-                            )
-                            p_ner_ids[i] = NER_MAP.get(base_label, 0)
+        # Parent NER Feature (Head's Entity type)
+        p_idx = sw.head - 1  # Stanza head is 1-based
+        if p_idx >= 0:
+            p_text = raw_tokens[p_idx]
+            for ent in entities:
+                if p_text in ent["text"]:
+                    p_ner_ids[i] = NER_MAP.get(ent["label"], 0)
                     break
 
+    # 4. Model Inference
     with torch.no_grad():
-        logits = model(
-            inputs["input_ids"],
-            inputs["attention_mask"],
-            ner_ids.unsqueeze(0),
-            dep_ids.unsqueeze(0),
-            p_ner_ids.unsqueeze(0),
+        outputs = model(
+            encoding["input_ids"],
+            encoding["attention_mask"],
+            ner_ids=ner_ids.unsqueeze(0),
+            dep_ids=dep_ids.unsqueeze(0),
+            p_ner_ids=p_ner_ids.unsqueeze(0),
         )
-        preds = torch.argmax(logits, dim=-1)[0].tolist()
+        logits = outputs["logits"]
+        preds = torch.argmax(logits, dim=-1)[0].cpu().tolist()
 
-    # Aggregate tokens into roles
+    # 5. Role Aggregation (merging subwords and adjacent roles)
     roles = {}
     predicate = "N/A"
+
     for i, p_id in enumerate(preds):
+        w_idx = word_ids[i]
+        if w_idx is None:
+            continue  # Ignore special tokens
+
         label = ID2SRL.get(p_id, "OTHER")
         if label == "OTHER":
             continue
 
-        token_text = tokenizer.decode([inputs["input_ids"][0][i]]).replace(" ", "")
-        if label == "PREDICATE":
-            predicate = (
-                token_text if predicate == "N/A" else predicate + " " + token_text
-            )
-        else:
-            roles[label] = roles.get(label, "") + " " + token_text
+        # Decode the specific subword
+        subword_text = tokenizer.decode([encoding["input_ids"][0][i]]).replace(" ", "")
 
-    return {
-        "predicate": predicate.strip(),
-        "roles": {k: v.strip() for k, v in roles.items()},
-    }
+        if label == "PREDICATE":
+            if predicate == "N/A":
+                predicate = subword_text
+            else:
+                predicate += " " + subword_text
+        else:
+            # Clean up the role text (merging subwords with "_" logic for Vietnamese)
+            current_val = roles.get(label, "")
+            if current_val == "":
+                roles[label] = subword_text
+            else:
+                # If it belongs to the same word (subword), don't add space
+                # else add space for new word
+                roles[label] += (
+                    "" if subword_text.startswith("@@") else " "
+                ) + subword_text.replace("@@", "")
+
+    # Final cleanup of role strings
+    cleaned_roles = {k: v.replace("@@", "").strip() for k, v in roles.items()}
+
+    return {"predicate": predicate.replace("@@", "").strip(), "roles": cleaned_roles}

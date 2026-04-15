@@ -7,7 +7,7 @@ import warnings
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.extraction.intent_classifier import classify_intent
-from src.extraction.ner_engine import extract_entities
+from src.extraction.ner_engine import extract_entities, extract_ultra_entities
 from src.extraction.srl_engine import extract_srl
 from src.preprocessing.chunker import chunk_np
 from src.preprocessing.parser import parse_dependency
@@ -75,10 +75,16 @@ def build_db(input_path: str):
         )
 
         for c_idx, text in enumerate(valid_texts):
-            ents = extract_entities(text)
+            # Task 2.1: Get filtered entities for metadata storage
+            ents_task_2_1 = extract_entities(text)
+
+            ultra_ents = extract_ultra_entities(text)
+
             deps = parse_dependency(text)
             chunks = chunk_np(text)
-            srl = extract_srl(text, ents, deps, chunks)
+
+            # IMPORTANT: SRL needs ultra_ents to function correctly
+            srl = extract_srl(text, ultra_ents, deps, chunks)
             intent = classify_intent(text)
 
             metadata[c_idx].update(
@@ -87,15 +93,20 @@ def build_db(input_path: str):
                     "intent": intent,
                     "np_chunks": str(chunks),
                     "entities": str(
-                        [{"text": e["text"], "label": e["label"]} for e in ents]
+                        [
+                            {"text": e["text"], "label": e["label"]}
+                            for e in ents_task_2_1
+                        ]
                     ),
                     "predicate": str(srl.get("predicate", "")),
                     "srl_roles": str(srl.get("roles", {})),
                     "dependencies": str(
                         [
                             {
+                                "id": d["id"],
                                 "token": d["token"],
                                 "relation": d["relation"],
+                                "head_index": d["head_index"],
                                 "head_token": d.get("head_token", ""),
                             }
                             for d in deps

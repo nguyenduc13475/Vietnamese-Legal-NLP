@@ -122,10 +122,11 @@ def train_srl(epochs, batch_size, lr):
             tokenized["input_ids"].append(input_ids)
             tokenized["attention_mask"].append([1] * seq_len)
             tokenized["labels"].append(label_ids)
-            # Placeholder for O2 features during training as they are not in JSON
-            tokenized["ner_ids"].append([0] * seq_len)
-            tokenized["dep_ids"].append([0] * seq_len)
-            tokenized["p_ner_ids"].append([0] * seq_len)
+            # Use pre-calculated IDs from auto_annotate.py
+            # Add padding 0 for BOS/EOS tokens
+            tokenized["ner_ids"].append([0] + examples["ner_ids"][i][:254] + [0])
+            tokenized["dep_ids"].append([0] + examples["dep_ids"][i][:254] + [0])
+            tokenized["p_ner_ids"].append([0] + examples["p_ner_ids"][i][:254] + [0])
         return tokenized
 
     train_ds = Dataset.from_list(train_raw).map(

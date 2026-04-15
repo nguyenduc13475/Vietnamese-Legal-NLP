@@ -80,9 +80,11 @@ class LegalRetriever:
         if q_clean == d_clean:
             return 1.0
 
-        # Parse alias groups: list of tuples
         try:
-            alias_groups = ast.literal_eval(aliases_str)
+            if not aliases_str or aliases_str == "[]":
+                alias_groups = []
+            else:
+                alias_groups = ast.literal_eval(aliases_str)
         except Exception:
             alias_groups = []
 
