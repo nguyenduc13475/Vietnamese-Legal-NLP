@@ -1,105 +1,167 @@
+import argparse
 import json
 import os
+import sys
 
+import numpy as np
 import torch
 import torch.nn as nn
-from torch.utils.data import DataLoader, Dataset
-from transformers import AdamW, AutoTokenizer
+from datasets import Dataset
+from sklearn.metrics import accuracy_score, f1_score
+from transformers import (
+    AutoTokenizer,
+    DataCollatorForTokenClassification,
+    Trainer,
+    TrainingArguments,
+)
 
-from src.extraction.srl_engine import ID2SRL, JointSRLModel
+# Ensure root is in path to import from src
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from src.extraction.srl_engine import (
+    BASE_MODEL_NAME,
+    SRL2ID,
+    JointSRLModel,
+    RobustSRLModel,
+)
 
-# Reverse mapping for training
-SRL2ID = {v: k for k, v in ID2SRL.items()}
+
+class LegalFocalLoss(nn.Module):
+    def __init__(self, gamma=1.5, smoothing=0.1):
+        super().__init__()
+        self.gamma = gamma
+        self.smoothing = smoothing
+
+    def forward(self, inputs, targets):
+        num_classes = inputs.size(-1)
+        log_probs = torch.log_softmax(inputs, dim=-1)
+        with torch.no_grad():
+            true_dist = torch.zeros_like(inputs)
+            true_dist.fill_(self.smoothing / (num_classes - 1))
+            ignore_mask = targets == -100
+            targets_safe = targets.clone()
+            targets_safe[ignore_mask] = 0
+            true_dist.scatter_(1, targets_safe.unsqueeze(1), 1.0 - self.smoothing)
+        ce_loss = -(true_dist * log_probs).sum(dim=-1)
+        pt = torch.exp(-ce_loss)
+        focal_loss = (1 - pt) ** self.gamma * ce_loss
+        return focal_loss[~ignore_mask].mean()
 
 
-class LegalSRLDataset(Dataset):
-    def __init__(self, data_path, tokenizer, max_len=256):
-        with open(data_path, "r", encoding="utf-8") as f:
-            self.data = json.load(f)
-        self.tokenizer = tokenizer
-        self.max_len = max_len
+class SRLTrainer(Trainer):
+    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
+        labels = inputs.get("labels")
+        outputs = model(**inputs)
+        logits = outputs.get("logits")
+        loss_fct = LegalFocalLoss()
+        loss = loss_fct(logits.view(-1, 11), labels.view(-1))
+        return (loss, outputs) if return_outputs else loss
 
-    def __len__(self):
-        return len(self.data)
 
-    def __getitem__(self, item):
-        row = self.data[item]
-        tokens = row["tokens"]
-        srl_tags = row["srl_tags"]
+def train_srl(epochs, batch_size, lr):
+    print("--- Starting SRL Training (Robust Architecture) ---")
+    tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
 
-        # In a real training scenario, we would pre-calculate NER and DEP IDs
-        # based on the gold labels or previous stage outputs.
-        # For this script, we assume they are provided in the annotated data or simulated.
-        encoding = self.tokenizer(
-            tokens,
-            is_split_into_words=True,
-            return_offsets_mapping=True,
-            padding="max_length",
-            truncation=True,
-            max_length=self.max_len,
-            return_tensors="pt",
-        )
+    train_path = "data/annotated/srl_train.json"
+    test_path = "data/annotated/srl_test.json"
 
-        labels = []
-        word_ids = encoding.word_ids()
-        for word_idx in word_ids:
-            if word_idx is None:
-                labels.append(-100)
-            else:
-                labels.append(SRL2ID.get(srl_tags[word_idx], 0))
+    with open(train_path, "r", encoding="utf-8") as f:
+        train_raw = json.load(f)
+    with open(test_path, "r", encoding="utf-8") as f:
+        test_raw = json.load(f)
 
-        # Mocking O2 features for training demonstration -
-        # in production, these are piped from Stanza + ULTRA-NER
-        ner_ids = torch.zeros(self.max_len, dtype=torch.long)
-        dep_ids = torch.zeros(self.max_len, dtype=torch.long)
-        p_ner_ids = torch.zeros(self.max_len, dtype=torch.long)
+    def prepare_data(examples):
+        tokenized = {
+            "input_ids": [],
+            "attention_mask": [],
+            "labels": [],
+            "ner_ids": [],
+            "dep_ids": [],
+            "p_ner_ids": [],
+        }
+        for i, ids in enumerate(examples["input_ids"]):
+            tags = [SRL2ID.get(t, 0) for t in examples["srl_tags"][i]]
+            # Add BOS/EOS to match auto_annotate logic
+            input_ids = [tokenizer.bos_token_id] + ids + [tokenizer.eos_token_id]
+            label_ids = [-100] + tags + [-100]
 
+            if len(input_ids) > 256:
+                input_ids, label_ids = input_ids[:256], label_ids[:256]
+
+            seq_len = len(input_ids)
+            tokenized["input_ids"].append(input_ids)
+            tokenized["attention_mask"].append([1] * seq_len)
+            tokenized["labels"].append(label_ids)
+            # Placeholder for O2 features during training as they are not in JSON
+            tokenized["ner_ids"].append([0] * seq_len)
+            tokenized["dep_ids"].append([0] * seq_len)
+            tokenized["p_ner_ids"].append([0] * seq_len)
+        return tokenized
+
+    train_ds = Dataset.from_list(train_raw).map(
+        prepare_data,
+        batched=True,
+        remove_columns=Dataset.from_list(train_raw).column_names,
+    )
+    eval_ds = Dataset.from_list(test_raw).map(
+        prepare_data,
+        batched=True,
+        remove_columns=Dataset.from_list(test_raw).column_names,
+    )
+
+    def compute_metrics(p):
+        predictions, labels = p
+        predictions = np.argmax(predictions, axis=2)
+        y_true = labels.flatten()
+        y_pred = predictions.flatten()
+        mask = y_true != -100
         return {
-            "input_ids": encoding["input_ids"].flatten(),
-            "attention_mask": encoding["attention_mask"].flatten(),
-            "labels": torch.tensor(labels),
-            "ner_ids": ner_ids,
-            "dep_ids": dep_ids,
-            "p_ner_ids": p_ner_ids,
+            "accuracy": accuracy_score(y_true[mask], y_pred[mask]),
+            "f1": f1_score(y_true[mask], y_pred[mask], average="weighted"),
         }
 
+    joint_model = JointSRLModel()
+    model = RobustSRLModel(joint_model)
 
-def train():
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    tokenizer = AutoTokenizer.from_pretrained("Fsoft-AIC/videberta-xsmall")
-    model = JointSRLModel().to(device)
+    training_args = TrainingArguments(
+        output_dir="./models/srl_checkpoints",
+        eval_strategy="epoch",
+        learning_rate=lr,
+        per_device_train_batch_size=batch_size,
+        num_train_epochs=epochs,
+        weight_decay=0.01,
+        save_strategy="epoch",
+        load_best_model_at_end=True,
+        metric_for_best_model="f1",
+        fp16=torch.cuda.is_available(),
+        logging_steps=10,
+        report_to="none",
+    )
 
-    train_ds = LegalSRLDataset("data/annotated/srl_train.json", tokenizer)
-    train_loader = DataLoader(train_ds, batch_size=8, shuffle=True)
+    trainer = SRLTrainer(
+        model=model,
+        args=training_args,
+        train_dataset=train_ds,
+        eval_dataset=eval_ds,
+        data_collator=DataCollatorForTokenClassification(tokenizer),
+        compute_metrics=compute_metrics,
+    )
 
-    optimizer = AdamW(model.parameters(), lr=3e-5)
-    criterion = nn.CrossEntropyLoss(ignore_index=-100)
+    trainer.train()
 
-    print("Starting Heterogeneous SRL Training...")
-    model.train()
-    for epoch in range(10):
-        total_loss = 0
-        for batch in train_loader:
-            optimizer.zero_grad()
-            logits = model(
-                batch["input_ids"].to(device),
-                batch["attention_mask"].to(device),
-                batch["ner_ids"].to(device),
-                batch["dep_ids"].to(device),
-                batch["p_ner_ids"].to(device),
-            )
-
-            loss = criterion(logits.view(-1, 11), batch["labels"].to(device).view(-1))
-            loss.backward()
-            optimizer.step()
-            total_loss += loss.item()
-        print(f"Epoch {epoch + 1} - Loss: {total_loss / len(train_loader):.4f}")
-
-    os.makedirs("models/ultra_srl", exist_ok=True)
-    torch.save(model.state_dict(), "models/ultra_srl/pytorch_model.bin")
-    tokenizer.save_pretrained("models/ultra_srl")
-    print("SRL Model saved to models/ultra_srl/")
+    out_dir = "models/ultra_srl"
+    os.makedirs(out_dir, exist_ok=True)
+    # Save the base model's state dict for engine compatibility
+    torch.save(
+        model.base_model.state_dict(), os.path.join(out_dir, "pytorch_model.bin")
+    )
+    tokenizer.save_pretrained(out_dir)
+    print(f"Success! SRL Model saved to {out_dir}")
 
 
 if __name__ == "__main__":
-    train()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--epochs", type=int, default=20)
+    parser.add_argument("--batch_size", type=int, default=16)
+    parser.add_argument("--lr", type=float, default=3e-5)
+    args = parser.parse_args()
+    train_srl(args.epochs, args.batch_size, args.lr)

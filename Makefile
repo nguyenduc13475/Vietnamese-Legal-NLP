@@ -39,7 +39,7 @@ train-ner:
 	python scripts/train_ner.py --epochs 30
 
 train-srl:
-	python scripts/train_srl.py
+	python scripts/train_srl.py --epochs 25 --batch_size 16
 
 train-seg:
 	python scripts/train_segmenter.py
@@ -50,6 +50,9 @@ train-all: train-ner train-srl train-seg train-intent
 eval-ner:
 	export PYTHONPATH="${PYTHONPATH}:$(pwd)" && python scripts/evaluate_ner.py
 
+eval-srl:
+	export PYTHONPATH="${PYTHONPATH}:$(pwd)" && python scripts/evaluate_srl.py
+
 eval-seg:
 	export PYTHONPATH="/env/python:" && export TRANSFORMERS_OFFLINE=1 && export HF_HUB_OFFLINE=1 && python scripts/evaluate_segmenter.py
 
@@ -59,7 +62,7 @@ train-intent:
 eval-intent:
 	python scripts/evaluate_intent.py
 
-eval-all: eval-ner eval-intent eval-seg
+eval-all: eval-ner eval-srl eval-intent eval-seg
 	@echo "========================================================="
 	@echo "All evaluation reports (NER, Intent, Segmenter) have been updated in report/"
 	@echo "========================================================="

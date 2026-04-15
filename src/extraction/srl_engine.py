@@ -5,6 +5,8 @@ import torch.nn as nn
 from transformers import AutoModel, AutoTokenizer
 
 MODEL_PATH = "models/ultra_srl"
+BASE_MODEL_NAME = "vinai/phobert-base"
+
 # Mappings for structural feature indexing (must match training)
 NER_MAP = {
     "O": 0,
@@ -41,6 +43,7 @@ ID2SRL = {
     9: "METHOD",
     10: "ABOUT",
 }
+SRL2ID = {v: k for k, v in ID2SRL.items()}
 
 
 class SRLStructuralSubmodel(nn.Module):
@@ -64,37 +67,85 @@ class SRLStructuralSubmodel(nn.Module):
 
 
 class JointSRLModel(nn.Module):
-    def __init__(self):
+    def __init__(self, base_model=None):
         super().__init__()
         # Use PhoBERT as the semantic backbone
-        self.semantic_model = AutoModel.from_pretrained("vinai/phobert-base")
+        self.semantic_model = (
+            base_model if base_model else AutoModel.from_pretrained(BASE_MODEL_NAME)
+        )
+        self.config = self.semantic_model.config
         self.structural_model = SRLStructuralSubmodel()
-        # 768 (PhoBERT hidden size) + 96 (Structural features)
+
+        # 768 (PhoBERT) + 96 (Structural: 32*3)
         self.bilstm = nn.LSTM(
             input_size=768 + 96, hidden_size=256, bidirectional=True, batch_first=True
         )
-        self.classifier = nn.Linear(512, 11)  # Bidirectional 256*2
-        self.classifier = nn.Linear(256, 11)  # 10 roles + O
+        self.classifier = nn.Linear(512, 11)  # 10 roles + OTHER
 
-    def forward(self, input_ids, attention_mask, ner_ids, dep_ids, p_ner_ids):
-        # O1: Semantic features
+    def forward(
+        self,
+        input_ids,
+        attention_mask,
+        ner_ids=None,
+        dep_ids=None,
+        p_ner_ids=None,
+        **kwargs,
+    ):
         sem_out = self.semantic_model(
             input_ids=input_ids, attention_mask=attention_mask
         )
         sequence_output = sem_out.last_hidden_state
 
-        # O2: Structural features
+        # Safety: If structural features are missing (common during generic training steps), use zeros
+        if ner_ids is None:
+            ner_ids = torch.zeros(
+                (input_ids.shape[0], input_ids.shape[1]),
+                dtype=torch.long,
+                device=input_ids.device,
+            )
+        if dep_ids is None:
+            dep_ids = torch.zeros_like(ner_ids)
+        if p_ner_ids is None:
+            p_ner_ids = torch.zeros_like(ner_ids)
+
         struct_output = self.structural_model(ner_ids, dep_ids, p_ner_ids)
-
-        # Concat O1 and O2
         combined_features = torch.cat([sequence_output, struct_output], dim=-1)
-
-        # BiLSTM Contextualization
         lstm_out, _ = self.bilstm(combined_features)
-
-        # Classification
         logits = self.classifier(lstm_out)
-        return logits
+        return {"logits": logits}
+
+
+class RobustSRLModel(nn.Module):
+    """Multi-sample dropout for SRL stability."""
+
+    def __init__(self, joint_model):
+        super().__init__()
+        self.base_model = joint_model
+        self.config = joint_model.config
+        self.dropouts = nn.ModuleList([nn.Dropout(0.1 * (i + 1)) for i in range(5)])
+
+    def forward(self, **kwargs):
+        # We wrap the LSTM output or the input to the final classifier
+        # For simplicity and effectiveness, we apply multi-dropout to the LSTM output
+        sem_out = self.base_model.semantic_model(
+            input_ids=kwargs["input_ids"], attention_mask=kwargs["attention_mask"]
+        )
+        sequence_output = sem_out.last_hidden_state
+
+        # Handle optional O2 features
+        ner_ids = kwargs.get("ner_ids", torch.zeros_like(kwargs["input_ids"]))
+        dep_ids = kwargs.get("dep_ids", torch.zeros_like(kwargs["input_ids"]))
+        p_ner_ids = kwargs.get("p_ner_ids", torch.zeros_like(kwargs["input_ids"]))
+
+        struct_output = self.base_model.structural_model(ner_ids, dep_ids, p_ner_ids)
+        combined = torch.cat([sequence_output, struct_output], dim=-1)
+        lstm_out, _ = self.base_model.bilstm(combined)
+
+        logits = 0
+        for dropout in self.dropouts:
+            logits += self.base_model.classifier(dropout(lstm_out))
+        logits /= len(self.dropouts)
+        return {"logits": logits}
 
 
 _srl_model = None
@@ -107,10 +158,9 @@ def get_srl_model():
     if _srl_model is None:
         if os.path.exists(MODEL_PATH) and len(os.listdir(MODEL_PATH)) > 0:
             try:
-                _srl_tokenizer = AutoTokenizer.from_pretrained(
-                    "Fsoft-AIC/videberta-xsmall"
-                )
-                _srl_model = JointSRLModel()
+                _srl_tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
+                base_joint = JointSRLModel()
+                _srl_model = RobustSRLModel(base_joint)
                 _srl_model.load_state_dict(
                     torch.load(
                         os.path.join(MODEL_PATH, "pytorch_model.bin"),

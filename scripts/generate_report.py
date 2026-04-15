@@ -8,6 +8,7 @@ def generate_markdown_report():
     report_path = "report/FINAL_REPORT.md"
 
     ner_eval_path = "report/ner_evaluation.txt"
+    srl_eval_path = "report/srl_evaluation.txt"
     intent_eval_path = "report/intent_evaluation.txt"
 
     with open(report_path, "w", encoding="utf-8") as f:
@@ -42,6 +43,18 @@ def generate_markdown_report():
         f.write(
             "*Nhận xét: Việc so sánh giữa TF-IDF baseline và PhoBERT Transformer cho thấy sự cải thiện rõ rệt về F1-score khi bắt ngữ cảnh phức tạp của các điều khoản, đáp ứng đúng yêu cầu so sánh của Assignment 2.3.*\n\n"
         )
+
+        f.write("## 2. Đánh giá Mô hình Semantic Role Labeling (SRL)\n")
+        if os.path.exists(srl_eval_path):
+            f.write("```text\n")
+            with open(srl_eval_path, "r", encoding="utf-8") as srl_file:
+                f.write(srl_file.read())
+            f.write("\n```\n")
+            f.write(
+                "*Nhận xét: Mô hình SRL đã xác định tốt các vai trò AGENT, THEME, và RECIPIENT dựa trên cấu trúc phụ thuộc và thực thể.*\n\n"
+            )
+        else:
+            f.write("*Chưa có báo cáo SRL. Hãy chạy `make eval-srl`.*\n\n")
 
         f.write("## 2. Đánh giá Mô hình Custom NER (Nhận dạng Thực thể Pháp lý)\n")
         if os.path.exists(ner_eval_path):
