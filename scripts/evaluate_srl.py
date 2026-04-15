@@ -5,16 +5,16 @@ import sys
 import torch
 from sklearn.metrics import classification_report
 from tqdm import tqdm
-from transformers import AutoTokenizer
+from transformers import AutoConfig, AutoModel, AutoTokenizer
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.extraction.srl_engine import (
     BASE_MODEL_NAME,
     ID2SRL,
     MODEL_PATH,
-    JointSRLModel,
-    RobustSRLModel,
+    SRL2ID,
 )
+from src.models.robust_base import JointSRLModel, RobustSRLModel
 
 
 def evaluate_srl():
@@ -30,8 +30,10 @@ def evaluate_srl():
     print("--- Initializing SRL Model for Evaluation ---")
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
 
-    # Reconstruct the model architecture
-    base_joint = JointSRLModel()
+    # Reconstruct the model architecture with the semantic base
+    config = AutoConfig.from_pretrained(BASE_MODEL_NAME)
+    sem_base = AutoModel.from_config(config)
+    base_joint = JointSRLModel(sem_base)
     model = RobustSRLModel(base_joint)
 
     # Load weights
@@ -59,26 +61,37 @@ def evaluate_srl():
 
     for item in tqdm(test_data, desc="SRL Inference"):
         original_ids = item["input_ids"]
+
         # Match training preprocessing: [BOS] + ids + [EOS]
         input_ids_batched = (
             [tokenizer.bos_token_id] + original_ids + [tokenizer.eos_token_id]
         )
 
+        # We must load the real structural features from the test data and pad with 0 for BOS/EOS
+        feat_ner = [0] + item["ner_ids"] + [0]
+        feat_dep = [0] + item["dep_ids"] + [0]
+        feat_p_ner = [0] + item["p_ner_ids"] + [0]
+
         if len(input_ids_batched) > 256:
             input_ids_batched = input_ids_batched[:256]
+            feat_ner = feat_ner[:256]
+            feat_dep = feat_dep[:256]
+            feat_p_ner = feat_p_ner[:256]
 
         input_tensor = torch.tensor([input_ids_batched]).to(device)
         attn_mask = torch.tensor([[1] * len(input_ids_batched)]).to(device)
+        ner_tensor = torch.tensor([feat_ner], dtype=torch.long).to(device)
+        dep_tensor = torch.tensor([feat_dep], dtype=torch.long).to(device)
+        p_ner_tensor = torch.tensor([feat_p_ner], dtype=torch.long).to(device)
 
         with torch.no_grad():
-            # Pass placeholders for structural features (ner_ids, dep_ids, p_ner_ids)
-            # as the test JSON only contains text tokens
+            # Feed the real structural features instead of zeros
             outputs = model(
                 input_ids=input_tensor,
                 attention_mask=attn_mask,
-                ner_ids=torch.zeros_like(input_tensor),
-                dep_ids=torch.zeros_like(input_tensor),
-                p_ner_ids=torch.zeros_like(input_tensor),
+                ner_ids=ner_tensor,
+                dep_ids=dep_tensor,
+                p_ner_ids=p_ner_tensor,
             )
             logits = outputs["logits"]
 
@@ -89,8 +102,6 @@ def evaluate_srl():
         true_tags_str = item["srl_tags"]
 
         # Convert true string tags to IDs for comparison
-        from src.extraction.srl_engine import SRL2ID
-
         true_tags = [SRL2ID.get(t, 0) for t in true_tags_str]
 
         # Sync lengths
@@ -103,7 +114,7 @@ def evaluate_srl():
     report = classification_report(
         y_true,
         y_pred,
-        labels=range(len(ID2SRL)),
+        labels=list(range(len(ID2SRL))),
         target_names=target_names,
         zero_division=0,
         digits=4,
