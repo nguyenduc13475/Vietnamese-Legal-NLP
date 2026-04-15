@@ -57,6 +57,37 @@ class SRLTrainer(Trainer):
         return (loss, outputs) if return_outputs else loss
 
 
+class CustomSRLDataCollator(DataCollatorForTokenClassification):
+    """
+    Custom collator to handle padding for our additional structural features
+    (ner_ids, dep_ids, p_ner_ids) alongside the standard input_ids.
+    """
+
+    def __call__(self, features):
+        # 1. Temporarily remove the custom features
+        ner_ids = [feature.pop("ner_ids") for feature in features]
+        dep_ids = [feature.pop("dep_ids") for feature in features]
+        p_ner_ids = [feature.pop("p_ner_ids") for feature in features]
+
+        # 2. Let the standard collator pad input_ids, attention_mask, and labels
+        batch = super().__call__(features)
+
+        # 3. Determine the dynamic max length of the padded batch
+        batch_max_len = batch["input_ids"].shape[1]
+
+        # 4. Pad our custom features with 0 to match the batch max length
+        padded_ner = [n + [0] * (batch_max_len - len(n)) for n in ner_ids]
+        padded_dep = [d + [0] * (batch_max_len - len(d)) for d in dep_ids]
+        padded_p_ner = [p + [0] * (batch_max_len - len(p)) for p in p_ner_ids]
+
+        # 5. Add them back to the batch as tensors
+        batch["ner_ids"] = torch.tensor(padded_ner, dtype=torch.long)
+        batch["dep_ids"] = torch.tensor(padded_dep, dtype=torch.long)
+        batch["p_ner_ids"] = torch.tensor(padded_p_ner, dtype=torch.long)
+
+        return batch
+
+
 def train_srl(epochs, batch_size, lr):
     print("--- Starting SRL Training (Robust Architecture) ---")
     tokenizer = AutoTokenizer.from_pretrained(BASE_MODEL_NAME)
@@ -143,7 +174,7 @@ def train_srl(epochs, batch_size, lr):
         args=training_args,
         train_dataset=train_ds,
         eval_dataset=eval_ds,
-        data_collator=DataCollatorForTokenClassification(tokenizer),
+        data_collator=CustomSRLDataCollator(tokenizer),
         compute_metrics=compute_metrics,
     )
 
