@@ -26,9 +26,9 @@ class MultiSampleDropoutWrapper(nn.Module):
 class SRLStructuralSubmodel(nn.Module):
     def __init__(
         self,
-        ner_vocab_size=20,
-        dep_vocab_size=50,
-        parent_ner_vocab_size=20,
+        ner_vocab_size=10,
+        dep_vocab_size=30,
+        parent_ner_vocab_size=10,
         embed_dim=32,
     ):
         super().__init__()
