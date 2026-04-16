@@ -8,12 +8,13 @@ stanza>=1.8.2
 seqeval>=1.2.2
 datasets>=2.14.5
 accelerate>=0.21.0
+safetensors>=0.4.0
 
 # --- LLM & RAG ---
-google-genai>=1.71.0
+google-genai>=1.0.0
 langchain>=0.1.0
 langchain-community>=0.0.10
-langchain-google-genai>=4.0.0
+langchain-google-genai>=1.0.0
 langchain-huggingface>=0.0.3
 langchain-chroma>=0.1.1
 chromadb>=0.4.10
@@ -27,8 +28,8 @@ python-multipart>=0.0.9
 httpx>=0.24.1
 
 # --- Utilities ---
-pytest>=7.4.0
 python-dotenv>=1.0.0
 pypdf>=4.1.0
 python-docx>=1.1.0
 aspose-words>=24.2.0
+pyyaml>=6.0.1

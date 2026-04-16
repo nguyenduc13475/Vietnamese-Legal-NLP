@@ -22,7 +22,6 @@ st.markdown(
 
 
 # --- UTILS ---
-@st.cache_data()
 def fetch_sources():
     try:
         # Connect to the correct endpoint provided by the LegalRetriever

@@ -1,7 +1,11 @@
-.PHONY: install clean-docs auto-annotate run-pipeline run-api run-ui build-db train-ner train-srl train-seg eval-ner eval-srl eval-seg train-intent eval-intent clean generate-report
+.PHONY: install check-models clean-docs auto-annotate run-pipeline run-api run-ui build-db train-ner train-srl train-seg eval-ner eval-srl eval-seg train-intent eval-intent clean generate-report
 
 install:
 	pip install -r requirements.txt
+
+check-models:
+	@if [ ! -d "models/ner" ]; then echo "Error: models/ner not found. Please download models from Google Drive link in README and extract to models/ folder."; exit 1; fi
+	@echo "All model directories verified.
 
 clean-docs:
 	@echo "Cleaning and Auto-filling raw contracts via Gemini..."

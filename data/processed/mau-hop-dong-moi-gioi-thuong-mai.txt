@@ -1,0 +1,54 @@
+[ALIASES] [("Công ty Cổ phần Thương mại Dịch vụ Alpha", "Bên A", "Bên được môi giới"), ("Công ty TNHH Tư vấn và Môi giới Beta", "Bên B", "Bên môi giới")]
+[TITLE] [Thông tin chung] HỢP ĐỒNG DỊCH VỤ MÔI GIỚI THƯƠNG MẠI.
+[Thông tin chung] Số: 123/HĐMGTM/2024.
+[Thông tin chung] Căn cứ Luật Thương mại số 36/2005/QH11 ban hành ngày 14/06/2005.
+[Thông tin chung] Căn cứ vào nhu cầu thực tế và năng lực của các bên tham gia hợp đồng môi giới thương mại.
+[Thông tin chung] Hôm nay, ngày 20 tháng 05 năm 2024, tại thành phố Hà Nội, chúng tôi gồm có các bên dưới đây.
+[Thông tin chung] Bên được môi giới (sau đây gọi tắt là Bên A).
+[Thông tin chung] Tên tổ chức: Công ty Cổ phần Thương mại Dịch vụ Alpha.
+[Thông tin chung] Địa chỉ trụ sở: Số 10, đường Lê Lợi, quận Hoàn Kiếm, thành phố Hà Nội.
+[Thông tin chung] Mã số doanh nghiệp: 0101234567.
+[Thông tin chung] Người đại diện theo pháp luật là ông Nguyễn Văn An.
+[Thông tin chung] Chức vụ: Giám đốc.
+[Thông tin chung] Điện thoại: 0901234567.
+[Thông tin chung] Email: contact@alpha.vn.
+[Thông tin chung] Bên môi giới (sau đây gọi tắt là Bên B).
+[Thông tin chung] Tên tổ chức: Công ty TNHH Tư vấn và Môi giới Beta.
+[Thông tin chung] Địa chỉ trụ sở: Số 55, đường Nguyễn Huệ, Quận 1, Thành phố Hồ Chí Minh.
+[Thông tin chung] Mã số doanh nghiệp: 0307654321.
+[Thông tin chung] Người đại diện theo pháp luật là bà Trần Thị Bình.
+[Thông tin chung] Chức vụ: Tổng Giám đốc.
+[Thông tin chung] Điện thoại: 0912345678.
+[Thông tin chung] Email: info@beta.com.vn.
+[Thông tin chung] Hai bên cùng thỏa thuận và thống nhất ký kết hợp đồng môi giới thương mại với các điều khoản cụ thể như sau.
+[Điều 1] Đối tượng của hợp đồng là việc thực hiện các hoạt động môi giới thương mại theo yêu cầu của Bên A.
+[Điều 1] Nội dung công việc bao gồm việc đóng vai trò trung gian cho các bên mua bán hàng hóa và cung ứng dịch vụ trong quá trình đàm phán, giao kết hợp đồng.
+[Điều 1] Bên B cam kết đảm nhận và thực hiện công việc môi giới một cách chuyên nghiệp.
+[Điều 1] Đối tượng của hợp đồng này là công việc có khả năng thực hiện, không vi phạm các điều cấm của pháp luật và không trái với đạo đức xã hội.
+[Điều 2] Hợp đồng này có hiệu lực thực hiện kể từ ngày 21 tháng 05 năm 2024.
+[Điều 2] Thời gian dự kiến hoàn thành công việc là 90 ngày, tính từ ngày 21 tháng 05 năm 2024 đến hết ngày 19 tháng 08 năm 2024.
+[Điều 3 - Khoản 1] Nghĩa vụ của Bên A bao gồm việc cung cấp đầy đủ thông tin, tài liệu và các phương tiện cần thiết liên quan đến hàng hóa, dịch vụ.
+[Điều 3 - Khoản 1] Bên A có nghĩa vụ thanh toán thù lao môi giới và các chi phí hợp lý khác cho Bên B theo thỏa thuận.
+[Điều 3 - Khoản 2] Quyền của Bên A là yêu cầu Bên B thực hiện các hoạt động môi giới đúng theo nội dung đã quy định tại Điều 1 của hợp đồng này.
+[Điều 3 - Khoản 2] Trong trường hợp Bên B vi phạm nghiêm trọng các nghĩa vụ, Bên A có quyền đơn phương chấm dứt hợp đồng và yêu cầu bồi thường thiệt hại.
+[Điều 4 - Khoản 1] Nghĩa vụ của Bên B là bảo quản các mẫu hàng hóa, tài liệu được giao và phải hoàn trả cho Bên A sau khi hoàn tất công việc.
+[Điều 4 - Khoản 1] Bên B không được tiết lộ hoặc cung cấp thông tin gây phương hại đến lợi ích của Bên A.
+[Điều 4 - Khoản 1] Bên B chịu trách nhiệm về tư cách pháp lý của các bên được môi giới nhưng không chịu trách nhiệm về khả năng thanh toán của họ.
+[Điều 4 - Khoản 1] Bên B không được tham gia thực hiện hợp đồng giữa các bên được môi giới nếu không có sự ủy quyền từ Bên A.
+[Điều 4 - Khoản 2] Quyền của Bên B là yêu cầu Bên A cung cấp thông tin, tài liệu và phương tiện cần thiết để thực hiện công việc.
+[Điều 4 - Khoản 2] Bên B được phép tiến hành các nghiệp vụ trung gian môi giới thương mại theo phạm vi đã quy định tại Điều 1.
+[Điều 4 - Khoản 2] Bên B có quyền yêu cầu Bên A chi trả thù lao môi giới theo quy định tại Điều 5 của hợp đồng này.
+[Điều 5 - Khoản 1] Tiền thù lao môi giới cho việc thực hiện công việc tại Điều 1 là 500.000.000 đồng (Bằng chữ: Năm trăm triệu đồng), đã bao gồm 10% thuế giá trị gia tăng.
+[Điều 5 - Khoản 2] Phương thức thanh toán được thực hiện bằng hình thức chuyển khoản ngân hàng vào tài khoản của Bên B trong vòng 07 ngày kể từ khi hoàn thành công việc.
+[Điều 6] Bên A có trách nhiệm thanh toán các chi phí phát sinh hợp lý liên quan đến hoạt động môi giới, ngay cả khi việc môi giới không mang lại kết quả kinh doanh.
+[Điều 6] Các chi phí khác sẽ được hai bên thỏa thuận bổ sung nếu xét thấy cần thiết và phù hợp với quy định pháp luật.
+[Điều 7 - Khoản 1] Nếu việc tiếp tục thực hiện môi giới không còn mang lại lợi ích cho Bên A, Bên A có quyền đơn phương chấm dứt hợp đồng nhưng phải thông báo cho Bên B trước 15 ngày.
+[Điều 7 - Khoản 1] Bên A phải thanh toán thù lao cho phần công việc mà Bên B đã thực hiện và bồi thường thiệt hại nếu có thỏa thuận.
+[Điều 7 - Khoản 2] Nếu Bên A vi phạm nghiêm trọng nghĩa vụ, Bên B có quyền đơn phương chấm dứt hợp đồng và yêu cầu bồi thường thiệt hại.
+[Điều 8] Trong quá trình thực hiện, nếu phát sinh tranh chấp, hai bên sẽ ưu tiên giải quyết thông qua thương lượng, hòa giải trên tinh thần hợp tác.
+[Điều 8] Nếu không thể thỏa thuận, tranh chấp sẽ được đưa ra tòa án có thẩm quyền để giải quyết theo quy định của pháp luật.
+[Điều 9] Hai bên xác nhận đã hiểu rõ quyền, nghĩa vụ, lợi ích hợp pháp và hậu quả pháp lý của việc ký kết hợp đồng này.
+[Điều 9] Bên A và Bên B cam kết tuân thủ nghiêm túc các điều khoản đã nêu và không đặt thêm điều kiện nào khác.
+[Điều 9] Hợp đồng này được lập thành 04 bản, mỗi bản gồm 05 trang, có giá trị pháp lý như nhau và mỗi bên giữ 02 bản.
+[Phần ký tên] ĐẠI DIỆN BÊN A - Giám đốc - (Ký tên, đóng dấu).
+[Phần ký tên] ĐẠI DIỆN BÊN B - Tổng Giám đốc - (Ký tên, đóng dấu).

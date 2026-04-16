@@ -1,68 +1,104 @@
 # ⚖️ Vietnamese Legal Contract NLP & RAG Pipeline
 
-[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![Transformers](https://img.shields.io/badge/🤗_Transformers-FFD21E?style=flat&logo=huggingface)](https://huggingface.co/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+**Author:** Nguyễn Văn Đức  
+**Project:** End-to-End Information Extraction and Semantic Analysis for Legal Documents.
 
-An end-to-end Natural Language Processing (NLP) pipeline and Retrieval-Augmented Generation (RAG) chatbot designed specifically for Vietnamese legal contracts. 
+This project is a sophisticated NLP pipeline designed to process, analyze, and query Vietnamese legal contracts. It transforms raw documents (PDF, DOCX, TXT) into a structured knowledge base using fine-tuned PhoBERT models and provides an interactive RAG (Retrieval-Augmented Generation) chatbot for legal Q&A.
 
-This project transforms unstructured legal documents (e.g., labor, rental, and sales contracts) into structured, queryable data, leveraging state-of-the-art Vietnamese language models.
+---
 
-## 🚀 Key Features
+## 🎥 Demo Video
+![Demo](demo/demo.gif)
 
-* **Advanced Text Preprocessing:** Clause-level segmentation, IOB Noun-Phrase (NP) chunking, and dependency parsing using `Underthesea` and `VnCoreNLP`.
-* **Legal Information Extraction:** * **Custom NER:** Fine-tuned recognition of domain-specific entities (`PARTY`, `MONEY`, `DATE`, `PENALTY`, `LAW`).
-  * **Semantic Role Labeling (SRL):** Identifies agent, predicate, and recipient roles within legal clauses.
-  * **Intent Classification:** Categorizes clauses into functional intents (*Obligation, Prohibition, Right, Termination Condition*).
-* **Interactive RAG Chatbot:** A semantic search system backed by `ChromaDB` and LLMs, allowing users to ask natural language questions about the contract and receive heavily contextualized answers with exact source citations.
+---
 
 ## 🧠 System Architecture
 
-The system is broken down into three core micro-pipelines:
-1. **Syntax Analyzer (`src/preprocessing/`):** Breaks raw `.txt` files into independent grammatical clauses.
-2. **Semantic Extractor (`src/extraction/`):** Powered by `PhoBERT`, this module extracts structured JSON representations of "who must do what, by when, and under what conditions."
-3. **Q&A Engine (`src/qa/`):** Embeds the extracted clauses using Multilingual Sentence Transformers, stores them in a Vector Database, and orchestrates the RAG pipeline via LangChain.
+The system is composed of three main modules:
+1.  **Task 1 (Preprocessing):** Clause segmentation, IOB Noun-Phrase chunking, and Dependency parsing.
+2.  **Task 2 (Semantic Extraction):** Custom NER (PARTY, MONEY, DATE...), Semantic Role Labeling (SRL), and Intent Classification (Obligation, Prohibition...).
+3.  **Task 3 (Legal RAG):** Intelligent retrieval using semantic similarity and metadata filtering, powered by Google Gemini 3.1 Flash.
 
-## 🛠️ Tech Stack
-* **Core NLP:** `underthesea`, `spacy`, Hugging Face `transformers` (PhoBERT)
-* **Vector Store & LLM:** `chromadb`, `langchain`, `sentence-transformers`, Google Gemini API
-* **Backend & API:** `FastAPI`, `Uvicorn`, `Pydantic`
-* **Frontend Demo:** `Streamlit`
+---
 
-## ⚙️ Quick Start
+## 🚀 Setup Instructions
 
-### 1. Installation
-Clone the repository and install the dependencies using Poetry or pip:
+### 1. Requirements & Installation
+Ensure you have Python 3.10+ and a virtual environment ready.
+
 ```bash
-git clone [https://github.com/yourusername/vietnamese-legal-nlp.git](https://github.com/yourusername/vietnamese-legal-nlp.git)
+git clone https://github.com/nguyenduc13475/Vietnamese-Legal-NLP.git
 cd vietnamese-legal-nlp
 python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Environment Variables
-Copy the template and add your LLM API keys:
-```bash
-cp .env.example .env
+### 2. 📥 Download Pre-trained Models
+Due to file size limits, the fine-tuned PhoBERT models are hosted on Google Drive. 
+**MANDATORY:** Download the models and extract them into the `models/` directory.
+
+- **Download Link:** [Google Drive - Legal Models](https://drive.google.com/drive/folders/1pyLIdZcm0L1XqaMwQ5BbFy4sJOMjXpUa)
+- **Structure after extraction:**
+  ```text
+  models/
+  ├── intent_regression/
+  ├── intent_transformer/
+  ├── ner/
+  ├── segmenter/
+  └── srl/
+  ```
+
+### 3. Configuration
+Rename `.env.example` to `.env` and add your Google Gemini API Key.
+```env
+GOOGLE_API_KEY="your_api_key_here"
+HF_HUB_OFFLINE=1
 ```
 
-### 3. Running the Pipeline
-You can run the full extraction pipeline on a raw text contract:
+---
+
+## 🛠️ How to Run
+
+### 🖥️ Running the Backend API
+The FastAPI backend handles all NLP heavy-lifting and Vector DB operations.
 ```bash
-python scripts/build_vector_store.py --input data/raw/hop_dong_thue_nha.txt
+make run-api
+# or
+uvicorn api.main:app --reload --port 8000
 ```
 
-### 4. Launching the UI & API
-To interact with the RAG Chatbot locally:
+### 🌐 Running the User Interface (Streamlit)
+The UI allows you to manage documents, visualize extraction results, and chat with the RAG system.
 ```bash
-# Terminal 1: Start the FastAPI backend
-make run-api 
-
-# Terminal 2: Start the Streamlit frontend
 make run-ui
+# or
+streamlit run ui/app.py
 ```
 
-## 📝 Disclaimer
-*This repository is an extended, production-oriented implementation inspired by a university NLP assignment at Ho Chi Minh City University of Technology (HCMUT). The legal models herein are for educational/demonstration purposes and do not constitute professional legal advice.*
+### ⚙️ Running the CLI Pipeline
+To process a contract directly via command line:
+```bash
+python main.py --input data/raw/your_contract.txt --output_dir output
+```
+
+### 🗄️ Rebuilding the Vector Database
+If you add new processed files to `data/processed/` and want to re-index them:
+```bash
+python scripts/build_vector_store.py --input data/processed/
+```
+
+---
+
+## 📊 Evaluation Results
+Reports for NER, SRL, and Intent Classification can be generated using:
+```bash
+make eval-ner
+make eval-srl
+make eval-intent
+make generate-report
+```
+The final report will be available at `report/FINAL_REPORT.md`.
+
+## 📜 Disclaimer
+*This tool is for educational purposes. Always consult with a qualified legal professional for actual legal analysis.*
