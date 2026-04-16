@@ -2,6 +2,7 @@ import io
 import os
 import re
 import tempfile
+import time
 import unicodedata
 
 import aspose.words as aw
@@ -35,12 +36,47 @@ def clean_document_with_gemini(filepath: str, api_key: str) -> str:
         # Upload to Gemini Cloud
         uploaded_file = client.files.upload(file=upload_target)
 
-        # Generate cleaned content
-        response = client.models.generate_content(
-            model="gemini-3.1-flash-lite-preview",
-            contents=[DOCUMENT_CLEANING_PROMPT, uploaded_file],
-            config=types.GenerateContentConfig(temperature=0.4),
-        )
+        # Generate cleaned content with multi-model fallback and retry
+        models_to_try = [
+            "gemini-3.1-flash-lite-preview",
+            "gemini-2.5-flash",
+            "gemini-3-flash-preview",
+            "gemini-2.5-flash-lite-preview-09-2025",
+            "gemma-3-27b-it",
+        ]
+        max_full_rolls = 5
+        last_error = None
+        response = None
+
+        for roll in range(max_full_rolls):
+            for model_name in models_to_try:
+                try:
+                    response = client.models.generate_content(
+                        model=model_name,
+                        contents=[DOCUMENT_CLEANING_PROMPT, uploaded_file],
+                        config=types.GenerateContentConfig(temperature=0.4),
+                    )
+                    break  # Success, break inner loop
+                except Exception as e:
+                    last_error = e
+                    print(
+                        f"[Document Parser Warning] Model {model_name} failed. Retrying in 5s... Error: {str(e)}"
+                    )
+                    time.sleep(5)
+
+            if response:
+                break  # Success, break outer loop
+
+            if roll < max_full_rolls - 1:
+                print(
+                    f"[Document Parser Warning] All models failed in roll {roll + 1}/{max_full_rolls}. Waiting 60s before next roll..."
+                )
+                time.sleep(60)
+
+        if not response:
+            raise Exception(
+                f"Gemini API completely failed to parse document after {max_full_rolls} full rolls. Last error: {str(last_error)}"
+            )
 
         return response.text.strip()
 

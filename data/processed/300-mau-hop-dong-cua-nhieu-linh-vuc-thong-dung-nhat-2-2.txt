@@ -1,0 +1,124 @@
+[ALIASES] [("Bên sử dụng dịch vụ", "Bên A"), ("Bên cung ứng dịch vụ", "Bên B")]
+[TITLE] [Thông tin chung] HỢP ĐỒNG TỔ CHỨC TIỆC TẤT NIÊN
+[Thông tin chung] Số: 01/HĐDV/2024.
+[Thông tin chung] Hôm nay, ngày 15 tháng 12 năm 2023, tại địa chỉ Tầng 5, Tòa nhà ABC, Số 123 Đường Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh, chúng tôi bao gồm:
+[Thông tin chung] Căn cứ Bộ luật dân sự 2015.
+[Thông tin chung] Căn cứ Luật thương mại 2005.
+[Thông tin chung] Căn cứ vào nhu cầu và khả năng thực tế của các bên tham gia.
+
+[Thông tin chung] Bên sử dụng dịch vụ (sau đây gọi là bên A):
+[Thông tin chung] CÔNG TY CỔ PHẦN PHÁT TRIỂN CÔNG NGHỆ SÁNG TẠO.
+[Thông tin chung] Địa chỉ: Số 123 Đường Nguyễn Văn Linh, Phường Tân Phong, Quận 7, TP. Hồ Chí Minh.
+[Thông tin chung] Mã số thuế: 0301234567.
+[Thông tin chung] Tel: 028.1234.5678.
+[Thông tin chung] Fax: 028.1234.5679.
+[Thông tin chung] Đại diện theo ủy quyền: Ông Nguyễn Văn An.
+[Thông tin chung] Chức vụ: Giám đốc Marketing.
+[Thông tin chung] CMND số: 079123456789.
+[Thông tin chung] Ngày cấp: 10/01/2010.
+[Thông tin chung] Nơi cấp: Công an TP. Hồ Chí Minh.
+[Thông tin chung] Địa chỉ thường trú: Số 456 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh.
+[Thông tin chung] Nơi cư trú hiện tại: Số 456 Đường Lê Lợi, Phường Bến Thành, Quận 1, TP. Hồ Chí Minh.
+[Thông tin chung] Phạm vi đại diện theo ủy quyền được xác định theo Hợp đồng ủy quyền số 001/HĐUQ-2023 ngày 05 tháng 12 năm 2023.
+
+[Thông tin chung] Bên cung ứng dịch vụ (sau đây gọi là bên B):
+[Thông tin chung] CÔNG TY TNHH SỰ KIỆN HOÀNG GIA.
+[Thông tin chung] Địa chỉ: Số 789 Đường Cách Mạng Tháng Tám, Phường 11, Quận 3, TP. Hồ Chí Minh.
+[Thông tin chung] Mã số thuế: 0309876543.
+[Thông tin chung] Tel: 028.9876.5432.
+[Thông tin chung] Fax: 028.9876.5431.
+[Thông tin chung] Đại diện theo pháp luật: Bà Lê Thị Bình.
+[Thông tin chung] Chức vụ: Giám đốc.
+[Thông tin chung] CMND số: 079987654321.
+[Thông tin chung] Ngày cấp: 20/02/2012.
+[Thông tin chung] Nơi cấp: Công an TP. Hồ Chí Minh.
+[Thông tin chung] Địa chỉ thường trú: Số 101 Đường Trần Quốc Thảo, Phường 7, Quận 3, TP. Hồ Chí Minh.
+[Thông tin chung] Nơi cư trú hiện tại: Số 101 Đường Trần Quốc Thảo, Phường 7, Quận 3, TP. Hồ Chí Minh.
+[Thông tin chung] Thông tin liên lạc: Email: binh.le@hoanggiaevent.vn.
+
+[Thông tin chung] Hai bên đã cùng bàn bạc và thống nhất đi tới thỏa thuận các nội dung sau đây:
+
+[Điều 1] ĐIỀU 1. CÔNG VIỆC ĐẢM NHIỆM
+[Điều 1 - Khoản 1] Bên A đồng ý thuê bên B để tổ chức sự kiện tiệc “Liên hoan tất niên – Mừng xuân Giáp Thìn” cho toàn thể cán bộ, nhân viên của Công ty A.
+[Điều 1 - Khoản 2] Sự kiện “Liên hoan tất niên – Mừng xuân Giáp Thìn” dự kiến được tổ chức trong khung giờ từ 19:30 đến 22:30 ngày 20/01/2024 tại trụ sở chính của bên A, số 123 Đường Nguyễn Văn Linh, Phường Tân Phong, Quận 7, TP. Hồ Chí Minh.
+[Điều 1 - Khoản 3] Số lượng người tham dự dự kiến là 1.000 người.
+[Điều 1 - Khoản 4] Các hoạt động chính trong sự kiện bao gồm:
+[Điều 1 - Khoản 4a] Giao lưu văn nghệ và tham gia hàng loạt game show.
+[Điều 1 - Khoản 4b] Trao giải, vinh danh các cá nhân, đội nhóm có thành tích hoạt động xuất sắc và có đóng góp lớn cho Công ty trong năm 2023.
+[Điều 1 - Khoản 4c] Liên hoan tiệc buffet.
+
+[Điều 2] ĐIỀU 2. ĐIỀU KIỆN TIẾN HÀNH CÔNG VIỆC
+[Điều 2 - Khoản 1] Bên A yêu cầu bên B thành lập một nhóm gồm 10 người có kinh nghiệm làm việc từ 03 năm trở lên tại Công ty B để lập kế hoạch, điều hành và tổ chức sự kiện.
+[Điều 2 - Khoản 2] Bên B có trách nhiệm gửi danh sách kèm thông tin chi tiết của 10 người phụ trách sự kiện cho bên A ngay tại thời điểm ký kết hợp đồng này.
+[Điều 2 - Khoản 3] Toàn bộ cơ sở vật chất và trang thiết bị cần thiết cho sự kiện sẽ do bên B cung cấp và chịu trách nhiệm vận chuyển đến trụ sở của bên A.
+[Điều 2 - Khoản 4] Các điều kiện cụ thể về cơ sở vật chất và phương tiện chuyên chở sẽ được quy định chi tiết tại Phụ lục đính kèm Hợp đồng này.
+
+[Điều 3] ĐIỀU 3. GIÁ TRỊ HỢP ĐỒNG
+[Điều 3 - Khoản 1] Giá dịch vụ: 18.500.000 đồng (Bằng chữ: Mười tám triệu năm trăm nghìn đồng chẵn).
+[Điều 3 - Khoản 2] Mức giá nêu trên đã bao gồm thuế giá trị gia tăng (VAT) 10%.
+[Điều 3 - Khoản 3] Trong trường hợp công việc được thực hiện không đảm bảo chất lượng như cam kết, bên B phải giảm 15% giá dịch vụ đã thỏa thuận cho bên A.
+[Điều 3 - Khoản 4] Cách thức thanh toán: Bên A sẽ thanh toán giá dịch vụ cho bên B ngay sau khi chấm dứt hợp đồng, dựa trên chất lượng công việc đã hoàn thành.
+[Điều 3 - Khoản 5] Bên A sẽ thanh toán theo phương thức chuyển khoản với thông tin tài khoản của bên B như sau:
+[Điều 3 - Khoản 5a] Chủ tài khoản: CÔNG TY TNHH SỰ KIỆN HOÀNG GIA.
+[Điều 3 - Khoản 5b] Số tài khoản: 1234567890123.
+[Điều 3 - Khoản 5c] Ngân hàng: Ngân hàng TMCP Ngoại thương Việt Nam (Vietcombank).
+[Điều 3 - Khoản 5d] Chi nhánh: Chi nhánh Hồ Chí Minh.
+
+[Điều 4] ĐIỀU 4. NGHĨA VỤ CỦA BÊN A
+[Điều 4 - Khoản 1] Cung cấp các thông tin, tài liệu và phương tiện cần thiết, đồng thời tạo điều kiện thuận lợi nhất để bên B tổ chức sự kiện.
+[Điều 4 - Khoản 2] Hợp tác và hỗ trợ bên B trong suốt quá trình trước, trong và sau khi sự kiện diễn ra tại trụ sở của Công ty A.
+[Điều 4 - Khoản 3] Phối hợp với bên B để giải quyết mọi vấn đề phát sinh trong buổi tiệc.
+[Điều 4 - Khoản 4] Thanh toán tiền dịch vụ cho bên B theo đúng thỏa thuận đã ký kết.
+
+[Điều 5] ĐIỀU 5. QUYỀN CỦA BÊN A
+[Điều 5 - Khoản 1] Yêu cầu bên B thực hiện công việc đúng chất lượng, số lượng, thời hạn, địa điểm và các thỏa thuận khác.
+[Điều 5 - Khoản 2] Nhận được dịch vụ tốt nhất và đầy đủ nhất do bên B cung cấp.
+[Điều 5 - Khoản 3] Quản lý và giám sát các hoạt động do bên B cung cấp và thực hiện.
+[Điều 5 - Khoản 4] Đơn phương chấm dứt hợp đồng và yêu cầu bồi thường thiệt hại nếu bên B vi phạm nghiêm trọng các nghĩa vụ trong quá trình thực hiện hợp đồng.
+
+[Điều 6] ĐIỀU 6. NGHĨA VỤ CỦA BÊN B
+[Điều 6 - Khoản 1] Thực hiện công việc đúng chất lượng, số lượng theo thời hạn và địa điểm đã thỏa thuận.
+[Điều 6 - Khoản 2] Không được giao cho bên thứ ba tổ chức thay công việc mà không có sự đồng ý của bên A.
+[Điều 6 - Khoản 3] Bảo quản và giao lại cho bên A toàn bộ tài liệu và phương tiện mà bên A đã giao cho sau khi hoàn thành công việc.
+[Điều 6 - Khoản 4] Giữ bí mật mọi thông tin mà mình biết được về bên A.
+[Điều 6 - Khoản 5] Cung cấp hóa đơn VAT hợp lệ cho bên A.
+[Điều 6 - Khoản 6] Giảm giá dịch vụ cho bên A nếu việc cung ứng dịch vụ không đảm bảo chất lượng.
+[Điều 6 - Khoản 7] Bồi thường thiệt hại nếu vi phạm nghiêm trọng nghĩa vụ trong quá trình thực hiện hợp đồng.
+
+[Điều 7] ĐIỀU 7. QUYỀN CỦA BÊN B
+[Điều 7 - Khoản 1] Yêu cầu bên A cung cấp thông tin, tài liệu và phương tiện cần thiết để tổ chức sự kiện.
+[Điều 7 - Khoản 2] Từ chối thực hiện dịch vụ nếu công việc mà bên A yêu cầu vi phạm điều cấm của pháp luật, trái đạo đức xã hội hoặc trái với Điều lệ của Công ty B.
+[Điều 7 - Khoản 3] Yêu cầu bên A thanh toán tiền dịch vụ theo đúng thỏa thuận.
+
+[Điều 8] ĐIỀU 8. BẤT KHẢ KHÁNG
+[Điều 8 - Khoản 1] Sự kiện bất khả kháng là những sự kiện xảy ra một cách khách quan, không thể lường trước được và không thể khắc phục được mặc dù đã áp dụng mọi biện pháp cần thiết và khả năng cho phép.
+[Điều 8 - Khoản 2] Trong trường hợp bên có nghĩa vụ không thực hiện hoặc vi phạm nghiêm trọng nghĩa vụ do sự kiện bất khả kháng, bên đó sẽ không phải chịu trách nhiệm dân sự, trừ trách nhiệm bồi thường thiệt hại do vi phạm nghĩa vụ.
+
+[Điều 9] ĐIỀU 9. CAM KẾT BẢO MẬT
+[Điều 9 - Khoản 1] Bên B có trách nhiệm giữ bí mật mọi thông tin về bên A mà mình biết được trong thời gian thực hiện công việc.
+[Điều 9 - Khoản 2] Vi phạm cam kết bảo mật này sẽ được coi là vi phạm nghiêm trọng nghĩa vụ.
+
+[Điều 10] ĐIỀU 10. BỒI THƯỜNG THIỆT HẠI
+[Điều 10 - Khoản 1] Trường hợp một trong các bên vi phạm bất kỳ điều khoản nào trong Hợp đồng này hoặc Phụ lục đính kèm Hợp đồng, bên vi phạm phải bồi thường cho bên bị vi phạm về toàn bộ thiệt hại do việc vi phạm của mình gây ra.
+[Điều 10 - Khoản 2] Bên B phải bồi thường thiệt hại cho bên A nếu dịch vụ được cung ứng không đạt được như thỏa thuận ban đầu.
+
+[Điều 11] ĐIỀU 11. CHẤM DỨT HỢP ĐỒNG
+[Điều 11 - Khoản 1] Hợp đồng này sẽ chấm dứt khi bên B hoàn thành công việc đảm nhiệm theo Điều 1 của Hợp đồng.
+[Điều 11 - Khoản 2] Bên A có quyền đơn phương chấm dứt hợp đồng trước khi công việc được hoàn thành nếu bên B vi phạm nghiêm trọng nghĩa vụ trong quá trình thực hiện hợp đồng.
+
+[Điều 12] ĐIỀU 12. GIẢI QUYẾT TRANH CHẤP
+[Điều 12 - Khoản 1] Mọi tranh chấp phát sinh liên quan đến Hợp đồng này sẽ được giải quyết thông qua thương lượng và hòa giải giữa các bên.
+[Điều 12 - Khoản 2] Trong trường hợp hòa giải không thành công, các bên có quyền yêu cầu Tòa án nhân dân nơi bên A đặt trụ sở chính để tiến hành giải quyết.
+
+[Điều 13] ĐIỀU 13. HIỆU LỰC HỢP ĐỒNG
+[Điều 13 - Khoản 1] Hợp đồng này có hiệu lực kể từ ngày ký.
+[Điều 13 - Khoản 2] Hợp đồng được lập thành 02 (hai) bản có giá trị pháp lý ngang nhau, mỗi bên giữ một bản.
+[Điều 13 - Khoản 3] Phụ lục và các văn bản đính kèm Hợp đồng là bộ phận không thể tách rời và có giá trị pháp lý như những điều khoản được ghi nhận trong Hợp đồng này.
+
+[Phần ký tên] Bên A
+[Phần ký tên] (Ký tên, đóng dấu)
+[Phần ký tên] Nguyễn Văn An
+
+[Phần ký tên] Bên B
+[Phần ký tên] (Ký tên, đóng dấu)
+[Phần ký tên] Lê Thị Bình

@@ -376,21 +376,33 @@ with tab_chat:
                             f"**[{i + 1}] File:** `{meta.get('source')}` | **Vị trí:** `{meta.get('context', 'Chung')}`"
                         )
 
-                        # Display breakdown if exists
+                        # Display semantic matching breakdown for transparency
+                        srl_raw_meta = meta.get("score_srl_breakdown", "{}")
                         try:
-                            breakdown = ast.literal_eval(
-                                meta.get("score_srl_breakdown", "{}")
+                            # Use safe evaluation for internal metadata string
+                            breakdown = (
+                                ast.literal_eval(srl_raw_meta)
+                                if isinstance(srl_raw_meta, str)
+                                else srl_raw_meta
                             )
-                            if breakdown:
-                                with st.expander("📊 SRL Match Details"):
+
+                            # Bỏ điều kiện predicate_match > 0 để hiện toàn bộ breakdown
+                            if (
+                                isinstance(breakdown, dict)
+                                and "predicate_match" in breakdown
+                            ):
+                                with st.expander("📊 Semantic Analysis Details"):
                                     st.write(
-                                        f"Predicate Match: {breakdown.get('predicate_match')}"
+                                        f"**Predicate Similarity:** {breakdown.get('predicate_match', 0)}"
                                     )
-                                    st.write(
-                                        "Role Points:", breakdown.get("role_matches")
+                                    if breakdown.get("role_matches"):
+                                        st.write("**Role Alignments:**")
+                                        st.json(breakdown.get("role_matches"))
+                                    st.caption(
+                                        f"Final Semantic Weight: {breakdown.get('role_final_score', 0)}"
                                     )
                         except Exception:
-                            pass
+                            st.caption("Detailed scores unavailable for this record.")
 
                         st.write(
                             f"> {src['content']}"

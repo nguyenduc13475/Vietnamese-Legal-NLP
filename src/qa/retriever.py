@@ -128,21 +128,29 @@ class LegalRetriever:
 
         return max_score
 
-    def _calculate_srl_score(self, blueprint_srl: dict, doc_metadata: dict) -> float:
+    def _calculate_srl_score(
+        self, blueprint_srl: dict, doc_metadata: dict, bp_pred_emb: list = None
+    ) -> tuple:
         """
         Heuristic rule-based scoring for SRL. Range [0, 1].
+        Returns (total_score, breakdown_dict)
         """
+        default_breakdown = {
+            "predicate_match": 0.0,
+            "role_matches": {},
+            "role_final_score": 0.0,
+        }
+
         if not blueprint_srl or not isinstance(blueprint_srl, dict):
-            return 0.0
+            return 0.0, default_breakdown
 
         try:
             doc_pred = str(doc_metadata.get("predicate", "")).lower().strip()
             doc_roles = ast.literal_eval(doc_metadata.get("srl_roles", "{}"))
-            # Fetch aliases from metadata
             aliases_str = str(doc_metadata.get("aliases", "[]"))
-        except Exception as e:
-            print(f"Metadata parsing error: {e}")
-            return 0.0
+        except Exception:
+            # Metadata might be corrupted or missing
+            return 0.0, default_breakdown
 
         bp_pred = str(blueprint_srl.get("predicate", "N/A")).lower().strip()
         bp_roles = blueprint_srl.get("roles", {})
@@ -155,31 +163,31 @@ class LegalRetriever:
             elif bp_pred in doc_pred or doc_pred in bp_pred:
                 score += 0.25
             else:
-                # Nâng cấp: Dùng Semantic Embedding để bắt từ đồng nghĩa (VD: "thanh toán" vs "trả tiền")
+                # Use semantic embedding for synonym matching (e.g., "thanh toán" vs "trả tiền")
                 try:
-                    # Lấy vector embedding cho 2 cụm động từ
-                    emb_bp = self.embeddings.embed_query(bp_pred)
+                    # Use pre-calculated query embedding if provided to save API/compute time
+                    emb_bp = (
+                        bp_pred_emb
+                        if bp_pred_emb
+                        else self.embeddings.embed_query(bp_pred)
+                    )
                     emb_doc = self.embeddings.embed_query(doc_pred)
 
-                    # Tính Cosine Similarity bằng thuật toán thuần (không cần import thêm thư viện)
                     dot_product = sum(a * b for a, b in zip(emb_bp, emb_doc))
                     norm_bp = sum(a * a for a in emb_bp) ** 0.5
                     norm_doc = sum(b * b for b in emb_doc) ** 0.5
 
                     cos_sim = (
-                        dot_product / (norm_bp * norm_doc)
+                        (dot_product / (norm_bp * norm_doc))
                         if (norm_bp * norm_doc) > 0
                         else 0.0
                     )
 
-                    # Chỉ cộng điểm nếu độ tương đồng ngữ nghĩa đủ cao (ngưỡng > 0.6)
                     if cos_sim > 0.6:
-                        # Scale điểm cosine từ dải (0.6 -> 1.0) sang điểm SRL (0.0 -> 0.2)
                         score += ((cos_sim - 0.6) / 0.4) * 0.2
                 except Exception:
-                    # Fallback về thuật toán đếm từ vựng (Jaccard) nếu embedding bị lỗi
-                    bp_words = set(bp_pred.split())
-                    doc_words = set(doc_pred.split())
+                    # Fallback to Jaccard similarity
+                    bp_words, doc_words = set(bp_pred.split()), set(doc_pred.split())
                     overlap = len(bp_words & doc_words)
                     if overlap > 0:
                         score += (overlap / max(len(bp_words), len(doc_words))) * 0.2
@@ -209,15 +217,25 @@ class LegalRetriever:
         )
         total_score = min(score + role_final, 1.0)
 
-        # Return breakdown for UI transparency
         breakdown = {
             "predicate_match": round(score, 3),
             "role_matches": {
-                k: round(v, 3) for k, v in bp_active_roles.items() if k in bp_roles
+                k: round(match_score, 3)
+                for k, match_score in zip(
+                    bp_active_roles.keys(),
+                    [
+                        self._match_with_aliases(
+                            bp_val,
+                            str(doc_roles.get(rk, "")).lower().strip(),
+                            aliases_str,
+                        )
+                        for rk, bp_val in bp_active_roles.items()
+                    ],
+                )
             },
             "role_final_score": round(role_final, 3),
         }
-        return total_score, breakdown
+        return float(total_score), breakdown
 
     def retrieve(
         self,
@@ -315,17 +333,29 @@ class LegalRetriever:
 
         srl_lambda = 0.7
         re_ranked = []
+
+        # Pre-embed the blueprint predicate once to optimize re-ranking
+        bp_pred_emb = None
+        if (
+            srl_filter
+            and srl_filter.get("predicate")
+            and srl_filter["predicate"] != "N/A"
+        ):
+            try:
+                bp_pred_emb = self.embeddings.embed_query(srl_filter["predicate"])
+            except Exception:
+                bp_pred_emb = None
+
         for doc, v_score in final_candidates:
-            # New return type (score, breakdown)
             srl_score, srl_breakdown = self._calculate_srl_score(
-                srl_filter, doc.metadata
+                srl_filter, doc.metadata, bp_pred_emb=bp_pred_emb
             )
             combined_score = v_score + (srl_lambda * srl_score)
 
-            doc.metadata["score_vector"] = round(v_score, 4)
-            doc.metadata["score_srl"] = round(srl_score, 4)
-            doc.metadata["score_srl_breakdown"] = str(srl_breakdown)  # Store for UI
-            doc.metadata["score_total"] = round(combined_score, 4)
+            doc.metadata["score_vector"] = round(float(v_score), 4)
+            doc.metadata["score_srl"] = round(float(srl_score), 4)
+            doc.metadata["score_srl_breakdown"] = str(srl_breakdown)
+            doc.metadata["score_total"] = round(float(combined_score), 4)
 
             re_ranked.append((doc, combined_score))
 

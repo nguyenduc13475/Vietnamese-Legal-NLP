@@ -44,7 +44,6 @@ def extract_info(request: ExtractRequest):
 
     for item in clauses_data:
         clause_text = item["text"]
-        from src.extraction.ner_engine import extract_ultra_entities
 
         # 1. Standard Task 2.1 NER (Filtered)
         ents_task_2_1 = extract_entities(clause_text)
@@ -381,8 +380,6 @@ async def ingest_file(file: UploadFile = File(...)):
 
     # Use centralized Gemini helper to clean
     try:
-        from src.utils.document_parser import clean_document_with_gemini
-
         text = clean_document_with_gemini(raw_path, google_api_key)
     except Exception as e:
         print(
