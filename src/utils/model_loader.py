@@ -27,10 +27,12 @@ def load_robust_classification_model(model_path, num_labels, is_token_level=True
     )
 
     try:
-        config = AutoConfig.from_pretrained(config_path, num_labels=num_labels)
-    except Exception as e:
-        print(f"Error loading config from {config_path}: {e}")
-        # Final emergency fallback to local files only
+        # Priority: Load strictly from local path without checking Hub
+        config = AutoConfig.from_pretrained(
+            config_path, num_labels=num_labels, local_files_only=True
+        )
+    except Exception:
+        # If the specific path fails, try the base cache without poking internet
         config = AutoConfig.from_pretrained(
             "vinai/phobert-base", num_labels=num_labels, local_files_only=True
         )

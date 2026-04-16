@@ -1,7 +1,6 @@
 .vscode
 .env
 venv/
-output/
 /models/
 data/vector_db/
 __pycache__/

@@ -93,16 +93,17 @@ def segment_clauses(text: str) -> list[dict]:
                     logits = model(**inputs)["logits"]
                     preds = torch.argmax(logits, dim=2)[0].cpu().numpy()
 
-                # Kiểm tra tính hợp lệ của chuỗi nhãn
-                valid_labels = [p for p in preds if 1 <= p <= 5]
-                # Nếu nhãn bị lộn xộn (ví dụ [2, 3, 2]) hoặc không có nhãn nào được dự đoán
-                if not valid_labels or not all(
-                    valid_labels[i] <= valid_labels[i + 1]
-                    for i in range(len(valid_labels) - 1)
-                ):
-                    # Force nhảy xuống phần fallback bằng cách raise lỗi hoặc skip
-                    raise ValueError("Inconsistent label sequence detected")
-
+                # Đảm bảo chuỗi nhãn luôn không giảm (non-decreasing)
+                smoothed_preds = preds.copy()
+                current_max = 0
+                for i in range(len(smoothed_preds)):
+                    if smoothed_preds[i] < current_max and smoothed_preds[i] > 0:
+                        # Nếu nhãn hiện tại bé hơn nhãn lớn nhất từng thấy,
+                        # ép nó bằng nhãn lớn nhất đó.
+                        smoothed_preds[i] = current_max
+                    else:
+                        current_max = smoothed_preds[i]
+                preds = smoothed_preds
                 input_ids = inputs["input_ids"][0].cpu().tolist()
 
                 # 3. Prepare alignment mapping to force strict substring recovery
@@ -123,12 +124,14 @@ def segment_clauses(text: str) -> list[dict]:
                     start_in_collapsed = collapsed_orig.find(target)
                     if start_in_collapsed == -1:
                         # Fallback: if not found, return cleaned reconstruction
-                        return reconstructed_text.replace("_", " ").strip()
-
-                    end_in_collapsed = start_in_collapsed + len(target) - 1
-                    actual_start = idx_map[start_in_collapsed]
-                    actual_end = idx_map[end_in_collapsed] + 1
-                    return line_to_process[actual_start:actual_end].strip()
+                        res = reconstructed_text.replace("_", " ").strip()
+                    else:
+                        end_in_collapsed = start_in_collapsed + len(target) - 1
+                        actual_start = idx_map[start_in_collapsed]
+                        actual_end = idx_map[end_in_collapsed] + 1
+                        res = line_to_process[actual_start:actual_end].strip()
+                    res = res.strip(",").strip()
+                    return res
 
                 # 4. Collect and Align blocks
                 blocks_ids = {i: [] for i in range(1, 6)}

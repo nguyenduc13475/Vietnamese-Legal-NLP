@@ -1,0 +1,2103 @@
+[
+    {
+        "clause": "CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.",
+        "entities": []
+    },
+    {
+        "clause": "Độc lập – Tự do – Hạnh phúc.",
+        "entities": []
+    },
+    {
+        "clause": "Hà Nội, ngày 20 tháng 05 năm 2024.",
+        "entities": [
+            {
+                "text": "ngày 20 tháng 05 năm 2024",
+                "label": "DATE",
+                "span": [
+                    8,
+                    33
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "HỢP ĐỒNG GIAO KHOÁN.",
+        "entities": []
+    },
+    {
+        "clause": "Số: 123/2024/HĐGK-TUANHUY.",
+        "entities": []
+    },
+    {
+        "clause": "DỰ ÁN: Xây dựng hạ tầng kỹ thuật khu đô thị mới An Khánh.",
+        "entities": []
+    },
+    {
+        "clause": "GÓI THẦU: Cung cấp hệ thống tủ điện phân phối trung thế.",
+        "entities": []
+    },
+    {
+        "clause": "Lắp đặt hệ thống tủ điện phân phối trung thế.",
+        "entities": []
+    },
+    {
+        "clause": "GIỮA 02 BÊN GỒM:.",
+        "entities": []
+    },
+    {
+        "clause": "CHỦ ĐẦU TƯ (SAU ĐÂY GỌI LÀ “BÊN A”).",
+        "entities": [
+            {
+                "text": "CHỦ ĐẦU TƯ",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    10
+                ]
+            },
+            {
+                "text": "BÊN A",
+                "label": "PARTY",
+                "span": [
+                    28,
+                    33
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG AN KHÁNH.",
+        "entities": [
+            {
+                "text": "CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG AN KHÁNH",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    40
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giấy đăng ký doanh nghiệp số: 0102030405 do Sở Kế hoạch và Đầu tư thành phố Hà Nội cấp ngày 10/01/2015.",
+        "entities": [
+            {
+                "text": "Sở Kế hoạch và Đầu tư thành phố Hà Nội",
+                "label": "PARTY",
+                "span": [
+                    44,
+                    82
+                ]
+            },
+            {
+                "text": "ngày 10/01/2015",
+                "label": "DATE",
+                "span": [
+                    87,
+                    102
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Mã số thuế: 0102030405.",
+        "entities": []
+    },
+    {
+        "clause": "Địa chỉ trụ sở chính: Số 15, đường Lê Văn Lương, quận Thanh Xuân, thành phố Hà Nội.",
+        "entities": []
+    },
+    {
+        "clause": "Điện thoại: 0243.555.666.",
+        "entities": []
+    },
+    {
+        "clause": "Fax: 0243.555.777.",
+        "entities": []
+    },
+    {
+        "clause": "Đại diện bởi: Ông Nguyễn Văn An.",
+        "entities": [
+            {
+                "text": "Ông Nguyễn Văn An",
+                "label": "PARTY",
+                "span": [
+                    14,
+                    31
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Chức vụ: Tổng Giám đốc.",
+        "entities": [
+            {
+                "text": "Tổng Giám đốc",
+                "label": "PARTY",
+                "span": [
+                    9,
+                    22
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "NHÀ CUNG CẤP (SAU ĐÂY GỌI LÀ “BÊN B”).",
+        "entities": [
+            {
+                "text": "NHÀ CUNG CẤP",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    12
+                ]
+            },
+            {
+                "text": "BÊN B",
+                "label": "PARTY",
+                "span": [
+                    30,
+                    35
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "CÔNG TY TNHH THIẾT BỊ ĐIỆN TUẤN HUY.",
+        "entities": [
+            {
+                "text": "CÔNG TY TNHH THIẾT BỊ ĐIỆN TUẤN HUY",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    35
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giấy đăng ký doanh nghiệp số: 0306070809 do Sở Kế hoạch và Đầu tư thành phố Hồ Chí Minh cấp ngày 15/02/2018.",
+        "entities": [
+            {
+                "text": "Sở Kế hoạch và Đầu tư thành phố Hồ Chí Minh",
+                "label": "PARTY",
+                "span": [
+                    44,
+                    87
+                ]
+            },
+            {
+                "text": "ngày 15/02/2018",
+                "label": "DATE",
+                "span": [
+                    92,
+                    107
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Mã số thuế: 0306070809.",
+        "entities": []
+    },
+    {
+        "clause": "Địa chỉ trụ sở chính: Số 88, đường Cách Mạng Tháng Tám, Quận 3, thành phố Hồ Chí Minh.",
+        "entities": []
+    },
+    {
+        "clause": "Điện thoại: 0283.999.888.",
+        "entities": []
+    },
+    {
+        "clause": "Fax: 0283.999.777.",
+        "entities": []
+    },
+    {
+        "clause": "Đại diện bởi: Bà Trần Thị Bích.",
+        "entities": [
+            {
+                "text": "Bà Trần Thị Bích",
+                "label": "PARTY",
+                "span": [
+                    14,
+                    30
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Chức vụ: Giám đốc.",
+        "entities": [
+            {
+                "text": "Giám đốc",
+                "label": "PARTY",
+                "span": [
+                    9,
+                    17
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "XÉT RẰNG:.",
+        "entities": [
+            {
+                "text": "XÉT RẰNG",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    8
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên A là một doanh nghiệp được thành lập hợp pháp theo pháp luật Việt Nam, hiện đã được cấp phép thực hiện Dự án xây dựng hạ tầng kỹ thuật khu đô thị mới An Khánh tại huyện Hoài Đức, thành phố Hà Nội.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "doanh nghiệp",
+                "label": "PARTY",
+                "span": [
+                    13,
+                    25
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B là một doanh nghiệp được thành lập hợp pháp theo pháp luật Việt Nam, có đầy đủ năng lực thực hiện Gói thầu cung cấp hệ thống tủ điện phân phối trung thế cho Dự án nêu trên của Bên A.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "doanh nghiệp",
+                "label": "PARTY",
+                "span": [
+                    13,
+                    25
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    182,
+                    187
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Lắp đặt hệ thống tủ điện phân phối trung thế cho Dự án nêu trên của Bên A.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    68,
+                    73
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên A chấp thuận và Bên B đồng ý cung cấp Gói thầu nêu trên cho Dự án của Bên A theo Hồ sơ mời thầu với giá trị hợp đồng là 18.236.874.500 VNĐ (Bằng chữ: Mười tám tỷ, hai trăm ba mươi sáu triệu, tám trăm bảy mươi bốn nghìn, năm trăm đồng Việt Nam), chưa bao gồm thuế giá trị gia tăng (VAT).",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    20,
+                    25
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    74,
+                    79
+                ]
+            },
+            {
+                "text": "18.236.874.500 VNĐ",
+                "label": "MONEY",
+                "span": [
+                    124,
+                    142
+                ]
+            },
+            {
+                "text": "Mười tám tỷ, hai trăm ba mươi sáu triệu, tám trăm bảy mươi bốn nghìn, năm trăm đồng Việt Nam",
+                "label": "MONEY",
+                "span": [
+                    154,
+                    246
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giá trị này bao gồm chi phí thực hiện, hoàn thành công trình trong quá trình lắp đặt, với thông số kỹ thuật, chi tiết sản phẩm, số lượng, đơn giá và thành tiền theo phụ lục chi tiết đính kèm hợp đồng ngày 20/05/2024.",
+        "entities": [
+            {
+                "text": "quá trình",
+                "label": "DATE",
+                "span": [
+                    67,
+                    76
+                ]
+            },
+            {
+                "text": "ngày 20/05/2024",
+                "label": "DATE",
+                "span": [
+                    200,
+                    215
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Khắc phục các sự cố trong quá trình lắp đặt, với thông số kỹ thuật, chi tiết sản phẩm, số lượng, đơn giá và thành tiền theo phụ lục chi tiết đính kèm hợp đồng ngày 20/05/2024.",
+        "entities": [
+            {
+                "text": "ngày 20/05/2024",
+                "label": "DATE",
+                "span": [
+                    159,
+                    174
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Hai Bên thiết lập hợp đồng này nhằm quy định các điều khoản điều chỉnh quyền và nghĩa vụ của các Bên theo nội dung thỏa thuận thống nhất.",
+        "entities": [
+            {
+                "text": "Hai Bên",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    7
+                ]
+            },
+            {
+                "text": "các Bên",
+                "label": "PARTY",
+                "span": [
+                    93,
+                    100
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Hai Bên thiết lập hợp đồng này nhằm quy định điều kiện điều chỉnh quyền và nghĩa vụ của các Bên theo nội dung thỏa thuận thống nhất.",
+        "entities": [
+            {
+                "text": "Hai Bên",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    7
+                ]
+            },
+            {
+                "text": "các Bên",
+                "label": "PARTY",
+                "span": [
+                    88,
+                    95
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "VÌ VẬY, CÁC BÊN THỎA THUẬN NHƯ SAU:.",
+        "entities": []
+    },
+    {
+        "clause": "ĐIỀU KHOẢN ĐỊNH NGHĨA.",
+        "entities": []
+    },
+    {
+        "clause": "Trừ khi ngữ cảnh có quy định khác, các thuật ngữ dưới đây được hiểu như sau:.",
+        "entities": []
+    },
+    {
+        "clause": "\"Hàng hoá cung cấp, lắp đặt\" nghĩa là các thiết bị điện trung thế, chi tiết thể hiện theo Phụ lục về Danh mục hàng hóa đính kèm.",
+        "entities": []
+    },
+    {
+        "clause": "\"Các Dịch vụ liên quan\" nghĩa là các dịch vụ hỗ trợ cho hoạt động cung cấp, lắp đặt và bảo hành hàng hóa bao gồm vận chuyển, bảo hiểm, vận hành, hỗ trợ kỹ thuật sau lắp đặt và các nghĩa vụ khác của Bên B.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    198,
+                    203
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "\"Địa điểm thực hiện\" nghĩa là khu vực thi công Dự án tại huyện Hoài Đức, thành phố Hà Nội.",
+        "entities": []
+    },
+    {
+        "clause": "\"Hợp đồng\" nghĩa là các thỏa thuận được ký kết bởi đại diện hợp pháp của Bên A và Bên B, bao gồm tất cả các hồ sơ đính kèm, phụ lục, các văn bản tham chiếu, chỉ dẫn nhà thầu, mẫu đơn dự thầu, chỉ dẫn kỹ thuật và biểu tiên lượng.",
+        "entities": [
+            {
+                "text": "đại diện hợp pháp",
+                "label": "PARTY",
+                "span": [
+                    51,
+                    68
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    73,
+                    78
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    82,
+                    87
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "\"Các hồ sơ liên quan hợp đồng\" bao gồm tất cả các phụ lục đính kèm được coi là một phần không thể tách rời của hợp đồng.",
+        "entities": []
+    },
+    {
+        "clause": "\"Các hồ sơ liên quan hợp đồng\" bao gồm tất cả biểu mẫu được coi là một phần không thể tách rời của hợp đồng.",
+        "entities": []
+    },
+    {
+        "clause": "Nếu có sự mơ hồ giữa các hồ sơ, thứ tự ưu tiên áp dụng như sau:.",
+        "entities": []
+    },
+    {
+        "clause": "Nếu có sự không thống nhất giữa các hồ sơ, thứ tự ưu tiên áp dụng như sau:.",
+        "entities": []
+    },
+    {
+        "clause": "Thỏa thuận hợp đồng.",
+        "entities": []
+    },
+    {
+        "clause": "Thư chấp nhận ngày 10/05/2024.",
+        "entities": [
+            {
+                "text": "ngày 10/05/2024",
+                "label": "DATE",
+                "span": [
+                    14,
+                    29
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Mức giá cuối cùng từ Bên B gửi cho Bên A vào ngày 04/07/2017.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    21,
+                    26
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    35,
+                    40
+                ]
+            },
+            {
+                "text": "ngày 04/07/2017",
+                "label": "DATE",
+                "span": [
+                    45,
+                    60
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Biên bản đàm phán kỹ thuật ngày 15/05/2024.",
+        "entities": [
+            {
+                "text": "ngày 15/05/2024",
+                "label": "DATE",
+                "span": [
+                    27,
+                    42
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Phụ lục hợp đồng.",
+        "entities": []
+    },
+    {
+        "clause": "\"Giá trị hợp đồng\" nghĩa là tổng số tiền Bên A phải thanh toán cho Bên B để thực hiện các quyền theo Điều 1.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    41,
+                    46
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    67,
+                    72
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "\"Giá trị hợp đồng\" nghĩa là tổng số tiền Bên A phải thanh toán cho Bên B để thực hiện các nghĩa vụ theo Điều 1.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    41,
+                    46
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    67,
+                    72
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "\"Đồng\" nghĩa là đơn vị tiền tệ hợp pháp của nước Cộng hòa xã hội chủ nghĩa Việt Nam.",
+        "entities": [
+            {
+                "text": "nước Cộng",
+                "label": "PARTY",
+                "span": [
+                    44,
+                    53
+                ]
+            },
+            {
+                "text": "xã hội chủ nghĩa Việt Nam",
+                "label": "PARTY",
+                "span": [
+                    58,
+                    83
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "\"VNĐ\" nghĩa là đơn vị tiền tệ hợp pháp của nước Cộng hòa xã hội chủ nghĩa Việt Nam.",
+        "entities": [
+            {
+                "text": "nước Cộng hò",
+                "label": "PARTY",
+                "span": [
+                    43,
+                    55
+                ]
+            },
+            {
+                "text": "xã hội chủ nghĩa Việt Nam",
+                "label": "PARTY",
+                "span": [
+                    57,
+                    82
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "\"Pháp luật Việt Nam\" nghĩa là toàn bộ hệ thống văn bản quy phạm pháp luật của nhà nước Việt Nam đã được ban hành, có hiệu lực pháp lý tại từng thời điểm.",
+        "entities": [
+            {
+                "text": "nhà nước Việt Nam",
+                "label": "PARTY",
+                "span": [
+                    78,
+                    95
+                ]
+            },
+            {
+                "text": "từng thời điểm",
+                "label": "DATE",
+                "span": [
+                    138,
+                    152
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Các sửa đổi, bổ sung tại từng thời điểm.",
+        "entities": [
+            {
+                "text": "từng thời điểm",
+                "label": "DATE",
+                "span": [
+                    25,
+                    39
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 1. GIÁ TRỊ HỢP ĐỒNG VÀ PHƯƠNG THỨC THANH TOÁN.",
+        "entities": []
+    },
+    {
+        "clause": "Giá trị hợp đồng.",
+        "entities": []
+    },
+    {
+        "clause": "Tổng giá trị hợp đồng là 18.236.874.500 VNĐ (Bằng chữ: Mười tám tỷ, hai trăm ba mươi sáu triệu, tám trăm bảy mươi bốn nghìn, năm trăm đồng Việt Nam).",
+        "entities": [
+            {
+                "text": "18.236.874.500 VNĐ",
+                "label": "MONEY",
+                "span": [
+                    25,
+                    43
+                ]
+            },
+            {
+                "text": "tỷ",
+                "label": "MONEY",
+                "span": [
+                    64,
+                    66
+                ]
+            },
+            {
+                "text": "sáu triệu",
+                "label": "MONEY",
+                "span": [
+                    85,
+                    94
+                ]
+            },
+            {
+                "text": "nghìn",
+                "label": "MONEY",
+                "span": [
+                    118,
+                    123
+                ]
+            },
+            {
+                "text": "đồng Việt Nam",
+                "label": "MONEY",
+                "span": [
+                    134,
+                    147
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giá trị này không bao gồm thuế giá trị gia tăng (VAT).",
+        "entities": []
+    },
+    {
+        "clause": "Đơn giá hợp đồng là cố định trong suốt thời gian thực hiện.",
+        "entities": [
+            {
+                "text": "thời gian thực hiện",
+                "label": "DATE",
+                "span": [
+                    39,
+                    58
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giá trị hợp đồng đã bao gồm chi phí cung cấp, vận chuyển, lắp đặt hàng hóa đến chân công trình và các dịch vụ liên quan, các loại thuế, phí theo quy định pháp luật (trừ VAT).",
+        "entities": []
+    },
+    {
+        "clause": "Đối với hàng hóa phát sinh ngoài Phụ lục, Bên A sẽ gửi yêu cầu, Bên B lập báo giá, sau khi hai bên thống nhất sẽ ký xác nhận bằng Phụ lục bổ sung.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    42,
+                    47
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    64,
+                    69
+                ]
+            },
+            {
+                "text": "bên",
+                "label": "PARTY",
+                "span": [
+                    95,
+                    98
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Điều kiện thanh toán.",
+        "entities": []
+    },
+    {
+        "clause": "Số lượng hàng hóa theo Biên bản giao nhận thực tế được hai bên xác nhận là cơ sở thanh toán.",
+        "entities": [
+            {
+                "text": "hai bên",
+                "label": "PARTY",
+                "span": [
+                    55,
+                    62
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Thanh toán được thực hiện bằng hình thức chuyển khoản theo thông tin tài khoản ngân hàng do Bên B cung cấp:.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    92,
+                    97
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Chủ tài khoản: Công ty TNHH Thiết bị điện Tuấn Huy.",
+        "entities": [
+            {
+                "text": "Chủ tài khoản",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    13
+                ]
+            },
+            {
+                "text": "Công ty TNHH Thiết bị điện Tuấn Huy",
+                "label": "PARTY",
+                "span": [
+                    15,
+                    50
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Số tài khoản: 1900123456789.",
+        "entities": []
+    },
+    {
+        "clause": "Ngân hàng: Ngân hàng TMCP Ngoại thương Việt Nam (Vietcombank) – Chi nhánh TP.HCM.",
+        "entities": [
+            {
+                "text": "Ngân hàng",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    9
+                ]
+            },
+            {
+                "text": "Ngân hàng TMCP Ngoại thương Việt Nam (Vietcombank",
+                "label": "PARTY",
+                "span": [
+                    11,
+                    60
+                ]
+            },
+            {
+                "text": "Chi nhánh TP.HCM.",
+                "label": "PARTY",
+                "span": [
+                    64,
+                    81
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Phương thức thanh toán.",
+        "entities": []
+    },
+    {
+        "clause": "Việc thanh toán được chia làm 04 giai đoạn:.",
+        "entities": []
+    },
+    {
+        "clause": "Giai đoạn 01 (tạm ứng): Bên A tạm ứng 30% giá trị hợp đồng, tương đương 5.471.062.350 VNĐ trong vòng 03 ngày làm việc kể từ khi nhận được Giấy đề nghị tạm ứng và Bản gốc.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    24,
+                    29
+                ]
+            },
+            {
+                "text": "30%",
+                "label": "RATE",
+                "span": [
+                    38,
+                    41
+                ]
+            },
+            {
+                "text": "5.471.062.350 VNĐ",
+                "label": "MONEY",
+                "span": [
+                    72,
+                    89
+                ]
+            },
+            {
+                "text": "03 ngày làm việc",
+                "label": "DATE",
+                "span": [
+                    101,
+                    117
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Thư bảo lãnh hoàn tạm ứng.",
+        "entities": []
+    },
+    {
+        "clause": "Giai đoạn 02: Sau khi Bên A nhận được thông báo tập kết hàng, cán bộ kỹ thuật kiểm tra đạt yêu cầu, Bên A thanh toán đến 60% giá trị hợp đồng trong vòng 05 ngày làm việc.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    22,
+                    27
+                ]
+            },
+            {
+                "text": "cán bộ kỹ thuật",
+                "label": "PARTY",
+                "span": [
+                    62,
+                    77
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    100,
+                    105
+                ]
+            },
+            {
+                "text": "60%",
+                "label": "RATE",
+                "span": [
+                    121,
+                    124
+                ]
+            },
+            {
+                "text": "05 ngày làm việc",
+                "label": "DATE",
+                "span": [
+                    153,
+                    169
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giai đoạn 03: Sau khi Bên B thi công lắp đặt xong Bên A thanh toán 05% giá trị hợp đồng trong vòng 05 ngày làm việc kể từ khi hoàn thành thử nghiệm.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    22,
+                    27
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    50,
+                    55
+                ]
+            },
+            {
+                "text": "05%",
+                "label": "RATE",
+                "span": [
+                    67,
+                    70
+                ]
+            },
+            {
+                "text": "05 ngày làm việc",
+                "label": "DATE",
+                "span": [
+                    99,
+                    115
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giai đoạn 03: Sau khi Bên B có Biên bản nghiệm thu hoàn thành Bên A thanh toán 05% giá trị hợp đồng trong vòng 05 ngày làm việc kể từ khi hoàn thành thử nghiệm.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    22,
+                    27
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    62,
+                    67
+                ]
+            },
+            {
+                "text": "05%",
+                "label": "RATE",
+                "span": [
+                    79,
+                    82
+                ]
+            },
+            {
+                "text": "05 ngày làm việc",
+                "label": "DATE",
+                "span": [
+                    111,
+                    127
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giai đoạn 04: Bên A thanh toán 05% giá trị hợp đồng còn lại trong vòng 10 ngày làm việc sau khi nhận giấy chứng nhận nghiệm thu từ chủ đầu tư.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    14,
+                    19
+                ]
+            },
+            {
+                "text": "05%",
+                "label": "RATE",
+                "span": [
+                    31,
+                    34
+                ]
+            },
+            {
+                "text": "10 ngày làm việc",
+                "label": "DATE",
+                "span": [
+                    71,
+                    87
+                ]
+            },
+            {
+                "text": "chủ đầu tư",
+                "label": "PARTY",
+                "span": [
+                    131,
+                    141
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 2. THỜI GIAN, ĐỊA ĐIỂM VÀ PHƯƠNG THỨC GIAO HÀNG.",
+        "entities": []
+    },
+    {
+        "clause": "Bên B chịu trách nhiệm bốc xếp chân công trình trong vòng 45 ngày kể từ ngày nhận được đơn đặt hàng chính thức của Bên A.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "45 ngày",
+                "label": "DATE",
+                "span": [
+                    58,
+                    65
+                ]
+            },
+            {
+                "text": "ngày nhận",
+                "label": "DATE",
+                "span": [
+                    72,
+                    81
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    115,
+                    120
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Giao hàng đến Bên B chịu trách nhiệm bốc xếp chân công trình trong vòng 45 ngày kể từ ngày nhận được đơn đặt hàng chính thức của Bên A.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    14,
+                    19
+                ]
+            },
+            {
+                "text": "45 ngày",
+                "label": "DATE",
+                "span": [
+                    72,
+                    79
+                ]
+            },
+            {
+                "text": "nhận",
+                "label": "DATE",
+                "span": [
+                    91,
+                    95
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    129,
+                    134
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Thời gian giao hàng phải được tuân thủ nghiêm ngặt.",
+        "entities": []
+    },
+    {
+        "clause": "Trước khi bàn giao, Bên B phải cung cấp các giấy tờ:.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    20,
+                    25
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bản gốc Chứng nhận xuất xứ.",
+        "entities": []
+    },
+    {
+        "clause": "Bản gốc Chứng nhận chất lượng.",
+        "entities": []
+    },
+    {
+        "clause": "Bản gốc Chứng nhận Hợp chuẩn.",
+        "entities": []
+    },
+    {
+        "clause": "Bản gốc Chứng nhận Quy chuẩn kỹ thuật.",
+        "entities": []
+    },
+    {
+        "clause": "Bản gốc Vận đơn.",
+        "entities": []
+    },
+    {
+        "clause": "Bản gốc Phiếu đóng gói.",
+        "entities": []
+    },
+    {
+        "clause": "Hóa đơn gốc.",
+        "entities": []
+    },
+    {
+        "clause": "Địa điểm giao hàng: Công trường Dự án tại huyện Hoài Đức, thành phố Hà Nội.",
+        "entities": []
+    },
+    {
+        "clause": "ĐIỀU 3. PHẠT DO CHẬM TRỄ GIAO NHẬN HÀNG, CHẬM THANH TOÁN.",
+        "entities": []
+    },
+    {
+        "clause": "Nếu Bên B chậm trễ giao hàng không do lỗi của Bên A, Bên B bị phạt 0,2 % mỗi tuần trên giá trị đơn hàng bị chậm, tối đa không quá 5 %.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    4,
+                    9
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    46,
+                    51
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    53,
+                    58
+                ]
+            },
+            {
+                "text": "0,2 % mỗi tuần trên giá trị",
+                "label": "PENALTY",
+                "span": [
+                    67,
+                    94
+                ]
+            },
+            {
+                "text": "bị chậm",
+                "label": "PENALTY",
+                "span": [
+                    104,
+                    111
+                ]
+            },
+            {
+                "text": "5 %",
+                "label": "PENALTY",
+                "span": [
+                    130,
+                    133
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Lắp đặt Nếu Bên B chậm trễ giao hàng không do lỗi của Bên A, Bên B bị phạt 0,2 % mỗi tuần trên giá trị đơn hàng bị chậm, tối đa không quá 5 %.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    12,
+                    17
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    54,
+                    59
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    61,
+                    66
+                ]
+            },
+            {
+                "text": "0,2 % mỗi tuần trên giá trị",
+                "label": "PENALTY",
+                "span": [
+                    75,
+                    102
+                ]
+            },
+            {
+                "text": "bị chậm",
+                "label": "PENALTY",
+                "span": [
+                    112,
+                    119
+                ]
+            },
+            {
+                "text": "5 %",
+                "label": "PENALTY",
+                "span": [
+                    138,
+                    141
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Mức phạt này không được thay đổi bằng Thư chấp nhận.",
+        "entities": []
+    },
+    {
+        "clause": "Việc thanh toán tiền phạt không miễn trừ nghĩa vụ của Bên B.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    54,
+                    59
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nếu gặp khó khăn, Bên B phải thông báo bằng văn bản cho Bên A để xem xét gia hạn.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    18,
+                    23
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    56,
+                    61
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nếu Bên A không nhận hàng theo yêu cầu, Bên A bị phạt 2% giá trị hợp đồng mỗi ngày chậm trễ, tối đa 10 ngày.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    4,
+                    9
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    40,
+                    45
+                ]
+            },
+            {
+                "text": "2% giá trị hợp đồng mỗi ngày chậm trễ",
+                "label": "PENALTY",
+                "span": [
+                    54,
+                    91
+                ]
+            },
+            {
+                "text": "10 ngày",
+                "label": "DATE",
+                "span": [
+                    100,
+                    107
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nếu Bên A chậm thanh toán, Bên A bị phạt 2% giá trị hợp đồng mỗi ngày chậm trễ, tối đa 10 ngày.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    4,
+                    9
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    27,
+                    32
+                ]
+            },
+            {
+                "text": "2% giá trị hợp đồng mỗi ngày chậm trễ",
+                "label": "PENALTY",
+                "span": [
+                    41,
+                    78
+                ]
+            },
+            {
+                "text": "10 ngày",
+                "label": "DATE",
+                "span": [
+                    87,
+                    94
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 4. KIỂM TRA HÀNG HÓA KHI GIAO NHẬN.",
+        "entities": []
+    },
+    {
+        "clause": "Bên B chịu rủi ro vận chuyển đến chân công trình.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B chịu chi phí vận chuyển đến chân công trình.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên A có quyền kiểm tra hàng hóa, nếu phát hiện không đúng thông số kỹ thuật thiếu chứng từ, Bên B phải giải trình trong 15 ngày trong 15 ngày tiếp theo.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    93,
+                    98
+                ]
+            },
+            {
+                "text": "15 ngày",
+                "label": "DATE",
+                "span": [
+                    121,
+                    128
+                ]
+            },
+            {
+                "text": "15 ngày tiếp theo",
+                "label": "DATE",
+                "span": [
+                    135,
+                    152
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên A có quyền kiểm tra hàng hóa, nếu phát hiện thay thế hàng hóa phù hợp trong 15 ngày tiếp theo.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "15 ngày tiếp theo",
+                "label": "DATE",
+                "span": [
+                    80,
+                    97
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B có trách nhiệm mua bảo hiểm hàng hóa trong quá trình vận chuyển.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nếu Bên A không bố trí người nhận hàng, Bên B có quyền vận chuyển hàng về kho.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    4,
+                    9
+                ]
+            },
+            {
+                "text": "nhận",
+                "label": "PARTY",
+                "span": [
+                    29,
+                    33
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    40,
+                    45
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên A phải chịu mọi chi phí phát sinh.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 5. CHẤT LƯỢNG, QUY CÁCH KỸ THUẬT.",
+        "entities": []
+    },
+    {
+        "clause": "Hàng hóa phải mới 100 % nguyên đai.",
+        "entities": [
+            {
+                "text": "100 %",
+                "label": "RATE",
+                "span": [
+                    18,
+                    23
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nguyên kiện.",
+        "entities": [
+            {
+                "text": "Nguyên kiện",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    11
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B đảm bảo hàng hóa không có khuyết tật do thiết kế, vật liệu.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B đảm bảo hàng hóa không có khuyết tật do tay nghề.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nhà cung cấp chịu trách nhiệm về mọi chi phí nếu hàng hóa hư hỏng do lỗi sản xuất lắp đặt cho đến khi hết hạn bảo hành.",
+        "entities": [
+            {
+                "text": "Nhà cung cấp",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    12
+                ]
+            },
+            {
+                "text": "hạn bảo hành",
+                "label": "DATE",
+                "span": [
+                    106,
+                    118
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nhà cung cấp chịu trách nhiệm về tổn thất nếu hàng hóa hư hỏng do lỗi sản xuất lắp đặt cho đến khi hết hạn bảo hành.",
+        "entities": [
+            {
+                "text": "Nhà cung cấp",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    12
+                ]
+            },
+            {
+                "text": "hạn bảo hành",
+                "label": "DATE",
+                "span": [
+                    103,
+                    115
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Của Bên A vận hành hệ thống.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    4,
+                    9
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B cung cấp đầy đủ chứng nhận xuất xứ ( CO ) chứng nhận chất lượng ( CQ ) đào tạo cán bộ kỹ thuật của Bên A vận hành hệ thống.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "cán bộ kỹ thuật",
+                "label": "PARTY",
+                "span": [
+                    85,
+                    100
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    105,
+                    110
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 6. QUYỀN VÀ NGHĨA VỤ CỦA CÁC BÊN.",
+        "entities": [
+            {
+                "text": "CÁC BÊN",
+                "label": "PARTY",
+                "span": [
+                    30,
+                    37
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Quyền và nghĩa vụ của Bên A:.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    22,
+                    27
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Kiểm tra chất lượng hàng hóa khi nhận.",
+        "entities": []
+    },
+    {
+        "clause": "Kiểm tra số lượng hàng hóa khi nhận.",
+        "entities": []
+    },
+    {
+        "clause": "Bố trí nhân sự để nhận hàng.",
+        "entities": []
+    },
+    {
+        "clause": "Phương tiện Bố trí nhân sự để nhận hàng.",
+        "entities": []
+    },
+    {
+        "clause": "Thanh toán đầy đủ tiền hàng đúng hạn.",
+        "entities": []
+    },
+    {
+        "clause": "Quyền và nghĩa vụ của Bên B:.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    22,
+                    27
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Cung cấp đầy đủ chứng từ hóa đơn GTGT hợp pháp.",
+        "entities": []
+    },
+    {
+        "clause": "Đảm bảo số lượng, chủng loại, chất lượng hàng h@@ óa đúng tiến độ.",
+        "entities": []
+    },
+    {
+        "clause": "Óa đúng tiến độ.",
+        "entities": []
+    },
+    {
+        "clause": "Thông báo kịp thời nếu không có hàng để giao.",
+        "entities": []
+    },
+    {
+        "clause": "Chịu trách nhiệm bồi thường thiệt hại nếu chậm trễ.",
+        "entities": []
+    },
+    {
+        "clause": "ĐIỀU 7. BẢO HÀNH.",
+        "entities": []
+    },
+    {
+        "clause": "Hàng hóa được bảo hành theo tiêu chuẩn nhà sản xuất, tối đa 24 tháng.",
+        "entities": [
+            {
+                "text": "24 tháng",
+                "label": "DATE",
+                "span": [
+                    60,
+                    68
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Khi có thông báo bảo hành, trong vòng 24 giờ, Bên B phải có mặt tại hiện trường để xác định lỗi.",
+        "entities": [
+            {
+                "text": "24 giờ",
+                "label": "DATE",
+                "span": [
+                    38,
+                    44
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    46,
+                    51
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Đối với các dịch vụ khẩn cấp như sửa chữa sự cố hệ thống điện, đội ngũ của Bên B phải có mặt trong vòng 02 giờ.",
+        "entities": [
+            {
+                "text": "đội ngũ",
+                "label": "PARTY",
+                "span": [
+                    63,
+                    70
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    75,
+                    80
+                ]
+            },
+            {
+                "text": "02 giờ",
+                "label": "DATE",
+                "span": [
+                    104,
+                    110
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bảo hành không áp dụng cho các hư hỏng do vận hành sai quy trình.",
+        "entities": []
+    },
+    {
+        "clause": "Bảo hành không áp dụng cho các hư hỏng do nguyên nhân khách quan.",
+        "entities": []
+    },
+    {
+        "clause": "Các yêu cầu bồi thường về khuyết tật sản xuất phải được giải quyết trước khi kết thúc thời hạn bảo hành.",
+        "entities": [
+            {
+                "text": "thời hạn",
+                "label": "DATE",
+                "span": [
+                    86,
+                    94
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 8. CHẤM DỨT HỢP ĐỒNG.",
+        "entities": []
+    },
+    {
+        "clause": "Bên A chỉ được chấm dứt hợp đồng nếu Bên B vi phạm nghĩa vụ mà không khắc phục sau khi đã được thông báo bằng văn bản.",
+        "entities": [
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    37,
+                    42
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B có quyền tạm ngưng hợp đồng nếu Bên A vi phạm nghĩa vụ thanh toán hoặc các nghĩa vụ cơ bản khác.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    38,
+                    43
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B có quyền đơn phương chấm dứt hợp đồng nếu Bên A vi phạm nghĩa vụ thanh toán hoặc các nghĩa vụ cơ bản khác.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "Bên A",
+                "label": "PARTY",
+                "span": [
+                    48,
+                    53
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên B phải thông báo bằng văn bản trước 03 ngày khi đơn phương chấm dứt.",
+        "entities": [
+            {
+                "text": "Bên B",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    5
+                ]
+            },
+            {
+                "text": "03 ngày",
+                "label": "DATE",
+                "span": [
+                    40,
+                    47
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 9. QUY ĐỊNH VỀ TRỤC LỢI.",
+        "entities": []
+    },
+    {
+        "clause": "Hai bên cam kết không chi.",
+        "entities": [
+            {
+                "text": "Hai bên",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    7
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Hai bên cam kết không nhận hoa hồng chiết khấu, tiền chênh lệch giá.",
+        "entities": [
+            {
+                "text": "Hai bên",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    7
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nếu phát hiện hành vi trục lợi, bên bị hại có quyền chấm dứt hợp đồng.",
+        "entities": [
+            {
+                "text": "bên bị hại",
+                "label": "PARTY",
+                "span": [
+                    32,
+                    42
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nếu phát hiện hành vi trục lợi, bên bị hại có quyền yêu cầu bồi thường thiệt hại.",
+        "entities": [
+            {
+                "text": "bên bị hại",
+                "label": "PARTY",
+                "span": [
+                    32,
+                    42
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "ĐIỀU 10. BẤT KHẢ KHÁNG.",
+        "entities": []
+    },
+    {
+        "clause": "Sự kiện bất khả kháng là các sự kiện khách quan không thể lường trước như thiên tai, chiến tranh, thay đổi chính sách pháp luật.",
+        "entities": []
+    },
+    {
+        "clause": "Các bên được miễn trừ nghĩa vụ nếu việc thực hiện bị chậm trễ do sự kiện bất khả kháng.",
+        "entities": [
+            {
+                "text": "Các bên",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    7
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Bên gặp sự kiện bất khả kháng phải thông báo cho bên kia trong vòng 10 ngày.",
+        "entities": [
+            {
+                "text": "Bên gặp sự kiện bất khả kháng",
+                "label": "PARTY",
+                "span": [
+                    0,
+                    29
+                ]
+            },
+            {
+                "text": "bên kia",
+                "label": "PARTY",
+                "span": [
+                    49,
+                    56
+                ]
+            },
+            {
+                "text": "10 ngày",
+                "label": "DATE",
+                "span": [
+                    68,
+                    75
+                ]
+            }
+        ]
+    },
+    {
+        "clause": "Nếu sự kiện bất khả kháng kéo dài quá 06 tháng, mỗi bên có quyền chấm dứt hợp đồng mà không phải bồi thường.",
+        "entities": [
+            {
+                "text": "06 tháng",
+                "label": "DATE",
+                "span": [
+                    38,
+                    46
+                ]
+            },
+            {
+                "text": "mỗi bên",
+                "label": "PARTY",
+                "span": [
+                    48,
+                    55
+                ]
+            }
+        ]
+    }
+]
