@@ -1,0 +1,127 @@
+[ALIASES] [("Trường Đại học Cần Thơ", "Chủ đầu tư", "Bên A"), ("Công ty TNHH Công nghệ số ABC", "Nhà thầu", "Bên B")]
+[Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
+Độc lập - Tự do - Hạnh phúc.
+[TITLE] HỢP ĐỒNG DỊCH VỤ.
+Ngày 15 tháng 05 năm 2024.
+Hợp đồng số: 123/HĐ-DV.
+Gói thầu: Cung cấp dịch vụ bảo trì thiết bị văn phòng.
+Thuộc dự toán: Ngân sách chi thường xuyên năm 2024.
+Căn cứ vào Bộ luật Dân sự số 91/2015/QH13 được Quốc hội thông qua ngày 24/11/2015.
+Căn cứ vào Luật Đấu thầu số 22/2023/QH15 được Quốc hội thông qua ngày 23/06/2023.
+Căn cứ vào Nghị định số 24/2024/NĐ-CP do Chính phủ ban hành ngày 27/02/2024 quy định chi tiết về thi hành Luật Đấu thầu trong công tác lựa chọn nhà thầu.
+Căn cứ vào Biên bản thương thảo hợp đồng cho gói thầu "Cung cấp dịch vụ bảo trì thiết bị văn phòng" được ký kết ngày 10/05/2024 giữa Trường Đại học Cần Thơ và Công ty TNHH Công nghệ số ABC.
+Căn cứ vào Quyết định số 999/QĐ-ĐHCT ban hành ngày 12/05/2024 của Hiệu trưởng Trường Đại học Cần Thơ về việc phê duyệt kết quả lựa chọn nhà thầu cho gói thầu nêu trên.
+Chúng tôi, đại diện cho các bên tham gia ký kết hợp đồng, bao gồm các thành phần sau.
+Chủ đầu tư (sau đây được gọi là Bên A).
+Tên đơn vị: TRƯỜNG ĐẠI HỌC CẦN THƠ.
+Địa chỉ: Khu II, đường 3/2, phường Xuân Khánh, quận Ninh Kiều, TP. Cần Thơ.
+Điện thoại: 0292.3832663.
+Fax: 0292.3831234.
+Tài khoản: 7410496868.
+Tại: Ngân hàng TMCP Đầu tư và Phát triển CN Cần Thơ.
+Mã số thuế: 1800424257.
+Đại diện bởi ông: Nguyễn Văn A.
+Chức vụ: Trưởng phòng Quản trị thiết bị.
+Căn cứ theo Quyết định số 10/QĐ-ĐHCT ngày 02/01/2024 của Hiệu trưởng Trường Đại học Cần Thơ về việc ủy quyền cho thủ trưởng các đơn vị thuộc trường ký thừa ủy quyền.
+Nhà thầu (sau đây được gọi là Bên B).
+Tên nhà thầu: CÔNG TY TNHH CÔNG NGHỆ SỐ ABC.
+Địa chỉ: Số 10, đường Nguyễn Văn Cừ, quận Ninh Kiều, TP. Cần Thơ.
+Điện thoại: 0909123456.
+Fax: 0292.3999888.
+Tài khoản: 102030405060.
+Mã số thuế: 1801234567.
+Đại diện bởi ông: Trần Văn B.
+Chức vụ: Giám đốc.
+Giấy ủy quyền số 05/GUQ ngày 14/05/2024.
+Hai bên thống nhất ký kết hợp đồng với các điều khoản cụ thể dưới đây.
+[Điều 1] Điều 1. Đối tượng của hợp đồng.
+Bên A giao cho Bên B thực hiện cung cấp hàng hóa và các dịch vụ liên quan theo danh mục chi tiết.
+Đơn vị tính: đồng.
+STT 1: Nội dung thực hiện là Sửa chữa máy tính, ĐVT là Cái, Số lượng là 1, Đơn giá là 500.000, Thành tiền là 500.000.
+STT 2: Nội dung thực hiện là Sửa chữa máy in, ĐVT là Cái, Số lượng là 1, Đơn giá là 500.000, Thành tiền là 500.000.
+Tổng cộng giá trị là 1.000.000.
+[Điều 2] Điều 2. Các thành phần của hợp đồng.
+Thành phần hợp đồng và thứ tự ưu tiên pháp lý được xác định như sau.
+[Điều 2 - Khoản 1] 1. Văn bản hợp đồng chính thức kèm theo các Phụ lục (nếu có).
+[Điều 2 - Khoản 2] 2. Biên bản thương thảo và hoàn thiện hợp đồng.
+[Điều 2 - Khoản 3] 3. Quyết định phê duyệt kết quả lựa chọn nhà thầu.
+[Điều 2 - Khoản 4] 4. Bản chào giá chi tiết của nhà thầu.
+[Điều 2 - Khoản 5] 5. Các tài liệu bổ sung khác liên quan (nếu có).
+[Điều 3] Điều 3. Trách nhiệm của Bên A.
+Bên A cam kết thực hiện thanh toán cho Bên B theo đúng giá trị hợp đồng và phương thức thanh toán quy định tại Điều 5.
+Bên A cam kết thực hiện đầy đủ các nghĩa vụ và trách nhiệm khác được quy định trong văn bản này.
+[Điều 4] Điều 4. Trách nhiệm của Bên B.
+Bên B cam kết cung cấp cho Bên A đầy đủ các dịch vụ phi tư vấn như đã nêu tại Điều 1.
+Bên B cam kết thực hiện nghiêm túc và đầy đủ các nghĩa vụ, trách nhiệm được ghi nhận trong hợp đồng.
+[Điều 5] Điều 5. Giá trị hợp đồng và phương thức thanh toán.
+[Điều 5 - Khoản 1] 1. Tổng giá trị hợp đồng là 1.000.000 đồng (Bằng chữ: Một triệu đồng).
+Giá trị này đã bao gồm các loại thuế, chi phí vận chuyển, lắp đặt, hướng dẫn vận hành và chi phí bảo hành tại Trường Đại học Cần Thơ.
+[Điều 5 - Khoản 2] 2. Phương thức thanh toán được quy định như sau.
+a) Hình thức thanh toán là chuyển khoản qua ngân hàng.
+b) Thời hạn thanh toán: Bên A sẽ thanh toán cho Bên B 100% giá trị hợp đồng là 1.000.000 đồng (Bằng chữ: Một triệu đồng) sau khi hoàn tất các bước.
+Bước (i): Hai bên ký kết Biên bản nghiệm thu và bàn giao hàng hóa.
+Bước (ii): Bên B cung cấp đầy đủ chứng từ thanh toán theo quy định pháp luật hiện hành.
+Bước (iii): Hai bên ký kết Biên bản thanh lý hợp đồng.
+c) Số lần thanh toán là 01 lần duy nhất sau khi hoàn thành toàn bộ khối lượng công việc.
+[Điều 6] Điều 6. Loại hợp đồng.
+Loại hình hợp đồng là Hợp đồng trọn gói.
+[Điều 7] Điều 7. Thời gian thực hiện hợp đồng.
+Thời gian thực hiện hợp đồng là 30 ngày kể từ ngày ký kết.
+[Điều 8] Điều 8. Hiệu chỉnh và bổ sung hợp đồng.
+Việc điều chỉnh hoặc bổ sung hợp đồng có thể diễn ra trong các trường hợp sau.
+a) Có sự thay đổi về phương thức thực hiện công việc.
+b) Có sự thay đổi về thời gian thực hiện hợp đồng.
+c) Các nội dung khác phát sinh theo yêu cầu thực tế.
+[Điều 8 - Khoản 2] 2. Nếu phát sinh các hạng mục công việc nằm ngoài phạm vi hợp đồng, Bên A và Bên B sẽ cùng thương thảo để làm căn cứ ký kết phụ lục bổ sung.
+[Điều 9] Điều 9. Chấm dứt hợp đồng.
+[Điều 9 - Khoản 1] 1. Bên A hoặc Bên B có quyền chấm dứt hợp đồng nếu một trong hai bên vi phạm nghiêm trọng các điều khoản đã thỏa thuận.
+a) Bên B không thực hiện một phần hoặc toàn bộ công việc theo thời hạn đã cam kết hoặc thời hạn đã được Bên A gia hạn.
+b) Bên B rơi vào tình trạng phá sản hoặc giải thể.
+c) Các hành vi vi phạm khác theo quy định pháp luật.
+[Điều 9 - Khoản 2] 2. Nếu Bên A chấm dứt hợp đồng theo điểm a khoản 1, Bên A có quyền ký kết với nhà thầu khác để hoàn thành phần công việc còn lại.
+Bên B phải chịu trách nhiệm bồi thường cho Bên A các chi phí phát sinh vượt trội.
+Bên B vẫn phải tiếp tục thực hiện phần công việc đang đảm nhiệm và chịu trách nhiệm bảo hành phần công việc đó.
+[Điều 9 - Khoản 3] 3. Nếu Bên A chấm dứt hợp đồng theo điểm b khoản 1, Bên A không phải chịu bất kỳ chi phí đền bù nào.
+Việc chấm dứt này không làm ảnh hưởng đến quyền lợi hợp pháp của Bên A theo hợp đồng và pháp luật.
+[Điều 10] Điều 10. Cung cấp dịch vụ, tiến độ và yêu cầu đầu ra.
+[Điều 10 - Khoản 1] 1. Bên B có nghĩa vụ cung cấp dịch vụ và bàn giao tài liệu, chứng từ theo đúng tiến độ đã nêu trong báo giá.
+[Điều 10 - Khoản 2] 2. Yêu cầu về tiến độ thực hiện dịch vụ là trong vòng 30 ngày.
+[Điều 10 - Khoản 3] 3. Yêu cầu về đầu ra là thiết bị phải hoạt động ổn định và đạt chất lượng sau khi bảo trì, sửa chữa.
+[Điều 11] Điều 11. Bảo mật tài liệu và thông tin.
+[Điều 11 - Khoản 1] 1. Nhà thầu không được tiết lộ nội dung hợp đồng cho bất kỳ bên thứ ba nào nếu không có sự đồng ý bằng văn bản của Chủ đầu tư.
+Việc cung cấp thông tin cho các bên liên quan phải tuân thủ chế độ bảo mật và chỉ trong phạm vi cần thiết.
+[Điều 11 - Khoản 2] 2. Các tài liệu, thông tin là sản phẩm của dịch vụ thuộc quyền sở hữu trí tuệ của Chủ đầu tư.
+Nhà thầu chỉ được giữ lại bản sao và không được sử dụng vào mục đích khác khi chưa được sự chấp thuận bằng văn bản của Chủ đầu tư.
+[Điều 12] Điều 12. Phát hiện và xử lý sai sót.
+[Điều 12 - Khoản 1] 1. Chủ đầu tư sẽ đánh giá chất lượng dịch vụ: sau khi Bên B hoàn thành từng hạng mục, Bên A sẽ kiểm tra và đánh giá để yêu cầu khắc phục kịp thời.
+[Điều 12 - Khoản 2] 2. Chủ đầu tư có quyền hướng dẫn Nhà thầu tự kiểm tra các nội dung công việc có dấu hiệu sai sót.
+Thời hạn khắc phục là ngay lập tức sau khi phát hiện lỗi.
+[Điều 12 - Khoản 3] 3. Nếu phát sinh sai sót trong quá trình cung cấp dịch vụ, Chủ đầu tư sẽ thông báo cho Nhà thầu trước khi kết thúc hợp đồng.
+Nhà thầu phải khắc phục sai sót trong khoảng thời gian hợp lý do Chủ đầu tư quy định.
+Nếu Nhà thầu không khắc phục đúng hạn, Chủ đầu tư sẽ tính toán chi phí cần thiết để thuê bên thứ ba khắc phục và yêu cầu Nhà thầu thanh toán, đồng thời áp dụng mức phạt theo Điều 14.
+[Điều 13] Điều 13. Bảo hành.
+Bên B chịu trách nhiệm bảo hành toàn bộ thiết bị trong thời hạn 12 tháng kể từ ngày nghiệm thu.
+Nếu sản phẩm bị lỗi do Bên A sử dụng sai quy trình kỹ thuật, Bên B sẽ không chịu trách nhiệm bảo hành.
+[Điều 14] Điều 14. Phạt vi phạm hợp đồng.
+Nếu không kịp thời khắc phục sai sót theo yêu cầu, Nhà thầu phải nộp tiền phạt vi phạm tương ứng với 8% giá trị hợp đồng để bù đắp chi phí khắc phục.
+[Điều 15] Điều 15. Giải quyết tranh chấp.
+[Điều 15 - Khoản 1] 1. Hai bên có trách nhiệm giải quyết mọi tranh chấp phát sinh thông qua thương lượng và hòa giải.
+[Điều 15 - Khoản 2] 2. Nếu không đạt được thỏa thuận, bất kỳ bên nào cũng có quyền đưa vụ việc ra Tòa án có thẩm quyền để giải quyết.
+Án phí ban đầu do bên nguyên đơn chi trả và không phụ thuộc vào phán quyết cuối cùng của Tòa án.
+[Điều 16] Điều 16. Hiệu lực của hợp đồng.
+[Điều 16 - Khoản 1] 1. Hợp đồng này có hiệu lực pháp lý kể từ ngày ký.
+[Điều 16 - Khoản 2] 2. Hợp đồng chỉ hết hiệu lực sau khi hai bên hoàn tất thủ tục thanh lý theo quy định pháp luật.
+Hợp đồng được lập thành 04 bản có giá trị pháp lý như nhau, Bên A giữ 03 bản, Bên B giữ 01 bản.
+
+[Phần ký tên] ĐẠI DIỆN BÊN A
+TRƯỜNG ĐẠI HỌC CẦN THƠ
+TUQ. HIỆU TRƯỞNG
+TRƯỞNG PHÒNG QUẢN TRỊ THIẾT BỊ
+(Đã ký)
+Nguyễn Văn A
+
+ĐẠI DIỆN BÊN B
+CÔNG TY TNHH CÔNG NGHỆ SỐ ABC
+GIÁM ĐỐC
+(Đã ký)
+Trần Văn B

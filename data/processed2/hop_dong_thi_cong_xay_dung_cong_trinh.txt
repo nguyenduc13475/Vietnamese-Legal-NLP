@@ -1,0 +1,147 @@
+[ALIASES] [("Công ty Cổ phần Đầu tư Bất động sản Thăng Long", "Chủ đầu tư", "Bên giao thầu"), ("Công ty Cổ phần Xây dựng và Phát triển Hạ tầng Sông Hồng", "Nhà thầu", "Bên nhận thầu")]
+[Thông tin chung] CỘNG HÒA XÃ HỘI CHỦ NGHĨA VIỆT NAM.
+Độc lập - Tự do - Hạnh phúc.
+Hà Nội, ngày 20 tháng 05 năm 2024.
+[TITLE] HỢP ĐỒNG THI CÔNG XÂY DỰNG CÔNG TRÌNH.
+Số: 01/2024/HĐXD.
+GÓI THẦU THI CÔNG HẠ TẦNG KỸ THUẬT THUỘC DỰ ÁN KHU ĐÔ THỊ MỚI XUÂN PHƯƠNG.
+GIỮA.
+CÔNG TY CỔ PHẦN ĐẦU TƯ BẤT ĐỘNG SẢN THĂNG LONG.
+VÀ.
+CÔNG TY CỔ PHẦN XÂY DỰNG VÀ PHÁT TRIỂN HẠ TẦNG SÔNG HỒNG.
+PHẦN 1 - CÁC CĂN CỨ KÝ KẾT HỢP ĐỒNG.
+Luật Xây dựng số 50/2014/QH13 ngày 18/6/2014.
+Căn cứ Luật Đấu thầu số 43/2013/QH13 ngày 26/11/2013.
+Căn cứ Nghị định số 37/2015/NĐ-CP ngày 22/4/2015 của Chính phủ quy định chi tiết về hợp đồng xây dựng.
+Căn cứ Nghị định số 46/2015/NĐ-CP ngày 12/5/2015 của Chính phủ về quản lý chất lượng và bảo trì công trình xây dựng.
+Căn cứ Nghị định số 59/2015/NĐ-CP ngày 18/6/2015 của Chính phủ về quản lý dự án đầu tư xây dựng.
+Căn cứ Thông tư số 09/2016/TT-BXD ngày 10/3/2016 của Bộ Xây dựng hướng dẫn hợp đồng thi công xây dựng.
+Căn cứ kết quả lựa chọn nhà thầu tại văn bản số 123/QĐ-ĐT ngày 15/05/2024.
+PHẦN 2 - CÁC ĐIỀU KHOẢN VÀ ĐIỀU KIỆN CỦA HỢP ĐỒNG.
+Hôm nay, ngày 20 tháng 05 năm 2024 tại Hà Nội, chúng tôi gồm các bên dưới đây.
+1. Chủ đầu tư (Bên giao thầu): CÔNG TY CỔ PHẦN ĐẦU TƯ BẤT ĐỘNG SẢN THĂNG LONG.
+Đại diện là: Ông Nguyễn Văn A, Chức vụ: Tổng Giám đốc.
+Địa chỉ: Số 1, đường Lê Văn Lương, quận Thanh Xuân, Hà Nội.
+Tài khoản: 1900123456789 tại Ngân hàng TMCP Ngoại thương Việt Nam.
+Mã số thuế: 0101234567.
+Đăng ký kinh doanh: 0101234567 do Sở Kế hoạch và Đầu tư Hà Nội cấp.
+Điện thoại: 02439998888, Fax: 02439998889.
+E-mail: contact@thanglongland.vn.
+2. Nhà thầu (Bên nhận thầu): CÔNG TY CỔ PHẦN XÂY DỰNG VÀ PHÁT TRIỂN HẠ TẦNG SÔNG HỒNG.
+Đại diện là: Ông Trần Văn B, Chức vụ: Giám đốc.
+Địa chỉ: Số 5, đường Nguyễn Trãi, quận Đống Đa, Hà Nội.
+Tài khoản: 1020304050607 tại Ngân hàng TMCP Công thương Việt Nam.
+Mã số thuế: 0109876543.
+Đăng ký kinh doanh: 0109876543 do Sở Kế hoạch và Đầu tư Hà Nội cấp.
+Điện thoại: 02437776666, Fax: 02437776667.
+E-mail: info@songhongcons.vn.
+Giấy ủy quyền ký hợp đồng số 05/UQ-SH ngày 18/05/2024.
+Hai bên thống nhất ký hợp đồng thi công xây dựng của gói thầu hạ tầng kỹ thuật thuộc dự án Khu đô thị mới Xuân Phương.
+[Điều 1] Điều 1. Các định nghĩa và diễn giải.
+Trong hợp đồng này các từ và cụm từ được hiểu như sau.
+[Điều 1 - Khoản 1] 1.1. "Chủ đầu tư" là CÔNG TY CỔ PHẦN ĐẦU TƯ BẤT ĐỘNG SẢN THĂNG LONG.
+[Điều 1 - Khoản 2] 1.2. "Nhà thầu" là CÔNG TY CỔ PHẦN XÂY DỰNG VÀ PHÁT TRIỂN HẠ TẦNG SÔNG HỒNG.
+[Điều 1 - Khoản 3] 1.3. "Đại diện Chủ đầu tư" là người được chủ đầu tư chỉ định trong hợp đồng hoặc được ủy quyền theo từng thời điểm để điều hành công việc thay mặt chủ đầu tư.
+[Điều 1 - Khoản 4] 1.4. "Đại diện Nhà thầu" là người được nhà thầu chỉ định trong hợp đồng hoặc được ủy quyền bằng văn bản để điều hành công việc thay mặt nhà thầu.
+[Điều 1 - Khoản 5] 1.5. "Nhà tư vấn" là tổ chức, cá nhân do chủ đầu tư thuê để thực hiện các công việc chuyên môn liên quan đến quản lý thực hiện hợp đồng.
+[Điều 1 - Khoản 6] 1.6. "Đại diện Nhà tư vấn" là người được nhà tư vấn ủy quyền thực hiện các nhiệm vụ do nhà tư vấn giao.
+[Điều 1 - Khoản 7] 1.7. "Tư vấn thiết kế" là đơn vị thực hiện việc thiết kế xây dựng công trình.
+[Điều 1 - Khoản 8] 1.8. "Nhà thầu phụ" là đơn vị ký hợp đồng với nhà thầu để thực hiện một phần công việc của nhà thầu.
+[Điều 1 - Khoản 9] 1.9. "Dự án" là Khu đô thị mới Xuân Phương.
+[Điều 1 - Khoản 10] 1.10. "Hợp đồng" là toàn bộ hồ sơ hợp đồng theo quy định tại Điều 2.
+[Điều 1 - Khoản 11] 1.11. "Hồ sơ mời thầu" của chủ đầu tư là toàn bộ tài liệu theo quy định tại Phụ lục số 01.
+[Điều 1 - Khoản 12] 1.12. "Hồ sơ dự thầu" của nhà thầu là toàn bộ tài liệu do nhà thầu lập theo yêu cầu của hồ sơ mời thầu và được nộp cho bên mời thầu theo quy định tại phụ lục số 02.
+[Điều 1 - Khoản 13] 1.13. "Chỉ dẫn kỹ thuật" là tập hợp các yêu cầu kỹ thuật dựa trên các quy chuẩn, tiêu chuẩn áp dụng cho công trình để hướng dẫn về vật liệu, sản phẩm, thiết bị và công tác thi công, giám sát, nghiệm thu.
+[Điều 1 - Khoản 14] 1.14. "Bản vẽ thiết kế" là tất cả các bản vẽ, bảng tính toán và thông tin kỹ thuật của công trình do chủ đầu tư cung cấp hoặc do nhà thầu lập đã được chủ đầu tư phê duyệt.
+[Điều 1 - Khoản 15] 1.15. "Bảng tiên lượng" là bảng kê chi tiết khối lượng và giá các công việc trong hợp đồng.
+[Điều 1 - Khoản 16] 1.16. "Bên" là chủ đầu tư hoặc nhà thầu tùy theo ngữ cảnh diễn đạt.
+[Điều 1 - Khoản 17] 1.17. "Ngày khởi công" là ngày được thông báo theo Khoản 7.1.
+[Điều 1 - Khoản 18] 1.18. "Biên bản nghiệm thu" là biên bản được phát hành theo Điều 6.
+[Điều 1 - Khoản 19] 1.19. "Ngày" được hiểu là ngày dương lịch và tháng được hiểu là tháng dương lịch.
+[Điều 1 - Khoản 20] 1.20. "Ngày làm việc" là ngày dương lịch, trừ ngày chủ nhật và ngày nghỉ lễ, tết theo quy định pháp luật.
+[Điều 1 - Khoản 21] 1.21. "Thiết bị của nhà thầu" là toàn bộ máy móc, phương tiện, xe cộ và thiết bị cần thiết để nhà thầu thi công, hoàn thành công trình và sửa chữa sai sót.
+[Điều 1 - Khoản 22] 1.22. "Công trình chính" là các hạng mục hạ tầng kỹ thuật mà nhà thầu thi công theo hợp đồng.
+[Điều 1 - Khoản 23] 1.23. "Hạng mục công trình" là một công trình chính hoặc một phần của công trình chính.
+[Điều 1 - Khoản 24] 1.24. "Công trình tạm" là các công trình phục vụ thi công công trình và hạng mục công trình.
+[Điều 1 - Khoản 25] 1.25. "Công trình" là công trình chính và công trình tạm hoặc một trong hai loại công trình này.
+[Điều 1 - Khoản 26] 1.26. "Thiết bị của chủ đầu tư" là máy móc, phương tiện do chủ đầu tư cấp cho nhà thầu sử dụng như đã nêu trong Phụ lục số 03.
+[Điều 1 - Khoản 27] 1.27. "Rủi ro và bất khả kháng" được định nghĩa tại Điều 20.
+[Điều 1 - Khoản 28] 1.28. "Luật" là toàn bộ hệ thống pháp luật của nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.
+[Điều 1 - Khoản 29] 1.29. "Công trường" là địa điểm chủ đầu tư giao cho nhà thầu để thi công công trình và bất kỳ địa điểm nào khác được quy định trong hợp đồng.
+[Điều 1 - Khoản 30] 1.30. "Thay đổi" là sự điều chỉnh phạm vi công việc, chỉ dẫn kỹ thuật, bản vẽ thiết kế, giá hợp đồng hoặc tiến độ thi công khi có sự chấp thuận bằng văn bản của chủ đầu tư.
+[Điều 2] Điều 2. Hồ sơ hợp đồng và thứ tự ưu tiên.
+[Điều 2 - Khoản 1] 2.1. Hồ sơ hợp đồng xây dựng gồm thỏa thuận hợp đồng này và các tài liệu kèm theo.
+[Điều 2 - Khoản 2] 2.2. Các tài liệu kèm theo hợp đồng là bộ phận không tách rời, bao gồm.
+a) Văn bản thông báo trúng thầu.
+b) Điều kiện cụ thể của hợp đồng.
+c) Điều kiện chung của hợp đồng.
+d) Hồ sơ mời thầu của bên giao thầu.
+đ) Các bản vẽ thiết kế và chỉ dẫn kỹ thuật.
+e) Hồ sơ dự thầu của bên nhận thầu.
+g) Biên bản đàm phán hợp đồng và các văn bản sửa đổi, bổ sung.
+h) Các phụ lục của hợp đồng.
+i) Các tài liệu khác có liên quan.
+[Điều 2 - Khoản 3] 2.3. Thứ tự ưu tiên áp dụng các tài liệu kèm theo hợp đồng theo thứ tự quy định tại Khoản 2 Điều này.
+[Điều 3] Điều 3. Luật và ngôn ngữ sử dụng.
+[Điều 3 - Khoản 1] 3.1. Hợp đồng này chịu sự điều chỉnh của hệ thống pháp luật nước Cộng hòa Xã hội Chủ nghĩa Việt Nam.
+[Điều 3 - Khoản 2] 3.2. Ngôn ngữ sử dụng cho hợp đồng là tiếng Việt.
+[Điều 4] Điều 4. Bảo đảm thực hiện và bảo lãnh tạm ứng hợp đồng.
+[Điều 4 - Khoản 1] 4.1. Bảo đảm thực hiện hợp đồng.
+Nhà thầu phải nộp bảo đảm thực hiện hợp đồng tương đương 5% giá trị hợp đồng cho bên giao thầu trong vòng 10 ngày sau khi hợp đồng được ký kết.
+Bảo đảm thực hiện hợp đồng phải được bên giao thầu chấp thuận và tuân theo mẫu ở Phụ lục số 04.
+Bảo đảm thực hiện hợp đồng phải có hiệu lực tới khi nhà thầu hoàn thành công trình và chuyển sang nghĩa vụ bảo hành.
+Nếu bảo đảm thực hiện hợp đồng nêu ngày hết hạn mà nhà thầu chưa hoàn thành nghĩa vụ, nhà thầu phải gia hạn bảo đảm cho tới khi công việc hoàn thành và sai sót được sửa chữa.
+Bên giao thầu hoàn trả bảo đảm thực hiện hợp đồng khi nhà thầu đã hoàn thành công việc và chuyển sang nghĩa vụ bảo hành.
+[Điều 4 - Khoản 2] 4.2. Bảo lãnh tiền tạm ứng.
+Trước khi nhận tạm ứng, nhà thầu phải nộp cho bên giao thầu bảo lãnh tạm ứng hợp đồng với giá trị tương đương giá trị tiền tạm ứng.
+Giá trị bảo lãnh tạm ứng sẽ được khấu trừ tương ứng với giá trị giảm trừ tiền tạm ứng qua mỗi lần thanh toán.
+[Điều 5] Điều 5. Nội dung và khối lượng công việc.
+Nhà thầu thực hiện thi công xây dựng công trình theo bản vẽ thiết kế, chỉ dẫn kỹ thuật, hồ sơ dự thầu và biên bản đàm phán hợp đồng.
+Các công việc cụ thể bao gồm.
+[Điều 5 - Khoản 1] 5.1. Bàn giao, tiếp nhận và quản lý mặt bằng xây dựng, tim, cốt, mốc giới công trình.
+[Điều 5 - Khoản 2] 5.2. Cung cấp vật liệu, nhân lực, máy và thiết bị thi công theo hợp đồng.
+[Điều 5 - Khoản 3] 5.3. Thi công xây dựng công trình theo hồ sơ thiết kế và quy chuẩn, tiêu chuẩn hiện hành.
+[Điều 5 - Khoản 4] 5.4. Thực hiện trắc đạc, quan trắc công trình và thí nghiệm, kiểm tra chạy thử trước khi nghiệm thu.
+[Điều 5 - Khoản 5] 5.5. Kiểm soát chất lượng công việc và giám sát thi công đối với phần việc của nhà thầu phụ.
+[Điều 5 - Khoản 6] 5.6. Xử lý và khắc phục các sai sót, khiếm khuyết về chất lượng trong quá trình thi công.
+[Điều 5 - Khoản 7] 5.7. Thí nghiệm kiểm tra chất lượng vật liệu và cấu kiện xây dựng.
+[Điều 5 - Khoản 8] 5.8. Thực hiện nghiệm thu công việc, giai đoạn thi công, bộ phận công trình và hoàn thành hạng mục công trình.
+[Điều 5 - Khoản 9] 5.9. Thực hiện công tác bảo đảm an toàn, vệ sinh môi trường và phòng chống cháy nổ.
+[Điều 5 - Khoản 10] 5.10. Bảo vệ công trường và mặt bằng thi công trong phạm vi hợp đồng.
+[Điều 5 - Khoản 11] 5.11. Bảo đảm an ninh trật tự cho khu vực công trường.
+[Điều 5 - Khoản 12] 5.12. Hợp tác với các nhà thầu khác trên công trường.
+[Điều 5 - Khoản 13] 5.13. Thu dọn công trường và bàn giao sản phẩm xây dựng sau khi hoàn thành.
+[Điều 5 - Khoản 14] 5.14. Các công việc khác theo thỏa thuận và quy định pháp luật.
+[Điều 6] Điều 6. Yêu cầu về chất lượng sản phẩm và nghiệm thu, bàn giao.
+[Điều 6 - Khoản 1] 6.1. Yêu cầu về chất lượng sản phẩm.
+a) Công trình phải được thi công theo bản vẽ thiết kế, chỉ dẫn kỹ thuật, phù hợp với quy chuẩn, tiêu chuẩn hiện hành.
+b) Nhà thầu phải cung cấp kết quả thí nghiệm vật liệu, sản phẩm từ phòng thí nghiệm hợp chuẩn.
+c) Nhà thầu đảm bảo vật tư, thiết bị có nguồn gốc xuất xứ đúng hồ sơ hợp đồng.
+[Điều 6 - Khoản 2] 6.2. Kiểm tra, giám sát của bên giao thầu.
+a) Bên giao thầu có quyền vào công trường và nơi khai thác nguyên vật liệu để kiểm tra.
+b) Bên giao thầu có quyền kiểm tra, kiểm định, đo lường vật liệu và quá trình gia công, chế tạo thiết bị.
+Nhà thầu phải tạo điều kiện cho bên giao thầu tiến hành các hoạt động này mà không làm giảm trách nhiệm của nhà thầu.
+[Điều 6 - Khoản 3] 6.3. Nghiệm thu sản phẩm hoàn thành.
+a) Bên giao thầu chỉ nghiệm thu khi sản phẩm đảm bảo chất lượng theo Khoản 6.1.
+b) Căn cứ nghiệm thu gồm bản vẽ thiết kế, thuyết minh kỹ thuật, quy chuẩn, tiêu chuẩn, chứng chỉ thí nghiệm.
+c) Thành phần nghiệm thu gồm đại diện chủ đầu tư, đại diện nhà thầu và đại diện nhà tư vấn.
+d) Hồ sơ nghiệm thu gồm biên bản nghiệm thu chất lượng, khối lượng hoàn thành và kết quả thí nghiệm.
+[Điều 6 - Khoản 4] 6.4. Chạy thử công trình.
+Nhà thầu phải trình tài liệu hoàn công, sổ tay vận hành và bảo trì trước khi chạy thử.
+Nhà thầu cung cấp máy móc, nhân lực và thông tin cần thiết để chạy thử hiệu quả.
+Bên giao thầu thông báo trước 01 ngày về ý định tham gia chạy thử.
+Nếu bên giao thầu không tham gia, nhà thầu có thể tiến hành chạy thử và coi như đã được nghiệm thu.
+[Điều 6 - Khoản 5] 6.5. Nghiệm thu, bàn giao công trình.
+Sau khi hoàn thành, hai bên lập biên bản nghiệm thu, bàn giao công trình hoàn thành.
+Các tồn đọng nhỏ không ảnh hưởng đến việc sử dụng sẽ được ghi trong biên bản và nhà thầu phải hoàn thành bằng chi phí của mình.
+[Điều 6 - Khoản 6] 6.6. Trách nhiệm đối với sai sót.
+a) Nhà thầu phải hoàn thành các công việc tồn đọng trong khoảng thời gian hợp lý do bên giao thầu yêu cầu.
+b) Nếu nhà thầu không sửa chữa được sai sót, bên giao thầu có thể tự thực hiện hoặc thuê bên thứ ba và nhà thầu phải chịu mọi chi phí.
+c) Nếu sai sót dẫn đến việc không sử dụng được công trình, bên giao thầu có quyền chấm dứt hợp đồng và nhà thầu phải bồi thường thiệt hại.
+d) Nhà thầu có thể chuyển thiết bị bị hư hỏng ra khỏi công trường để sửa chữa nếu được bên giao thầu đồng ý.
+[Điều 6 - Khoản 7] 6.7. Kiểm định thêm.
+Nếu việc sửa chữa ảnh hưởng đến vận hành, bên giao thầu có thể yêu cầu kiểm định lại bằng kinh phí của nhà thầu.
+[Điều 6 - Khoản 8] 6.8. Nghĩa vụ chưa hoàn thành.
+Sau khi bàn giao, các nghĩa vụ chưa thực hiện vẫn tiếp tục có hiệu lực cho đến khi hoàn thành.
+[Điều 7] Điều 7. Thời gian và tiến độ thực hiện Hợp đồng.
+[Điều 7 - Khoản 1] 7.1. Ngày khởi công công trình là ngày 01 tháng 06 năm 2024.

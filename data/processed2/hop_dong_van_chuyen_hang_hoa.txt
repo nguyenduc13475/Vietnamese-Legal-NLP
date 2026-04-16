@@ -1,0 +1,132 @@
+[ALIASES] [("Công ty Cổ phần Thương mại Xuất nhập khẩu An Bình", "Bên chủ hàng", "Bên A", "Chủ hàng"), ("Công ty TNHH Vận tải và Logistics Trường Thành", "Bên chủ phương tiện", "Bên B", "Bên vận tải")]
+[TITLE] [Thông tin chung] HỢP ĐỒNG VẬN CHUYỂN HÀNG HÓA.
+Số 123/HĐVCHH.
+Hôm nay, ngày 15 tháng 05 năm 2024, tại thành phố Hà Nội.
+Chúng tôi gồm có các bên dưới đây.
+BÊN CHỦ HÀNG (gọi tắt là Bên A).
+Tên doanh nghiệp: Công ty Cổ phần Thương mại Xuất nhập khẩu An Bình.
+Địa chỉ trụ sở chính: Số 12, đường Lê Lợi, quận Hoàn Kiếm, thành phố Hà Nội.
+Điện thoại: 02438255555.
+Telex: 02438255556.
+Fax: 02438255557.
+Tài khoản số: 190222333444555 mở tại Ngân hàng TMCP Kỹ Thương Việt Nam - Chi nhánh Hoàn Kiếm.
+Mã số thuế doanh nghiệp: 0101234567.
+Đại diện: Ông Nguyễn Văn An.
+Chức vụ: Giám đốc.
+Giấy ủy quyền số: 01/UQ-AB ngày 10 tháng 01 năm 2024 do Chủ tịch Hội đồng quản trị ký.
+BÊN CHỦ PHƯƠNG TIỆN (gọi tắt là Bên B).
+Tên doanh nghiệp: Công ty TNHH Vận tải và Logistics Trường Thành.
+Địa chỉ trụ sở chính: Số 45, đường Nguyễn Văn Linh, quận Long Biên, thành phố Hà Nội.
+Điện thoại: 02436555555.
+Telex: 02436555556.
+Fax: 02436555557.
+Tài khoản số: 10203040506070 mở tại Ngân hàng TMCP Công thương Việt Nam - Chi nhánh Long Biên.
+Mã số thuế doanh nghiệp: 0107654321.
+Đại diện: Bà Trần Thị Bình.
+Chức vụ: Tổng Giám đốc.
+Giấy ủy quyền số: 05/UQ-TT ngày 15 tháng 02 năm 2024 do Chủ tịch Hội đồng thành viên ký.
+Hai bên cùng thỏa thuận các nội dung hợp đồng như sau.
+[Điều 1] Điều 1. Hàng hóa vận chuyển.
+[Điều 1 - Khoản 1] 1. Tên hàng: Bên A thuê Bên B vận chuyển 500 thùng linh kiện điện tử.
+[Điều 1 - Khoản 2] 2. Tính chất hàng hóa: Bên B cần lưu ý bảo đảm cho Bên A những loại hàng sau được an toàn.
+- Hàng linh kiện điện tử là hàng dễ vỡ.
+- Hàng linh kiện điện tử cần tránh nắng.
+- Hàng linh kiện điện tử cần bảo quản không để biến chất.
+[Điều 1 - Khoản 3] 3. Đơn vị tính đơn giá cước là Việt Nam Đồng (phải quy đổi theo quy định của Nhà nước, chỉ được tự thỏa thuận nếu Nhà nước chưa có quy định).
+[Điều 2] Điều 2. Địa điểm giao hàng và nhận hàng.
+[Điều 2 - Khoản 1] 1. Bên B đưa phương tiện đến nhận hàng tại kho hàng số 10, đường Giải Phóng, quận Hai Bà Trưng, thành phố Hà Nội do Bên A giao.
+[Điều 2 - Khoản 2] 2. Bên B giao hàng cho Bên A tại địa điểm kho hàng số 20, đường Trường Chinh, quận Tân Bình, thành phố Hồ Chí Minh.
+[Điều 3] Điều 3. Thời gian giao nhận hàng.
+[Điều 3 - Khoản 1] STT 01.
+Tên hàng: Linh kiện điện tử.
+Số lượng nhận hàng: 500 thùng.
+Địa điểm nhận hàng: Số 10, đường Giải Phóng, Hà Nội.
+Thời gian nhận hàng: 08 giờ 00 ngày 20 tháng 05 năm 2024.
+Số lượng giao hàng: 500 thùng.
+Địa điểm giao hàng: Số 20, đường Trường Chinh, Hồ Chí Minh.
+Thời gian giao hàng: 08 giờ 00 ngày 23 tháng 05 năm 2024.
+[Điều 4] Điều 4. Phương tiện vận tải.
+[Điều 4 - Khoản 1] 1. Bên A yêu cầu Bên B vận chuyển số hàng trên bằng phương tiện xe tải thùng kín, đồng thời phải bảo đảm các tiêu chuẩn sau.
+- Tốc độ phải đạt 60 km/giờ.
+- Có mái che bằng bạt chống thấm nước.
+- Số lượng phương tiện là 02 xe.
+[Điều 4 - Khoản 2] 2. Bên B chịu trách nhiệm về kỹ thuật cho phương tiện vận tải để bảo đảm vận chuyển trong thời gian là 72 giờ.
+[Điều 4 - Khoản 3] 3. Bên B phải chuẩn bị đầy đủ giấy tờ cho phương tiện đi lại hợp lệ trên tuyến đường giao thông đó để vận chuyển số hàng hóa đã thỏa thuận như trên và chịu mọi hậu quả về giấy tờ pháp lý của phương tiện vận tải.
+[Điều 4 - Khoản 4] 4. Bên B phải làm vệ sinh phương tiện vận tải khi nhận hàng, chi phí vệ sinh phương tiện vận tải sau khi giao hàng Bên A phải chịu là 500.000 đồng.
+[Điều 4 - Khoản 5] 5. Khi Bên B đưa phương tiện đến nhận hàng mà Bên A chưa có hàng để giao thì sau 60 phút Bên A phải chứng nhận cho Bên B đem phương tiện về và phải trả giá cước của loại hàng thấp nhất về giá vận tải theo đoạn đường đã hợp đồng.
+[Điều 4 - Khoản 6] 6. Trường hợp không tìm thấy người đại diện của Bên A tại địa điểm giao hàng, Bên B chờ sau 120 phút có quyền nhờ Ủy ban nhân dân cơ sở xác nhận phương tiện có đến rồi cho phương tiện về và yêu cầu thanh toán chi phí như trên.
+[Điều 4 - Khoản 7] 7. Bên B có quyền từ chối không nhận hàng nếu Bên A giao hàng không đúng loại hàng ghi trong vận đơn khi xét thấy phương tiện điều động không thích hợp với loại hàng đó, có quyền bắt Bên A phải chịu phạt 10% giá trị tổng cước phí.
+[Điều 4 - Khoản 8] 8. Trường hợp Bên B đưa phương tiện đến nhận hàng chậm so với lịch giao nhận phải chịu phạt hợp đồng là 200.000 đồng/giờ.
+[Điều 5] Điều 5. Về giấy tờ bảo đảm cho việc vận chuyển hàng hóa.
+[Điều 5 - Khoản 1] 1. Bên B phải làm giấy xác báo hàng hóa (phải được đại diện Bên B ký, đóng dấu xác nhận) trước 04 giờ, nếu có thay đổi phải làm giấy xác báo lại trước 02 giờ so với thời điểm giao hàng.
+[Điều 5 - Khoản 2] 2. Bên B phải xác báo lại cho Bên A số lượng và trọng tải các phương tiện có thể điều động trong vòng 24 giờ trước khi Bên A giao hàng.
+[Điều 5 - Khoản 3] 3. Nếu Bên A không xác báo xin phương tiện thì Bên B không chịu trách nhiệm.
+[Điều 5 - Khoản 4] 4. Bên A phải làm vận đơn cho từng chuyến giao hàng ghi rõ tên hàng và số lượng.
+[Điều 5 - Khoản 5] 5. Bên A phải viết rõ ràng, không tẩy xóa, gạch bỏ, viết thêm, viết chồng hay dán chồng.
+[Điều 5 - Khoản 6] 6. Trường hợp cần sửa chữa, xóa bỏ phải có ký chứng thực.
+[Điều 5 - Khoản 7] 7. Bên A phải có trách nhiệm về những điều mình ghi vào vận đơn giao cho Bên B.
+[Điều 5 - Khoản 8] 8. Bên A phải đính kèm vận đơn với các giấy tờ khác cần thiết để các cơ quan chuyên trách có thể yêu cầu xuất trình khi kiểm soát như giấy phép lưu thông loại hàng hóa đặc biệt và biên lai các khoản thuế đã đóng.
+[Điều 5 - Khoản 9] 9. Nếu không có đủ các giấy tờ khác cần thiết cho việc vận chuyển các loại hàng hóa đó thì phải chịu phạt chờ đợi là 300.000 đồng/giờ.
+[Điều 5 - Khoản 10] 10. Hàng để lâu có thể bị hư hỏng, trường hợp hàng bị tịch thu vẫn phải trả đủ tiền cước đã thỏa thuận.
+[Điều 5 - Khoản 11] 11. Trường hợp xin vận chuyển đột xuất hàng hóa, Bên B chỉ nhận chở nếu có khả năng.
+[Điều 5 - Khoản 12] 12. Trường hợp này Bên A phải trả thêm tiền cho Bên B một khoản tiền bằng 15% giá cước vận chuyển, ngoài ra còn phải chi phí các khoản phí tổn khác cho Bên B kể cả tiền phạt do điều động phương tiện vận tải đột xuất làm lỡ các hợp đồng đã ký với chủ hàng khác.
+[Điều 5 - Khoản 13] 13. Trừ các trường hợp Bên A có giấy điều động vận chuyển hàng khẩn cấp theo lệnh của Chủ tịch Ủy ban nhân dân cấp tỉnh hoặc Bộ trưởng Bộ Giao thông vận tải trở lên thì không phải nộp các khoản tiền bồi thường các chi phí tổn đó.
+[Điều 6] Điều 6. Phương thức giao nhận hàng.
+[Điều 6 - Khoản 1] 1. Hai bên thỏa thuận nhận hàng theo phương thức nguyên đai, nguyên kiện, nguyên bao.
+[Điều 6 - Khoản 2] 2. Bên A đề nghị Bên B giao hàng theo phương thức nhận sao giao vậy.
+[Điều 7] Điều 7. Trách nhiệm xếp dỡ hàng hóa.
+[Điều 7 - Khoản 1] 1. Bên B có trách nhiệm xếp dỡ hàng hóa.
+[Điều 7 - Khoản 2] 2. Tại địa điểm có thể tổ chức xếp dỡ chuyên trách thì chi phí xếp dỡ do chủ hàng (Bên A) chịu.
+[Điều 7 - Khoản 3] 3. Trong trường hợp chủ hàng phụ trách xếp dỡ thì bên vận tải có trách nhiệm hướng dẫn về kỹ thuật xếp dỡ.
+[Điều 7 - Khoản 4] 4. Thời gian xếp dỡ giải phóng phương tiện là 08 giờ.
+[Điều 7 - Khoản 5] 5. Nếu cần xếp dỡ vào ban đêm, vào ngày lễ và ngày chủ nhật Bên A phải báo trước cho Bên B là 24 giờ, phải trả chi phí cao hơn giờ hành chính là 100.000 đồng/giờ.
+[Điều 7 - Khoản 6] 6. Nếu xếp dỡ xong trước thời gian quy định và an toàn thì bên A sẽ thưởng cho bên B số tiền là 500.000 đồng/giờ.
+[Điều 7 - Khoản 7] 7. Xếp dỡ chậm bị phạt là 200.000 đồng/giờ.
+[Điều 7 - Khoản 8] 8. Xếp dỡ hư hỏng hàng hóa phải bồi thường theo giá trị thị trường tại địa điểm bốc xếp.
+[Điều 8] Điều 8. Giải quyết hao hụt hàng hóa.
+[Điều 8 - Khoản 1] 1. Nếu hao hụt theo quy định dưới mức 0,5% tổng số lượng hàng thì Bên B không phải bồi thường.
+[Điều 8 - Khoản 2] 2. Hao hụt trên tỷ lệ cho phép thì Bên B phải bồi thường cho Bên A theo giá thị trường tại nơi giao hàng.
+[Điều 8 - Khoản 3] 3. Mọi sự kiện mất hàng Bên A phải phát hiện và lập biên bản trước và trong khi giao hàng, nếu đúng thì Bên B phải ký xác nhận vào biên bản.
+[Điều 8 - Khoản 4] 4. Nhận hàng xong nếu Bên A báo mất mát, hư hỏng Bên B không chịu trách nhiệm bồi thường.
+[Điều 9] Điều 9. Áp tải hàng hóa.
+[Điều 9 - Khoản 1] 1. Bên A cử 02 người theo phương tiện để áp tải.
+[Điều 9 - Khoản 2] 2. Các trường hợp sau đây Bên A buộc phải cử người áp tải gồm hàng quý hiếm, hàng tươi sống, súc vật sống, hàng nguy hiểm, súng ống, đạn dược, linh cữu, thi hài.
+[Điều 9 - Khoản 3] 3. Người áp tải có trách nhiệm bảo vệ hàng hóa và giải quyết các thủ tục kiểm tra liên quan đến hàng hóa trên đường vận chuyển.
+[Điều 9 - Khoản 4] 4. Bên B không phải chịu trách nhiệm hàng mất mát nhưng phải có trách nhiệm điều khiển phương tiện đúng yêu cầu kỹ thuật để không gây hư hỏng, mất mát hàng hóa.
+[Điều 9 - Khoản 5] 5. Nếu không giúp đỡ điều khiển phương tiện theo yêu cầu của người áp tải nhằm giữ gìn bảo vệ hàng hóa hoặc có hành vi vô trách nhiệm khác làm thiệt hại cho bên chủ hàng thì phải chịu trách nhiệm theo phần lỗi của mình.
+[Điều 10] Điều 10. Thanh toán cước phí vận tải.
+[Điều 10 - Khoản 1] 1. Tiền cước phí chính mà Bên A phải thanh toán cho Bên B bao gồm 50.000.000 đồng cho loại hàng thứ nhất.
+[Điều 10 - Khoản 2] 2. Tổng cộng cước phí chính là 50.000.000 đồng (bằng chữ: Năm mươi triệu đồng).
+[Điều 10 - Khoản 3] 3. Tiền phụ phí vận tải Bên A phải thanh toán cho Bên B gồm phí tổn điều xe 10.000 đồng/km, cước phí qua cầu đường 2.000.000 đồng, phí tổn vật dùng chèn lót 1.000.000 đồng, giá chênh lệch nhiên liệu 3.000.000 đồng, lệ phí bến đỗ 500.000 đồng.
+[Điều 10 - Khoản 4] 4. Tổng cước phí là 56.500.000 đồng (bằng chữ: Năm mươi sáu triệu năm trăm nghìn đồng).
+[Điều 10 - Khoản 5] 5. Bên A thanh toán cho Bên B bằng hình thức chuyển khoản.
+[Điều 11] Điều 11. Đăng ký bảo hiểm.
+[Điều 11 - Khoản 1] 1. Bên A phải chi phí mua bảo hiểm hàng hóa.
+[Điều 11 - Khoản 2] 2. Bên B chi phí mua bảo hiểm phương tiện vận tải với chi nhánh Bảo Việt tại Hà Nội trong chuyên chở hàng ngày.
+[Điều 12] Điều 12. Biện pháp bảo đảm thực hiện hợp đồng.
+Hai bên cam kết thực hiện đúng các điều khoản đã ký kết.
+[Điều 13] Điều 13. Trách nhiệm do vi phạm hợp đồng.
+[Điều 13 - Khoản 1] 1. Bên nào vi phạm hợp đồng phải trả cho bên bị vi phạm tiền phạt vi phạm hợp đồng và bồi thường thiệt hại thực tế phát sinh.
+[Điều 13 - Khoản 2] 2. Nếu Bên A đóng gói hàng mà không khai hoặc khai không đúng sự thật về số lượng, trọng lượng hàng hóa thì Bên A phải chịu phạt đến 20% số tiền cước phải trả cho lô hàng đó.
+[Điều 13 - Khoản 3] 3. Nếu Bên B có lỗi làm hư hỏng hàng hóa trong quá trình vận chuyển thì Bên B phải đài thọ phí tổn sửa chữa.
+[Điều 13 - Khoản 4] 4. Nếu hư hỏng đến mức không còn khả năng sửa chữa thì hai bên thỏa thuận mức bồi thường hoặc nhờ cơ quan chuyên môn giám định.
+[Điều 13 - Khoản 5] 5. Nếu Bên A vi phạm nghĩa vụ thanh toán tổng cước phí vận chuyển thì phải chịu phạt theo mức lãi suất chậm trả của tín dụng ngân hàng 0,05% mỗi ngày tính từ hết hạn thanh toán.
+[Điều 13 - Khoản 6] 6. Bên nào đã ký hợp đồng mà không thực hiện hợp đồng hoặc đơn phương đình chỉ thực hiện hợp đồng mà không có lý do chính đáng thì sẽ bị phạt tới 12% giá trị phần tổng cước phí dự chi.
+[Điều 13 - Khoản 7] 7. Nếu hợp đồng này có một bên nào đó gây ra đồng thời nhiều loại vi phạm, thì chỉ phải chịu một loại phạt có số tiền phạt ở mức cao nhất theo các mức phạt mà hai bên đã thỏa thuận.
+[Điều 14] Điều 14. Xử lý tranh chấp hợp đồng.
+[Điều 14 - Khoản 1] 1. Hai bên cần chủ động thông báo cho nhau biết tiến độ thực hiện hợp đồng.
+[Điều 14 - Khoản 2] 2. Nếu có vấn đề bất lợi phát sinh, các bên phải kịp thời thông báo cho nhau biết và tích cực bàn bạc giải quyết trên cơ sở thỏa thuận bình đẳng, cùng có lợi.
+[Điều 14 - Khoản 3] 3. Trong trường hợp các bên không tự giải quyết được thì thống nhất nộp đơn đến Tòa án nhân dân quận Hoàn Kiếm để được giải quyết.
+[Điều 14 - Khoản 4] 4. Chi phí cho những hoạt động kiểm tra xác minh và án phí Tòa án do bên có lỗi chịu.
+[Điều 15] Điều 15. Các thỏa thuận khác.
+Không có thỏa thuận khác.
+[Điều 16] Điều 16. Hiệu lực của hợp đồng.
+[Điều 16 - Khoản 1] 1. Hợp đồng này có hiệu lực từ ngày 15 tháng 05 năm 2024 đến ngày 15 tháng 06 năm 2024.
+[Điều 16 - Khoản 2] 2. Hai bên sẽ tổ chức họp và lập biên bản thanh lý hợp đồng này vào ngày 20 tháng 06 năm 2024.
+[Điều 16 - Khoản 3] 3. Hợp đồng này được lập thành 04 bản, có giá trị như nhau, mỗi bên giữ 02 bản.
+[Phần ký tên] Đại diện bên A.
+Chức vụ: Giám đốc.
+(Ký tên, đóng dấu).
+Đại diện bên B.
+Chức vụ: Tổng Giám đốc.
+(Ký tên, đóng dấu).

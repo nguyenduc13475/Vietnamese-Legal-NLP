@@ -93,6 +93,16 @@ def segment_clauses(text: str) -> list[dict]:
                     logits = model(**inputs)["logits"]
                     preds = torch.argmax(logits, dim=2)[0].cpu().numpy()
 
+                # Kiểm tra tính hợp lệ của chuỗi nhãn
+                valid_labels = [p for p in preds if 1 <= p <= 5]
+                # Nếu nhãn bị lộn xộn (ví dụ [2, 3, 2]) hoặc không có nhãn nào được dự đoán
+                if not valid_labels or not all(
+                    valid_labels[i] <= valid_labels[i + 1]
+                    for i in range(len(valid_labels) - 1)
+                ):
+                    # Force nhảy xuống phần fallback bằng cách raise lỗi hoặc skip
+                    raise ValueError("Inconsistent label sequence detected")
+
                 input_ids = inputs["input_ids"][0].cpu().tolist()
 
                 # 3. Prepare alignment mapping to force strict substring recovery
