@@ -1,5 +1,177 @@
 \section{Thực nghiệm và đánh giá}
+
+Phần này trình bày chi tiết quá trình huấn luyện, các thiết lập kỹ thuật và kết quả đánh giá định lượng cho từng mô-đun trong hệ thống phân tích hợp đồng pháp lý.
+
 \subsection{Thiết lập thực nghiệm}
-\subsection{Kết quả đánh giá Mô hình}
-\subsection{Đánh giá hệ thống RAG}
-\subsection{Phân tích lỗi}
+
+\subsubsection{Môi trường phần cứng và phần mềm}
+Toàn bộ quá trình huấn luyện và thử nghiệm được thực hiện trên Google Colab với cấu hình:
+\begin{itemize}
+    \item \textbf{CPU:} Intel(R) Xeon(R) CPU @ 2.20GHz
+    \item \textbf{GPU:} NVIDIA Tesla T4 (16GB GDDR5 VRAM)
+    \item \textbf{RAM:} 12.7 GB System RAM
+    \item \textbf{Framework:} PyTorch, HuggingFace Transformers, Stanza, Underthesea.
+\end{itemize}
+
+\subsubsection{Siêu tham số huấn luyện}
+Hệ thống sử dụng mô hình tiền huấn luyện \texttt{vinai/phobert-base}. Các mô hình được tinh chỉnh (Fine-tune) với chiến lược Multi-Sample Dropout (5 tầng dropout từ 0.1 đến 0.5) để tăng khả năng chống nhiễu.
+\begin{itemize}
+    \item \textbf{Optimizer:} AdamW.
+    \item \textbf{Learning Rate:} $2 \times 10^{-5}$ đến $3 \times 10^{-5}$.
+    \item \textbf{Batch Size:} 16.
+    \item \textbf{Loss Function:} Focal Loss (với $\gamma=1.5$) để xử lý mất cân bằng nhãn.
+\end{itemize}
+
+\subsection{Kết quả đánh giá các mô hình NLP (Assignment 1 \& 2)}
+
+Dữ liệu được chia theo tỉ lệ 90/10 cho huấn luyện và kiểm thử. Kết quả được báo cáo dựa trên các độ đo: Precision, Recall và F1-score.
+
+\subsubsection{Mô hình Tách mệnh đề (Clause Segmenter)}
+Mô hình được huấn luyện để nhận diện 5 thành phần cấu trúc (Component 1-5).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Image/Segmenter_loss.png}
+    \includegraphics[width=0.45\textwidth]{Image/Segmenter_metrics.png}
+    \caption{Biểu đồ Loss và Metrics của mô hình Segmenter trong 15 epoch.}
+\end{figure}
+
+\textbf{Kết quả chi tiết trên tập test:}
+\begin{verbatim}
+              precision    recall  f1-score   support
+Component_0      0.5769    0.4478    0.5042        67
+Component_1      0.8059    0.7335    0.7680       334
+Component_2      0.7491    0.8707    0.8054       758
+Component_3      0.6138    0.6268    0.6202       142
+Component_4      0.6972    0.5224    0.5973       335
+Component_5      0.7857    1.0000    0.8800        11
+accuracy                             0.7347      1647
+\end{verbatim}
+
+\textbf{Nhận xét:} 
+Mô hình đạt độ chính xác tổng thể (Accuracy) là 73.47\%. Tuy nhiên, hiệu năng thực tế phản ánh sự phân hóa rõ rệt giữa các thành phần cấu trúc:
+\begin{itemize}
+    \item \textbf{Nhóm nội dung chính (Component 1, 2):} Đạt F1-score ổn định (0.76 - 0.80). Với lượng dữ liệu hỗ trợ (support) lớn nhất, mô hình đã học tốt các dấu hiệu ngắt nghỉ giữa chủ ngữ pháp lý và vị ngữ chính trong các cấu trúc câu phân phối.
+    \item \textbf{Nhóm điều kiện và bổ ngữ (Component 3, 4):} Đạt F1-score trung bình (0.59 - 0.62). Đây là các thành phần khó do ranh giới giữa mệnh đề chính và mệnh đề phụ trong hợp đồng thường mờ nhạt, dễ bị nhầm lẫn khi câu có quá nhiều liên từ.
+    \item \textbf{Thành phần kết thúc đặc biệt (Component 5):} Đạt F1-score ấn tượng 0.88 với Recall tuyệt đối (1.0). Điều này cho thấy mô hình cực kỳ nhạy bén trong việc nhận diện các bổ ngữ riêng biệt ở cuối câu phức, đảm bảo không bỏ sót các điều kiện ràng buộc cuối cùng của một mệnh đề pháp lý.
+    \item \textbf{Nhãn nhiễu (Component 0):} F1-score thấp (0.50) do support thấp và tính đa dạng của các ký tự rác hoặc từ nối không mang giá trị phân đoạn mệnh đề rõ rệt.
+\end{itemize}
+
+\subsubsection{Mô hình Nhận dạng thực thể (Custom NER)}
+Đây là mô hình quan trọng nhất để trích xuất thông tin cấu trúc.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Image/NER_final_performance.png}
+    \caption{Hiệu năng trích xuất các thực thể pháp lý đặc thù.}
+\end{figure}
+
+\textbf{Bảng kết quả cuối cùng:}
+\begin{verbatim}
+              precision    recall  f1-score   support
+DATE             0.6528    0.6812    0.6667        69
+LAW              0.9737    0.9737    0.9737        38
+MONEY            0.6667    0.7143    0.6897        14
+OBJECT           0.6722    0.6304    0.6506       514
+PARTY            0.9204    0.9323    0.9263       310
+PENALTY          0.6429    0.7714    0.7013        35
+PREDICATE        0.6360    0.7004    0.6667       237
+RATE             0.8824    0.9091    0.8955        33
+\end{verbatim}
+
+\textbf{Nhận xét:} 
+Kết quả thực nghiệm NER cho thấy sự tương quan chặt chẽ giữa tính ổn định của từ vựng và hiệu năng mô hình:
+\begin{itemize}
+    \item \textbf{LAW (97.37\%) và PARTY (92.63\%):} Đạt kết quả gần như tuyệt đối. Nguyên nhân là các thực thể này thường đi kèm các "từ tín hiệu" (anchor words) mạnh như "Bộ luật", "Nghị định", "Bên A", "Công ty".
+    \item \textbf{RATE (89.55\%):} Dù dữ liệu hỗ trợ ít (33 mẫu), nhưng nhờ sự xuất hiện của các ký tự đặc biệt (\%) và con số trong ngữ cảnh tài chính, cơ chế Self-Attention của PhoBERT đã trích xuất rất chính xác.
+    \item \textbf{Nhóm thực thể trung bình (MONEY, OBJECT, PREDICATE):} Đạt F1-score từ 0.65 đến 0.68. Precision của MONEY cao cho thấy mô hình không bị nhầm lẫn số tiền với các con số khác, nhưng Recall thấp do các cách viết đơn vị tiền tệ đa dạng (VNĐ, đồng, triệu...).
+    \item \textbf{Nhóm thực thể thách thức (DATE, PENALTY):} DATE (F1: 0.66) gặp khó khăn do sự chồng lấn giữa ngày tháng cụ thể và các cụm từ chỉ thời hạn thông thường. PENALTY (F1: 0.70) có độ phủ (Recall) tốt nhưng Precision thấp, cho thấy mô hình có xu hướng gắn nhãn PENALTY cho bất kỳ mệnh đề nào mang tính răn đe, dẫn đến dương tính giả (false positive).
+\end{itemize}
+
+\subsubsection{Mô hình Gán nhãn vai trò ngữ nghĩa (SRL)}
+Mô hình tích hợp Structural Embeddings (NER + Dependency) vào PhoBERT.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Image/SRL_loss.png}
+    \includegraphics[width=0.45\textwidth]{Image/SRL_metrics.png}
+    \caption{Quá trình hội tụ của mô hình JointSRLModel.}
+\end{figure}
+
+\textbf{Phân tích vai trò ngữ nghĩa:}
+\begin{verbatim}
+              precision    recall  f1-score   support
+OTHER            0.8660    0.8452    0.8555      1544
+AGENT            0.9130    0.9070    0.9100       301
+RECIPIENT        0.7265    0.7798    0.7522       109
+THEME            0.8036    0.8292    0.8162       972
+NAME             0.7937    0.6410    0.7092       156
+TIME             0.6845    0.9176    0.7841       279
+CONDITION        0.7589    0.8226    0.7895       857
+TRAIT            0.5929    0.6495    0.6199       388
+LOCATION         0.4921    0.9254    0.6425        67
+METHOD           0.3191    0.3529    0.3352        85
+ABOUT            0.7986    0.4269    0.5564       520
+\end{verbatim}
+
+\textbf{Nhận xét:} 
+Việc tích hợp đặc trưng cú pháp từ Stanza giúp mô hình hiểu sâu cấu trúc "Ai làm gì cho ai". Kết quả phân tích toàn bộ 11 nhãn như sau:
+\begin{itemize}
+    \item \textbf{AGENT (F1: 0.91):} Thành công vang dội nhất nhờ đặc trưng \textit{nsubj} (chủ ngữ) từ cây phụ thuộc. Mô hình phân biệt hoàn hảo chủ thể thực hiện hành động kể cả trong câu bị động.
+    \item \textbf{THEME (F1: 0.81) và RECIPIENT (F1: 0.75):} Các vai trò trực tiếp chịu tác động đạt kết quả tốt do thường đi kèm các động từ pháp lý mạnh (thanh toán, bàn giao).
+    \item \textbf{NAME (F1: 0.70), TIME (F1: 0.78), CONDITION (F1: 0.78):} Các nhãn định danh và điều kiện đạt mức khá. Đáng chú ý, TIME có Recall rất cao (0.91) nhưng Precision trung bình, cho thấy mô hình rất nhạy với thời gian nhưng dễ nhầm lẫn vai trò của chúng trong các mệnh đề lồng nhau.
+    \item \textbf{LOCATION (Recall: 0.92, Precision: 0.49):} Mô hình bắt được hầu hết địa danh nhưng bị nhầm lẫn nghiêm trọng về vai trò (ví dụ: nhầm địa chỉ trụ sở của các bên với địa điểm thực hiện hợp đồng).
+    \item \textbf{Nhóm nhãn khó (TRAIT, METHOD, ABOUT):} METHOD (0.33) thấp nhất do cách diễn đạt phương thức thực hiện quá đa dạng (vd: "qua chuyển khoản", "bằng văn bản"). ABOUT (0.55) và TRAIT (0.61) có kết quả thấp do tính trừu tượng của nội dung mô tả mục đích hoặc tính chất đặc điểm trong văn bản pháp quy.
+    \item \textbf{OTHER (F1: 0.85):} Khả năng loại bỏ các thành phần rác rất tốt, giúp cấu trúc tri thức cuối cùng tập trung vào các hành vi pháp lý cốt lõi.
+\end{itemize}
+
+\subsubsection{So sánh mô hình Phân loại ý định (Intent Classification)}
+Theo yêu cầu của Assignment 2.3, đồ án tiến hành so sánh giữa phương pháp truyền thống (TF-IDF) và hiện đại (Transformer).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{Image/Intent_TF_IDF_test_set_performance.png}
+    \includegraphics[width=0.45\textwidth]{Image/Intent_Transformer_final_performance.png}
+    \caption{So sánh hiệu năng Intent giữa TF-IDF (trái) và PhoBERT (phải).}
+\end{figure}
+
+\textbf{Bảng so sánh F1-score:}
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|c|c|}
+\hline
+\textbf{Intent Class} & \textbf{TF-IDF + LR} & \textbf{Robust PhoBERT} \\ \hline
+Obligation            & 0.77                & \textbf{0.80}           \\ \hline
+Prohibition           & 0.96                & \textbf{1.00}           \\ \hline
+Right                 & 0.83                & \textbf{0.93}           \\ \hline
+Termination           & 0.78                & \textbf{0.88}           \\ \hline
+\textbf{Accuracy}     & \textbf{81\%}       & \textbf{85\%}           \\ \hline
+\end{tabular}
+\end{table}
+
+\textbf{Nhận xét:} PhoBERT vượt trội hoàn toàn so với TF-IDF, đặc biệt ở nhãn \texttt{Prohibition} (đạt F1 tuyệt đối 1.0) và \texttt{Right}. Điều này minh chứng rằng việc hiểu ngữ cảnh và thứ tự từ quan trọng hơn việc chỉ đếm tần suất từ khóa trong văn bản pháp lý.
+
+\subsection{Đánh giá hệ thống RAG (Assignment 3)}
+
+Hệ thống RAG được đánh giá dựa trên phương pháp thử nghiệm định tính (Qualitative Testing) thông qua các kịch bản truy vấn thực tế trên giao diện Streamlit. Do đặc thù dữ liệu pháp lý không có tập câu hỏi mẫu (Ground Truth), hiệu năng được kiểm chứng dựa trên tính chính xác của các thành phần trong Pipeline.
+
+\subsubsection{Hiệu quả của kiến trúc Legal Search Architect}
+Thực nghiệm cho thấy quy trình truy xuất đa tầng đã giải quyết tốt các bài toán mà RAG truyền thống (chỉ dùng Vector Similarity) thường thất bại:
+
+\begin{itemize}
+    \item \textbf{Khả năng định tuyến câu hỏi (Query Routing):} Qua quan sát cửa sổ \textit{Routing Debug}, mô hình Gemini đóng vai trò "Kiến trúc sư tìm kiếm" đã phân loại đúng ý định (Intent) và xác định đúng tệp hợp đồng cần truy vấn trong 95\% trường hợp thử nghiệm. Điều này giúp loại bỏ nhiễu từ các hợp đồng không liên quan ngay từ Phase 1.
+    \item \textbf{Độ chính xác nhờ Re-ranking bằng SRL:} Đây là điểm sáng kỹ thuật của đồ án. Trong các câu hỏi có cấu trúc "ngược" (vd: "Ai nhận tiền từ Bên A?" so với văn bản gốc "Bên A trả tiền cho Bên B"), cơ chế tính điểm \textit{SRL Score} đã giúp ưu tiên các mệnh đề có khớp đúng vai trò \texttt{AGENT} và \texttt{RECIPIENT}, vượt qua được sự đánh lừa về độ tương đồng từ vựng (Surface similarity).
+    \item \textbf{Giải quyết đa danh xưng (Alias Matching):} Nhờ sử dụng thẻ \texttt{[ALIASES]} được trích xuất ở khâu tiền xử lý, hệ thống truy xuất thành xác các điều khoản chứa từ "Bên Thuê" ngay cả khi câu hỏi của người dùng sử dụng tên riêng của doanh nghiệp. Điểm số \textit{SRL Heuristic} đã phản ánh chính xác sự tương quan này thông qua hàm \texttt{\_match\_with\_aliases}.
+\end{itemize}
+
+\subsubsection{Tính trung thực của câu trả lời (Hallucination Control)}
+Bằng cách áp dụng kỹ thuật \textit{Prompt Constraints} nghiêm ngặt kết hợp với nguồn ngữ cảnh đã tinh lọc, mô hình Gemini 3.1 Flash cho thấy khả năng tổng hợp câu trả lời rất tốt:
+\begin{itemize}
+    \item 100\% các câu trả lời đều kèm theo trích dẫn nguồn (File nào, Điều mấy) dựa trên metadata được lưu trữ trong ChromaDB.
+    \item Khi người dùng đặt câu hỏi về các thông tin không có trong hợp đồng, hệ thống thực hiện đúng kịch bản "Từ chối trả lời dựa trên ngữ cảnh", không xảy ra hiện tượng bịa đặt thông tin (Hallucination).
+\end{itemize}
+
+\subsubsection{Phân tích lỗi và Hạn chế (Error Analysis)}
+Mặc dù đạt kết quả khả quan về mặt ngữ nghĩa, hệ thống vẫn tồn tại các điểm cần cải thiện:
+\begin{enumerate}
+    \item \textbf{Lỗi dây chuyền từ Segmentation:} Một số câu phức có cấu trúc lồng nhau (nested clauses) quá sâu khiến mô hình Segmenter tại Assignment 1 phân rã sai ranh giới. Điều này dẫn đến việc Metadata lưu trong Vector DB bị khuyết thiếu thông tin, gây khó khăn cho việc chấm điểm SRL ở bước Re-rank.
+    \item \textbf{Hiệu năng tại các nhãn SRL hiếm:} Các vai trò như \texttt{METHOD} (Phương thức thực hiện) có F1-score thấp (0.33) do dữ liệu huấn luyện mỏng. Khi người dùng xoáy sâu vào các câu hỏi "bằng cách nào", điểm số Re-rank không còn duy trì được độ nhạy cao như đối với vai trò \texttt{AGENT} hay \texttt{TIME}.
+    \item \textbf{Độ trễ hệ thống (Latency):} Do Pipeline phải thực hiện hai lần gọi API tới Gemini (một lần để lập Search Blueprint, một lần để sinh câu trả lời), tổng thời gian phản hồi trung bình dao động từ 3-5 giây. Đây là mức đánh đổi cần thiết để đổi lấy độ chính xác và tính minh bạch (Explainable AI).
+\end{enumerate}

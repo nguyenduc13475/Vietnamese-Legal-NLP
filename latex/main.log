@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.8)  17 APR 2026 12:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.11.8)  17 APR 2026 14:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1682,7 +1682,7 @@ Package hyperref Info: Link coloring ON on input line 134.
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-<hcmut.png, id=314, 522.5121pt x 475.0548pt>
+<hcmut.png, id=366, 522.5121pt x 475.0548pt>
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 148.
@@ -1731,8 +1731,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.46 ...- SRL (Task 2.2)}{19}{subsubsection.4.2.2}
-                                                  % [1])
+l.46 ...- SRL (Task 2.2)}{20}{subsubsection.4.2.2}
+                                                  % [1]
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 89.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[2])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
@@ -1742,26 +1748,26 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 181.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[2] (Section/Introduction.tex
+[3] (Section/Introduction.tex
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 21.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[3])
+[4])
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 184.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[4] (Section/Background.tex
+[5] (Section/Background.tex
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 32.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[5]
-<Image/simple_rag.png, id=443, 569.12625pt x 272.217pt>
+[6]
+<Image/simple_rag.png, id=516, 569.12625pt x 272.217pt>
 File: Image/simple_rag.png Graphic file (type png)
 <use Image/simple_rag.png>
 Package pdftex.def Info: Image/simple_rag.png  used on input line 45.
@@ -1772,19 +1778,19 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 55.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[6 <./Image/simple_rag.png>])
+[7 <./Image/simple_rag.png>])
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 186.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[7] (Section/Preprocessing.tex
+[8] (Section/Preprocessing.tex
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 34.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[8]
+[9]
 Overfull \hbox (22.63866pt too wide) in paragraph at lines 60--60
 []        \T5/cmtt/m/n/10 16528, 13, 559, 1247, 7754, 9757, 979, 1936, 6298, 54
 0, 6, 7754, 18455, 1925[] 
@@ -1796,7 +1802,7 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 71.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[9]
+[10]
 Overfull \hbox (22.63866pt too wide) in paragraph at lines 90--90
 []    \T5/cmtt/m/n/10 {"text": "sè 10 ^^_÷íng L¶ Lñi, quªn 1, th nh phè Hç Ch½ 
 Minh", "label": "OBJECT"}[] 
@@ -1820,13 +1826,13 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 107.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[10]
+[11]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 141.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[11]
+[12]
 Overfull \hbox (17.38994pt too wide) in paragraph at lines 162--162
 []  \T5/cmtt/m/n/10 "text": "Ng÷íi thu¶ l¤i câ ngh¾a vö thanh to¡n ti·n thu¶ ch
 o ng÷íi thu¶ chªm nh§t[] 
@@ -1838,44 +1844,44 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 188.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[12] (Section/Methodology.tex
+[13] (Section/Methodology.tex
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 39.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[13]
+[14]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 90.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[14]
+[15]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 118.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[15]
+[16]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 158.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[16]
+[17]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 200.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[17]
+[18]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 237.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[18]
-<Image/srl_model.png, id=542, 844.65562pt x 411.78844pt>
+[19]
+<Image/srl_model.png, id=614, 844.65562pt x 411.78844pt>
 File: Image/srl_model.png Graphic file (type png)
 <use Image/srl_model.png>
 Package pdftex.def Info: Image/srl_model.png  used on input line 276.
@@ -1886,19 +1892,19 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 280.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[19]
+[20]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 303.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[20 <./Image/srl_model.png>]
+[21 <./Image/srl_model.png>]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 353.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[21]
+[22]
 Overfull \hbox (13.259pt too wide) in paragraph at lines 369--370
  \T5/cmr/bx/n/10 4.2.3.3 Thi¸t k¸ Head ph¥n lo¤i v  Multi-Sample Dropout:[][] \
 T5/cmr/m/n/10 Mæ h¼nh \T5/cmtt/m/n/10 RobustIntentModel
@@ -1930,8 +1936,8 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 379.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[22]
-<Image/intent_model.png, id=578, 846.91406pt x 459.96844pt>
+[23]
+<Image/intent_model.png, id=650, 846.91406pt x 459.96844pt>
 File: Image/intent_model.png Graphic file (type png)
 <use Image/intent_model.png>
 Package pdftex.def Info: Image/intent_model.png  used on input line 389.
@@ -1942,8 +1948,8 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 190.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[23 <./Image/intent_model.png>] (Section/Rag.tex
-<Image/rag_pipeline.png, id=591, 849.1725pt x 462.97969pt>
+[24 <./Image/intent_model.png>] (Section/Rag.tex
+<Image/rag_pipeline.png, id=664, 849.1725pt x 462.97969pt>
 File: Image/rag_pipeline.png Graphic file (type png)
 <use Image/rag_pipeline.png>
 Package pdftex.def Info: Image/rag_pipeline.png  used on input line 17.
@@ -1954,7 +1960,7 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 30.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[24 <./Image/rag_pipeline.png>]
+[25 <./Image/rag_pipeline.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 67.
@@ -1973,7 +1979,7 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 70.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[25]
+[26]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 79.
@@ -1992,7 +1998,7 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 106.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[26]
+[27]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 131.
@@ -2011,25 +2017,133 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 147.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[27])
+[28]
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
-Package pdftex.def Info: hcmut.png  used on input line 192.
+Package pdftex.def Info: hcmut.png  used on input line 179.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[28] (Section/Result.tex)
+[29]
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 207.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[30]
+<Image/semantic_visual.png, id=714, 928.6695pt x 473.97075pt>
+File: Image/semantic_visual.png Graphic file (type png)
+<use Image/semantic_visual.png>
+Package pdftex.def Info: Image/semantic_visual.png  used on input line 213.
+(pdftex.def)             Requested size: 418.25368pt x 213.46567pt.
+<Image/rag_visual.png, id=715, 934.08975pt x 522.15076pt>
+File: Image/rag_visual.png Graphic file (type png)
+<use Image/rag_visual.png>
+Package pdftex.def Info: Image/rag_visual.png  used on input line 227.
+(pdftex.def)             Requested size: 418.25368pt x 233.80243pt.
+
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 231.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[31 <./Image/semantic_visual.png>]) (Section/Result.tex
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 1.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[32 <./Image/rag_visual.png>]
+<Image/Segmenter_loss.png, id=730, 722.7pt x 433.62pt>
+File: Image/Segmenter_loss.png Graphic file (type png)
+<use Image/Segmenter_loss.png>
+Package pdftex.def Info: Image/Segmenter_loss.png  used on input line 33.
+(pdftex.def)             Requested size: 188.21288pt x 112.9238pt.
+<Image/Segmenter_metrics.png, id=731, 722.7pt x 433.62pt>
+File: Image/Segmenter_metrics.png Graphic file (type png)
+<use Image/Segmenter_metrics.png>
+Package pdftex.def Info: Image/Segmenter_metrics.png  used on input line 34.
+(pdftex.def)             Requested size: 188.21288pt x 112.9238pt.
+
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 40.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[33 <./Image/Segmenter_loss.png> <./Image/Segmenter_metrics.png>]
+<Image/NER_final_performance.png, id=740, 867.24pt x 505.89pt>
+File: Image/NER_final_performance.png Graphic file (type png)
+<use Image/NER_final_performance.png>
+Package pdftex.def Info: Image/NER_final_performance.png  used on input line 63
+.
+(pdftex.def)             Requested size: 334.60422pt x 195.18893pt.
+
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 68.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[34 <./Image/NER_final_performance.png>]
+<Image/SRL_loss.png, id=748, 722.7pt x 433.62pt>
+File: Image/SRL_loss.png Graphic file (type png)
+<use Image/SRL_loss.png>
+Package pdftex.def Info: Image/SRL_loss.png  used on input line 93.
+(pdftex.def)             Requested size: 188.21288pt x 112.9238pt.
+<Image/SRL_metrics.png, id=749, 722.7pt x 433.62pt>
+File: Image/SRL_metrics.png Graphic file (type png)
+<use Image/SRL_metrics.png>
+Package pdftex.def Info: Image/SRL_metrics.png  used on input line 94.
+(pdftex.def)             Requested size: 188.21288pt x 112.9238pt.
+
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 101.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[35 <./Image/SRL_loss.png> <./Image/SRL_metrics.png>]
+<Image/Intent_TF_IDF_test_set_performance.png, id=758, 867.24pt x 505.89pt>
+File: Image/Intent_TF_IDF_test_set_performance.png Graphic file (type png)
+<use Image/Intent_TF_IDF_test_set_performance.png>
+Package pdftex.def Info: Image/Intent_TF_IDF_test_set_performance.png  used on 
+input line 130.
+(pdftex.def)             Requested size: 188.21288pt x 109.79088pt.
+<Image/Intent_Transformer_final_performance.png, id=759, 867.24pt x 505.89pt>
+File: Image/Intent_Transformer_final_performance.png Graphic file (type png)
+<use Image/Intent_Transformer_final_performance.png>
+Package pdftex.def Info: Image/Intent_Transformer_final_performance.png  used o
+n input line 131.
+(pdftex.def)             Requested size: 188.21288pt x 109.79088pt.
+
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 134.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[36]
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 162.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[37 <./Image/Intent_TF_IDF_test_set_performance.png> <./Image/Intent_Transforme
+r_final_performance.png>])
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 194.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[29] (Section/Conclusion.tex)
+[38] (Section/Conclusion.tex
+
+File: hcmut.png Graphic file (type png)
+<use hcmut.png>
+Package pdftex.def Info: hcmut.png  used on input line 32.
+(pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
+[39])
 
 File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 196.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[30]
+[40]
 Overfull \hbox (26.30011pt too wide) in paragraph at lines 197--197
 []\T5/cmr/m/n/10 A. Vaswani et al., ``At-ten-tion Is All You Need,'' \T5/cmr/m/
 it/10 arXiv e-prints\T5/cmr/m/n/10 , arXiv:1706.03762, arXiv:1706.03762,
@@ -2041,7 +2155,7 @@ File: hcmut.png Graphic file (type png)
 <use hcmut.png>
 Package pdftex.def Info: hcmut.png  used on input line 198.
 (pdftex.def)             Requested size: 22.7546pt x 22.76105pt.
-[31] 
+[41] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (main.aux)
  ***********
@@ -2053,13 +2167,16 @@ L3 programming layer <2024-10-09>
 LaTeX Warning: There were undefined references.
 
 
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
 Package rerunfilecheck Warning: File `main.out' has changed.
 (rerunfilecheck)                Rerun to get outlines right
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: AE907C0532ADC13EF82896039659DF99;20443
-(rerunfilecheck)             After:  996A06DAAA7FEB259E75A361D19EC3CD;20407.
+(rerunfilecheck)             Before: E993F82997B20071C20BA79494FEFE33;25651
+(rerunfilecheck)             After:  50E05229005917FE56FCD681CE5827B5;27123.
 
 Package biblatex Warning: Please (re)run BibTeX on the file(s):
 (biblatex)                main
@@ -2070,10 +2187,10 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 42037 strings out of 473702
- 799104 string characters out of 5729346
- 1671272 words of memory out of 5000000
- 64229 multiletter control sequences out of 15000+600000
+ 42153 strings out of 473702
+ 802212 string characters out of 5729346
+ 1672599 words of memory out of 5000000
+ 64309 multiletter control sequences out of 15000+600000
  579893 words of font info for 77 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  109i,25n,107p,2372b,1891s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -2098,9 +2215,9 @@ ex/vnr/vnr7.pfb><C:/Users/pc/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vn
 r/vnti10.pfb><C:/Users/pc/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/v
 ntt10.pfb><C:/Users/pc/AppData/Local/Programs/MiKTeX/fonts/type1/vntex/vnr/vntt
 8.pfb>
-Output written on main.pdf (32 pages, 2054653 bytes).
+Output written on main.pdf (42 pages, 2544334 bytes).
 PDF statistics:
- 792 PDF objects out of 1000 (max. 8388607)
- 162 named destinations out of 1000 (max. 500000)
- 654 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 950 PDF objects out of 1000 (max. 8388607)
+ 198 named destinations out of 1000 (max. 500000)
+ 803 words of extra memory for PDF output out of 10000 (max. 10000000)
 

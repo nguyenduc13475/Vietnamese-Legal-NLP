@@ -1,3 +1,46 @@
 \section{Kết luận và hướng phát triển}
+
 \subsection{Kết luận}
+
+Đồ án đã hoàn thành mục tiêu xây dựng một hệ thống NLP toàn diện (End-to-End Pipeline) dành riêng cho miền dữ liệu hợp đồng pháp lý tiếng Việt. Những kết quả đạt được bao gồm:
+\begin{itemize}
+    \item \textbf{Về mặt kỹ thuật:} Triển khai thành công chuỗi xử lý từ tiền xử lý cú pháp (Assignment 1) đến trích xuất ngữ nghĩa chuyên sâu (Assignment 2). Việc sử dụng mô hình PhoBERT kết hợp với kỹ thuật \textit{Multi-Sample Dropout} và \textit{Focal Loss} đã chứng minh được hiệu quả trong việc xử lý các văn bản có độ nhiễu cao và mất cân bằng nhãn đặc thù của ngành luật.
+    \item \textbf{Về mặt ứng dụng:} Xây dựng được hệ thống RAG (Assignment 3) với kiến trúc "Legal Search Architect". Điểm sáng của hệ thống là khả năng minh bạch hóa quá trình suy luận thông qua cơ chế Re-ranking dựa trên SRL và Alias Matching, giúp giảm thiểu hiện tượng ảo giác thông tin và cung cấp câu trả lời có tính căn cứ pháp lý cao.
+    \item \textbf{Về mặt dữ liệu:} Áp dụng thành công phương pháp \textit{LLM Knowledge Distillation} để tự động tạo tập dữ liệu huấn luyện chất lượng cao từ Gemini Pro, giúp giải quyết bài toán thiếu hụt dữ liệu gán nhãn trong miền hẹp.
+\end{itemize}
+
+Hệ thống không chỉ đáp ứng các yêu cầu về mặt học thuật của môn học mà còn có tiềm năng ứng dụng thực tế trong các hệ thống hỗ trợ rà soát hợp đồng tự động (LegalTech).
+
 \subsection{Hạn chế và Hướng cải tiến}
+
+Mặc dù đạt được kết quả khả quan, hệ thống vẫn tồn tại một số hạn chế cần được nghiên cứu cải tiến trong tương lai:
+
+\subsubsection{Cải tiến mô hình Segmentation theo phương pháp Edit-Based}
+Hạn chế lớn nhất của mô hình Segmenter hiện tại (Task 1.1) là sử dụng cơ chế gán nhãn thành phần cố định kết hợp với luật tái tổ hợp (\textit{Rule-based Reconstruction}). Phương pháp này gặp khó khăn khi xử lý các câu phức có cấu trúc lồng nhau quá sâu hoặc các câu có biến thể ngữ pháp không nằm trong danh mục các "Type" đã định nghĩa.
+
+\paragraph{Đề xuất phương án Edit-Based Segmentation:}
+Thay vì cố gắng gán nhãn và cắt ghép, chúng ta sẽ mô hình hóa bài toán tách mệnh đề thành một chuỗi các thao tác chỉnh sửa văn bản (\textit{Sequence of Edit Operations}). 
+\begin{itemize}
+    \item \textbf{Cơ chế hoạt động:} Sử dụng kiến trúc Transformer Encoder (như PhoBERT) để dự đoán một tập hợp các hành động (Actions) tại mỗi vị trí token, bao gồm:
+    \begin{itemize}
+        \item \texttt{KEEP}: Giữ nguyên từ hiện tại.
+        \item \texttt{DELETE}: Xóa từ (ví dụ các liên từ "và", "hoặc" dư thừa sau khi tách).
+        \item \texttt{SPLIT}: Đánh dấu vị trí ngắt mệnh đề.
+        \item \texttt{COPY\_SUBJECT}: Tự động sao chép chủ ngữ của mệnh đề chính vào đầu mệnh đề phụ để đảm bảo tính toàn vẹn ngữ pháp cho câu mới.
+    \end{itemize}
+    \item \textbf{Ưu điểm:} Phương pháp này cho phép hệ thống "sinh" ra các mệnh đề mới một cách linh hoạt, giữ được mạch văn tự nhiên và không bị bó buộc vào các cấu trúc cố định. Điều này đặc biệt hữu ích cho các câu liệt kê trong hợp đồng nơi chủ ngữ thường bị ẩn đi ở các mục sau.
+\end{itemize}
+
+\subsubsection{Tích hợp Đồ thị tri thức pháp lý (Legal Knowledge Graph)}
+Hệ thống RAG hiện tại chủ yếu dựa trên tìm kiếm tương đồng vector. Để nâng cao khả năng suy luận logic (ví dụ: xác định mối quan hệ bắc cầu giữa các công ty con trong hợp đồng), hệ thống cần tích hợp thêm \textbf{Knowledge Graph}.
+\begin{itemize}
+    \item Trích xuất các thực thể và quan hệ (Entity-Relation) từ toàn bộ kho hợp đồng để xây dựng đồ thị.
+    \item Sử dụng \textit{GraphRAG} để truy xuất thông tin không chỉ dựa trên văn bản mà còn dựa trên các liên kết logic giữa các điều khoản và thực thể.
+\end{itemize}
+
+\subsubsection{Tối ưu hóa tài nguyên và Khả năng chạy Offline}
+Hiện tại hệ thống vẫn phụ thuộc vào Gemini API cho các tác vụ khó. Hướng phát triển tiếp theo sẽ là:
+\begin{itemize}
+    \item \textbf{Quantization:} Nén các mô hình PhoBERT hiện tại (NER, SRL, Intent) sang định dạng \texttt{ONNX} hoặc \texttt{TensorRT} để tăng tốc độ suy diễn trên các thiết bị không có GPU mạnh.
+    \item \textbf{Local LLM:} Tinh chỉnh các mô hình ngôn ngữ nhỏ (SLM) như \textit{Vistral-7B} hoặc \textit{Qwen-Legal} để thay thế hoàn toàn API ngoại vi, đảm bảo tính bảo mật tuyệt đối cho dữ liệu hợp đồng của khách hàng.
+\end{itemize}

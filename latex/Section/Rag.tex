@@ -128,13 +128,13 @@ Và \textit{Search Blueprint} ($Q$) tạo ra từ câu hỏi yêu cầu:
 Mệnh đề này nhận được điểm SRL khá cao ($0.6/1.0$) dù vị ngữ không hoàn toàn trùng khớp, nhờ hệ thống hiểu rõ "Công ty XYZ" chính là "Bên B" thông qua cơ chế Alias.
 
 \paragraph{Công thức tính điểm tổng hợp ($S_{total}$):}
-Cuối cùng, điểm SRL được kết hợp với điểm Vector ban đầu ($S_{vector}$) để tạo ra điểm xếp hạng tổng thể:
+Hệ thống sử dụng phương pháp trung bình trọng số (Weighted Average) để kết hợp điểm tương đồng vector và điểm cấu trúc ngữ nghĩa, giúp duy trì sự phân cấp tinh vi giữa các mệnh đề có độ khớp cao:
 
 \begin{equation}
-S_{total} = \min\left( S_{vector} + \lambda \cdot S_{srl} , 1.0 \right)
+S_{total} = (1 - \alpha) \cdot S_{vector} + \alpha \cdot S_{srl}
 \end{equation}
 
-Trong hệ thống, $\lambda$ (hệ số điều tiết SRL) được thiết lập mặc định là $0.7$ nhằm cân bằng giữa việc tìm kiếm dựa trên embedding ngữ nghĩa linh hoạt và việc đối sánh cấu trúc ngữ pháp cứng nhắc. Các mệnh đề ứng viên sau đó được sắp xếp giảm dần theo $S_{total}$ và lọc ra Top-K (thường là 10) để đưa vào Context cho LLM sinh câu trả lời.
+Trong đó $\alpha$ được thiết lập là 0.7, cho thấy hệ thống ưu tiên sự chính xác về cấu trúc pháp lý (ai làm gì) hơn là sự tương đồng về từ vựng thuần túy.
 
 \subsection{Khối sinh câu trả lời và Trích dẫn}
 
@@ -148,25 +148,85 @@ Hệ thống ép buộc Gemini tuân thủ các quy tắc nghiêm ngặt (\textt
     \item \textbf{Chống ảo giác:} Nếu thông tin không có trong Top-K mệnh đề truyền vào, model bắt buộc phải trả lời "Tôi không tìm thấy thông tin liên quan".
 \end{itemize}
 
-\subsubsection{Minh họa kết quả hỏi đáp}
+\subsubsection{Minh họa kết quả hỏi đáp: Case Study}
 
-\begin{table}[H]
-\centering
-\caption{Ví dụ luồng xử lý câu hỏi thực tế}
-\begin{tabular}{|p{3cm}|p{10cm}|}
-\hline
-\textbf{Câu hỏi} & Bên thuê phải trả bao nhiêu tiền mỗi tháng? \\ \hline
-\textbf{Truy xuất} & Tìm thấy mệnh đề: "Phí thuê căn hộ được ấn định là 10.000.000 đồng mỗi tháng" trong \texttt{hop\_dong\_thue\_nha.txt}. \\ \hline
-\textbf{SRL Score} & Predicate "trả" $\approx$ "ấn định" (0.7); Agent "Bên thuê" $\equiv$ "Bên B" (Alias match 1.0). \\ \hline
-\textbf{Câu trả lời} & Căn cứ theo Hợp đồng thuê nhà - Điều III: Phí thuê căn hộ mà Bên thuê (Bên B) phải thanh toán là 10.000.000 đồng mỗi tháng. \\ \hline
-\end{tabular}
-\end{table}
+Để làm rõ luồng xử lý (pipeline) của hệ thống RAG đa tầng, chúng ta sẽ xét một truy vấn thực tế từ người dùng và quan sát cách hệ thống phân tích, định tuyến truy xuất, và sinh câu trả lời.
 
-\subsection{Giao diện người dùng và Tương tác}
+\textbf{Tình huống giả định:} Hệ thống đang quản lý một kho dữ liệu đa dạng gồm Hợp đồng lao động, Hợp đồng tín dụng, và Hợp đồng thuê nhà. Người dùng đặt câu hỏi chung chung: \textit{"Bên thuê phải trả bao nhiêu tiền mỗi tháng?"}
 
-Giao diện được triển khai bằng Streamlit (\texttt{ui/app.py}), cho phép người dùng:
+\paragraph{Bước 1: LLM Định tuyến và Tạo Search Blueprint (Query Routing \& Planning)}
+Trong môi trường đa tài liệu (Multi-document), việc truy xuất mù quáng toàn bộ Vector DB sẽ gây nhiễu chéo (cross-contract contamination). Do đó, ngay khi nhận câu hỏi, hệ thống kích hoạt cơ chế bóc tách \texttt{contract\_title}. 
+
+Tại khâu tiền xử lý, tiêu đề của mỗi hợp đồng đã được tự động nhận diện thông qua thẻ \texttt{[TITLE]} và lưu vào metadata (vd: \textit{"HỢP ĐỒNG THUÊ MẶT BẰNG"}). Hệ thống gọi hàm \texttt{get\_sources\_with\_titles()} để lập một danh mục (catalog) các hợp đồng hiện có và đính kèm vào Prompt gửi lên Gemini. Dựa vào từ khóa "Bên thuê", Gemini suy luận logic và quyết định định tuyến câu hỏi này vào đúng tệp hợp đồng cho thuê, đồng thời bóc tách các đặc trưng ngữ nghĩa để tạo thành một \textit{Blueprint} (Bản thiết kế tìm kiếm):
+
+\begin{verbatim}
+{
+  "sources": ["hop_dong_thue_nha.txt"],
+  "intents": ["Obligation"], 
+  "entity_types": ["MONEY", "PARTY"],
+  "srl": {
+    "predicate": "trả",
+    "roles": {"AGENT": "Bên thuê"}
+  },
+  "search_query": "Bên thuê phải trả bao nhiêu tiền mỗi tháng?"
+}
+\end{verbatim}
+
+\paragraph{Bước 2: Truy xuất mục tiêu và Tái xếp hạng (Targeted Retrieval \& Re-ranking)}
 \begin{itemize}
-    \item Xem trực quan hóa kết quả phân tích từng mệnh đề (NER tags màu vàng, NP chunks màu xanh).
-    \item Theo dõi quá trình "suy nghĩ" của hệ thống qua mục \textit{Routing Debug} (hiển thị Blueprint mà Gemini đã lập ra).
-    \item Xem chi tiết điểm số (Score Breakdown) của từng nguồn trích dẫn để đảm bảo tính minh bạch.
+    \item \textbf{Lọc cứng (Hard Filter):} Đầu tiên, cơ sở dữ liệu ChromaDB sử dụng thông tin từ trường \texttt{sources} trong Blueprint để khoanh vùng truy xuất \textbf{chỉ duy nhất} trong tệp \texttt{hop\_dong\_thue\_nha.txt}, loại trừ ngay lập tức sự can thiệp từ các hợp đồng lao động hay tín dụng. Tiếp đó, nó chỉ giữ lại các mệnh đề mang nhãn ý định \texttt{Obligation} (Nghĩa vụ) và chứa thực thể \texttt{MONEY} hoặc \texttt{PARTY}.
+    \item \textbf{Tính điểm Vector ($S_{vector}$):} Vector DB lấy ra được một mệnh đề ứng viên ($D_1$): \textit{"Phí thuê căn hộ được ấn định là 10.000.000 đồng mỗi tháng"}. Do sự khác biệt từ vựng ("trả tiền" trong câu hỏi vs "phí thuê... ấn định" trong tài liệu), điểm tương đồng Cosine ở bước này chỉ ở mức trung bình.
+    \item \textbf{Chấm điểm Ngữ nghĩa ($S_{srl}$):} 
+    \begin{itemize}
+        \item \textbf{Vị ngữ:} Embedding của từ "trả" ($P_{query}$) và "ấn định" ($P_{doc}$) có độ tương đồng ngữ nghĩa nhất định trong không gian vector tiếng Việt (vượt ngưỡng 0.6).
+        \item \textbf{Vai trò:} Blueprint yêu cầu tìm \texttt{AGENT} là "Bên thuê". Mệnh đề ứng viên ($D_1$) vốn không chứa từ "Bên thuê" mà chỉ có "Bên B", nhưng nó mang metadata Alias là \texttt{[("Bên A", "Bên cho thuê"), ("Bên B", "Bên thuê")]}. Nhờ cơ chế Alias Matching, hệ thống hiểu ngay đối tượng "Bên B" chính là "Bên thuê" và cho điểm Role tuyệt đối ($1.0$).
+    \end{itemize}
+    \item \textbf{Kết quả Re-rank:} Bằng cách áp dụng công thức Trung bình trọng số (Weighted Average) kết hợp giữa điểm Vector và điểm SRL, mệnh đề $D_1$ đạt điểm tổng hợp ($S_{total}$) cao nhất và được đẩy lên đầu danh sách Context.
 \end{itemize}
+
+\paragraph{Bước 3: LLM Sinh câu trả lời (Generation)}
+Hệ thống ghép nối câu hỏi ban đầu với mệnh đề $D_1$ (đã đính kèm thông tin Nguồn và Tiêu đề) rồi đưa vào Prompt Generation. Bị ràng buộc bởi hệ thống quy tắc "bắt buộc trích dẫn" và "chống ảo giác", LLM tổng hợp ra câu trả lời chuẩn mực pháp lý:
+
+\begin{quote}
+\textbf{Hệ thống trả lời:}\\
+\textit{"Căn cứ theo HỢP ĐỒNG THUÊ MẶT BẰNG (hop\_dong\_thue\_nha.txt) - Điều III: Phí thuê căn hộ mà Bên thuê (Bên B) có nghĩa vụ phải thanh toán là 10.000.000 đồng mỗi tháng."}
+\end{quote}
+
+\textbf{Nhận xét:} Case Study này chứng minh sự ưu việt của kiến trúc Legal Search Architect. Việc trích xuất tiêu đề bằng thẻ \texttt{[TITLE]} để hỗ trợ Query Routing giúp giải quyết trọn vẹn bài toán nhiễu thông tin trong hệ thống đa hợp đồng. Kết hợp cùng khả năng hiểu \textit{Ý định (Intent)}, đối chiếu \textit{Bí danh (Alias)}, và đánh giá \textit{Vai trò ngữ nghĩa (SRL)}, hệ thống không chỉ tìm ra đúng văn bản mà còn bóc tách chính xác điều khoản cần thiết dù có sự sai lệch lớn về cách hành văn.
+
+\subsection{Giao diện người dùng và Tương tác (UI/UX)}
+
+Một hệ thống Xử lý Ngôn ngữ Tự nhiên dù sở hữu lõi thuật toán mạnh mẽ đến đâu cũng sẽ trở thành một "hộp đen" (black box) đối với người dùng cuối nếu thiếu đi một giao diện tương tác trực quan. Để giải quyết vấn đề này, toàn bộ pipeline phân tích và hệ thống hỏi đáp RAG được tích hợp vào một ứng dụng Web Dashboard phát triển trên nền tảng \textbf{Streamlit} (\texttt{ui/app.py}). 
+
+Giao diện được thiết kế theo hướng \textit{Explainable AI (XAI - Trí tuệ nhân tạo có thể giải thích được)}, tập trung vào việc bóc tách và phơi bày toàn bộ quá trình "suy nghĩ" của mô hình, cho phép người dùng kiểm chứng chéo từng bước suy luận. Các tính năng tương tác nổi bật bao gồm:
+
+\subsubsection{Trực quan hóa Phân tích Ngữ nghĩa (Semantic Engine Visualizer)}
+Trong tab \textit{Semantic Engine}, người dùng có thể chọn bất kỳ hợp đồng nào đã được tiền xử lý để xem chi tiết kết quả bóc tách của Tác vụ 1 và 2 trên từng mệnh đề:
+\begin{itemize}
+    \item \textbf{Highlighter đa sắc:} Các thực thể pháp lý (NER) được làm nổi bật với tông màu vàng (nhãn định dạng BIO), trong khi các cụm danh từ (NP Chunks) được khoanh vùng bằng màu xanh nhạt (nhãn định dạng IOB). Việc phối màu này giúp người dùng nhận diện ngay lập tức các chủ thể, số tiền, hay thời hạn quan trọng đang rải rác trong câu.
+    \item \textbf{Cấu trúc dạng bảng:} Các mối quan hệ phụ thuộc (Dependency Parsing) và vai trò ngữ nghĩa (SRL Roles) được trình bày dưới dạng bảng và JSON dễ đọc, giúp đối soát xem mô hình có bắt đúng mối quan hệ "Ai làm gì với ai" hay không.
+\end{itemize}
+
+% [PLACEHOLDER ẢNH 1: Đưa đường dẫn ảnh chụp màn hình tab Semantic Engine vào thuộc tính \includegraphics]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Image/semantic_visual.png}
+    \caption{Giao diện Semantic Engine trực quan hóa kết quả NER, NP Chunking và SRL của từng mệnh đề.}
+    \label{fig:ui_semantic_engine}
+\end{figure}
+
+\subsubsection{Trợ lý ảo Hỏi đáp minh bạch (Explainable RAG Chatbot)}
+Tab \textit{Chatbot RAG} không chỉ là nơi hiển thị câu trả lời cuối cùng, mà còn là một không gian kiểm toán thông tin:
+\begin{itemize}
+    \item \textbf{Theo dõi luồng định tuyến (Routing Debug):} Khi người dùng đặt câu hỏi, giao diện cung cấp một cửa sổ mở rộng (expander) hiển thị toàn bộ \textit{Search Blueprint} định dạng JSON mà Gemini vừa lập ra ở Phase 1. Người dùng có thể xem chính xác AI đã phân loại câu hỏi thuộc Ý định (Intent) gì, cần tìm Thực thể (Entity) nào, và Vị ngữ (Predicate) trọng tâm là gì.
+    \item \textbf{Bóc tách điểm số (Score Breakdown):} Ở mỗi nguồn trích dẫn đính kèm dưới câu trả lời, hệ thống hiển thị một bộ huy hiệu (badges) minh bạch hóa điểm số. Thay vì một con số vô hồn, người dùng có thể xem chi tiết: Điểm không gian Vector ($S_{vector}$) là bao nhiêu, và điểm bù trừ từ thuật toán cấu trúc SRL ($S_{srl}$) là bao nhiêu. Một cửa sổ chi tiết hơn cũng cho phép xem AI đã đối sánh Alias (Bí danh) thành công ở những vai trò nào.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\textwidth]{Image/rag_visual.png}
+    \caption{Giao diện Chatbot RAG hiển thị câu trả lời kèm theo nguồn trích dẫn và cửa sổ Routing Debug (Quá trình lập kế hoạch tìm kiếm).}
+    \label{fig:ui_rag_chatbot}
+\end{figure}
+
+Thông qua thiết kế UI/UX này, hệ thống không chỉ đáp ứng tốt yêu cầu kỹ thuật của bài tập lớn mà còn mang lại trải nghiệm thực tế sát với yêu cầu của các ứng dụng LegalTech (Công nghệ Pháp lý) chuyên nghiệp: Đề cao tính chính xác, khả năng truy xuất nguồn gốc và sự minh bạch trong thuật toán.
