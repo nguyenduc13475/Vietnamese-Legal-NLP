@@ -48,7 +48,7 @@ Khi nhận câu hỏi, hệ thống gửi một Prompt đặc biệt tới Gemin
 
 \subsubsection{Chiến lược lọc đa tầng (Multi-stage Filtering)}
 
-Dựa trên Blueprint, hàm \texttt{retrieve} trong \texttt{src/qa/ retriever.py} thực hiện lọc theo thứ tự:
+Dựa trên Blueprint, hàm \texttt{retrieve} trong \texttt{src/qa/retriever.py} thực hiện lọc theo thứ tự:
 
 \begin{enumerate}
     \item \textbf{Lọc theo Nguồn (Source Filter) và Ý định (Intent Filter):} Đây là bước lọc cứng ngay tại tầng cơ sở dữ liệu vector (ChromaDB) bằng toán tử \texttt{\$in}. Hệ thống chỉ lấy các mệnh đề thuộc đúng file hợp đồng và có ý định pháp lý phù hợp (ví dụ: chỉ tìm trong các câu mang tính "Nghĩa vụ" hoặc "Điều kiện chấm dứt").
