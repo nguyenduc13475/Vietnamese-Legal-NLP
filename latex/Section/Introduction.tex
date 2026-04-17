@@ -1,0 +1,22 @@
+\section{Tổng quan đề tài}
+
+\subsection{Đặt vấn đề}
+Trong bối cảnh số hóa và tự động hóa quy trình doanh nghiệp ngày càng phát triển, việc xử lý và quản lý khối lượng lớn các văn bản pháp lý, đặc biệt là hợp đồng, trở thành một bài toán đầy thách thức. Các hợp đồng pháp lý tiếng Việt thường chứa những câu văn dài, cấu trúc ngữ pháp phức tạp, nhiều mệnh đề phụ, điều kiện và các phép liệt kê đan xen. Việc đọc hiểu, trích xuất thông tin và phân tích rủi ro thủ công không chỉ tiêu tốn nhiều thời gian, nguồn lực mà còn tiềm ẩn nguy cơ sai sót cao do yếu tố chủ quan của con người. 
+
+Do đó, nhu cầu cấp thiết đặt ra là phải xây dựng các hệ thống tự động có khả năng "hiểu" ngôn ngữ pháp lý thô (unstructured text), trích xuất được các thông tin cốt lõi (như chủ thể tham gia, số tiền, thời hạn) và phân tích được ngữ nghĩa của từng điều khoản (điều kiện phạt là gì, quyền và nghĩa vụ của các bên ra sao). Việc ứng dụng Xử lý Ngôn ngữ Tự nhiên (NLP) vào miền dữ liệu pháp lý chính là giải pháp tối ưu nhằm chuyển đổi dữ liệu văn bản thô thành các cấu trúc tri thức có ý nghĩa, phục vụ cho việc tự động hóa tra cứu và quản trị rủi ro.
+
+\subsection{Mục tiêu đề tài}
+Mục tiêu chính của đề tài là nghiên cứu, thiết kế và triển khai một NLP pipeline toàn diện để phân tích các hợp đồng pháp lý tiếng Việt. Dự án được cấu trúc thành ba mục tiêu cụ thể như sau:
+
+\begin{itemize}
+    \item \textbf{Tiền xử lý và Phân tích cú pháp (Assignment 1):} Xây dựng công cụ phân tách các câu phức tạp thành các mệnh đề độc lập về mặt ngữ nghĩa (Clause Segmentation); gắn nhãn và phân rã cụm danh từ (Noun Phrase Chunking) theo lược đồ IOB; thực hiện phân tích cú pháp phụ thuộc (Dependency Parsing) để làm rõ mối quan hệ chủ - vị ngữ và các thành phần bổ nghĩa trong câu.
+    \item \textbf{Trích xuất thông tin và Phân tích ngữ nghĩa (Assignment 2):} Xây dựng và tinh chỉnh (fine-tune) mô hình Nhận dạng thực thể có tên (NER) chuyên biệt cho lĩnh vực hợp đồng (nhận diện PARTY, MONEY, DATE, RATE, PENALTY, LAW); triển khai Gắn nhãn vai trò ngữ nghĩa (Semantic Role Labeling - SRL) để trả lời cho câu hỏi "ai làm gì với ai, trong điều kiện nào"; và Phân loại ý định mệnh đề (Intent Classification) nhằm xác định chức năng pháp lý của điều khoản (Obligation, Right, Prohibition, Termination Condition).
+    \item \textbf{Ứng dụng hỏi đáp hợp đồng (Assignment 3):} Xây dựng một hệ thống Chatbot Hỏi đáp thông minh dựa trên kỹ thuật Retrieval-Augmented Generation - RAG. Hệ thống cho phép người dùng truy vấn thông tin hợp đồng bằng ngôn ngữ tự nhiên, kết hợp dữ liệu vector ngữ nghĩa và metadata cấu trúc (NER, SRL, Intent) để đưa ra câu trả lời chính xác, tránh hiện tượng "ảo giác" (hallucination) và cung cấp nguồn trích dẫn rõ ràng.
+\end{itemize}
+
+\subsection{Phạm vi đề tài}
+\begin{itemize}
+    \item \textbf{Dữ liệu:} Đề tài tập trung xử lý các loại hợp đồng pháp lý thông dụng tại Việt Nam (như hợp đồng mua bán, hợp đồng thuê nhà, hợp đồng lao động, hợp đồng dịch vụ, v.v.). Dữ liệu thô ban đầu (PDF, DOCX) được thu thập, sau đó sử dụng LLM (Gemini) để chuyển sang dạng văn bản thuần túy (TXT) đã được làm sạch và thêm metadata cần thiết.
+    \item \textbf{Kỹ thuật và Mô hình NLP:} Kết hợp linh hoạt giữa các quy tắc (Rule-based), công cụ NLP mã nguồn mở (Underthesea) cho các tác vụ cơ sở, và các mô hình Học sâu (Deep Learning) dựa trên kiến trúc Transformer. Cụ thể, dự án tiến hành fine-tune mô hình \textit{PhoBERT} cho hầu hết các tác vụ như tách câu, NER, SRL và Intent Classification.
+    \item \textbf{Kiến trúc hệ thống RAG:} Tích hợp cơ sở dữ liệu vector \textit{ChromaDB} để lưu trữ và truy xuất các mệnh đề, sử dụng mô hình embedding đa ngữ, và tận dụng API của \textit{Google Gemini} đóng vai trò LLM để sinh câu trả lời trong pipeline của \textit{LangChain}. Giao diện người dùng (UI) được triển khai trên nền tảng \textit{Streamlit}.
+\end{itemize}

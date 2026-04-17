@@ -1,0 +1,166 @@
+\section{Dữ liệu và tiền xử lý}
+
+Phần này trình bày chi tiết quy trình xây dựng kho dữ liệu và các bước tiền xử lý nhằm biến đổi văn bản pháp lý từ dạng phi cấu trúc sang dạng có cấu trúc, sẵn sàng cho việc huấn luyện mô hình và truy xuất thông tin.
+
+\subsection{Thu thập và Xây dựng tập dữ liệu}
+
+\subsubsection{Nguồn dữ liệu và định dạng}
+Dữ liệu thô được thu thập từ các mẫu hợp đồng pháp lý thông dụng tại Việt Nam, bao gồm: hợp đồng mua bán hàng hóa, hợp đồng thuê nhà xưởng, hợp đồng lao động, hợp đồng tín dụng và các thỏa thuận bảo mật thông tin (NDA).
+\begin{itemize}
+    \item \textbf{Định dạng:} PDF, DOCX và TXT.
+    \item \textbf{Số lượng:} Hệ thống hiện lưu trữ hơn 30 tệp tin hợp đồng thô tại thư mục \texttt{data/raw/}.
+    \item \textbf{Đặc điểm:} Các văn bản này chứa nhiều bảng biểu, định dạng cột, tiêu đề lặp lại và các khoảng trống (placeholder) chưa điền thông tin.
+\end{itemize}
+
+\subsubsection{Cấu trúc thư mục dữ liệu}
+Để quản lý vòng đời dữ liệu, dự án phân chia các giai đoạn xử lý theo sơ đồ sau:
+\begin{itemize}
+    \item \texttt{data/raw/}: Lưu trữ văn bản gốc chưa qua xử lý.
+    \item \texttt{data/processed/}: Chứa văn bản dạng Plain Text (.txt) đã được làm sạch và gán nhãn ngữ cảnh.
+    \item \texttt{data/annotated/}: Chứa các tệp JSON phục vụ huấn luyện mô hình (NER, SRL, Intent, Segmenter) sau khi đã ánh xạ chỉ mục token.
+    \item \texttt{data/vector\_db/}: Cơ sở dữ liệu vector lưu trữ embedding và metadata của từng mệnh đề.
+\end{itemize}
+
+\subsection{Tiền xử lý dữ liệu (Assignment 1.1)}
+
+Do đặc thù văn bản pháp lý rất phức tạp, việc sử dụng các công cụ tách câu (sentence tokenizer) thông thường thường bị lỗi do các cấu trúc liệt kê (a, b, c...) và các cấu trúc câu phức dạng phân phối (không thể chỉ tách câu làm đôi tại vị trí của liên từ mà cần phải phân phối chủ ngữ/vị ngữ vào các câu con). Do sự phức tạp đó, đồ án này quyết định triển khai quy trình tiền xử lý kết hợp giữa LLM và các luật quy tắc (Rule-based).
+
+\subsubsection{Làm sạch và Cấu trúc hóa bằng Gemini API}
+Dữ liệu từ \texttt{data/raw/} được đẩy qua script \texttt{clean\_raw\_docs.py}. Quy trình này sử dụng mô hình \texttt{gemini-3.1-flash} với một hệ thống Prompt chuyên biệt (\texttt{DOCUMENT\_CLEANING\_PROMPT}) để thực hiện các nhiệm vụ:
+\begin{enumerate}
+    \item \textbf{Phân rã mệnh đề (Clause Segmentation):} Ép buộc mỗi dòng trả về phải là một mệnh đề độc lập về mặt ngữ nghĩa. Tuy nhiên vẫn sẽ tồn tại một số câu phức.
+    \item \textbf{Điền thông tin giả lập (Data Filling):} Tự động phát sinh thông tin thực tế (tên người, số tiền, địa chỉ) vào các chỗ trống của hợp đồng mẫu để tạo ngữ cảnh huấn luyện tốt hơn.
+    \item \textbf{Gán thẻ ngữ cảnh (Context Tagging):} Mỗi mệnh đề được tiền tố hóa bằng thẻ ngữ cảnh trong dấu ngoặc vuông, ví dụ: \texttt{[Điều 1 - Khoản 2]}.
+    \item \textbf{Nhận diện Tiêu đề:} Đánh dấu dòng tiêu đề chính bằng thẻ \texttt{[TITLE]}.
+    \item \textbf{Trích xuất Bí danh (Alias Extraction):} Xác định các cặp thực thể là bí danh của nhau (ví dụ: "Nguyễn Văn A" - "Bên B") và lưu ở dòng đầu tiên của tệp tin.
+\end{enumerate}
+
+\subsubsection{Chuẩn hóa văn bản}
+Sau khi nhận kết quả từ LLM, văn bản tiếp tục được chuẩn hóa qua hàm \texttt{clean\_contract\_text}:
+\begin{itemize}
+    \item Chuyển đổi về định dạng Unicode NFC.
+    \item Loại bỏ các ký tự ẩn, số trang, mục lục rác.
+    \item Xử lý các dòng bị ngắt quãng không đúng vị trí bằng cách kiểm tra liên từ và dấu câu kết thúc.
+\end{itemize}
+
+\subsubsection{Cơ chế Phân rã mệnh đề (Clause Segmentation) và Tái tổ hợp}
+Để giải quyết triệt để bài toán tách câu phức dạng phân phối, thay vì sử dụng phương pháp sinh chuỗi (seq2seq) nặng nề, đồ án mô hình hóa bài toán này thành dạng gán nhãn chuỗi (Sequence Labeling). Cụ thể, các từ trong câu phức được gán nhãn thành các thành phần (Component, đánh số từ 1 đến 5). Dựa trên sự xuất hiện của các thành phần này, hệ thống áp dụng các luật tái tổ hợp (Reconstruction Rules) phân chia theo các trường hợp (Type):
+\begin{itemize}
+    \item \textbf{Type 1 (Cấu trúc phân phối đơn giản):} Ví dụ câu có cấu trúc $A B C D$, trong đó $B$ và $C$ là hai cụm động từ hoặc tính từ song song dùng chung chủ ngữ $A$ và bổ ngữ $D$. Hệ thống sẽ tách câu gốc và tái tạo thành 2 câu con độc lập là: $A B D$ và $A C D$.
+    \item \textbf{Type 2 (Cấu trúc phân phối phức tạp):} Ví dụ cấu trúc $A B C D E$, tùy thuộc vào vai trò ngữ pháp, hệ thống có thể kết hợp chéo thành các câu như $A B C$ và $A D C E$.
+\end{itemize}
+Cơ chế tổ hợp này được thiết kế linh hoạt và sau này hoàn toàn có thể mở rộng thêm nhiều Type phức tạp hơn. 
+
+Cần lưu ý thêm rằng, thực chất có một cách tiếp cận khác ưu việt và tự nhiên hơn cho bài toán này là phương pháp \textit{Edit-Based} (chỉnh sửa câu gốc từng bước một, ví dụ như thêm/xóa/sửa từ để dần dần biến một câu phức thành nhiều câu con hoàn chỉnh). Tuy nhiên, do việc xây dựng dataset cho mô hình Edit-Based đòi hỏi sự tỉ mỉ, gán nhãn từng thao tác (action) rất khó khăn và tốn thời gian, nên trong khuôn khổ hiện tại của đồ án, quyết định triển khai phương pháp trích xuất thành phần kết hợp luật tổ hợp là khả thi nhất.
+
+Ví dụ định dạng dữ liệu đầu vào cho mô hình Segmenter (\texttt{segment\_train.json}), trong đó \texttt{segment\_tags} tương ứng với các nhãn thành phần (từ 0 đến 5, 1-5 ứng với A-E):
+\begin{verbatim}
+{
+    "input_ids": [
+        16528, 13, 559, 1247, 7754, 9757, 979, 1936, 6298, 540, 6, 7754, 18455, 1925
+    ],
+    "segment_tags": [
+        1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 0, 3, 3, 3
+    ]
+}
+\end{verbatim}
+
+\subsection{Xây dựng tập gán nhãn (Annotation Pipeline)}
+
+Để huấn luyện các mô hình PhoBERT cho các tác vụ chuyên sâu (như NER, SRL, Intent), một lượng lớn dữ liệu gán nhãn chất lượng cao là vô cùng cần thiết. Trong đồ án này, thay vì gán nhãn thủ công toàn bộ gây tốn kém thời gian, đồ án áp dụng phương pháp tiếp cận \textbf{Chưng cất tri thức từ Mô hình Ngôn ngữ Lớn (LLM Knowledge Distillation)}.
+
+\subsubsection{Sinh dữ liệu gán nhãn thô bằng Gemini Pro (Teacher-Student Model)}
+Các tệp dữ liệu gán nhãn thô cơ sở (ví dụ: \texttt{annotated\_raw.json} và \texttt{segment\_raw.json}) được tổng hợp tự động thông qua \textbf{Gemini Pro}. Quy trình và ý nghĩa của phương pháp này như sau:
+\begin{itemize}
+    \item \textbf{Khởi tạo tri thức:} Gemini Pro đóng vai trò như một chuyên gia (Teacher Model), được cung cấp các mệnh đề pháp lý để tự động trích xuất thực thể, vai trò ngữ nghĩa và phân loại ý định dựa trên bộ luật (prompt) cho trước.
+    \item \textbf{Chưng cất và Nén mô hình:} Bản chất của phương pháp này là sử dụng khả năng xử lý Zero-shot/Few-shot vượt trội của một mô hình khổng lồ (Gemini Pro) để tạo ra tập dữ liệu huấn luyện (pseudo-labels). Tập dữ liệu này sau đó được dùng để dạy lại (fine-tune) một mô hình nhỏ gọn, chuyên biệt hơn (Student Model - PhoBERT).
+    \item \textbf{Hiệu quả:} Đây là một hình thức "nén mô hình" (model compression) cực kỳ hiệu quả, cho phép hệ thống triển khai độc lập tại local (offline) với tốc độ suy diễn (inference) cực nhanh, tốn ít tài nguyên phần cứng mà vẫn đảm bảo độ chính xác tiệm cận với các LLM thương mại trong miền dữ liệu pháp lý cụ thể.
+\end{itemize}
+
+Ví dụ cấu trúc của dữ liệu gán nhãn thô \texttt{annotated\_raw.json}:
+\begin{verbatim}
+{
+  "clause": "Bên cho thuê là ông Nguyễn Văn A, sinh năm 1980, cư trú tại số 10 
+  đường Lê Lợi, quận 1, thành phố Hồ Chí Minh.",
+  "intent": "Other",
+  "ultra_ner": [
+    {"text": "Bên cho thuê", "label": "PARTY"},
+    {"text": "ông Nguyễn Văn A", "label": "PARTY"},
+    {"text": "năm 1980", "label": "DATE"},
+    {"text": "số 10 đường Lê Lợi, quận 1, thành phố Hồ Chí Minh", "label": "OBJECT"}
+  ],
+  "srl_roles": [
+    {"text": "Bên cho thuê", "label": "THEME"},
+    {"text": "là", "label": "PREDICATE"},
+    {"text": "Nguyễn Văn A", "label": "NAME"},
+    {"text": "năm 1980", "label": "TIME"},
+    {"text": "số 10 đường Lê Lợi, quận 1, thành phố Hồ Chí Minh", "label": "LOCATION"}
+  ]
+}
+\end{verbatim}
+
+Dựa trên dữ liệu thô sinh ra từ Gemini Pro, hệ thống tiếp tục sử dụng script \texttt{auto\_annotate.py} để căn chỉnh định dạng chính xác trước khi đưa vào huấn luyện. 
+
+\subsubsection{Cơ chế ánh xạ Token và Span}
+Vì PhoBERT sử dụng bộ tách từ Byte-Pair Encoding (BPE), các nhãn thực thể (NER) hoặc vai trò ngữ nghĩa (SRL) cần được ánh xạ chính xác từ văn bản thô sang các chỉ mục token của mô hình. 
+
+Ví dụ, sau quá trình căn chỉnh, định dạng dữ liệu cho tác vụ \textbf{NER} (\texttt{ner\_train.json}) sẽ ánh xạ từng ID của token (đã mã hóa) sang nhãn theo chuẩn BIO:
+\begin{verbatim}
+{
+    "input_ids": [559, 13, 684, 8, ...],
+    "ner_tags": ["B-PARTY", "I-PARTY", "I-PARTY", "B-PREDICATE", ...]
+}
+\end{verbatim}
+
+Lưu ý, ở đây việc xác định động từ (Predicate) sẽ được thực hiện trước thông qua NER Engine mà không phải tại bước phân tích SRL (tại bước phân tích SRL, ta chỉ cần xác định các Semantic Role còn lại).
+
+\subsubsection{Xử lý đặc trưng cấu trúc (Structural Features) cho SRL}
+Tác vụ SRL (\textbf{S}emantic \textbf{R}ole \textbf{L}abeling) được cung cấp thông tin ngữ nghĩa phức tạp hơn so với các tác vụ khác. Thay vì chỉ sử dụng từ vựng, SRL tích hợp thêm cả các đặc trưng cấu trúc cú pháp của câu. Về bản chất, các vector nhúng (token embeddings) của PhoBERT đã ngầm chứa đựng sẵn thông tin ngữ nghĩa và cú pháp, do đó việc truyền thêm nhãn NER hay Dependency có thể xem là dư thừa. Tuy nhiên, việc chủ động đưa các nhãn này vào mô hình đóng vai trò làm giàu đặc trưng (feature enrichment), tạo ra một "lối tắt" thông tin. Nhờ vậy, mô hình không cần phải huấn luyện quá lâu hay đòi hỏi mạng nơ-ron phải có quá nhiều layer để tự học lại các thuộc tính cấu trúc đó. Trong đồ án này, dữ liệu đầu vào cho SRL (\texttt{srl\_train.json}) bao gồm:
+\begin{itemize}
+    \item \textbf{Token (input\_ids)}: Chuỗi mã hóa các từ trong câu.
+    \item \textbf{NER Tag của Token hiện tại (ner\_ids)}: Tích hợp trực tiếp kết quả phân tích thực thể (NER) của chính token đó, giúp mô hình SRL có thêm ngữ cảnh (ví dụ, một token là \texttt{PARTY} có xác suất cao đóng vai trò \texttt{AGENT}).
+    \item \textbf{Dependency Mapping (dep\_ids)}: Sử dụng thư viện \textit{Stanza} để phân tích cú pháp phụ thuộc, sau đó ánh xạ nhãn quan hệ (vd: \textit{nsubj}, \textit{obj}) vào token.
+    \item \textbf{Parent NER (p\_ner\_ids)}: Ánh xạ nhãn NER của từ "cha" (head word) trong cây cú pháp để mô hình nắm bắt được mối quan hệ giữa các thành phần trong mệnh đề.
+\end{itemize}
+
+Định dạng mẫu của \texttt{srl\_train.json}:
+\begin{verbatim}
+{
+    "input_ids": [559, 13, 684, 8, 46, ...],
+    "srl_tags": ["THEME", "THEME", "THEME", "PREDICATE", "OTHER", ...],
+    "ner_ids": [1, 1, 1, 8, 1, ...],
+    "dep_ids": [0, 0, 12, 0, 0, ...],
+    "p_ner_ids": [0, 1, 1, 0, 0, ...]
+}
+\end{verbatim}
+
+
+\subsubsection{Phân chia tập dữ liệu}
+Dữ liệu sau khi xử lý được phân chia theo tỉ lệ 90/10 cho tập huấn luyện (\texttt{train.json}) và tập kiểm thử (\texttt{test.json}) tại thư mục \texttt{data/annotated/} (ví dụ: \texttt{intent\_train.json}, \texttt{intent\_test.json}, \texttt{ner\_train.json}, v.v.). Các nhãn Intent được phân phối cân bằng nhất có thể để giảm thiểu hiện tượng mô hình bị lệch (bias).
+
+Bảng \ref{tab:data_stats} thống kê cấu trúc gán nhãn và số lượng mẫu của từng tác vụ trong toàn bộ tập dữ liệu đã thu thập. 
+
+\begin{table}[H]
+\centering
+\caption{Thống kê dữ liệu huấn luyện sau khi xử lý}
+\label{tab:data_stats}
+\begin{tabular}{|l|c|r|}
+\hline
+\textbf{Tác vụ} & \textbf{Định dạng nhãn} & \textbf{Số lượng mẫu} \\ \hline
+Clause Segmenter & Gán nhãn segment (0-5) & 631 \\ \hline
+Custom NER & BIO Scheme & 2151 \\ \hline
+Intent Classification & Categorical & 2151 \\ \hline
+SRL & Role Labels + Struct Emb & 2151 \\ \hline
+\end{tabular}
+\end{table}
+
+Đặc biệt, đối với bài toán Phân loại Ý định (Intent Classification), các nhãn được phân bố trên tập dữ liệu cụ thể như sau: \textbf{Obligation} (526 mẫu), \textbf{Termination Condition} (404 mẫu), \textbf{Right} (342 mẫu), \textbf{Prohibition} (299 mẫu) và phần còn lại thuộc nhóm \textbf{Other} (580 mẫu). Định dạng huấn luyện của tác vụ này chỉ bao gồm đoạn văn bản thô và nhãn danh mục tương ứng.
+
+Ví dụ định dạng của \texttt{intent\_train.json}:
+\begin{verbatim}
+{
+  "text": "Người thuê lại có nghĩa vụ thanh toán tiền thuê cho người thuê chậm nhất 
+  vào ngày 05 hàng tháng.",
+  "label": "Obligation"
+}
+\end{verbatim}

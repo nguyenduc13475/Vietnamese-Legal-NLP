@@ -1,0 +1,198 @@
+% FORMAT AND PACKAGES
+% {
+\documentclass[a4paper]{article}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+\usepackage{vntex}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{xcolor}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{float}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{xfrac}
+\usepackage{booktabs}
+\usepackage{bm}
+\usepackage[backend=bibtex,style=ieee]{biblatex}
+\usepackage[colorlinks]{hyperref}
+% \usepackage[acronym,toc]{glossaries}
+% \usepackage[symbols,nogroupskip,nonumberlist]{glossaries-extra}
+\usepackage[
+ sort=none,% no sorting or indexing required
+ abbreviations,% create list of abbreviations
+ symbols,% create list of symbols
+ stylemods,style=list, % set the default glossary style
+ nogroupskip, nonumberlist, nomain
+]{glossaries-extra}
+\lstset{frame=tb,
+  language=Python,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3, 
+  numbers=left, numberstyle=\tiny,
+}
+
+% FORMATTING
+% {
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\captionsetup[table]{name=Table}
+\captionsetup[figure]{name=Figure}
+\newenvironment{Description}{\list{}{%
+    \let\makelabel\descriptionlabel    % this comes from the original description environment
+    \setlength{\rightmargin}{\leftmargin}% this comes from the original quote environment
+    \setlength{\labelwidth}{0pt}%          this is new
+    }}{\endlist}
+
+\addbibresource{citations.bib}
+    
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+\usetikzlibrary{arrows,snakes,backgrounds}
+\definecolor{mathblue}{RGB}{0,114,188}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{mauve}{rgb}{0.58,0.0,0.83}
+
+\newtheorem{theorem}{{\bf Theorem}}
+\newtheorem{property}{{\bf Property}}
+\newtheorem{proposition}{{\bf Proposition}}
+\newtheorem{corollary}[proposition]{{\bf Corollary}}
+\newtheorem{lemma}[proposition]{{\bf Lemma}}
+
+\AtBeginDocument{\renewcommand*\contentsname{Mục lục}}
+\AtBeginDocument{\renewcommand*\refname{Tài liệu tham khảo}}
+%\usepackage{fancyhdr}
+
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Đại học Quốc gia TP.Hồ Chí Minh}\\
+		\textbf{\bf \ttfamily Trường Đại học Bách Khoa}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Báo cáo bài tập lớn - Xử lý ngôn ngữ tự nhiên (CO3086) - Năm học 2025-2026}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+\renewcommand{\figureautorefname}{hình}
+\renewcommand{\tableautorefname}{bảng}
+\captionsetup[figure]{name=Hình}
+\captionsetup[table]{name=Bảng}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+\renewcommand{\subsectionautorefname}{mục}
+% DOCUMENT
+\begin{document}
+
+% TITLE PAGE
+\begin{titlepage}
+\begin{center}
+ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH \\
+TRƯỜNG ĐẠI HỌC BÁCH KHOA \\
+KHOA KHOA HỌC VÀ KỸ THUẬT MÁY TÍNH
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+\begin{center}
+\textbf{\LARGE BÁO CÁO BÀI TẬP LỚN} \\
+\textbf{\LARGE XỬ LÍ NGÔN NGỮ TỰ NHIÊN (CO3086)} \\
+\rule{8cm}{0.2mm} \\
+\vspace{0.3cm}
+\underline{\LARGE \textit{\textbf{ĐỀ TÀI:}}} \\
+\vspace{0.4cm}
+\LARGE \textbf{TRÍCH XUẤT THÔNG TIN VÀ PHÂN TÍCH NGỮ NGHĨA HỢP ĐỒNG PHÁP LÝ} \\
+\vspace{0.5cm}
+{\fontsize{14pt}{14pt}\selectfont GV hướng dẫn: Bùi Văn Quốc Bảo} \\
+\vspace{0.5cm}
+{\fontsize{14pt}{14pt}\selectfont Sinh viên thực hiện: Nguyễn Văn Đức - 2310790} \\
+{\fontsize{14pt}{14pt}\selectfont Lớp: L02} \\
+\vspace{0.3cm}
+
+
+\end{center}
+\vspace{1.3cm}
+\begin{center}
+{TP. HỒ CHÍ MINH, 04/2026 }
+\end{center}
+
+\end{titlepage}
+
+\pagebreak
+\tableofcontents
+\pagebreak
+
+\input{Section/Introduction}
+\pagebreak
+\input{Section/Background}
+\pagebreak
+\input{Section/Preprocessing}
+\pagebreak
+\input{Section/Methodology}
+\pagebreak
+\input{Section/Rag}
+\pagebreak
+\input{Section/Result}
+\pagebreak
+\input{Section/Conclusion}
+\pagebreak
+\nocite{*}
+\printbibliography[heading=bibintoc]
+\end{document}

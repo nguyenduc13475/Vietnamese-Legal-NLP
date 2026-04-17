@@ -1,0 +1,315 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global/global}
+  \entry{vaswani}{article}{}{}
+    \name{author}{8}{}{%
+      {{hash=VA}{%
+         family={{Vaswani}},
+         familyi={V\bibinitperiod},
+         given={Ashish},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SN}{%
+         family={{Shazeer}},
+         familyi={S\bibinitperiod},
+         given={Noam},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=PN}{%
+         family={{Parmar}},
+         familyi={P\bibinitperiod},
+         given={Niki},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=UJ}{%
+         family={{Uszkoreit}},
+         familyi={U\bibinitperiod},
+         given={Jakob},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=JL}{%
+         family={{Jones}},
+         familyi={J\bibinitperiod},
+         given={Llion},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=GAN}{%
+         family={{Gomez}},
+         familyi={G\bibinitperiod},
+         given={Aidan\bibnamedelima N.},
+         giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+      }}%
+      {{hash=KL}{%
+         family={{Kaiser}},
+         familyi={K\bibinitperiod},
+         given={Lukasz},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=PI}{%
+         family={{Polosukhin}},
+         familyi={P\bibinitperiod},
+         given={Illia},
+         giveni={I\bibinitperiod},
+      }}%
+    }
+    \keyw{Computer Science - Computation and Language, Computer Science -
+  Machine Learning}
+    \strng{namehash}{VA+1}
+    \strng{fullhash}{VASNPNUJJLGANKLPI1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.48550/arXiv.1706.03762
+    \endverb
+    \field{eid}{arXiv:1706.03762}
+    \verb{eprint}
+    \verb 1706.03762
+    \endverb
+    \field{pages}{arXiv:1706.03762}
+    \field{title}{{Attention Is All You Need}}
+    \field{journaltitle}{arXiv e-prints}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{month}{06}
+    \field{year}{2017}
+  \endentry
+
+  \entry{phobert}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=NDQ}{%
+         family={{Nguyen}},
+         familyi={N\bibinitperiod},
+         given={Dat\bibnamedelima Quoc},
+         giveni={D\bibinitperiod\bibinitdelim Q\bibinitperiod},
+      }}%
+      {{hash=NAT}{%
+         family={{Nguyen}},
+         familyi={N\bibinitperiod},
+         given={Anh\bibnamedelima Tuan},
+         giveni={A\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+    }
+    \keyw{Computer Science - Computation and Language, Computer Science -
+  Artificial Intelligence}
+    \strng{namehash}{NDQNAT1}
+    \strng{fullhash}{NDQNAT1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.48550/arXiv.2003.00744
+    \endverb
+    \field{eid}{arXiv:2003.00744}
+    \verb{eprint}
+    \verb 2003.00744
+    \endverb
+    \field{pages}{arXiv:2003.00744}
+    \field{title}{{PhoBERT: Pre-trained language models for Vietnamese}}
+    \field{journaltitle}{arXiv e-prints}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{month}{03}
+    \field{year}{2020}
+  \endentry
+
+  \entry{multidrop}{article}{}{}
+    \name{author}{1}{}{%
+      {{hash=IH}{%
+         family={{Inoue}},
+         familyi={I\bibinitperiod},
+         given={Hiroshi},
+         giveni={H\bibinitperiod},
+      }}%
+    }
+    \keyw{Computer Science - Neural and Evolutionary Computing, Computer
+  Science - Computer Vision and Pattern Recognition, Computer Science - Machine
+  Learning, Statistics - Machine Learning}
+    \strng{namehash}{IH1}
+    \strng{fullhash}{IH1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.48550/arXiv.1905.09788
+    \endverb
+    \field{eid}{arXiv:1905.09788}
+    \verb{eprint}
+    \verb 1905.09788
+    \endverb
+    \field{pages}{arXiv:1905.09788}
+    \field{title}{{Multi-Sample Dropout for Accelerated Training and Better
+  Generalization}}
+    \field{journaltitle}{arXiv e-prints}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.NE}
+    \field{month}{05}
+    \field{year}{2019}
+  \endentry
+
+  \entry{retrieval}{article}{}{}
+    \name{author}{12}{}{%
+      {{hash=LP}{%
+         family={{Lewis}},
+         familyi={L\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=PE}{%
+         family={{Perez}},
+         familyi={P\bibinitperiod},
+         given={Ethan},
+         giveni={E\bibinitperiod},
+      }}%
+      {{hash=PA}{%
+         family={{Piktus}},
+         familyi={P\bibinitperiod},
+         given={Aleksandra},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=PF}{%
+         family={{Petroni}},
+         familyi={P\bibinitperiod},
+         given={Fabio},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=KV}{%
+         family={{Karpukhin}},
+         familyi={K\bibinitperiod},
+         given={Vladimir},
+         giveni={V\bibinitperiod},
+      }}%
+      {{hash=GN}{%
+         family={{Goyal}},
+         familyi={G\bibinitperiod},
+         given={Naman},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=KH}{%
+         family={{K{\"u}ttler}},
+         familyi={K\bibinitperiod},
+         given={Heinrich},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=LM}{%
+         family={{Lewis}},
+         familyi={L\bibinitperiod},
+         given={Mike},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=YWt}{%
+         family={{Yih}},
+         familyi={Y\bibinitperiod},
+         given={Wen-tau},
+         giveni={W\bibinithyphendelim t\bibinitperiod},
+      }}%
+      {{hash=RT}{%
+         family={{Rockt{\"a}schel}},
+         familyi={R\bibinitperiod},
+         given={Tim},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=RS}{%
+         family={{Riedel}},
+         familyi={R\bibinitperiod},
+         given={Sebastian},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=KD}{%
+         family={{Kiela}},
+         familyi={K\bibinitperiod},
+         given={Douwe},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \keyw{Computer Science - Computation and Language, Computer Science -
+  Machine Learning}
+    \strng{namehash}{LP+1}
+    \strng{fullhash}{LPPEPAPFKVGNKHLMYWtRTRSKD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.48550/arXiv.2005.11401
+    \endverb
+    \field{eid}{arXiv:2005.11401}
+    \verb{eprint}
+    \verb 2005.11401
+    \endverb
+    \field{pages}{arXiv:2005.11401}
+    \field{title}{{Retrieval-Augmented Generation for Knowledge-Intensive NLP
+  Tasks}}
+    \field{journaltitle}{arXiv e-prints}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CL}
+    \field{month}{05}
+    \field{year}{2020}
+  \endentry
+
+  \entry{focalloss}{article}{}{}
+    \name{author}{5}{}{%
+      {{hash=LTY}{%
+         family={{Lin}},
+         familyi={L\bibinitperiod},
+         given={Tsung-Yi},
+         giveni={T\bibinithyphendelim Y\bibinitperiod},
+      }}%
+      {{hash=GP}{%
+         family={{Goyal}},
+         familyi={G\bibinitperiod},
+         given={Priya},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=GR}{%
+         family={{Girshick}},
+         familyi={G\bibinitperiod},
+         given={Ross},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=HK}{%
+         family={{He}},
+         familyi={H\bibinitperiod},
+         given={Kaiming},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=DP}{%
+         family={{Doll{\'a}r}},
+         familyi={D\bibinitperiod},
+         given={Piotr},
+         giveni={P\bibinitperiod},
+      }}%
+    }
+    \keyw{Computer Science - Computer Vision and Pattern Recognition}
+    \strng{namehash}{LTY+1}
+    \strng{fullhash}{LTYGPGRHKDP1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.48550/arXiv.1708.02002
+    \endverb
+    \field{eid}{arXiv:1708.02002}
+    \verb{eprint}
+    \verb 1708.02002
+    \endverb
+    \field{pages}{arXiv:1708.02002}
+    \field{title}{{Focal Loss for Dense Object Detection}}
+    \field{journaltitle}{arXiv e-prints}
+    \field{eprinttype}{arXiv}
+    \field{eprintclass}{cs.CV}
+    \field{month}{08}
+    \field{year}{2017}
+  \endentry
+\enddatalist
+\endinput

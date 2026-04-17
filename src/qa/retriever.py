@@ -215,7 +215,7 @@ class LegalRetriever:
         role_final = (
             (role_score / len(bp_active_roles)) * 0.6 if bp_active_roles else 0.0
         )
-        total_score = min(score + role_final, 1.0)
+        total_score = score + role_final
 
         breakdown = {
             "predicate_match": round(score, 3),
@@ -331,7 +331,7 @@ class LegalRetriever:
         else:
             final_candidates = normalized_candidates
 
-        srl_lambda = 0.7
+        alpha = 0.7
         re_ranked = []
 
         # Pre-embed the blueprint predicate once to optimize re-ranking
@@ -350,7 +350,8 @@ class LegalRetriever:
             srl_score, srl_breakdown = self._calculate_srl_score(
                 srl_filter, doc.metadata, bp_pred_emb=bp_pred_emb
             )
-            combined_score = v_score + (srl_lambda * srl_score)
+
+            combined_score = (1 - alpha) * v_score + (alpha * srl_score)
 
             doc.metadata["score_vector"] = round(float(v_score), 4)
             doc.metadata["score_srl"] = round(float(srl_score), 4)
